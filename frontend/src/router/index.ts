@@ -360,6 +360,29 @@ const routes: RouteRecordRaw[] = [
     }
   },
   {
+    path: '/crypto',
+    name: 'Crypto',
+    component: () => import('@/layouts/BasicLayout.vue'),
+    meta: {
+      title: '数字货币',
+      icon: 'Coin',
+      requiresAuth: true,
+      transition: 'slide-up'
+    },
+    children: [
+      {
+        path: '',
+        name: 'CryptoHome',
+        component: () => import('@/views/Crypto/index.vue'),
+        meta: {
+          title: '数字货币',
+          requiresAuth: true
+        }
+      }
+    ]
+  },
+
+  {
     path: '/paper',
     name: 'PaperTrading',
     component: () => import('@/layouts/BasicLayout.vue'),

@@ -298,7 +298,10 @@ const createAxiosInstance = (): AxiosInstance => {
           case 502:
           case 503:
           case 504:
-            showErrorMessage('服务暂时不可用，请稍后重试')
+            // 与 400 分支保持一致：允许调用方通过 skipErrorHandler 自行处理错误状态
+            if (!config?.skipErrorHandler) {
+              showErrorMessage('服务暂时不可用，请稍后重试')
+            }
             break
 
           default:
