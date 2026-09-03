@@ -1,0 +1,299 @@
+"""V1 entry-time, univariate predictive-structure diagnostic.
+
+The script deliberately has no model fitting, cutoff scan, or feature combination search.
+"""
+from __future__ import annotations
+
+import argparse
+import hashlib
+import json
+from pathlib import Path
+
+import numpy as np
+import pandas as pd
+
+from audit_corrected_baseline import replay_scenario
+from backtest import prepare, read_data
+
+
+CORE_FEATURES = [
+    "pullback_to_impulse", "impulse_atr", "impulse_efficiency", "pullback_atr",
+    "pullback_bars", "pullback_time_ratio", "recovery_fraction", "structure_room_r",
+    "stop_distance_atr", "ema_distance_15m", "ema_distance_1h", "ema_distance_4h",
+    "return_3bar_atr", "return_5bar_atr", "atr_ratio_15m", "range_compression_5",
+]
+EXPLANATIONS = {
+    "pullback_to_impulse": "Retracement size relative to the preceding confirmed structural impulse.",
+    "impulse_atr": "Confirmed impulse amplitude normalized by pre-entry 15m ATR.",
+    "impulse_efficiency": "Directional cleanliness of the prior impulse path.",
+    "pullback_atr": "Maximum adverse pullback from impulse endpoint in ATR units.",
+    "pullback_bars": "Completed 15m bars elapsed from impulse endpoint to entry decision.",
+    "pullback_time_ratio": "Pullback duration divided by impulse duration.",
+    "recovery_fraction": "Recovery from pullback extreme by confirmation close.",
+    "structure_room_r": "Distance to last confirmed direction-side swing expressed in initial R.",
+    "stop_distance_atr": "Initial Swing stop distance in pre-entry ATR units.",
+    "ema_distance_15m": "Direction-standardized EMA20/EMA50 distance on completed 15m data.",
+    "ema_distance_1h": "Direction-standardized EMA20/EMA50 distance on completed 1H data.",
+    "ema_distance_4h": "Direction-standardized EMA20/EMA50 distance on completed 4H data.",
+    "return_3bar_atr": "Direction-standardized completed three-bar return in ATR units.",
+    "return_5bar_atr": "Direction-standardized completed five-bar return in ATR units.",
+    "atr_ratio_15m": "Completed ATR relative to its prior 100-bar median.",
+    "range_compression_5": "Last five completed ranges divided by prior 20 completed ranges.",
+}
+DEVELOPMENT_END = pd.Timestamp("2024-12-31 23:59:59", tz="UTC")
+
+
+def sha256(path: Path) -> str:
+    return hashlib.sha256(path.read_bytes()).hexdigest()
+
+
+def cliff_delta(win: pd.Series, loss: pd.Series) -> float:
+    """Rank-derived Cliff delta, including ties, without a scipy dependency."""
+    values = pd.concat([win.rename("value"), loss.rename("value")], ignore_index=True)
+    ranks = values.rank(method="average")
+    n_win, n_loss = len(win), len(loss)
+    u_win = float(ranks.iloc[:n_win].sum() - n_win * (n_win + 1) / 2)
+    return 2 * u_win / (n_win * n_loss) - 1
+
+
+def effect_size(win: pd.Series, loss: pd.Series) -> dict:
+    win, loss = win.dropna(), loss.dropna()
+    if len(win) < 2 or len(loss) < 2:
+        return {"n_win": len(win), "n_loss": len(loss), "cohens_d": np.nan, "cliffs_delta": np.nan,
+                "median_difference": np.nan, "effect_rating": "Unavailable", "direction": "Unavailable"}
+    pooled = np.sqrt(((len(win) - 1) * win.var(ddof=1) + (len(loss) - 1) * loss.var(ddof=1)) / (len(win) + len(loss) - 2))
+    d = float((win.mean() - loss.mean()) / pooled) if pooled else 0.0
+    abs_d = abs(d)
+    rating = "VERY SMALL" if abs_d < .2 else "SMALL" if abs_d < .5 else "MEDIUM" if abs_d < .8 else "LARGE"
+    return {"n_win": len(win), "n_loss": len(loss), "cohens_d": d, "cliffs_delta": cliff_delta(win, loss),
+            "median_difference": float(win.median() - loss.median()), "effect_rating": rating,
+            "direction": "WIN > LOSS" if d > 0 else "WIN < LOSS" if d < 0 else "Equal"}
+
+
+def distribution_rows(frame: pd.DataFrame, features: list[str], segment: str) -> pd.DataFrame:
+    rows = []
+    for feature in features:
+        for label in ("WIN", "LOSS"):
+            series = frame.loc[frame.label == label, feature].dropna()
+            rows.append({"segment": segment, "feature": feature, "label": label, "count": len(series), "mean": series.mean(), "std": series.std(ddof=1),
+                         "p10": series.quantile(.1), "p25": series.quantile(.25), "median": series.median(), "p75": series.quantile(.75), "p90": series.quantile(.9)})
+        row = effect_size(frame.loc[frame.label == "WIN", feature], frame.loc[frame.label == "LOSS", feature])
+        rows.append({"segment": segment, "feature": feature, "label": "EFFECT", **row})
+    return pd.DataFrame(rows)
+
+
+def scenario_stats(frame: pd.DataFrame) -> dict:
+    a, d = frame["a_price_r"].dropna(), frame["d_all_in_r"].dropna()
+    def pf(values: pd.Series) -> float | None:
+        gain, loss = values[values > 0].sum(), values[values <= 0].sum()
+        return float(gain / abs(loss)) if loss else None
+    return {"trades": len(frame), "win_rate": float((frame.label == "WIN").mean()), "scenario_a_expectancy": float(a.mean()),
+            "scenario_d_expectancy": float(d.mean()), "scenario_a_pf": pf(a), "scenario_d_pf": pf(d)}
+
+
+def quantile_rows(frame: pd.DataFrame, features: list[str], segment: str) -> pd.DataFrame:
+    rows = []
+    for feature in features:
+        part = frame[[feature, "label", "a_price_r", "d_all_in_r"]].dropna().copy()
+        try:
+            part["bucket"] = pd.qcut(part[feature], q=5, labels=["Q1", "Q2", "Q3", "Q4", "Q5"], duplicates="drop")
+        except ValueError:
+            continue
+        expectation = []
+        for bucket, group in part.groupby("bucket", observed=True):
+            stats = scenario_stats(group)
+            rank = int(str(bucket)[1:])
+            expectation.append((rank, stats["scenario_a_expectancy"]))
+            rows.append({"segment": segment, "feature": feature, "bucket": str(bucket), **stats})
+        if len(expectation) >= 3:
+            ranks, values = zip(*expectation)
+            rho = pd.Series(ranks).corr(pd.Series(values), method="spearman")
+            for row in rows[-len(expectation):]: row["bucket_expectancy_spearman"] = rho
+    return pd.DataFrame(rows)
+
+
+def completed_align(high: pd.DataFrame, target: pd.DatetimeIndex, interval: pd.Timedelta) -> pd.DataFrame:
+    usable = high.copy(); usable.index = usable.index + interval
+    usable["source_close_time"] = usable.index
+    return usable.reindex(target, method="ffill")
+
+
+def swing_events(m15: pd.DataFrame) -> list[tuple[int, str, float]]:
+    events = []
+    for pos, value in enumerate(m15.swing_low.to_numpy(dtype=float)):
+        if np.isfinite(value): events.append((pos, "low", float(value)))
+    for pos, value in enumerate(m15.swing_high.to_numpy(dtype=float)):
+        if np.isfinite(value): events.append((pos, "high", float(value)))
+    return sorted(events)
+
+
+def path_efficiency(close: np.ndarray, start: int, end: int) -> float:
+    if end <= start: return np.nan
+    path = close[start:end + 1]
+    total = np.abs(np.diff(path)).sum()
+    return float(abs(path[-1] - path[0]) / total) if total else 0.0
+
+
+def latest_impulse(events: list[tuple[int, str, float]], max_pivot: int, direction: str) -> tuple[int, float, int, float] | None:
+    relevant = [event for event in events if event[0] <= max_pivot]
+    end_type, start_type = ("high", "low") if direction == "long" else ("low", "high")
+    ends = [event for event in relevant if event[1] == end_type]
+    if not ends: return None
+    end = ends[-1]
+    starts = [event for event in relevant if event[1] == start_type and event[0] < end[0]]
+    if not starts: return None
+    start = starts[-1]
+    return start[0], start[2], end[0], end[2]
+
+
+def build_features(entries: pd.DataFrame, data_dir: Path) -> tuple[pd.DataFrame, pd.DataFrame, dict]:
+    raw, _ = read_data(data_dir); bars = prepare(raw); m15, h1, h4 = bars["15m"], bars["1h"], bars["4h"]
+    h1a, h4a = completed_align(h1, m15.index, pd.Timedelta(hours=1)), completed_align(h4, m15.index, pd.Timedelta(hours=4))
+    events = swing_events(m15); close, high, low, atr = (m15[column].to_numpy(dtype=float) for column in ("close", "high", "low", "atr14"))
+    ranges = (m15.high - m15.low).to_numpy(dtype=float); rows = []; sources = []
+    for signal_id, row in entries.iterrows():
+        entry_time = row.entry_time; entry_pos = m15.index.get_indexer([entry_time])[0]
+        if entry_pos < 0 or entry_pos < 105: raise AssertionError(f"insufficient history or missing entry: {signal_id}")
+        decision = entry_pos - 1  # the signal bar completes exactly at Entry open.
+        direction, sign = row.direction, 1 if row.direction == "long" else -1
+        impulse = latest_impulse(events, decision - 2, direction)  # swing i usable only after i+2 is complete.
+        values = {"signal_id": signal_id, "entry_time": entry_time, "direction": direction, "raw_entry": row.raw_entry, "initial_sl": row.sl, "tp": row.tp}
+        def put(name: str, value: float, timeframe: str, close_time: pd.Timestamp) -> None:
+            values[name] = value
+            sources.append({"signal_id": signal_id, "feature": name, "source_timeframe": timeframe, "source_bar_close_time": close_time, "entry_time": entry_time})
+        atr_now = atr[decision]
+        if impulse:
+            start, start_price, end, end_price = impulse
+            impulse_abs, impulse_bars = abs(end_price - start_price), end - start
+            if direction == "long": pullback_extreme = float(low[end:decision + 1].min()); pullback_abs = end_price - pullback_extreme; recovery = (close[decision] - pullback_extreme) / (end_price - pullback_extreme) if end_price != pullback_extreme else np.nan
+            else: pullback_extreme = float(high[end:decision + 1].max()); pullback_abs = pullback_extreme - end_price; recovery = (pullback_extreme - close[decision]) / (pullback_extreme - end_price) if pullback_extreme != end_price else np.nan
+            put("impulse_atr", impulse_abs / atr_now, "15m", entry_time)
+            put("impulse_efficiency", path_efficiency(close, start, end), "15m", entry_time)
+            put("pullback_atr", pullback_abs / atr_now, "15m", entry_time)
+            put("pullback_bars", float(decision - end), "15m", entry_time)
+            put("pullback_to_impulse", pullback_abs / impulse_abs if impulse_abs else np.nan, "15m", entry_time)
+            put("pullback_time_ratio", (decision - end) / impulse_bars if impulse_bars else np.nan, "15m", entry_time)
+            put("recovery_fraction", recovery, "15m", entry_time)
+            room = sign * (end_price - row.raw_entry)
+            put("structure_room_r", room / abs(row.raw_entry - row.sl), "15m", entry_time)
+        else:
+            for name in CORE_FEATURES[:8]: put(name, np.nan, "15m", entry_time)
+        put("stop_distance_atr", abs(row.raw_entry - row.sl) / atr_now, "15m", entry_time)
+        put("ema_distance_15m", sign * (m15.ema20.iloc[decision] - m15.ema50.iloc[decision]) / atr_now, "15m", entry_time)
+        put("ema_distance_1h", sign * (h1a.ema20.iloc[decision] - h1a.ema50.iloc[decision]) / h1a.atr14.iloc[decision], "1h", h1a.source_close_time.iloc[decision])
+        put("ema_distance_4h", sign * (h4a.ema20.iloc[decision] - h4a.ema50.iloc[decision]) / h4a.atr14.iloc[decision], "4h", h4a.source_close_time.iloc[decision])
+        put("return_3bar_atr", sign * (close[decision] - close[decision - 3]) / atr_now, "15m", entry_time)
+        put("return_5bar_atr", sign * (close[decision] - close[decision - 5]) / atr_now, "15m", entry_time)
+        put("atr_ratio_15m", atr_now / np.nanmedian(atr[decision - 100:decision]), "15m", entry_time)
+        put("range_compression_5", np.mean(ranges[decision - 4:decision + 1]) / np.mean(ranges[decision - 20:decision]), "15m", entry_time)
+        rows.append(values)
+    feature_frame, source_frame = pd.DataFrame(rows), pd.DataFrame(sources)
+    if not (source_frame.source_bar_close_time <= source_frame.entry_time).all(): raise AssertionError("lookahead source timestamp")
+    metadata = {"features": CORE_FEATURES, "excluded": {"swing_sequence": "Unavailable: no unambiguous direction-normalized mapping was preregistered.", "alignment_score": "No Discriminative Information check only: BASELINE trend setup creates mostly fixed values."}, "feature_explanations": EXPLANATIONS}
+    return feature_frame, source_frame, metadata
+
+
+def rank_features(dev: pd.DataFrame, output: Path) -> list[dict]:
+    distributions = distribution_rows(dev, CORE_FEATURES, "development")
+    distributions.to_csv(output / "development_feature_distributions.csv", index=False)
+    buckets = quantile_rows(dev, CORE_FEATURES, "development"); buckets.to_csv(output / "development_feature_buckets.csv", index=False)
+    effects = distributions[distributions.label == "EFFECT"].set_index("feature")
+    rank_rows = []
+    for feature in CORE_FEATURES:
+        bucket = buckets[buckets.feature == feature]
+        rho = bucket.bucket_expectancy_spearman.dropna().iloc[0] if "bucket_expectancy_spearman" in bucket and bucket.bucket_expectancy_spearman.notna().any() else np.nan
+        rank_rows.append({"feature": feature, "cohens_d": float(effects.at[feature, "cohens_d"]), "cliffs_delta": float(effects.at[feature, "cliffs_delta"]),
+                          "median_difference": float(effects.at[feature, "median_difference"]), "effect_rating": effects.at[feature, "effect_rating"],
+                          "direction": effects.at[feature, "direction"], "quantile_expectancy_spearman": rho,
+                          "ranking_score": abs(float(effects.at[feature, "cohens_d"])) + abs(float(effects.at[feature, "cliffs_delta"]))})
+    ranking = sorted(rank_rows, key=lambda item: item["ranking_score"], reverse=True)
+    ranking_path = output / "development_feature_ranking.json"; ranking_path.write_text(json.dumps(ranking, ensure_ascii=False, indent=2), encoding="utf-8")
+    (output / "development_feature_ranking.sha256").write_text(sha256(ranking_path), encoding="ascii")
+    return ranking
+
+
+def stability(dev: pd.DataFrame, holdout: pd.DataFrame, output: Path) -> tuple[pd.DataFrame, pd.DataFrame]:
+    rows = []
+    for feature in CORE_FEATURES:
+        for name, part in [("2020-2022", dev[dev.entry_time.dt.year <= 2022]), ("2023-2024", dev[dev.entry_time.dt.year >= 2023]), ("2025-2026", holdout)]:
+            effect = effect_size(part.loc[part.label == "WIN", feature], part.loc[part.label == "LOSS", feature])
+            rows.append({"feature": feature, "period": name, **effect})
+    temporal = pd.DataFrame(rows); temporal.to_csv(output / "feature_time_stability.csv", index=False)
+    direction_rows = []
+    for feature in CORE_FEATURES:
+        for direction in ("long", "short"):
+            part = pd.concat([dev, holdout]); part = part[part.direction == direction]
+            direction_rows.append({"feature": feature, "direction_scope": direction, **effect_size(part.loc[part.label == "WIN", feature], part.loc[part.label == "LOSS", feature])})
+    direction_table = pd.DataFrame(direction_rows); direction_table.to_csv(output / "feature_direction_stability.csv", index=False)
+    return temporal, direction_table
+
+
+def validate_holdout(dev: pd.DataFrame, holdout: pd.DataFrame, ranking: list[dict], temporal: pd.DataFrame, directional: pd.DataFrame, output: Path) -> list[dict]:
+    dev_buckets, hold_buckets = quantile_rows(dev, CORE_FEATURES, "development"), quantile_rows(holdout, CORE_FEATURES, "holdout")
+    hold_effects = distribution_rows(holdout, CORE_FEATURES, "holdout"); hold_effects.to_csv(output / "holdout_feature_distributions.csv", index=False)
+    hold_buckets.to_csv(output / "holdout_feature_buckets.csv", index=False)
+    hold_effects = hold_effects[hold_effects.label == "EFFECT"].set_index("feature")
+    candidates = []
+    high_rank = ranking[:8]
+    correlation = dev[CORE_FEATURES].corr(method="spearman")
+    correlation.to_csv(output / "feature_spearman_correlation.csv")
+    for item in high_rank:
+        feature = item["feature"]; dev_d, hold_d = item["cohens_d"], float(hold_effects.at[feature, "cohens_d"])
+        same_direction = np.sign(dev_d) == np.sign(hold_d) and hold_d != 0
+        dev_rho = dev_buckets.loc[dev_buckets.feature == feature, "bucket_expectancy_spearman"].dropna()
+        hold_rho = hold_buckets.loc[hold_buckets.feature == feature, "bucket_expectancy_spearman"].dropna()
+        quantile_consistent = bool(len(dev_rho) and len(hold_rho) and np.sign(dev_rho.iloc[0]) == np.sign(hold_rho.iloc[0]) and abs(dev_rho.iloc[0]) >= .4 and abs(hold_rho.iloc[0]) >= .4)
+        dirs = directional[directional.feature == feature]
+        direction_conflict = bool((dirs.cohens_d.abs() >= .2).all() and np.sign(dirs.cohens_d.iloc[0]) != np.sign(dirs.cohens_d.iloc[1]))
+        time_rows = temporal[temporal.feature == feature]; time_unstable = len(set(np.sign(time_rows.cohens_d.dropna()))) > 1
+        redundant = [other for other in CORE_FEATURES if other != feature and abs(correlation.at[feature, other]) > .80]
+        checks = {"development_non_very_small": abs(dev_d) >= .2 and abs(item["cliffs_delta"]) >= .147,
+                  "holdout_direction_consistent": bool(same_direction), "holdout_effect_retained": abs(hold_d) >= .1,
+                  "quantile_relation_continuous_in_both": quantile_consistent, "time_not_unstable": not time_unstable,
+                  "no_severe_long_short_conflict": not direction_conflict, "not_highly_redundant": not redundant}
+        candidates.append({"feature": feature, "status": "Predictive Structure Candidate" if all(checks.values()) else "Reject", "development_effect": dev_d,
+                           "holdout_effect": hold_d, "holdout_direction": hold_effects.at[feature, "direction"], "redundant_with": redundant,
+                           "market_structure_explanation": EXPLANATIONS[feature], "checks": checks})
+    (output / "feature_candidates.json").write_text(json.dumps(candidates[:3], ensure_ascii=False, indent=2), encoding="utf-8")
+    return candidates[:3]
+
+
+def main() -> int:
+    parser = argparse.ArgumentParser(); parser.add_argument("--mode", choices=("development", "holdout"), required=True)
+    parser.add_argument("--data-dir", type=Path, required=True); parser.add_argument("--trades", type=Path, required=True); parser.add_argument("--output", type=Path, required=True); args = parser.parse_args(); args.output.mkdir(parents=True, exist_ok=True)
+    # Gate Stage 2 before loading any outcome labels: no holdout label is read until
+    # the development ranking artifact and its SHA256 are proved frozen.
+    if args.mode == "holdout":
+        ranking_path, hash_path = args.output / "development_feature_ranking.json", args.output / "development_feature_ranking.sha256"
+        if not ranking_path.exists() or not hash_path.exists() or sha256(ranking_path) != hash_path.read_text(encoding="ascii").strip():
+            raise AssertionError("frozen development ranking missing or SHA256 mismatch")
+    entries = pd.read_csv(args.trades, parse_dates=["entry_time", "exit_time"]).sort_values("entry_time").reset_index(drop=True)
+    if len(entries) != 1858: raise AssertionError(f"frozen_entries != 1858: {len(entries)}")
+    if not {"TP", "SL"}.issuperset(set(entries.exit_reason)) or (entries.exit_reason == "TP").sum() != 646 or (entries.exit_reason == "SL").sum() != 1212: raise AssertionError("frozen E0 labels differ from 646 WIN / 1212 LOSS")
+    features_path, sources_path = args.output / "entry_time_features.csv", args.output / "feature_source_audit.csv"
+    if features_path.exists() and sources_path.exists(): features, sources = pd.read_csv(features_path, parse_dates=["entry_time"]), pd.read_csv(sources_path, parse_dates=["source_bar_close_time", "entry_time"]); metadata = json.loads((args.output / "feature_metadata.json").read_text(encoding="utf-8"))
+    else:
+        features, sources, metadata = build_features(entries, args.data_dir); features.to_csv(features_path, index=False); sources.to_csv(sources_path, index=False); (args.output / "feature_metadata.json").write_text(json.dumps(metadata, ensure_ascii=False, indent=2), encoding="utf-8")
+    if not (sources.source_bar_close_time <= sources.entry_time).all(): raise AssertionError("source audit failed")
+    labels = entries[["entry_time", "exit_reason"]].copy(); labels["label"] = labels.exit_reason.map({"TP": "WIN", "SL": "LOSS"})
+    dataset = features.merge(labels[["entry_time", "label"]], on="entry_time", validate="one_to_one")
+    a = replay_scenario(entries, 0.0, 0.0, 1000.0 / 11785.0)[["entry_time", "price_r"]].rename(columns={"price_r": "a_price_r"})
+    d = replay_scenario(entries, .0004, 2.0, 1000.0 / 11785.0)[["entry_time", "all_in_r"]].rename(columns={"all_in_r": "d_all_in_r"})
+    dataset = dataset.merge(a, on="entry_time").merge(d, on="entry_time")
+    dev, holdout = dataset[dataset.entry_time <= DEVELOPMENT_END].copy(), dataset[dataset.entry_time > DEVELOPMENT_END].copy()
+    if args.mode == "development":
+        ranking = rank_features(dev, args.output)
+        (args.output / "development_summary.json").write_text(json.dumps({"frozen_entries": 1858, "development_entries": len(dev), "holdout_entries_not_ranked": len(holdout), "ranking_sha256": sha256(args.output / "development_feature_ranking.json"), "label_counts": dev.label.value_counts().to_dict(), "lookahead_assert": True, "feature_count": len(CORE_FEATURES)}, ensure_ascii=False, indent=2), encoding="utf-8")
+        print(json.dumps({"mode": "development", "frozen_entries": 1858, "development_entries": len(dev), "ranking_sha256": sha256(args.output / "development_feature_ranking.json"), "status": "PASS"}, ensure_ascii=False)); return 0
+    ranking_path, hash_path = args.output / "development_feature_ranking.json", args.output / "development_feature_ranking.sha256"
+    if not ranking_path.exists() or not hash_path.exists() or sha256(ranking_path) != hash_path.read_text(encoding="ascii").strip(): raise AssertionError("frozen development ranking missing or SHA256 mismatch")
+    ranking = json.loads(ranking_path.read_text(encoding="utf-8")); temporal, directional = stability(dev, holdout, args.output); candidates = validate_holdout(dev, holdout, ranking, temporal, directional, args.output)
+    conclusion = "No stable entry-time predictive structure was identified." if not any(x["status"] == "Predictive Structure Candidate" for x in candidates) else "Predictive Structure Candidates are exploratory only; no rule or filter is created."
+    summary = {"frozen_entries": 1858, "labels": {"WIN": int((dataset.label == "WIN").sum()), "LOSS": int((dataset.label == "LOSS").sum())}, "development_entries": len(dev), "holdout_entries": len(holdout), "ranking_sha256": sha256(ranking_path), "holdout_name": "Feature Stability Holdout", "not_strict_independent_oos": True, "candidates": candidates, "conclusion": conclusion, "no_model_training": True, "no_filter_search": True, "lookahead_source_assert": True}
+    (args.output / "entry_time_predictive_summary.json").write_text(json.dumps(summary, ensure_ascii=False, indent=2), encoding="utf-8")
+    report = ["# V1 Entry-Time Predictive Structure Diagnostic", "", "## Protocol", "", "- Frozen 1,858 Corrected BASELINE entries; labels are E0 TP=WIN and E0 SL=LOSS.", "- Features use only data completed before Entry Open. Source timestamps are audited in `feature_source_audit.csv`.", "- Development ranking is frozen before the Feature Stability Holdout is read. This is not strict independent OOS because the broader V1 history was previously researched.", "", "## Conclusion", "", conclusion, "", "## Top development-ranked features and holdout validation", "", "```json", json.dumps(candidates, ensure_ascii=False, indent=2), "```"]
+    (args.output / "V1_ENTRY_TIME_PREDICTIVE_STRUCTURE_DIAGNOSTIC.md").write_text("\n".join(report), encoding="utf-8")
+    print(json.dumps({"mode": "holdout", "frozen_entries": 1858, "holdout_entries": len(holdout), "candidate_count": sum(x["status"] == "Predictive Structure Candidate" for x in candidates), "status": "PASS"}, ensure_ascii=False)); return 0
+
+
+if __name__ == "__main__": raise SystemExit(main())
