@@ -1,41 +1,41 @@
 {
-  "generated_at_utc": "2026-08-31T14:28:13.205596+00:00",
+  "generated_at_utc": "2026-09-03T06:33:51.461767+00:00",
   "sources": [
     {
       "source_id": "bybit_v5_instruments",
       "official": true,
-      "successful_reacquisition": false,
-      "raw_path": null,
-      "response_sha256": null,
+      "successful_reacquisition": true,
+      "raw_path": "reports\\crypto-backtest\\multitier-mechanism-discovery-v1\\historical-evidence-reacquisition-v1\\historical_source_raw\\bybit_v5_instruments.json",
+      "response_sha256": "dbfa5ada25f5947f7d5939f9b00bdabdedc44e6811614b3c010c2c8068dce62b",
       "can_verify_symbol_month": false,
-      "reason": "network_evidence_unavailable"
+      "reason": "current or generic public endpoint does not itself provide a time-bound full symbol status interval"
     },
     {
       "source_id": "bybit_v5_funding",
       "official": true,
-      "successful_reacquisition": false,
-      "raw_path": null,
-      "response_sha256": null,
+      "successful_reacquisition": true,
+      "raw_path": "reports\\crypto-backtest\\multitier-mechanism-discovery-v1\\historical-evidence-reacquisition-v1\\historical_source_raw\\bybit_v5_funding.json",
+      "response_sha256": "92cc10e75c736ea8b2ebc2d23bac614c627710c09061f0ee89d5ad5fd23c3d65",
       "can_verify_symbol_month": false,
-      "reason": "network_evidence_unavailable"
+      "reason": "current or generic public endpoint does not itself provide a time-bound full symbol status interval"
     },
     {
       "source_id": "bybit_v5_announcements",
       "official": true,
-      "successful_reacquisition": false,
-      "raw_path": null,
-      "response_sha256": null,
+      "successful_reacquisition": true,
+      "raw_path": "reports\\crypto-backtest\\multitier-mechanism-discovery-v1\\historical-evidence-reacquisition-v1\\historical_source_raw\\bybit_v5_announcements.json",
+      "response_sha256": "b768fcba0522b4997cec386e710d6dd689d83d808564c85739a76236dceb3887",
       "can_verify_symbol_month": false,
-      "reason": "network_evidence_unavailable"
+      "reason": "current or generic public endpoint does not itself provide a time-bound full symbol status interval"
     },
     {
       "source_id": "bybit_public_download",
       "official": true,
       "successful_reacquisition": false,
-      "raw_path": null,
-      "response_sha256": null,
+      "raw_path": "reports\\crypto-backtest\\multitier-mechanism-discovery-v1\\historical-evidence-reacquisition-v1\\historical_source_raw\\bybit_public_download.json",
+      "response_sha256": "f332be67965ba5069dc55cc469fb99262a9838b6bdf3dbc3052d9eb91497770a",
       "can_verify_symbol_month": false,
-      "reason": "network_evidence_unavailable"
+      "reason": "current or generic public endpoint does not itself provide a time-bound full symbol status interval"
     }
   ]
 }

@@ -1,5 +1,5 @@
 {
-  "generated_at_utc": "2026-08-31T14:28:13.234890+00:00",
+  "generated_at_utc": "2026-09-03T06:34:14.246795+00:00",
   "source": "Bybit V5 /v5/market/funding/history",
   "window_utc": [
     "2026-06-01T00:00:00+00:00",
@@ -8,123 +8,1439 @@
   "contracts": [
     {
       "symbol": "0GUSDT",
-      "pages": [],
-      "stop_reason": "network_evidence_unavailable",
-      "network_failed": true
+      "pages": [
+        {
+          "symbol": "0GUSDT",
+          "page": 1,
+          "end_time_ms": 1788048000000,
+          "source_id": "bybit_v5_funding_history",
+          "attempt": 1,
+          "utc": "2026-09-03T06:33:51.507844+00:00",
+          "url": "https://api.bybit.com/v5/market/funding/history?category=linear&symbol=0GUSDT&limit=200&endTime=1788048000000",
+          "params": {
+            "category": "linear",
+            "symbol": "0GUSDT",
+            "limit": 200,
+            "endTime": 1788048000000
+          },
+          "http_status": 200,
+          "exception": null,
+          "response_sha256": "7d71d84f57e27e60316b2b3d5c0bb74175ab102e0033f009cb7325b9aab2a2b4",
+          "raw_path": "reports\\crypto-backtest\\multitier-mechanism-discovery-v1\\historical-evidence-reacquisition-v1\\funding_raw_pages\\0GUSDT\\funding-0GUSDT-page-0001-end-1788048000000.json",
+          "result": "saved",
+          "record_count": 200,
+          "earliest_timestamp_ms": 1785182400000,
+          "latest_timestamp_ms": 1788048000000,
+          "progress": "continue"
+        },
+        {
+          "symbol": "0GUSDT",
+          "page": 2,
+          "end_time_ms": 1785182399999,
+          "source_id": "bybit_v5_funding_history",
+          "attempt": 1,
+          "utc": "2026-09-03T06:33:51.943802+00:00",
+          "url": "https://api.bybit.com/v5/market/funding/history?category=linear&symbol=0GUSDT&limit=200&endTime=1785182399999",
+          "params": {
+            "category": "linear",
+            "symbol": "0GUSDT",
+            "limit": 200,
+            "endTime": 1785182399999
+          },
+          "http_status": 200,
+          "exception": null,
+          "response_sha256": "f94bd7b9c6413ebe4a6a36dca9e8af7b3bcd78b3053551b0935d18617b1c014d",
+          "raw_path": "reports\\crypto-backtest\\multitier-mechanism-discovery-v1\\historical-evidence-reacquisition-v1\\funding_raw_pages\\0GUSDT\\funding-0GUSDT-page-0002-end-1785182399999.json",
+          "result": "saved",
+          "record_count": 200,
+          "earliest_timestamp_ms": 1782302400000,
+          "latest_timestamp_ms": 1785168000000,
+          "progress": "continue"
+        },
+        {
+          "symbol": "0GUSDT",
+          "page": 3,
+          "end_time_ms": 1782302399999,
+          "source_id": "bybit_v5_funding_history",
+          "attempt": 1,
+          "utc": "2026-09-03T06:33:52.296419+00:00",
+          "url": "https://api.bybit.com/v5/market/funding/history?category=linear&symbol=0GUSDT&limit=200&endTime=1782302399999",
+          "params": {
+            "category": "linear",
+            "symbol": "0GUSDT",
+            "limit": 200,
+            "endTime": 1782302399999
+          },
+          "http_status": 200,
+          "exception": null,
+          "response_sha256": "84a3d0aa68f9098e286cef7bddb9db1a2cac8fe210cac547b2d1917714c9911e",
+          "raw_path": "reports\\crypto-backtest\\multitier-mechanism-discovery-v1\\historical-evidence-reacquisition-v1\\funding_raw_pages\\0GUSDT\\funding-0GUSDT-page-0003-end-1782302399999.json",
+          "result": "saved",
+          "record_count": 200,
+          "earliest_timestamp_ms": 1779422400000,
+          "latest_timestamp_ms": 1782288000000,
+          "progress": "continue"
+        }
+      ],
+      "stop_reason": "reached_research_window_start",
+      "network_failed": false
     },
     {
       "symbol": "1000000BABYDOGEUSDT",
-      "pages": [],
-      "stop_reason": "network_evidence_unavailable",
-      "network_failed": true
+      "pages": [
+        {
+          "symbol": "1000000BABYDOGEUSDT",
+          "page": 1,
+          "end_time_ms": 1788048000000,
+          "source_id": "bybit_v5_funding_history",
+          "attempt": 1,
+          "utc": "2026-09-03T06:33:52.646133+00:00",
+          "url": "https://api.bybit.com/v5/market/funding/history?category=linear&symbol=1000000BABYDOGEUSDT&limit=200&endTime=1788048000000",
+          "params": {
+            "category": "linear",
+            "symbol": "1000000BABYDOGEUSDT",
+            "limit": 200,
+            "endTime": 1788048000000
+          },
+          "http_status": 200,
+          "exception": null,
+          "response_sha256": "1456f6598a0a95edbe2ebde1c69e3284eb008cf0f7d043272123d72bebfdfddc",
+          "raw_path": "reports\\crypto-backtest\\multitier-mechanism-discovery-v1\\historical-evidence-reacquisition-v1\\funding_raw_pages\\1000000BABYDOGEUSDT\\funding-1000000BABYDOGEUSDT-page-0001-end-1788048000000.json",
+          "result": "saved",
+          "record_count": 200,
+          "earliest_timestamp_ms": 1785182400000,
+          "latest_timestamp_ms": 1788048000000,
+          "progress": "continue"
+        },
+        {
+          "symbol": "1000000BABYDOGEUSDT",
+          "page": 2,
+          "end_time_ms": 1785182399999,
+          "source_id": "bybit_v5_funding_history",
+          "attempt": 1,
+          "utc": "2026-09-03T06:33:52.947569+00:00",
+          "url": "https://api.bybit.com/v5/market/funding/history?category=linear&symbol=1000000BABYDOGEUSDT&limit=200&endTime=1785182399999",
+          "params": {
+            "category": "linear",
+            "symbol": "1000000BABYDOGEUSDT",
+            "limit": 200,
+            "endTime": 1785182399999
+          },
+          "http_status": 200,
+          "exception": null,
+          "response_sha256": "c8543151cfbb8ef11af2f0db32e7c4e035d7ea7c591c4da2520d63ce15fa6db7",
+          "raw_path": "reports\\crypto-backtest\\multitier-mechanism-discovery-v1\\historical-evidence-reacquisition-v1\\funding_raw_pages\\1000000BABYDOGEUSDT\\funding-1000000BABYDOGEUSDT-page-0002-end-1785182399999.json",
+          "result": "saved",
+          "record_count": 200,
+          "earliest_timestamp_ms": 1782302400000,
+          "latest_timestamp_ms": 1785168000000,
+          "progress": "continue"
+        },
+        {
+          "symbol": "1000000BABYDOGEUSDT",
+          "page": 3,
+          "end_time_ms": 1782302399999,
+          "source_id": "bybit_v5_funding_history",
+          "attempt": 1,
+          "utc": "2026-09-03T06:33:53.266012+00:00",
+          "url": "https://api.bybit.com/v5/market/funding/history?category=linear&symbol=1000000BABYDOGEUSDT&limit=200&endTime=1782302399999",
+          "params": {
+            "category": "linear",
+            "symbol": "1000000BABYDOGEUSDT",
+            "limit": 200,
+            "endTime": 1782302399999
+          },
+          "http_status": 200,
+          "exception": null,
+          "response_sha256": "583ff9ccde5bc8518432fd95d2271751ffb09e7631dfeb4c474a12479dcc8154",
+          "raw_path": "reports\\crypto-backtest\\multitier-mechanism-discovery-v1\\historical-evidence-reacquisition-v1\\funding_raw_pages\\1000000BABYDOGEUSDT\\funding-1000000BABYDOGEUSDT-page-0003-end-1782302399999.json",
+          "result": "saved",
+          "record_count": 200,
+          "earliest_timestamp_ms": 1779422400000,
+          "latest_timestamp_ms": 1782288000000,
+          "progress": "continue"
+        }
+      ],
+      "stop_reason": "reached_research_window_start",
+      "network_failed": false
     },
     {
       "symbol": "1000000MOGUSDT",
-      "pages": [],
-      "stop_reason": "network_evidence_unavailable",
-      "network_failed": true
+      "pages": [
+        {
+          "symbol": "1000000MOGUSDT",
+          "page": 1,
+          "end_time_ms": 1788048000000,
+          "source_id": "bybit_v5_funding_history",
+          "attempt": 1,
+          "utc": "2026-09-03T06:33:54.614785+00:00",
+          "url": "https://api.bybit.com/v5/market/funding/history?category=linear&symbol=1000000MOGUSDT&limit=200&endTime=1788048000000",
+          "params": {
+            "category": "linear",
+            "symbol": "1000000MOGUSDT",
+            "limit": 200,
+            "endTime": 1788048000000
+          },
+          "http_status": 200,
+          "exception": null,
+          "response_sha256": "298807071d67a80cd258c748cb06d7bb589276a2619cf4adc082ae226730a8ec",
+          "raw_path": "reports\\crypto-backtest\\multitier-mechanism-discovery-v1\\historical-evidence-reacquisition-v1\\funding_raw_pages\\1000000MOGUSDT\\funding-1000000MOGUSDT-page-0001-end-1788048000000.json",
+          "result": "saved",
+          "record_count": 200,
+          "earliest_timestamp_ms": 1785182400000,
+          "latest_timestamp_ms": 1788048000000,
+          "progress": "continue"
+        },
+        {
+          "symbol": "1000000MOGUSDT",
+          "page": 2,
+          "end_time_ms": 1785182399999,
+          "source_id": "bybit_v5_funding_history",
+          "attempt": 1,
+          "utc": "2026-09-03T06:33:54.906242+00:00",
+          "url": "https://api.bybit.com/v5/market/funding/history?category=linear&symbol=1000000MOGUSDT&limit=200&endTime=1785182399999",
+          "params": {
+            "category": "linear",
+            "symbol": "1000000MOGUSDT",
+            "limit": 200,
+            "endTime": 1785182399999
+          },
+          "http_status": 200,
+          "exception": null,
+          "response_sha256": "38af98ea6790bd7b749b8044d5108107090b2795cbed5b3546cfcd75c3717f94",
+          "raw_path": "reports\\crypto-backtest\\multitier-mechanism-discovery-v1\\historical-evidence-reacquisition-v1\\funding_raw_pages\\1000000MOGUSDT\\funding-1000000MOGUSDT-page-0002-end-1785182399999.json",
+          "result": "saved",
+          "record_count": 200,
+          "earliest_timestamp_ms": 1782302400000,
+          "latest_timestamp_ms": 1785168000000,
+          "progress": "continue"
+        },
+        {
+          "symbol": "1000000MOGUSDT",
+          "page": 3,
+          "end_time_ms": 1782302399999,
+          "source_id": "bybit_v5_funding_history",
+          "attempt": 1,
+          "utc": "2026-09-03T06:33:55.226080+00:00",
+          "url": "https://api.bybit.com/v5/market/funding/history?category=linear&symbol=1000000MOGUSDT&limit=200&endTime=1782302399999",
+          "params": {
+            "category": "linear",
+            "symbol": "1000000MOGUSDT",
+            "limit": 200,
+            "endTime": 1782302399999
+          },
+          "http_status": 200,
+          "exception": null,
+          "response_sha256": "e0439473cb1baa5aa59e6b447e1579151e48307e93db3bf52ed4a10616107524",
+          "raw_path": "reports\\crypto-backtest\\multitier-mechanism-discovery-v1\\historical-evidence-reacquisition-v1\\funding_raw_pages\\1000000MOGUSDT\\funding-1000000MOGUSDT-page-0003-end-1782302399999.json",
+          "result": "saved",
+          "record_count": 200,
+          "earliest_timestamp_ms": 1779422400000,
+          "latest_timestamp_ms": 1782288000000,
+          "progress": "continue"
+        }
+      ],
+      "stop_reason": "reached_research_window_start",
+      "network_failed": false
     },
     {
       "symbol": "10000NEXUSDT",
-      "pages": [],
-      "stop_reason": "network_evidence_unavailable",
-      "network_failed": true
+      "pages": [
+        {
+          "symbol": "10000NEXUSDT",
+          "page": 1,
+          "end_time_ms": 1788048000000,
+          "source_id": "bybit_v5_funding_history",
+          "attempt": 1,
+          "utc": "2026-09-03T06:33:55.526803+00:00",
+          "url": "https://api.bybit.com/v5/market/funding/history?category=linear&symbol=10000NEXUSDT&limit=200&endTime=1788048000000",
+          "params": {
+            "category": "linear",
+            "symbol": "10000NEXUSDT",
+            "limit": 200,
+            "endTime": 1788048000000
+          },
+          "http_status": 200,
+          "exception": null,
+          "response_sha256": "a1823a2db6a7b0f27ddd5665e8d96ab300482310b06411793634c6f384ceeba1",
+          "raw_path": "reports\\crypto-backtest\\multitier-mechanism-discovery-v1\\historical-evidence-reacquisition-v1\\funding_raw_pages\\10000NEXUSDT\\funding-10000NEXUSDT-page-0001-end-1788048000000.json",
+          "result": "saved",
+          "record_count": 200,
+          "earliest_timestamp_ms": 1785182400000,
+          "latest_timestamp_ms": 1788048000000,
+          "progress": "continue"
+        },
+        {
+          "symbol": "10000NEXUSDT",
+          "page": 2,
+          "end_time_ms": 1785182399999,
+          "source_id": "bybit_v5_funding_history",
+          "attempt": 1,
+          "utc": "2026-09-03T06:33:55.837425+00:00",
+          "url": "https://api.bybit.com/v5/market/funding/history?category=linear&symbol=10000NEXUSDT&limit=200&endTime=1785182399999",
+          "params": {
+            "category": "linear",
+            "symbol": "10000NEXUSDT",
+            "limit": 200,
+            "endTime": 1785182399999
+          },
+          "http_status": 200,
+          "exception": null,
+          "response_sha256": "9ab88867a1692f33d8691199388204433f0e00a76d46c884c623e325701f5b8e",
+          "raw_path": "reports\\crypto-backtest\\multitier-mechanism-discovery-v1\\historical-evidence-reacquisition-v1\\funding_raw_pages\\10000NEXUSDT\\funding-10000NEXUSDT-page-0002-end-1785182399999.json",
+          "result": "saved",
+          "record_count": 200,
+          "earliest_timestamp_ms": 1782302400000,
+          "latest_timestamp_ms": 1785168000000,
+          "progress": "continue"
+        },
+        {
+          "symbol": "10000NEXUSDT",
+          "page": 3,
+          "end_time_ms": 1782302399999,
+          "source_id": "bybit_v5_funding_history",
+          "attempt": 1,
+          "utc": "2026-09-03T06:33:56.400318+00:00",
+          "url": "https://api.bybit.com/v5/market/funding/history?category=linear&symbol=10000NEXUSDT&limit=200&endTime=1782302399999",
+          "params": {
+            "category": "linear",
+            "symbol": "10000NEXUSDT",
+            "limit": 200,
+            "endTime": 1782302399999
+          },
+          "http_status": 200,
+          "exception": null,
+          "response_sha256": "d586824c7cc81efbe16b782f78e5cccb6ab2781d432054a575e9d77d0e06c09d",
+          "raw_path": "reports\\crypto-backtest\\multitier-mechanism-discovery-v1\\historical-evidence-reacquisition-v1\\funding_raw_pages\\10000NEXUSDT\\funding-10000NEXUSDT-page-0003-end-1782302399999.json",
+          "result": "saved",
+          "record_count": 200,
+          "earliest_timestamp_ms": 1779422400000,
+          "latest_timestamp_ms": 1782288000000,
+          "progress": "continue"
+        }
+      ],
+      "stop_reason": "reached_research_window_start",
+      "network_failed": false
     },
     {
       "symbol": "10000SATSUSDT",
-      "pages": [],
-      "stop_reason": "network_evidence_unavailable",
-      "network_failed": true
+      "pages": [
+        {
+          "symbol": "10000SATSUSDT",
+          "page": 1,
+          "end_time_ms": 1788048000000,
+          "source_id": "bybit_v5_funding_history",
+          "attempt": 1,
+          "utc": "2026-09-03T06:33:56.715164+00:00",
+          "url": "https://api.bybit.com/v5/market/funding/history?category=linear&symbol=10000SATSUSDT&limit=200&endTime=1788048000000",
+          "params": {
+            "category": "linear",
+            "symbol": "10000SATSUSDT",
+            "limit": 200,
+            "endTime": 1788048000000
+          },
+          "http_status": 200,
+          "exception": null,
+          "response_sha256": "2626ca876bc6691a09dcd42c50d06639729030f4d974e6cd44492321c12abf11",
+          "raw_path": "reports\\crypto-backtest\\multitier-mechanism-discovery-v1\\historical-evidence-reacquisition-v1\\funding_raw_pages\\10000SATSUSDT\\funding-10000SATSUSDT-page-0001-end-1788048000000.json",
+          "result": "saved",
+          "record_count": 200,
+          "earliest_timestamp_ms": 1785182400000,
+          "latest_timestamp_ms": 1788048000000,
+          "progress": "continue"
+        },
+        {
+          "symbol": "10000SATSUSDT",
+          "page": 2,
+          "end_time_ms": 1785182399999,
+          "source_id": "bybit_v5_funding_history",
+          "attempt": 1,
+          "utc": "2026-09-03T06:33:57.029403+00:00",
+          "url": "https://api.bybit.com/v5/market/funding/history?category=linear&symbol=10000SATSUSDT&limit=200&endTime=1785182399999",
+          "params": {
+            "category": "linear",
+            "symbol": "10000SATSUSDT",
+            "limit": 200,
+            "endTime": 1785182399999
+          },
+          "http_status": 200,
+          "exception": null,
+          "response_sha256": "953f9f644992ad8183670a4cc863716d963bf910fc19ecec55e8ea26583d5cb1",
+          "raw_path": "reports\\crypto-backtest\\multitier-mechanism-discovery-v1\\historical-evidence-reacquisition-v1\\funding_raw_pages\\10000SATSUSDT\\funding-10000SATSUSDT-page-0002-end-1785182399999.json",
+          "result": "saved",
+          "record_count": 200,
+          "earliest_timestamp_ms": 1782302400000,
+          "latest_timestamp_ms": 1785168000000,
+          "progress": "continue"
+        },
+        {
+          "symbol": "10000SATSUSDT",
+          "page": 3,
+          "end_time_ms": 1782302399999,
+          "source_id": "bybit_v5_funding_history",
+          "attempt": 1,
+          "utc": "2026-09-03T06:33:57.660369+00:00",
+          "url": "https://api.bybit.com/v5/market/funding/history?category=linear&symbol=10000SATSUSDT&limit=200&endTime=1782302399999",
+          "params": {
+            "category": "linear",
+            "symbol": "10000SATSUSDT",
+            "limit": 200,
+            "endTime": 1782302399999
+          },
+          "http_status": 200,
+          "exception": null,
+          "response_sha256": "a8120bbabdd278afff533bdc5a5d7dbf569b4a22b5e5c7db3dbd7c4fed9d6beb",
+          "raw_path": "reports\\crypto-backtest\\multitier-mechanism-discovery-v1\\historical-evidence-reacquisition-v1\\funding_raw_pages\\10000SATSUSDT\\funding-10000SATSUSDT-page-0003-end-1782302399999.json",
+          "result": "saved",
+          "record_count": 200,
+          "earliest_timestamp_ms": 1779422400000,
+          "latest_timestamp_ms": 1782288000000,
+          "progress": "continue"
+        }
+      ],
+      "stop_reason": "reached_research_window_start",
+      "network_failed": false
     },
     {
       "symbol": "1000BONKUSDT",
-      "pages": [],
-      "stop_reason": "network_evidence_unavailable",
-      "network_failed": true
+      "pages": [
+        {
+          "symbol": "1000BONKUSDT",
+          "page": 1,
+          "end_time_ms": 1788048000000,
+          "source_id": "bybit_v5_funding_history",
+          "attempt": 1,
+          "utc": "2026-09-03T06:33:57.978411+00:00",
+          "url": "https://api.bybit.com/v5/market/funding/history?category=linear&symbol=1000BONKUSDT&limit=200&endTime=1788048000000",
+          "params": {
+            "category": "linear",
+            "symbol": "1000BONKUSDT",
+            "limit": 200,
+            "endTime": 1788048000000
+          },
+          "http_status": 200,
+          "exception": null,
+          "response_sha256": "6e879905d95098a4ff93ceecaf65e3368ea1934016135a4109709590afa273dd",
+          "raw_path": "reports\\crypto-backtest\\multitier-mechanism-discovery-v1\\historical-evidence-reacquisition-v1\\funding_raw_pages\\1000BONKUSDT\\funding-1000BONKUSDT-page-0001-end-1788048000000.json",
+          "result": "saved",
+          "record_count": 200,
+          "earliest_timestamp_ms": 1785182400000,
+          "latest_timestamp_ms": 1788048000000,
+          "progress": "continue"
+        },
+        {
+          "symbol": "1000BONKUSDT",
+          "page": 2,
+          "end_time_ms": 1785182399999,
+          "source_id": "bybit_v5_funding_history",
+          "attempt": 1,
+          "utc": "2026-09-03T06:33:58.293744+00:00",
+          "url": "https://api.bybit.com/v5/market/funding/history?category=linear&symbol=1000BONKUSDT&limit=200&endTime=1785182399999",
+          "params": {
+            "category": "linear",
+            "symbol": "1000BONKUSDT",
+            "limit": 200,
+            "endTime": 1785182399999
+          },
+          "http_status": 200,
+          "exception": null,
+          "response_sha256": "53b421cfe621e85478a32366eccbc95ae6ac1998b32bd21720a6541cfc035a70",
+          "raw_path": "reports\\crypto-backtest\\multitier-mechanism-discovery-v1\\historical-evidence-reacquisition-v1\\funding_raw_pages\\1000BONKUSDT\\funding-1000BONKUSDT-page-0002-end-1785182399999.json",
+          "result": "saved",
+          "record_count": 200,
+          "earliest_timestamp_ms": 1782302400000,
+          "latest_timestamp_ms": 1785168000000,
+          "progress": "continue"
+        },
+        {
+          "symbol": "1000BONKUSDT",
+          "page": 3,
+          "end_time_ms": 1782302399999,
+          "source_id": "bybit_v5_funding_history",
+          "attempt": 1,
+          "utc": "2026-09-03T06:33:58.894924+00:00",
+          "url": "https://api.bybit.com/v5/market/funding/history?category=linear&symbol=1000BONKUSDT&limit=200&endTime=1782302399999",
+          "params": {
+            "category": "linear",
+            "symbol": "1000BONKUSDT",
+            "limit": 200,
+            "endTime": 1782302399999
+          },
+          "http_status": 200,
+          "exception": null,
+          "response_sha256": "84b83e5525b79702b2faaf2689b3e7ca60e810ac3bc49a4ba583e1e6b9f6a5f3",
+          "raw_path": "reports\\crypto-backtest\\multitier-mechanism-discovery-v1\\historical-evidence-reacquisition-v1\\funding_raw_pages\\1000BONKUSDT\\funding-1000BONKUSDT-page-0003-end-1782302399999.json",
+          "result": "saved",
+          "record_count": 200,
+          "earliest_timestamp_ms": 1779422400000,
+          "latest_timestamp_ms": 1782288000000,
+          "progress": "continue"
+        }
+      ],
+      "stop_reason": "reached_research_window_start",
+      "network_failed": false
     },
     {
       "symbol": "1000BTTUSDT",
-      "pages": [],
-      "stop_reason": "network_evidence_unavailable",
-      "network_failed": true
+      "pages": [
+        {
+          "symbol": "1000BTTUSDT",
+          "page": 1,
+          "end_time_ms": 1788048000000,
+          "source_id": "bybit_v5_funding_history",
+          "attempt": 1,
+          "utc": "2026-09-03T06:33:59.260368+00:00",
+          "url": "https://api.bybit.com/v5/market/funding/history?category=linear&symbol=1000BTTUSDT&limit=200&endTime=1788048000000",
+          "params": {
+            "category": "linear",
+            "symbol": "1000BTTUSDT",
+            "limit": 200,
+            "endTime": 1788048000000
+          },
+          "http_status": 200,
+          "exception": null,
+          "response_sha256": "b666985fe38743b945f6fd2a4cc6b661ea1fd59b1605ae7d8f2c8ddfe57fd720",
+          "raw_path": "reports\\crypto-backtest\\multitier-mechanism-discovery-v1\\historical-evidence-reacquisition-v1\\funding_raw_pages\\1000BTTUSDT\\funding-1000BTTUSDT-page-0001-end-1788048000000.json",
+          "result": "saved",
+          "record_count": 200,
+          "earliest_timestamp_ms": 1782316800000,
+          "latest_timestamp_ms": 1788048000000,
+          "progress": "continue"
+        },
+        {
+          "symbol": "1000BTTUSDT",
+          "page": 2,
+          "end_time_ms": 1782316799999,
+          "source_id": "bybit_v5_funding_history",
+          "attempt": 1,
+          "utc": "2026-09-03T06:33:59.576210+00:00",
+          "url": "https://api.bybit.com/v5/market/funding/history?category=linear&symbol=1000BTTUSDT&limit=200&endTime=1782316799999",
+          "params": {
+            "category": "linear",
+            "symbol": "1000BTTUSDT",
+            "limit": 200,
+            "endTime": 1782316799999
+          },
+          "http_status": 200,
+          "exception": null,
+          "response_sha256": "31000d1f2ad745b7764c74ad92fa02d331efd27dbb9e2feaa8f94610deec5564",
+          "raw_path": "reports\\crypto-backtest\\multitier-mechanism-discovery-v1\\historical-evidence-reacquisition-v1\\funding_raw_pages\\1000BTTUSDT\\funding-1000BTTUSDT-page-0002-end-1782316799999.json",
+          "result": "saved",
+          "record_count": 200,
+          "earliest_timestamp_ms": 1776556800000,
+          "latest_timestamp_ms": 1782288000000,
+          "progress": "continue"
+        }
+      ],
+      "stop_reason": "reached_research_window_start",
+      "network_failed": false
     },
     {
       "symbol": "1000CATUSDT",
-      "pages": [],
-      "stop_reason": "network_evidence_unavailable",
-      "network_failed": true
+      "pages": [
+        {
+          "symbol": "1000CATUSDT",
+          "page": 1,
+          "end_time_ms": 1788048000000,
+          "source_id": "bybit_v5_funding_history",
+          "attempt": 1,
+          "utc": "2026-09-03T06:33:59.900192+00:00",
+          "url": "https://api.bybit.com/v5/market/funding/history?category=linear&symbol=1000CATUSDT&limit=200&endTime=1788048000000",
+          "params": {
+            "category": "linear",
+            "symbol": "1000CATUSDT",
+            "limit": 200,
+            "endTime": 1788048000000
+          },
+          "http_status": 200,
+          "exception": null,
+          "response_sha256": "9da80535d0bf8313342d2d7d9db79ce9e834e7359c8b61d4d392ac2c82c3f7aa",
+          "raw_path": "reports\\crypto-backtest\\multitier-mechanism-discovery-v1\\historical-evidence-reacquisition-v1\\funding_raw_pages\\1000CATUSDT\\funding-1000CATUSDT-page-0001-end-1788048000000.json",
+          "result": "saved",
+          "record_count": 200,
+          "earliest_timestamp_ms": 1785182400000,
+          "latest_timestamp_ms": 1788048000000,
+          "progress": "continue"
+        },
+        {
+          "symbol": "1000CATUSDT",
+          "page": 2,
+          "end_time_ms": 1785182399999,
+          "source_id": "bybit_v5_funding_history",
+          "attempt": 1,
+          "utc": "2026-09-03T06:34:00.222278+00:00",
+          "url": "https://api.bybit.com/v5/market/funding/history?category=linear&symbol=1000CATUSDT&limit=200&endTime=1785182399999",
+          "params": {
+            "category": "linear",
+            "symbol": "1000CATUSDT",
+            "limit": 200,
+            "endTime": 1785182399999
+          },
+          "http_status": 200,
+          "exception": null,
+          "response_sha256": "901a5c4c96d3124eee9e4bdbca3c6a470ecbb715ef7ed86491896182c826e8fb",
+          "raw_path": "reports\\crypto-backtest\\multitier-mechanism-discovery-v1\\historical-evidence-reacquisition-v1\\funding_raw_pages\\1000CATUSDT\\funding-1000CATUSDT-page-0002-end-1785182399999.json",
+          "result": "saved",
+          "record_count": 200,
+          "earliest_timestamp_ms": 1782302400000,
+          "latest_timestamp_ms": 1785168000000,
+          "progress": "continue"
+        },
+        {
+          "symbol": "1000CATUSDT",
+          "page": 3,
+          "end_time_ms": 1782302399999,
+          "source_id": "bybit_v5_funding_history",
+          "attempt": 1,
+          "utc": "2026-09-03T06:34:00.567437+00:00",
+          "url": "https://api.bybit.com/v5/market/funding/history?category=linear&symbol=1000CATUSDT&limit=200&endTime=1782302399999",
+          "params": {
+            "category": "linear",
+            "symbol": "1000CATUSDT",
+            "limit": 200,
+            "endTime": 1782302399999
+          },
+          "http_status": 200,
+          "exception": null,
+          "response_sha256": "a22a5467dd09ac59b3532e5a81c5e82549c58708a5032e919641a4982c557236",
+          "raw_path": "reports\\crypto-backtest\\multitier-mechanism-discovery-v1\\historical-evidence-reacquisition-v1\\funding_raw_pages\\1000CATUSDT\\funding-1000CATUSDT-page-0003-end-1782302399999.json",
+          "result": "saved",
+          "record_count": 200,
+          "earliest_timestamp_ms": 1779422400000,
+          "latest_timestamp_ms": 1782288000000,
+          "progress": "continue"
+        }
+      ],
+      "stop_reason": "reached_research_window_start",
+      "network_failed": false
     },
     {
       "symbol": "1000FLOKIUSDT",
-      "pages": [],
-      "stop_reason": "network_evidence_unavailable",
-      "network_failed": true
+      "pages": [
+        {
+          "symbol": "1000FLOKIUSDT",
+          "page": 1,
+          "end_time_ms": 1788048000000,
+          "source_id": "bybit_v5_funding_history",
+          "attempt": 1,
+          "utc": "2026-09-03T06:34:00.875977+00:00",
+          "url": "https://api.bybit.com/v5/market/funding/history?category=linear&symbol=1000FLOKIUSDT&limit=200&endTime=1788048000000",
+          "params": {
+            "category": "linear",
+            "symbol": "1000FLOKIUSDT",
+            "limit": 200,
+            "endTime": 1788048000000
+          },
+          "http_status": 200,
+          "exception": null,
+          "response_sha256": "0cc9598385e32c7a4e8bdf641b52885669d71b3ce500be1ef8c2648a3fd2b7f2",
+          "raw_path": "reports\\crypto-backtest\\multitier-mechanism-discovery-v1\\historical-evidence-reacquisition-v1\\funding_raw_pages\\1000FLOKIUSDT\\funding-1000FLOKIUSDT-page-0001-end-1788048000000.json",
+          "result": "saved",
+          "record_count": 200,
+          "earliest_timestamp_ms": 1782316800000,
+          "latest_timestamp_ms": 1788048000000,
+          "progress": "continue"
+        },
+        {
+          "symbol": "1000FLOKIUSDT",
+          "page": 2,
+          "end_time_ms": 1782316799999,
+          "source_id": "bybit_v5_funding_history",
+          "attempt": 1,
+          "utc": "2026-09-03T06:34:01.188586+00:00",
+          "url": "https://api.bybit.com/v5/market/funding/history?category=linear&symbol=1000FLOKIUSDT&limit=200&endTime=1782316799999",
+          "params": {
+            "category": "linear",
+            "symbol": "1000FLOKIUSDT",
+            "limit": 200,
+            "endTime": 1782316799999
+          },
+          "http_status": 200,
+          "exception": null,
+          "response_sha256": "1bb6c70a697b22f4fcfd31fa8d37758400f5f0f20829d8e34ba1c8768004c27d",
+          "raw_path": "reports\\crypto-backtest\\multitier-mechanism-discovery-v1\\historical-evidence-reacquisition-v1\\funding_raw_pages\\1000FLOKIUSDT\\funding-1000FLOKIUSDT-page-0002-end-1782316799999.json",
+          "result": "saved",
+          "record_count": 200,
+          "earliest_timestamp_ms": 1776556800000,
+          "latest_timestamp_ms": 1782288000000,
+          "progress": "continue"
+        }
+      ],
+      "stop_reason": "reached_research_window_start",
+      "network_failed": false
     },
     {
       "symbol": "1000LUNCUSDT",
-      "pages": [],
-      "stop_reason": "network_evidence_unavailable",
-      "network_failed": true
+      "pages": [
+        {
+          "symbol": "1000LUNCUSDT",
+          "page": 1,
+          "end_time_ms": 1788048000000,
+          "source_id": "bybit_v5_funding_history",
+          "attempt": 1,
+          "utc": "2026-09-03T06:34:01.487543+00:00",
+          "url": "https://api.bybit.com/v5/market/funding/history?category=linear&symbol=1000LUNCUSDT&limit=200&endTime=1788048000000",
+          "params": {
+            "category": "linear",
+            "symbol": "1000LUNCUSDT",
+            "limit": 200,
+            "endTime": 1788048000000
+          },
+          "http_status": 200,
+          "exception": null,
+          "response_sha256": "2bcfe97db3759629e73d1198be1f050c60a45899f15211841c259e3764560b0c",
+          "raw_path": "reports\\crypto-backtest\\multitier-mechanism-discovery-v1\\historical-evidence-reacquisition-v1\\funding_raw_pages\\1000LUNCUSDT\\funding-1000LUNCUSDT-page-0001-end-1788048000000.json",
+          "result": "saved",
+          "record_count": 200,
+          "earliest_timestamp_ms": 1782316800000,
+          "latest_timestamp_ms": 1788048000000,
+          "progress": "continue"
+        },
+        {
+          "symbol": "1000LUNCUSDT",
+          "page": 2,
+          "end_time_ms": 1782316799999,
+          "source_id": "bybit_v5_funding_history",
+          "attempt": 1,
+          "utc": "2026-09-03T06:34:01.822860+00:00",
+          "url": "https://api.bybit.com/v5/market/funding/history?category=linear&symbol=1000LUNCUSDT&limit=200&endTime=1782316799999",
+          "params": {
+            "category": "linear",
+            "symbol": "1000LUNCUSDT",
+            "limit": 200,
+            "endTime": 1782316799999
+          },
+          "http_status": 200,
+          "exception": null,
+          "response_sha256": "8b4dcebc8476f411383123d0bf175828905f02e86e8d3f195aec5a2e22b9edb3",
+          "raw_path": "reports\\crypto-backtest\\multitier-mechanism-discovery-v1\\historical-evidence-reacquisition-v1\\funding_raw_pages\\1000LUNCUSDT\\funding-1000LUNCUSDT-page-0002-end-1782316799999.json",
+          "result": "saved",
+          "record_count": 200,
+          "earliest_timestamp_ms": 1776556800000,
+          "latest_timestamp_ms": 1782288000000,
+          "progress": "continue"
+        }
+      ],
+      "stop_reason": "reached_research_window_start",
+      "network_failed": false
     },
     {
       "symbol": "1000NEIROCTOUSDT",
-      "pages": [],
-      "stop_reason": "network_evidence_unavailable",
-      "network_failed": true
+      "pages": [
+        {
+          "symbol": "1000NEIROCTOUSDT",
+          "page": 1,
+          "end_time_ms": 1788048000000,
+          "source_id": "bybit_v5_funding_history",
+          "attempt": 1,
+          "utc": "2026-09-03T06:34:02.310318+00:00",
+          "url": "https://api.bybit.com/v5/market/funding/history?category=linear&symbol=1000NEIROCTOUSDT&limit=200&endTime=1788048000000",
+          "params": {
+            "category": "linear",
+            "symbol": "1000NEIROCTOUSDT",
+            "limit": 200,
+            "endTime": 1788048000000
+          },
+          "http_status": 200,
+          "exception": null,
+          "response_sha256": "dd6fed7fe2e1d82acf84be92f1f0e921ec892ecfd63e9d1d94d073c96c8cf040",
+          "raw_path": "reports\\crypto-backtest\\multitier-mechanism-discovery-v1\\historical-evidence-reacquisition-v1\\funding_raw_pages\\1000NEIROCTOUSDT\\funding-1000NEIROCTOUSDT-page-0001-end-1788048000000.json",
+          "result": "saved",
+          "record_count": 200,
+          "earliest_timestamp_ms": 1785182400000,
+          "latest_timestamp_ms": 1788048000000,
+          "progress": "continue"
+        },
+        {
+          "symbol": "1000NEIROCTOUSDT",
+          "page": 2,
+          "end_time_ms": 1785182399999,
+          "source_id": "bybit_v5_funding_history",
+          "attempt": 1,
+          "utc": "2026-09-03T06:34:02.622259+00:00",
+          "url": "https://api.bybit.com/v5/market/funding/history?category=linear&symbol=1000NEIROCTOUSDT&limit=200&endTime=1785182399999",
+          "params": {
+            "category": "linear",
+            "symbol": "1000NEIROCTOUSDT",
+            "limit": 200,
+            "endTime": 1785182399999
+          },
+          "http_status": 200,
+          "exception": null,
+          "response_sha256": "34683983d854ca62be4a58f13efca2ba3dea5cfde20b6cf74db5b4c2966ac812",
+          "raw_path": "reports\\crypto-backtest\\multitier-mechanism-discovery-v1\\historical-evidence-reacquisition-v1\\funding_raw_pages\\1000NEIROCTOUSDT\\funding-1000NEIROCTOUSDT-page-0002-end-1785182399999.json",
+          "result": "saved",
+          "record_count": 200,
+          "earliest_timestamp_ms": 1782302400000,
+          "latest_timestamp_ms": 1785168000000,
+          "progress": "continue"
+        },
+        {
+          "symbol": "1000NEIROCTOUSDT",
+          "page": 3,
+          "end_time_ms": 1782302399999,
+          "source_id": "bybit_v5_funding_history",
+          "attempt": 1,
+          "utc": "2026-09-03T06:34:02.976179+00:00",
+          "url": "https://api.bybit.com/v5/market/funding/history?category=linear&symbol=1000NEIROCTOUSDT&limit=200&endTime=1782302399999",
+          "params": {
+            "category": "linear",
+            "symbol": "1000NEIROCTOUSDT",
+            "limit": 200,
+            "endTime": 1782302399999
+          },
+          "http_status": 200,
+          "exception": null,
+          "response_sha256": "29aca7fadeae33f11b72bac2ef1c9c78b196c3a76554d863d364c1f1372ab160",
+          "raw_path": "reports\\crypto-backtest\\multitier-mechanism-discovery-v1\\historical-evidence-reacquisition-v1\\funding_raw_pages\\1000NEIROCTOUSDT\\funding-1000NEIROCTOUSDT-page-0003-end-1782302399999.json",
+          "result": "saved",
+          "record_count": 200,
+          "earliest_timestamp_ms": 1779422400000,
+          "latest_timestamp_ms": 1782288000000,
+          "progress": "continue"
+        }
+      ],
+      "stop_reason": "reached_research_window_start",
+      "network_failed": false
     },
     {
       "symbol": "1000PEPEUSDT",
-      "pages": [],
-      "stop_reason": "network_evidence_unavailable",
-      "network_failed": true
+      "pages": [
+        {
+          "symbol": "1000PEPEUSDT",
+          "page": 1,
+          "end_time_ms": 1788048000000,
+          "source_id": "bybit_v5_funding_history",
+          "attempt": 1,
+          "utc": "2026-09-03T06:34:03.368613+00:00",
+          "url": "https://api.bybit.com/v5/market/funding/history?category=linear&symbol=1000PEPEUSDT&limit=200&endTime=1788048000000",
+          "params": {
+            "category": "linear",
+            "symbol": "1000PEPEUSDT",
+            "limit": 200,
+            "endTime": 1788048000000
+          },
+          "http_status": 200,
+          "exception": null,
+          "response_sha256": "a669f82e50b1d3e08e9a3d4d09d5a8156ffdc65b558a4f64dd41de5cf6779761",
+          "raw_path": "reports\\crypto-backtest\\multitier-mechanism-discovery-v1\\historical-evidence-reacquisition-v1\\funding_raw_pages\\1000PEPEUSDT\\funding-1000PEPEUSDT-page-0001-end-1788048000000.json",
+          "result": "saved",
+          "record_count": 200,
+          "earliest_timestamp_ms": 1782316800000,
+          "latest_timestamp_ms": 1788048000000,
+          "progress": "continue"
+        },
+        {
+          "symbol": "1000PEPEUSDT",
+          "page": 2,
+          "end_time_ms": 1782316799999,
+          "source_id": "bybit_v5_funding_history",
+          "attempt": 1,
+          "utc": "2026-09-03T06:34:03.722146+00:00",
+          "url": "https://api.bybit.com/v5/market/funding/history?category=linear&symbol=1000PEPEUSDT&limit=200&endTime=1782316799999",
+          "params": {
+            "category": "linear",
+            "symbol": "1000PEPEUSDT",
+            "limit": 200,
+            "endTime": 1782316799999
+          },
+          "http_status": 200,
+          "exception": null,
+          "response_sha256": "caf18adb4beb8ae0992c1dc1e920b684c4886dae5cc48cf091ef396a97cb8be0",
+          "raw_path": "reports\\crypto-backtest\\multitier-mechanism-discovery-v1\\historical-evidence-reacquisition-v1\\funding_raw_pages\\1000PEPEUSDT\\funding-1000PEPEUSDT-page-0002-end-1782316799999.json",
+          "result": "saved",
+          "record_count": 200,
+          "earliest_timestamp_ms": 1776556800000,
+          "latest_timestamp_ms": 1782288000000,
+          "progress": "continue"
+        }
+      ],
+      "stop_reason": "reached_research_window_start",
+      "network_failed": false
     },
     {
       "symbol": "1000RATSUSDT",
-      "pages": [],
-      "stop_reason": "network_evidence_unavailable",
-      "network_failed": true
+      "pages": [
+        {
+          "symbol": "1000RATSUSDT",
+          "page": 1,
+          "end_time_ms": 1788048000000,
+          "source_id": "bybit_v5_funding_history",
+          "attempt": 1,
+          "utc": "2026-09-03T06:34:04.026590+00:00",
+          "url": "https://api.bybit.com/v5/market/funding/history?category=linear&symbol=1000RATSUSDT&limit=200&endTime=1788048000000",
+          "params": {
+            "category": "linear",
+            "symbol": "1000RATSUSDT",
+            "limit": 200,
+            "endTime": 1788048000000
+          },
+          "http_status": 200,
+          "exception": null,
+          "response_sha256": "eb3225ae84a13f393d859d85b25cfd4d3f816305c663859c23119e89c765510f",
+          "raw_path": "reports\\crypto-backtest\\multitier-mechanism-discovery-v1\\historical-evidence-reacquisition-v1\\funding_raw_pages\\1000RATSUSDT\\funding-1000RATSUSDT-page-0001-end-1788048000000.json",
+          "result": "saved",
+          "record_count": 200,
+          "earliest_timestamp_ms": 1785182400000,
+          "latest_timestamp_ms": 1788048000000,
+          "progress": "continue"
+        },
+        {
+          "symbol": "1000RATSUSDT",
+          "page": 2,
+          "end_time_ms": 1785182399999,
+          "source_id": "bybit_v5_funding_history",
+          "attempt": 1,
+          "utc": "2026-09-03T06:34:04.349114+00:00",
+          "url": "https://api.bybit.com/v5/market/funding/history?category=linear&symbol=1000RATSUSDT&limit=200&endTime=1785182399999",
+          "params": {
+            "category": "linear",
+            "symbol": "1000RATSUSDT",
+            "limit": 200,
+            "endTime": 1785182399999
+          },
+          "http_status": 200,
+          "exception": null,
+          "response_sha256": "6f6b788065469d4a5238e15a6b1e6adea81b63469f36c5e9a9207ee49b82f391",
+          "raw_path": "reports\\crypto-backtest\\multitier-mechanism-discovery-v1\\historical-evidence-reacquisition-v1\\funding_raw_pages\\1000RATSUSDT\\funding-1000RATSUSDT-page-0002-end-1785182399999.json",
+          "result": "saved",
+          "record_count": 200,
+          "earliest_timestamp_ms": 1782302400000,
+          "latest_timestamp_ms": 1785168000000,
+          "progress": "continue"
+        },
+        {
+          "symbol": "1000RATSUSDT",
+          "page": 3,
+          "end_time_ms": 1782302399999,
+          "source_id": "bybit_v5_funding_history",
+          "attempt": 1,
+          "utc": "2026-09-03T06:34:04.666581+00:00",
+          "url": "https://api.bybit.com/v5/market/funding/history?category=linear&symbol=1000RATSUSDT&limit=200&endTime=1782302399999",
+          "params": {
+            "category": "linear",
+            "symbol": "1000RATSUSDT",
+            "limit": 200,
+            "endTime": 1782302399999
+          },
+          "http_status": 200,
+          "exception": null,
+          "response_sha256": "52d7f6a5e8898cba49e60640659e612ce692a6f06838f35f4248069c335fb7bd",
+          "raw_path": "reports\\crypto-backtest\\multitier-mechanism-discovery-v1\\historical-evidence-reacquisition-v1\\funding_raw_pages\\1000RATSUSDT\\funding-1000RATSUSDT-page-0003-end-1782302399999.json",
+          "result": "saved",
+          "record_count": 200,
+          "earliest_timestamp_ms": 1779422400000,
+          "latest_timestamp_ms": 1782288000000,
+          "progress": "continue"
+        }
+      ],
+      "stop_reason": "reached_research_window_start",
+      "network_failed": false
     },
     {
       "symbol": "1000TAGUSDT",
-      "pages": [],
-      "stop_reason": "network_evidence_unavailable",
-      "network_failed": true
+      "pages": [
+        {
+          "symbol": "1000TAGUSDT",
+          "page": 1,
+          "end_time_ms": 1788048000000,
+          "source_id": "bybit_v5_funding_history",
+          "attempt": 1,
+          "utc": "2026-09-03T06:34:05.041938+00:00",
+          "url": "https://api.bybit.com/v5/market/funding/history?category=linear&symbol=1000TAGUSDT&limit=200&endTime=1788048000000",
+          "params": {
+            "category": "linear",
+            "symbol": "1000TAGUSDT",
+            "limit": 200,
+            "endTime": 1788048000000
+          },
+          "http_status": 200,
+          "exception": null,
+          "response_sha256": "d30eed4ba596265c1d9bf7d1317707f86f1b7118d019426cb3221738df222485",
+          "raw_path": "reports\\crypto-backtest\\multitier-mechanism-discovery-v1\\historical-evidence-reacquisition-v1\\funding_raw_pages\\1000TAGUSDT\\funding-1000TAGUSDT-page-0001-end-1788048000000.json",
+          "result": "saved",
+          "record_count": 200,
+          "earliest_timestamp_ms": 1785182400000,
+          "latest_timestamp_ms": 1788048000000,
+          "progress": "continue"
+        },
+        {
+          "symbol": "1000TAGUSDT",
+          "page": 2,
+          "end_time_ms": 1785182399999,
+          "source_id": "bybit_v5_funding_history",
+          "attempt": 1,
+          "utc": "2026-09-03T06:34:06.749931+00:00",
+          "url": "https://api.bybit.com/v5/market/funding/history?category=linear&symbol=1000TAGUSDT&limit=200&endTime=1785182399999",
+          "params": {
+            "category": "linear",
+            "symbol": "1000TAGUSDT",
+            "limit": 200,
+            "endTime": 1785182399999
+          },
+          "http_status": 200,
+          "exception": null,
+          "response_sha256": "c250dd333e770ea0a6215b4f52f874a651d103ca3087805653465dd3ee285936",
+          "raw_path": "reports\\crypto-backtest\\multitier-mechanism-discovery-v1\\historical-evidence-reacquisition-v1\\funding_raw_pages\\1000TAGUSDT\\funding-1000TAGUSDT-page-0002-end-1785182399999.json",
+          "result": "saved",
+          "record_count": 200,
+          "earliest_timestamp_ms": 1782302400000,
+          "latest_timestamp_ms": 1785168000000,
+          "progress": "continue"
+        },
+        {
+          "symbol": "1000TAGUSDT",
+          "page": 3,
+          "end_time_ms": 1782302399999,
+          "source_id": "bybit_v5_funding_history",
+          "attempt": 1,
+          "utc": "2026-09-03T06:34:07.058996+00:00",
+          "url": "https://api.bybit.com/v5/market/funding/history?category=linear&symbol=1000TAGUSDT&limit=200&endTime=1782302399999",
+          "params": {
+            "category": "linear",
+            "symbol": "1000TAGUSDT",
+            "limit": 200,
+            "endTime": 1782302399999
+          },
+          "http_status": 200,
+          "exception": null,
+          "response_sha256": "e56d0bcc0d9a4e88bbf2b74853f17e9c694abecd5b3905d2cb595642e07363b7",
+          "raw_path": "reports\\crypto-backtest\\multitier-mechanism-discovery-v1\\historical-evidence-reacquisition-v1\\funding_raw_pages\\1000TAGUSDT\\funding-1000TAGUSDT-page-0003-end-1782302399999.json",
+          "result": "saved",
+          "record_count": 200,
+          "earliest_timestamp_ms": 1779422400000,
+          "latest_timestamp_ms": 1782288000000,
+          "progress": "continue"
+        }
+      ],
+      "stop_reason": "reached_research_window_start",
+      "network_failed": false
     },
     {
       "symbol": "1000TOSHIUSDT",
-      "pages": [],
-      "stop_reason": "network_evidence_unavailable",
-      "network_failed": true
+      "pages": [
+        {
+          "symbol": "1000TOSHIUSDT",
+          "page": 1,
+          "end_time_ms": 1788048000000,
+          "source_id": "bybit_v5_funding_history",
+          "attempt": 1,
+          "utc": "2026-09-03T06:34:07.519643+00:00",
+          "url": "https://api.bybit.com/v5/market/funding/history?category=linear&symbol=1000TOSHIUSDT&limit=200&endTime=1788048000000",
+          "params": {
+            "category": "linear",
+            "symbol": "1000TOSHIUSDT",
+            "limit": 200,
+            "endTime": 1788048000000
+          },
+          "http_status": 200,
+          "exception": null,
+          "response_sha256": "065ecf530fb7be841845bb490bc345bfe3617695e8877d11e34cd4ad8e82cc95",
+          "raw_path": "reports\\crypto-backtest\\multitier-mechanism-discovery-v1\\historical-evidence-reacquisition-v1\\funding_raw_pages\\1000TOSHIUSDT\\funding-1000TOSHIUSDT-page-0001-end-1788048000000.json",
+          "result": "saved",
+          "record_count": 200,
+          "earliest_timestamp_ms": 1785182400000,
+          "latest_timestamp_ms": 1788048000000,
+          "progress": "continue"
+        },
+        {
+          "symbol": "1000TOSHIUSDT",
+          "page": 2,
+          "end_time_ms": 1785182399999,
+          "source_id": "bybit_v5_funding_history",
+          "attempt": 1,
+          "utc": "2026-09-03T06:34:07.820762+00:00",
+          "url": "https://api.bybit.com/v5/market/funding/history?category=linear&symbol=1000TOSHIUSDT&limit=200&endTime=1785182399999",
+          "params": {
+            "category": "linear",
+            "symbol": "1000TOSHIUSDT",
+            "limit": 200,
+            "endTime": 1785182399999
+          },
+          "http_status": 200,
+          "exception": null,
+          "response_sha256": "6aeaca4d31d81655ca31df92899cede1abefe67df89ed91ca911a3846f119a41",
+          "raw_path": "reports\\crypto-backtest\\multitier-mechanism-discovery-v1\\historical-evidence-reacquisition-v1\\funding_raw_pages\\1000TOSHIUSDT\\funding-1000TOSHIUSDT-page-0002-end-1785182399999.json",
+          "result": "saved",
+          "record_count": 200,
+          "earliest_timestamp_ms": 1782302400000,
+          "latest_timestamp_ms": 1785168000000,
+          "progress": "continue"
+        },
+        {
+          "symbol": "1000TOSHIUSDT",
+          "page": 3,
+          "end_time_ms": 1782302399999,
+          "source_id": "bybit_v5_funding_history",
+          "attempt": 1,
+          "utc": "2026-09-03T06:34:09.642502+00:00",
+          "url": "https://api.bybit.com/v5/market/funding/history?category=linear&symbol=1000TOSHIUSDT&limit=200&endTime=1782302399999",
+          "params": {
+            "category": "linear",
+            "symbol": "1000TOSHIUSDT",
+            "limit": 200,
+            "endTime": 1782302399999
+          },
+          "http_status": 200,
+          "exception": null,
+          "response_sha256": "4fb49c3f98fd91fe093071f762bb8dfec1f557fd97a173cfd1c1e9e44f476fd6",
+          "raw_path": "reports\\crypto-backtest\\multitier-mechanism-discovery-v1\\historical-evidence-reacquisition-v1\\funding_raw_pages\\1000TOSHIUSDT\\funding-1000TOSHIUSDT-page-0003-end-1782302399999.json",
+          "result": "saved",
+          "record_count": 200,
+          "earliest_timestamp_ms": 1779422400000,
+          "latest_timestamp_ms": 1782288000000,
+          "progress": "continue"
+        }
+      ],
+      "stop_reason": "reached_research_window_start",
+      "network_failed": false
     },
     {
       "symbol": "1000TURBOUSDT",
-      "pages": [],
-      "stop_reason": "network_evidence_unavailable",
-      "network_failed": true
+      "pages": [
+        {
+          "symbol": "1000TURBOUSDT",
+          "page": 1,
+          "end_time_ms": 1788048000000,
+          "source_id": "bybit_v5_funding_history",
+          "attempt": 1,
+          "utc": "2026-09-03T06:34:09.980455+00:00",
+          "url": "https://api.bybit.com/v5/market/funding/history?category=linear&symbol=1000TURBOUSDT&limit=200&endTime=1788048000000",
+          "params": {
+            "category": "linear",
+            "symbol": "1000TURBOUSDT",
+            "limit": 200,
+            "endTime": 1788048000000
+          },
+          "http_status": 200,
+          "exception": null,
+          "response_sha256": "db73708371a04d0777de49a332790fdbb06fe5b4db81f811734044e524fbab9e",
+          "raw_path": "reports\\crypto-backtest\\multitier-mechanism-discovery-v1\\historical-evidence-reacquisition-v1\\funding_raw_pages\\1000TURBOUSDT\\funding-1000TURBOUSDT-page-0001-end-1788048000000.json",
+          "result": "saved",
+          "record_count": 200,
+          "earliest_timestamp_ms": 1785182400000,
+          "latest_timestamp_ms": 1788048000000,
+          "progress": "continue"
+        },
+        {
+          "symbol": "1000TURBOUSDT",
+          "page": 2,
+          "end_time_ms": 1785182399999,
+          "source_id": "bybit_v5_funding_history",
+          "attempt": 1,
+          "utc": "2026-09-03T06:34:10.374018+00:00",
+          "url": "https://api.bybit.com/v5/market/funding/history?category=linear&symbol=1000TURBOUSDT&limit=200&endTime=1785182399999",
+          "params": {
+            "category": "linear",
+            "symbol": "1000TURBOUSDT",
+            "limit": 200,
+            "endTime": 1785182399999
+          },
+          "http_status": 200,
+          "exception": null,
+          "response_sha256": "d2cbdcc9a44db0b47b1f747b034767f7ba25b0ad9fe8138a1cfdf955ea08a367",
+          "raw_path": "reports\\crypto-backtest\\multitier-mechanism-discovery-v1\\historical-evidence-reacquisition-v1\\funding_raw_pages\\1000TURBOUSDT\\funding-1000TURBOUSDT-page-0002-end-1785182399999.json",
+          "result": "saved",
+          "record_count": 200,
+          "earliest_timestamp_ms": 1782302400000,
+          "latest_timestamp_ms": 1785168000000,
+          "progress": "continue"
+        },
+        {
+          "symbol": "1000TURBOUSDT",
+          "page": 3,
+          "end_time_ms": 1782302399999,
+          "source_id": "bybit_v5_funding_history",
+          "attempt": 1,
+          "utc": "2026-09-03T06:34:10.744000+00:00",
+          "url": "https://api.bybit.com/v5/market/funding/history?category=linear&symbol=1000TURBOUSDT&limit=200&endTime=1782302399999",
+          "params": {
+            "category": "linear",
+            "symbol": "1000TURBOUSDT",
+            "limit": 200,
+            "endTime": 1782302399999
+          },
+          "http_status": 200,
+          "exception": null,
+          "response_sha256": "a841d8a5e63881ea84c538098e00f549191010aac7b4520ec0f1ff7b8812ff5b",
+          "raw_path": "reports\\crypto-backtest\\multitier-mechanism-discovery-v1\\historical-evidence-reacquisition-v1\\funding_raw_pages\\1000TURBOUSDT\\funding-1000TURBOUSDT-page-0003-end-1782302399999.json",
+          "result": "saved",
+          "record_count": 200,
+          "earliest_timestamp_ms": 1779422400000,
+          "latest_timestamp_ms": 1782288000000,
+          "progress": "continue"
+        }
+      ],
+      "stop_reason": "reached_research_window_start",
+      "network_failed": false
     },
     {
       "symbol": "1000XECUSDT",
-      "pages": [],
-      "stop_reason": "network_evidence_unavailable",
-      "network_failed": true
+      "pages": [
+        {
+          "symbol": "1000XECUSDT",
+          "page": 1,
+          "end_time_ms": 1788048000000,
+          "source_id": "bybit_v5_funding_history",
+          "attempt": 1,
+          "utc": "2026-09-03T06:34:11.073490+00:00",
+          "url": "https://api.bybit.com/v5/market/funding/history?category=linear&symbol=1000XECUSDT&limit=200&endTime=1788048000000",
+          "params": {
+            "category": "linear",
+            "symbol": "1000XECUSDT",
+            "limit": 200,
+            "endTime": 1788048000000
+          },
+          "http_status": 200,
+          "exception": null,
+          "response_sha256": "52e2bb6df1b71588eb00e6c4044c1c58f1e1d68796f3f905b8d1f804f2bde489",
+          "raw_path": "reports\\crypto-backtest\\multitier-mechanism-discovery-v1\\historical-evidence-reacquisition-v1\\funding_raw_pages\\1000XECUSDT\\funding-1000XECUSDT-page-0001-end-1788048000000.json",
+          "result": "saved",
+          "record_count": 200,
+          "earliest_timestamp_ms": 1782316800000,
+          "latest_timestamp_ms": 1788048000000,
+          "progress": "continue"
+        },
+        {
+          "symbol": "1000XECUSDT",
+          "page": 2,
+          "end_time_ms": 1782316799999,
+          "source_id": "bybit_v5_funding_history",
+          "attempt": 1,
+          "utc": "2026-09-03T06:34:11.377015+00:00",
+          "url": "https://api.bybit.com/v5/market/funding/history?category=linear&symbol=1000XECUSDT&limit=200&endTime=1782316799999",
+          "params": {
+            "category": "linear",
+            "symbol": "1000XECUSDT",
+            "limit": 200,
+            "endTime": 1782316799999
+          },
+          "http_status": 200,
+          "exception": null,
+          "response_sha256": "ebe591be5aeb4499b839a200675226b5b273f625f3bd834d2b22001454efd34d",
+          "raw_path": "reports\\crypto-backtest\\multitier-mechanism-discovery-v1\\historical-evidence-reacquisition-v1\\funding_raw_pages\\1000XECUSDT\\funding-1000XECUSDT-page-0002-end-1782316799999.json",
+          "result": "saved",
+          "record_count": 200,
+          "earliest_timestamp_ms": 1776556800000,
+          "latest_timestamp_ms": 1782288000000,
+          "progress": "continue"
+        }
+      ],
+      "stop_reason": "reached_research_window_start",
+      "network_failed": false
     },
     {
       "symbol": "1INCHUSDT",
-      "pages": [],
-      "stop_reason": "network_evidence_unavailable",
-      "network_failed": true
+      "pages": [
+        {
+          "symbol": "1INCHUSDT",
+          "page": 1,
+          "end_time_ms": 1788048000000,
+          "source_id": "bybit_v5_funding_history",
+          "attempt": 1,
+          "utc": "2026-09-03T06:34:11.701362+00:00",
+          "url": "https://api.bybit.com/v5/market/funding/history?category=linear&symbol=1INCHUSDT&limit=200&endTime=1788048000000",
+          "params": {
+            "category": "linear",
+            "symbol": "1INCHUSDT",
+            "limit": 200,
+            "endTime": 1788048000000
+          },
+          "http_status": 200,
+          "exception": null,
+          "response_sha256": "5479a95561c18697f4526b140c0169b61e3d734685fd6391be5dd69b29851276",
+          "raw_path": "reports\\crypto-backtest\\multitier-mechanism-discovery-v1\\historical-evidence-reacquisition-v1\\funding_raw_pages\\1INCHUSDT\\funding-1INCHUSDT-page-0001-end-1788048000000.json",
+          "result": "saved",
+          "record_count": 200,
+          "earliest_timestamp_ms": 1782316800000,
+          "latest_timestamp_ms": 1788048000000,
+          "progress": "continue"
+        },
+        {
+          "symbol": "1INCHUSDT",
+          "page": 2,
+          "end_time_ms": 1782316799999,
+          "source_id": "bybit_v5_funding_history",
+          "attempt": 1,
+          "utc": "2026-09-03T06:34:12.012927+00:00",
+          "url": "https://api.bybit.com/v5/market/funding/history?category=linear&symbol=1INCHUSDT&limit=200&endTime=1782316799999",
+          "params": {
+            "category": "linear",
+            "symbol": "1INCHUSDT",
+            "limit": 200,
+            "endTime": 1782316799999
+          },
+          "http_status": 200,
+          "exception": null,
+          "response_sha256": "985e9aea121fec717dce968b68e20c97fb08a78c194945d0afeb7149551b8fb2",
+          "raw_path": "reports\\crypto-backtest\\multitier-mechanism-discovery-v1\\historical-evidence-reacquisition-v1\\funding_raw_pages\\1INCHUSDT\\funding-1INCHUSDT-page-0002-end-1782316799999.json",
+          "result": "saved",
+          "record_count": 200,
+          "earliest_timestamp_ms": 1776556800000,
+          "latest_timestamp_ms": 1782288000000,
+          "progress": "continue"
+        }
+      ],
+      "stop_reason": "reached_research_window_start",
+      "network_failed": false
     },
     {
       "symbol": "2ZUSDT",
-      "pages": [],
-      "stop_reason": "network_evidence_unavailable",
-      "network_failed": true
+      "pages": [
+        {
+          "symbol": "2ZUSDT",
+          "page": 1,
+          "end_time_ms": 1788048000000,
+          "source_id": "bybit_v5_funding_history",
+          "attempt": 1,
+          "utc": "2026-09-03T06:34:12.373131+00:00",
+          "url": "https://api.bybit.com/v5/market/funding/history?category=linear&symbol=2ZUSDT&limit=200&endTime=1788048000000",
+          "params": {
+            "category": "linear",
+            "symbol": "2ZUSDT",
+            "limit": 200,
+            "endTime": 1788048000000
+          },
+          "http_status": 200,
+          "exception": null,
+          "response_sha256": "02c274cbc456effdb27628b43b2db494f46a59283acbd715d1cd1d7546c72729",
+          "raw_path": "reports\\crypto-backtest\\multitier-mechanism-discovery-v1\\historical-evidence-reacquisition-v1\\funding_raw_pages\\2ZUSDT\\funding-2ZUSDT-page-0001-end-1788048000000.json",
+          "result": "saved",
+          "record_count": 200,
+          "earliest_timestamp_ms": 1785614400000,
+          "latest_timestamp_ms": 1788048000000,
+          "progress": "continue"
+        },
+        {
+          "symbol": "2ZUSDT",
+          "page": 2,
+          "end_time_ms": 1785614399999,
+          "source_id": "bybit_v5_funding_history",
+          "attempt": 1,
+          "utc": "2026-09-03T06:34:12.684331+00:00",
+          "url": "https://api.bybit.com/v5/market/funding/history?category=linear&symbol=2ZUSDT&limit=200&endTime=1785614399999",
+          "params": {
+            "category": "linear",
+            "symbol": "2ZUSDT",
+            "limit": 200,
+            "endTime": 1785614399999
+          },
+          "http_status": 200,
+          "exception": null,
+          "response_sha256": "2f9dbba065678dcda56328479af48313901d4f8ecec5d96a8cbdc77642025e95",
+          "raw_path": "reports\\crypto-backtest\\multitier-mechanism-discovery-v1\\historical-evidence-reacquisition-v1\\funding_raw_pages\\2ZUSDT\\funding-2ZUSDT-page-0002-end-1785614399999.json",
+          "result": "saved",
+          "record_count": 200,
+          "earliest_timestamp_ms": 1782734400000,
+          "latest_timestamp_ms": 1785600000000,
+          "progress": "continue"
+        },
+        {
+          "symbol": "2ZUSDT",
+          "page": 3,
+          "end_time_ms": 1782734399999,
+          "source_id": "bybit_v5_funding_history",
+          "attempt": 1,
+          "utc": "2026-09-03T06:34:13.001531+00:00",
+          "url": "https://api.bybit.com/v5/market/funding/history?category=linear&symbol=2ZUSDT&limit=200&endTime=1782734399999",
+          "params": {
+            "category": "linear",
+            "symbol": "2ZUSDT",
+            "limit": 200,
+            "endTime": 1782734399999
+          },
+          "http_status": 200,
+          "exception": null,
+          "response_sha256": "35e8e69ca1a7a5f2ce9f7ae8ba5518144aafabb2a960e0d4e1c70da2ba28b367",
+          "raw_path": "reports\\crypto-backtest\\multitier-mechanism-discovery-v1\\historical-evidence-reacquisition-v1\\funding_raw_pages\\2ZUSDT\\funding-2ZUSDT-page-0003-end-1782734399999.json",
+          "result": "saved",
+          "record_count": 200,
+          "earliest_timestamp_ms": 1779854400000,
+          "latest_timestamp_ms": 1782720000000,
+          "progress": "continue"
+        }
+      ],
+      "stop_reason": "reached_research_window_start",
+      "network_failed": false
     },
     {
       "symbol": "4USDT",
-      "pages": [],
-      "stop_reason": "network_evidence_unavailable",
-      "network_failed": true
+      "pages": [
+        {
+          "symbol": "4USDT",
+          "page": 1,
+          "end_time_ms": 1788048000000,
+          "source_id": "bybit_v5_funding_history",
+          "attempt": 1,
+          "utc": "2026-09-03T06:34:13.315838+00:00",
+          "url": "https://api.bybit.com/v5/market/funding/history?category=linear&symbol=4USDT&limit=200&endTime=1788048000000",
+          "params": {
+            "category": "linear",
+            "symbol": "4USDT",
+            "limit": 200,
+            "endTime": 1788048000000
+          },
+          "http_status": 200,
+          "exception": null,
+          "response_sha256": "b70ac7b623ec2564eabdf3627a5d4ba6a4de17d3b012eaf128f7a3a60da5174e",
+          "raw_path": "reports\\crypto-backtest\\multitier-mechanism-discovery-v1\\historical-evidence-reacquisition-v1\\funding_raw_pages\\4USDT\\funding-4USDT-page-0001-end-1788048000000.json",
+          "result": "saved",
+          "record_count": 200,
+          "earliest_timestamp_ms": 1785182400000,
+          "latest_timestamp_ms": 1788048000000,
+          "progress": "continue"
+        },
+        {
+          "symbol": "4USDT",
+          "page": 2,
+          "end_time_ms": 1785182399999,
+          "source_id": "bybit_v5_funding_history",
+          "attempt": 1,
+          "utc": "2026-09-03T06:34:13.633912+00:00",
+          "url": "https://api.bybit.com/v5/market/funding/history?category=linear&symbol=4USDT&limit=200&endTime=1785182399999",
+          "params": {
+            "category": "linear",
+            "symbol": "4USDT",
+            "limit": 200,
+            "endTime": 1785182399999
+          },
+          "http_status": 200,
+          "exception": null,
+          "response_sha256": "fc3b94e01401731486ca7f74e79ba97bcd96fe596e4d3ca2047cdeaca6f05c99",
+          "raw_path": "reports\\crypto-backtest\\multitier-mechanism-discovery-v1\\historical-evidence-reacquisition-v1\\funding_raw_pages\\4USDT\\funding-4USDT-page-0002-end-1785182399999.json",
+          "result": "saved",
+          "record_count": 200,
+          "earliest_timestamp_ms": 1782302400000,
+          "latest_timestamp_ms": 1785168000000,
+          "progress": "continue"
+        },
+        {
+          "symbol": "4USDT",
+          "page": 3,
+          "end_time_ms": 1782302399999,
+          "source_id": "bybit_v5_funding_history",
+          "attempt": 1,
+          "utc": "2026-09-03T06:34:13.935713+00:00",
+          "url": "https://api.bybit.com/v5/market/funding/history?category=linear&symbol=4USDT&limit=200&endTime=1782302399999",
+          "params": {
+            "category": "linear",
+            "symbol": "4USDT",
+            "limit": 200,
+            "endTime": 1782302399999
+          },
+          "http_status": 200,
+          "exception": null,
+          "response_sha256": "55d12fd9f32eed142bdc6489795d4facaca4797b9527d4db107ae3328faa3859",
+          "raw_path": "reports\\crypto-backtest\\multitier-mechanism-discovery-v1\\historical-evidence-reacquisition-v1\\funding_raw_pages\\4USDT\\funding-4USDT-page-0003-end-1782302399999.json",
+          "result": "saved",
+          "record_count": 200,
+          "earliest_timestamp_ms": 1779422400000,
+          "latest_timestamp_ms": 1782288000000,
+          "progress": "continue"
+        }
+      ],
+      "stop_reason": "reached_research_window_start",
+      "network_failed": false
     }
   ]
 }

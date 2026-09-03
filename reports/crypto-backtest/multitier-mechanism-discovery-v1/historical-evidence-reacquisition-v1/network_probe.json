@@ -1,5 +1,5 @@
 {
-  "generated_at_utc": "2026-08-31T14:28:13.194455+00:00",
+  "generated_at_utc": "2026-09-03T06:33:51.449652+00:00",
   "tls_verification": "requests default verification",
   "connect_timeout_seconds": 10,
   "read_timeout_seconds": 30,
@@ -7,76 +7,76 @@
   "probes": [
     {
       "source_id": "bybit_v5_instruments",
-      "ok": false,
-      "reason": "network_request_failed:ReadTimeout",
+      "ok": true,
+      "reason": null,
       "event": {
         "source_id": "bybit_v5_instruments",
-        "attempt": 3,
-        "utc": "2026-08-31T14:26:23.963984+00:00",
-        "url": "https://api.bybit.com/v5/market/instruments-info",
+        "attempt": 1,
+        "utc": "2026-09-03T06:33:50.017508+00:00",
+        "url": "https://api.bybit.com/v5/market/instruments-info?category=linear&limit=1",
         "params": {
           "category": "linear",
           "limit": 1
         },
-        "http_status": null,
-        "exception": "ReadTimeout",
-        "response_sha256": null,
-        "raw_path": null
+        "http_status": 200,
+        "exception": null,
+        "response_sha256": "dbfa5ada25f5947f7d5939f9b00bdabdedc44e6811614b3c010c2c8068dce62b",
+        "raw_path": "reports\\crypto-backtest\\multitier-mechanism-discovery-v1\\historical-evidence-reacquisition-v1\\historical_source_raw\\bybit_v5_instruments.json"
       }
     },
     {
       "source_id": "bybit_v5_funding",
-      "ok": false,
-      "reason": "network_request_failed:ReadTimeout",
+      "ok": true,
+      "reason": null,
       "event": {
         "source_id": "bybit_v5_funding",
-        "attempt": 3,
-        "utc": "2026-08-31T14:26:57.025621+00:00",
-        "url": "https://api.bybit.com/v5/market/funding/history",
+        "attempt": 1,
+        "utc": "2026-09-03T06:33:50.376718+00:00",
+        "url": "https://api.bybit.com/v5/market/funding/history?category=linear&symbol=BTCUSDT&limit=1",
         "params": {
           "category": "linear",
           "symbol": "BTCUSDT",
           "limit": 1
         },
-        "http_status": null,
-        "exception": "ReadTimeout",
-        "response_sha256": null,
-        "raw_path": null
+        "http_status": 200,
+        "exception": null,
+        "response_sha256": "92cc10e75c736ea8b2ebc2d23bac614c627710c09061f0ee89d5ad5fd23c3d65",
+        "raw_path": "reports\\crypto-backtest\\multitier-mechanism-discovery-v1\\historical-evidence-reacquisition-v1\\historical_source_raw\\bybit_v5_funding.json"
       }
     },
     {
       "source_id": "bybit_v5_announcements",
-      "ok": false,
-      "reason": "network_request_failed:ReadTimeout",
+      "ok": true,
+      "reason": null,
       "event": {
         "source_id": "bybit_v5_announcements",
-        "attempt": 3,
-        "utc": "2026-08-31T14:27:30.089723+00:00",
-        "url": "https://api.bybit.com/v5/announcements/index",
+        "attempt": 1,
+        "utc": "2026-09-03T06:33:50.698936+00:00",
+        "url": "https://api.bybit.com/v5/announcements/index?locale=en-US&limit=1",
         "params": {
           "locale": "en-US",
           "limit": 1
         },
-        "http_status": null,
-        "exception": "ReadTimeout",
-        "response_sha256": null,
-        "raw_path": null
+        "http_status": 200,
+        "exception": null,
+        "response_sha256": "b768fcba0522b4997cec386e710d6dd689d83d808564c85739a76236dceb3887",
+        "raw_path": "reports\\crypto-backtest\\multitier-mechanism-discovery-v1\\historical-evidence-reacquisition-v1\\historical_source_raw\\bybit_v5_announcements.json"
       }
     },
     {
       "source_id": "bybit_public_download",
       "ok": false,
-      "reason": "network_request_failed:ReadTimeout",
+      "reason": "invalid_json:JSONDecodeError",
       "event": {
         "source_id": "bybit_public_download",
-        "attempt": 3,
-        "utc": "2026-08-31T14:28:03.166905+00:00",
+        "attempt": 1,
+        "utc": "2026-09-03T06:33:51.117625+00:00",
         "url": "https://public.bybit.com/",
         "params": {},
-        "http_status": null,
-        "exception": "ReadTimeout",
-        "response_sha256": null,
-        "raw_path": null
+        "http_status": 200,
+        "exception": null,
+        "response_sha256": "f332be67965ba5069dc55cc469fb99262a9838b6bdf3dbc3052d9eb91497770a",
+        "raw_path": "reports\\crypto-backtest\\multitier-mechanism-discovery-v1\\historical-evidence-reacquisition-v1\\historical_source_raw\\bybit_public_download.json"
       }
     }
   ],
@@ -84,164 +84,56 @@
     {
       "source_id": "bybit_v5_instruments",
       "attempt": 1,
-      "utc": "2026-08-31T14:26:00.899922+00:00",
-      "url": "https://api.bybit.com/v5/market/instruments-info",
+      "utc": "2026-09-03T06:33:50.017508+00:00",
+      "url": "https://api.bybit.com/v5/market/instruments-info?category=linear&limit=1",
       "params": {
         "category": "linear",
         "limit": 1
       },
-      "http_status": null,
-      "exception": "ReadTimeout",
-      "response_sha256": null,
-      "raw_path": null
-    },
-    {
-      "source_id": "bybit_v5_instruments",
-      "attempt": 2,
-      "utc": "2026-08-31T14:26:11.935147+00:00",
-      "url": "https://api.bybit.com/v5/market/instruments-info",
-      "params": {
-        "category": "linear",
-        "limit": 1
-      },
-      "http_status": null,
-      "exception": "ReadTimeout",
-      "response_sha256": null,
-      "raw_path": null
-    },
-    {
-      "source_id": "bybit_v5_instruments",
-      "attempt": 3,
-      "utc": "2026-08-31T14:26:23.963984+00:00",
-      "url": "https://api.bybit.com/v5/market/instruments-info",
-      "params": {
-        "category": "linear",
-        "limit": 1
-      },
-      "http_status": null,
-      "exception": "ReadTimeout",
-      "response_sha256": null,
-      "raw_path": null
+      "http_status": 200,
+      "exception": null,
+      "response_sha256": "dbfa5ada25f5947f7d5939f9b00bdabdedc44e6811614b3c010c2c8068dce62b",
+      "raw_path": "reports\\crypto-backtest\\multitier-mechanism-discovery-v1\\historical-evidence-reacquisition-v1\\historical_source_raw\\bybit_v5_instruments.json"
     },
     {
       "source_id": "bybit_v5_funding",
       "attempt": 1,
-      "utc": "2026-08-31T14:26:33.978048+00:00",
-      "url": "https://api.bybit.com/v5/market/funding/history",
+      "utc": "2026-09-03T06:33:50.376718+00:00",
+      "url": "https://api.bybit.com/v5/market/funding/history?category=linear&symbol=BTCUSDT&limit=1",
       "params": {
         "category": "linear",
         "symbol": "BTCUSDT",
         "limit": 1
       },
-      "http_status": null,
-      "exception": "ReadTimeout",
-      "response_sha256": null,
-      "raw_path": null
-    },
-    {
-      "source_id": "bybit_v5_funding",
-      "attempt": 2,
-      "utc": "2026-08-31T14:26:45.004450+00:00",
-      "url": "https://api.bybit.com/v5/market/funding/history",
-      "params": {
-        "category": "linear",
-        "symbol": "BTCUSDT",
-        "limit": 1
-      },
-      "http_status": null,
-      "exception": "ReadTimeout",
-      "response_sha256": null,
-      "raw_path": null
-    },
-    {
-      "source_id": "bybit_v5_funding",
-      "attempt": 3,
-      "utc": "2026-08-31T14:26:57.025621+00:00",
-      "url": "https://api.bybit.com/v5/market/funding/history",
-      "params": {
-        "category": "linear",
-        "symbol": "BTCUSDT",
-        "limit": 1
-      },
-      "http_status": null,
-      "exception": "ReadTimeout",
-      "response_sha256": null,
-      "raw_path": null
+      "http_status": 200,
+      "exception": null,
+      "response_sha256": "92cc10e75c736ea8b2ebc2d23bac614c627710c09061f0ee89d5ad5fd23c3d65",
+      "raw_path": "reports\\crypto-backtest\\multitier-mechanism-discovery-v1\\historical-evidence-reacquisition-v1\\historical_source_raw\\bybit_v5_funding.json"
     },
     {
       "source_id": "bybit_v5_announcements",
       "attempt": 1,
-      "utc": "2026-08-31T14:27:07.038190+00:00",
-      "url": "https://api.bybit.com/v5/announcements/index",
+      "utc": "2026-09-03T06:33:50.698936+00:00",
+      "url": "https://api.bybit.com/v5/announcements/index?locale=en-US&limit=1",
       "params": {
         "locale": "en-US",
         "limit": 1
       },
-      "http_status": null,
-      "exception": "ReadTimeout",
-      "response_sha256": null,
-      "raw_path": null
-    },
-    {
-      "source_id": "bybit_v5_announcements",
-      "attempt": 2,
-      "utc": "2026-08-31T14:27:18.059701+00:00",
-      "url": "https://api.bybit.com/v5/announcements/index",
-      "params": {
-        "locale": "en-US",
-        "limit": 1
-      },
-      "http_status": null,
-      "exception": "ReadTimeout",
-      "response_sha256": null,
-      "raw_path": null
-    },
-    {
-      "source_id": "bybit_v5_announcements",
-      "attempt": 3,
-      "utc": "2026-08-31T14:27:30.089723+00:00",
-      "url": "https://api.bybit.com/v5/announcements/index",
-      "params": {
-        "locale": "en-US",
-        "limit": 1
-      },
-      "http_status": null,
-      "exception": "ReadTimeout",
-      "response_sha256": null,
-      "raw_path": null
+      "http_status": 200,
+      "exception": null,
+      "response_sha256": "b768fcba0522b4997cec386e710d6dd689d83d808564c85739a76236dceb3887",
+      "raw_path": "reports\\crypto-backtest\\multitier-mechanism-discovery-v1\\historical-evidence-reacquisition-v1\\historical_source_raw\\bybit_v5_announcements.json"
     },
     {
       "source_id": "bybit_public_download",
       "attempt": 1,
-      "utc": "2026-08-31T14:27:40.109962+00:00",
+      "utc": "2026-09-03T06:33:51.117625+00:00",
       "url": "https://public.bybit.com/",
       "params": {},
-      "http_status": null,
-      "exception": "ReadTimeout",
-      "response_sha256": null,
-      "raw_path": null
-    },
-    {
-      "source_id": "bybit_public_download",
-      "attempt": 2,
-      "utc": "2026-08-31T14:27:51.138094+00:00",
-      "url": "https://public.bybit.com/",
-      "params": {},
-      "http_status": null,
-      "exception": "ReadTimeout",
-      "response_sha256": null,
-      "raw_path": null
-    },
-    {
-      "source_id": "bybit_public_download",
-      "attempt": 3,
-      "utc": "2026-08-31T14:28:03.166905+00:00",
-      "url": "https://public.bybit.com/",
-      "params": {},
-      "http_status": null,
-      "exception": "ReadTimeout",
-      "response_sha256": null,
-      "raw_path": null
+      "http_status": 200,
+      "exception": null,
+      "response_sha256": "f332be67965ba5069dc55cc469fb99262a9838b6bdf3dbc3052d9eb91497770a",
+      "raw_path": "reports\\crypto-backtest\\multitier-mechanism-discovery-v1\\historical-evidence-reacquisition-v1\\historical_source_raw\\bybit_public_download.json"
     }
   ]
 }
