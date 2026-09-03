@@ -47,6 +47,10 @@ class Settings(BaseSettings):
     MONGO_SOCKET_TIMEOUT_MS: int = Field(default=60000)   # 套接字超时：60秒（原为20秒）
     MONGO_SERVER_SELECTION_TIMEOUT_MS: int = Field(default=5000)  # 服务器选择超时：5秒
 
+    # 策略纸面自动化默认关闭；仅消费公开行情，绝不调用交易所下单接口。
+    STRATEGY_PAPER_AUTOMATION_ENABLED: bool = Field(default=False)
+    STRATEGY_PAPER_AUTOMATION_INTERVAL_SECONDS: int = Field(default=900)
+
     @property
     def MONGO_URI(self) -> str:
         """构建MongoDB URI"""

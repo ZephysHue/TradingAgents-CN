@@ -1,9 +1,26 @@
-version: '3.8'
-
 # TradingAgents-CN v1.0.0-preview Docker Compose配置
 # 支持前后端分离部署
-
 services:
+  # Nginx网关（新增）
+  nginx-gateway:
+    image: nginx:alpine
+    container_name: tradingagents-nginx-gateway
+    ports:
+      - "3000:80"
+    volumes:
+      - ./nginx/nginx.conf:/etc/nginx/nginx.conf
+    depends_on:
+      - backend
+      - frontend
+    networks:
+      - tradingagents-network
+    restart: unless-stopped
+    logging:
+      driver: "json-file"
+      options:
+        max-size: "100m"
+        max-file: "3"
+
   # FastAPI 后端服务
   backend:
     build:
@@ -34,6 +51,13 @@ services:
       TRADINGAGENTS_MONGODB_URL: mongodb://admin:tradingagents123@mongodb:27017/tradingagents?authSource=admin
       TRADINGAGENTS_REDIS_URL: redis://:tradingagents123@redis:6379
       TRADINGAGENTS_CACHE_TYPE: redis
+      # Binance 公共合约行情地址；无需 API 密钥，可通过 .env 覆盖
+      BINANCE_FUTURES_REST_URL: ${BINANCE_FUTURES_REST_URL:-https://fapi.binance.com}
+      # Bybit V5 线性永续公共行情地址；当前 Crypto 页面默认使用该数据源
+      BYBIT_FUTURES_REST_URL: ${BYBIT_FUTURES_REST_URL:-https://api.bybit.com}
+      # 当前本机 M78AcceleratorCore 提供可用的 HTTP 代理，供容器访问 Binance
+      HTTP_PROXY: ${TRADINGAGENTS_HTTP_PROXY:-http://host.docker.internal:7892}
+      HTTPS_PROXY: ${TRADINGAGENTS_HTTPS_PROXY:-http://host.docker.internal:7892}
       # Docker环境标识
       DOCKER_CONTAINER: "true"
       # API配置
@@ -68,19 +92,18 @@ services:
       dockerfile: Dockerfile.frontend
     image: tradingagents-frontend:v1.0.0-preview
     container_name: tradingagents-frontend
-    ports:
-      - "3000:80"
+    # 【重要】删掉ports，3000端口交给nginx‑gateway
     environment:
       TZ: "Asia/Shanghai"
-      # 后端API地址
-      VITE_API_BASE_URL: "http://localhost:8000"
+      # 【重要】改成相对路径，由网关转发，不要写localhost:8000
+      VITE_API_BASE_URL: "/api"
     depends_on:
       backend:
         condition: service_healthy
     networks:
       - tradingagents-network
     healthcheck:
-      test: ["CMD", "wget", "--quiet", "--tries=1", "--spider", "http://localhost"]
+      test: ["CMD", "wget", "--quiet", "--tries=1", "--spider", "http://127.0.0.1"]
       interval: 30s
       timeout: 10s
       retries: 3
@@ -205,4 +228,3 @@ networks:
   tradingagents-network:
     driver: bridge
     name: tradingagents-network
-

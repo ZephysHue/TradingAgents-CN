@@ -1,12 +1,12 @@
 /**
- * Binance USDT-M Futures 公共行情 API（只读）
+ * Bybit USDT 线性永续公共行情 API（只读）
  *
- * 数据源：Binance USDⓈ-M 合约公共行情（fapi.binance.com），无账户/下单接口。
+ * 数据源：Bybit V5 linear perpetual 公共行情（api.bybit.com），无账户/下单接口。
  * 仅用于行情展示，禁止接入下单、API Key 管理、自动交易、策略回测等逻辑。
  */
 import { ApiClient } from './request'
 
-/** Binance 支持 K 线周期 */
+/** Bybit 支持 K 线周期 */
 export type CryptoInterval = '1m' | '3m' | '5m' | '15m' | '30m' | '1h' | '2h' | '4h' | '6h' | '8h' | '12h' | '1d'
 
 /** 连接状态 */
@@ -96,20 +96,20 @@ export interface BinanceSnapshot {
 const silentError = { skipErrorHandler: true }
 
 export const cryptoApi = {
-  /** Binance 连接状态 */
+  /** Bybit 连接状态 */
   async getStatus() {
-    return ApiClient.get<BinanceStatus>('/api/crypto/binance/status', undefined, silentError)
+    return ApiClient.get<BinanceStatus>('/api/crypto/bybit/status', undefined, silentError)
   },
 
   /** USDT-M 合约交易对列表 */
   async getSymbols() {
-    return ApiClient.get<BinanceSymbolInfo[]>('/api/crypto/binance/symbols', undefined, silentError)
+    return ApiClient.get<BinanceSymbolInfo[]>('/api/crypto/bybit/symbols', undefined, silentError)
   },
 
   /** 24 小时行情 + 标记价格/资金费率/持仓量 */
   async getQuote(symbol: string) {
     return ApiClient.get<BinanceQuote>(
-      `/api/crypto/binance/${encodeURIComponent(symbol)}/quote`,
+      `/api/crypto/bybit/${encodeURIComponent(symbol)}/quote`,
       undefined,
       silentError
     )
@@ -121,7 +121,7 @@ export const cryptoApi = {
    */
   async getKlines(symbol: string, interval: CryptoInterval, limit = 240, persist = false) {
     return ApiClient.get<BinanceKlinesResponse>(
-      `/api/crypto/binance/${encodeURIComponent(symbol)}/klines`,
+      `/api/crypto/bybit/${encodeURIComponent(symbol)}/klines`,
       { interval, limit, persist },
       silentError
     )
@@ -132,7 +132,7 @@ export const cryptoApi = {
    */
   async getVolatility(symbol: string, interval: CryptoInterval = '1m', limit = 240) {
     return ApiClient.get<BinanceVolatility>(
-      `/api/crypto/binance/${encodeURIComponent(symbol)}/volatility`,
+      `/api/crypto/bybit/${encodeURIComponent(symbol)}/volatility`,
       { interval, limit },
       silentError
     )
@@ -141,7 +141,7 @@ export const cryptoApi = {
   /** 合约快照（报价 + 波动率），适合轮询刷新 */
   async getSnapshot(symbol: string, interval: CryptoInterval = '1m', limit = 240) {
     return ApiClient.get<BinanceSnapshot>(
-      `/api/crypto/binance/${encodeURIComponent(symbol)}/snapshot`,
+      `/api/crypto/bybit/${encodeURIComponent(symbol)}/snapshot`,
       { interval, limit },
       silentError
     )

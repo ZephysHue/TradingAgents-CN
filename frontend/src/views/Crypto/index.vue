@@ -4,7 +4,7 @@
     <el-card shadow="never" class="source-card">
       <div class="source-bar">
         <div class="source-left">
-          <span class="source-badge">数据源：Binance USDT-M Futures 公共行情</span>
+          <span class="source-badge">数据源：Bybit USDT 线性永续公共行情</span>
           <span class="source-note">只读行情展示，不含下单 / API Key / 自动交易 / 回测功能</span>
         </div>
         <div class="source-right">
@@ -13,12 +13,12 @@
             <span>检测连接…</span>
           </template>
           <template v-else-if="statusError">
-            <el-tag type="danger" effect="plain">Binance 连接不可用</el-tag>
+            <el-tag type="danger" effect="plain">Bybit 连接不可用</el-tag>
             <el-button size="small" text type="primary" @click="loadStatus">重试</el-button>
           </template>
           <template v-else-if="status">
             <span class="conn-dot" :class="{ ok: true }"></span>
-            <span class="server-time">Binance 服务器时间：{{ formatFullTime(status.server_time) }}</span>
+            <span class="server-time">Bybit 服务器时间：{{ formatFullTime(status.server_time) }}</span>
           </template>
         </div>
       </div>
@@ -33,7 +33,7 @@
             v-model="selectedSymbol"
             filterable
             :loading="symbolsLoading"
-            placeholder="选择 USDT-M 合约"
+            placeholder="选择 USDT 线性永续合约"
             class="symbol-select"
             :disabled="symbolsError"
           >
@@ -265,8 +265,8 @@
 
     <!-- 页脚声明 -->
     <div class="page-footer">
-      以上数据均来自 Binance USDT-M Futures 公共行情接口（fapi.binance.com），仅用于行情查看与波动观察，
-      与 COIN-M 回测数据无关，不构成任何交易建议。
+      以上数据均来自 Bybit V5 USDT 线性永续公共行情接口（api.bybit.com），仅用于行情查看与波动观察，
+      与既有 Binance COIN-M 回测数据不能直接混用，不构成任何交易建议。
     </div>
   </div>
 </template>
@@ -332,7 +332,7 @@ async function loadStatus() {
     if (!status.value) throw new Error('status 响应为空')
   } catch (e: any) {
     statusError.value = true
-    console.error('[Crypto] 获取 Binance 状态失败', e)
+    console.error('[Crypto] 获取 Bybit 状态失败', e)
   } finally {
     statusLoading.value = false
   }
@@ -344,7 +344,7 @@ const symbolsLoading = ref(false)
 const symbolsError = ref(false)
 const selectedSymbol = ref('BTCUSDT')
 
-const tradableSymbols = computed(() => symbols.value.filter((s) => s.status === 'TRADING'))
+const tradableSymbols = computed(() => symbols.value.filter((s) => s.status.toUpperCase() === 'TRADING'))
 
 async function loadSymbols() {
   symbolsLoading.value = true
@@ -355,10 +355,10 @@ async function loadSymbols() {
     if (!list.length) throw new Error('symbols 响应为空')
     symbols.value = list
     // 若当前所选合约不在 TRADING 列表中，回退到 BTCUSDT 或首个可用合约
-    if (!list.some((s) => s.symbol === selectedSymbol.value && s.status === 'TRADING')) {
-      selectedSymbol.value = list.some((s) => s.symbol === 'BTCUSDT' && s.status === 'TRADING')
+    if (!list.some((s) => s.symbol === selectedSymbol.value && s.status.toUpperCase() === 'TRADING')) {
+      selectedSymbol.value = list.some((s) => s.symbol === 'BTCUSDT' && s.status.toUpperCase() === 'TRADING')
         ? 'BTCUSDT'
-        : (list.find((s) => s.status === 'TRADING')?.symbol ?? 'BTCUSDT')
+        : (list.find((s) => s.status.toUpperCase() === 'TRADING')?.symbol ?? 'BTCUSDT')
     }
   } catch (e: any) {
     symbolsError.value = true
@@ -431,7 +431,7 @@ const klineOption = computed<EChartsOption>(() => {
 
   return {
     title: {
-      text: `${selectedSymbol.value} · ${klineInterval.value} · Binance USDT-M Futures`,
+      text: `${selectedSymbol.value} · ${klineInterval.value} · Bybit USDT Linear Perpetual`,
       left: 8,
       top: 4,
       textStyle: { fontSize: 12, fontWeight: 'normal', color: '#909399' }

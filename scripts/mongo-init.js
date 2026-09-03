@@ -14,7 +14,7 @@ try {
     roles: [
       {
         role: 'readWrite',
-        db: 'tradingagents'
+        db: 'tradingagentscn'
       }
     ]
   });
@@ -24,7 +24,7 @@ try {
 }
 
 // 切换到应用数据库
-db = db.getSiblingDB('tradingagents');
+db = db.getSiblingDB('tradingagentscn');
 
 // ===== 创建集合 =====
 
@@ -34,6 +34,40 @@ print('\n创建集合...');
 db.createCollection('users');
 db.createCollection('user_sessions');
 db.createCollection('user_activities');
+
+// 默认管理员（幂等写入，便于全新数据卷直接登录）
+db.users.updateOne(
+  { username: 'admin' },
+  {
+    $setOnInsert: {
+      username: 'admin',
+      email: 'admin@tradingagents.cn',
+      hashed_password: '240be518fabd2724ddb6f04eeb1da5967448d7e831c08c8fa822809f74c720a9',
+      is_active: true,
+      is_verified: true,
+      is_admin: true,
+      created_at: new Date(),
+      updated_at: new Date(),
+      last_login: null,
+      preferences: {
+        default_market: 'A股',
+        default_depth: '深度',
+        ui_theme: 'light',
+        language: 'zh-CN',
+        notifications_enabled: true,
+        email_notifications: false
+      },
+      daily_quota: 10000,
+      concurrent_limit: 10,
+      total_analyses: 0,
+      successful_analyses: 0,
+      failed_analyses: 0,
+      favorite_stocks: []
+    }
+  },
+  { upsert: true }
+);
+print('✓ 默认管理员初始化完成');
 
 // 股票数据
 db.createCollection('stock_basic_info');

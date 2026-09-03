@@ -26,7 +26,7 @@ import asyncio
 from pathlib import Path
 
 from app.core.config import settings
-from app.core.database import init_db, close_db
+from app.core.database import get_mongo_db, init_db, close_db
 from app.core.logging_config import setup_logging
 from app.routers import auth_db as auth, analysis, screening, queue, sse, health, favorites, config, reports, database, operation_logs, tags, tushare_init, akshare_init, baostock_init, historical_data, multi_period_sync, financial_data, news_data, social_media, internal_messages, usage_statistics, model_capabilities, cache, logs
 from app.routers import sync as sync_router, multi_source_sync
@@ -69,6 +69,9 @@ from apscheduler.triggers.cron import CronTrigger
 from apscheduler.triggers.interval import IntervalTrigger
 from app.services.quotes_ingestion_service import QuotesIngestionService
 from app.routers import paper as paper_router
+from app.routers import crypto as crypto_router
+from app.routers import crypto_paper as crypto_paper_router
+from app.services.crypto.paper_automation import PaperAutomationService
 
 
 def get_version() -> str:
@@ -330,6 +333,22 @@ async def lifespan(app: FastAPI):
                 name="实时行情入库服务"
             )
             logger.info(f"⏱ 实时行情入库任务已启动: 每 {settings.QUOTES_INGEST_INTERVAL_SECONDS}s")
+
+        # 纸面自动化必须由显式开关启用。无 Champion 时服务只写审计事件，绝不创建订单。
+        if settings.STRATEGY_PAPER_AUTOMATION_ENABLED:
+            paper_automation = PaperAutomationService(get_mongo_db())
+            await paper_automation.ensure_indexes()
+            scheduler.add_job(
+                paper_automation.run_once,
+                IntervalTrigger(seconds=settings.STRATEGY_PAPER_AUTOMATION_INTERVAL_SECONDS, timezone=settings.TIMEZONE),
+                id="strategy_paper_automation",
+                name="策略纸面自动化（已收盘K线）",
+                max_instances=1,
+                coalesce=True,
+            )
+            logger.info("纸面策略自动化已启用：只记录 paper 订单和审计事件")
+        else:
+            logger.info("纸面策略自动化已关闭（STRATEGY_PAPER_AUTOMATION_ENABLED=false）")
 
         # Tushare统一数据同步任务配置
         logger.info("🔄 配置Tushare统一数据同步任务...")
@@ -719,6 +738,8 @@ app.include_router(sse.router, prefix="/api/stream", tags=["streaming"])
 app.include_router(sync_router.router)
 app.include_router(multi_source_sync.router)
 app.include_router(paper_router.router, prefix="/api", tags=["paper"])
+app.include_router(crypto_router.router, prefix="/api", tags=["crypto"])
+app.include_router(crypto_paper_router.router, prefix="/api", tags=["crypto-paper"])
 app.include_router(tushare_init.router, prefix="/api", tags=["tushare-init"])
 app.include_router(akshare_init.router, prefix="/api", tags=["akshare-init"])
 app.include_router(baostock_init.router, prefix="/api", tags=["baostock-init"])

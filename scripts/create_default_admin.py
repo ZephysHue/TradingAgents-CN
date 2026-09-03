@@ -14,6 +14,7 @@
 
 import sys
 import hashlib
+import os
 from datetime import datetime
 from pathlib import Path
 import argparse
@@ -24,10 +25,16 @@ sys.path.insert(0, str(project_root))
 
 from pymongo import MongoClient
 
+from app.core.config import settings
+
 
 # 配置
-MONGO_URI = "mongodb://admin:tradingagents123@localhost:27017/tradingagentscn?authSource=admin"
-DB_NAME = "tradingagentscn"
+DB_NAME = os.getenv("MONGODB_DATABASE") or os.getenv("MONGO_DB") or settings.MONGO_DB
+MONGO_URI = os.getenv("MONGO_URI") or os.getenv("MONGODB_URL") or settings.MONGO_URI or (
+    f"mongodb://{os.getenv('MONGODB_USERNAME', 'admin')}:{os.getenv('MONGODB_PASSWORD', 'tradingagents123')}"
+    f"@{os.getenv('MONGODB_HOST', 'localhost')}:{os.getenv('MONGODB_PORT', '27017')}/{DB_NAME}"
+    f"?authSource={os.getenv('MONGODB_AUTH_SOURCE', 'admin')}"
+)
 
 
 def hash_password(password: str) -> str:
@@ -248,4 +255,3 @@ def main():
 
 if __name__ == "__main__":
     main()
-
