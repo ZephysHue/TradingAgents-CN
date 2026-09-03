@@ -1,0 +1,35 @@
+MULTI-ASSET STRATEGY DISCOVERY SPRINT V1 VERIFICATION
+Generated: 2026-09-01 UTC
+
+BASELINE
+COMMAND: python -m py_compile research/crypto_backtest/run_strategy_discovery_sprint_v1.py
+INPUT: research/crypto_backtest/run_strategy_discovery_sprint_v1.py
+RESULT: compilation completed without output.
+EXIT STATUS: 0
+
+MODIFIED
+COMMAND: python research/crypto_backtest/run_strategy_discovery_sprint_v1.py
+INPUT: frozen provisional universe registry and local manifest-addressable 15m cache only
+LITERAL OUTPUT: {"status": "local_strategy_data_not_available", "selected": 90, "unavailable": 60, "output": "reports\\crypto-backtest\\strategy-discovery-sprint-v1"}
+EXIT STATUS: 0
+
+COMMAND: canonical JSON parser and strategy specification SHA256 recomputation
+INPUT: generated sprint artifacts
+LITERAL OUTPUT: JSON_PARSE_AND_SPEC_SHA256=PASS
+EXIT STATUS: 0
+
+VERIFICATION
+COMMAND: python -m pytest tests/unit/test_strategy_discovery_sprint_v1.py tests/unit/test_multitier_census_v1.py tests/unit/test_multitier_universe_expansion_v1.py -q
+INPUT: deterministic local fixtures and existing census tests
+LITERAL OUTPUT: 11 passed in 4.73s
+EXIT STATUS: 0
+
+RESULT
+Development has 30/30 selected local stage-symbols at 100% coverage. Validation has 0/30 at the required 99% threshold because every selected symbol lacks 96 bars on 2026-07-01. Holdout has 0/30 available symbols. The preflight stopped before S1/S2/S3 execution.
+
+ROLLBACK
+COMMAND: bash ROLLBACK.sh <copy-of-output-directory>
+INPUT: independently created copy of this sprint output directory
+RESULT: removes only the specified copied audit output directory after expected marker files are present; original output remains unchanged.
+LITERAL OUTPUT: ROLLBACK_OK: removed copied sprint output directory; ROLLBACK_TEST_EXIT=0
+EXIT STATUS: 0

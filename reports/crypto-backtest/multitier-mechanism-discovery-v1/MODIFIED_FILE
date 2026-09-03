@@ -1,0 +1,9 @@
+research/crypto_backtest/census_multitier_universe_v1.py
+tests/unit/test_multitier_census_v1.py
+reports/crypto-backtest/multitier-mechanism-discovery-v1/universe_registry.json
+reports/crypto-backtest/multitier-mechanism-discovery-v1/data_manifest.json
+reports/crypto-backtest/multitier-mechanism-discovery-v1/data_quality.csv
+reports/crypto-backtest/multitier-mechanism-discovery-v1/regime_census.csv
+reports/crypto-backtest/multitier-mechanism-discovery-v1/funding_data_availability.json
+reports/crypto-backtest/multitier-mechanism-discovery-v1/cost_floor_registry.json
+reports/crypto-backtest/multitier-mechanism-discovery-v1/MULTITIER_UNIVERSE_CENSUS_V1.md

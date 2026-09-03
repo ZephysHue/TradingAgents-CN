@@ -1,0 +1,23 @@
+BASELINE
+COMMAND: python -m py_compile app/services/crypto/bybit_client.py app/routers/crypto.py research/crypto_backtest/run_bybit_multisymbol_v1.py
+RESULT: exit 0
+
+MODIFIED
+COMMAND: docker compose up -d --build backend frontend; docker compose exec -T backend python -c "import asyncio; from app.services.crypto import BybitFuturesClient as C; print(asyncio.run(C().status()))"
+RESULT: backend and frontend healthy; live Bybit status returned exchange=bybit, market=linear_perpetual.
+
+MODIFIED
+COMMAND: python research/crypto_backtest/run_bybit_multisymbol_v1.py --start 2023-01-01 --end 2026-08-29
+RESULT: {"symbols": 6, "scenarios": 2, "status": "PASS"}; outputs are bybit_linear_v1_summary.csv, manifest.json, and 12 trade CSV files.
+
+VERIFICATION
+COMMAND: python -c "import runpy; d=runpy.run_path('tests/unit/test_bybit_crypto_data.py'); d['test_bybit_symbol_normalization'](); d['test_bybit_kline_mapping_and_volatility'](); print('bybit_unit=PASS')"
+RESULT: bybit_unit=PASS; exit 0.
+
+VERIFICATION
+COMMAND: Python ledger check over all 12 generated trade CSV files.
+RESULT: ledger=PASS symbols=6 scenarios=2; each Equity_after equals Equity_before plus NetPnL and every summary Net PnL equals the trade-log sum.
+
+ROLLBACK
+COMMAND: C:\Program Files\Git\bin\bash.exe ROLLBACK.sh C:/Users/KSO/AppData/Local/Temp/bybit-rollback-fixture-db359e6999e140fa84e7cad9648f6b49
+RESULT: rollback_copy=PASS; removes the added Bybit files and result/data directories from a copied workspace; pre-existing shared crypto route and UI files are intentionally preserved.

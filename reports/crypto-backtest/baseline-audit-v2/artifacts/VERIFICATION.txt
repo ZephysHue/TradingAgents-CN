@@ -1,0 +1,50 @@
+Changed branch/field
+- Branch: main
+- Field: fixed-signal Corrected COIN-M BASELINE cost audit; raw-price SL/TP triggers; fill-price inverse risk/PnL; BTC ledger; per-scenario integer quantity.
+
+Four artifacts
+- MODIFIED_FILE: D:\Desktop\TradingAgents-CN\research\crypto_backtest\audit_corrected_baseline.py
+- DIFF_FILE: D:\Desktop\TradingAgents-CN\reports\crypto-backtest\baseline-audit-v2\artifacts\DIFF_FILE.patch
+- VERIFICATION.txt: D:\Desktop\TradingAgents-CN\reports\crypto-backtest\baseline-audit-v2\artifacts\VERIFICATION.txt
+- executable ROLLBACK.sh: D:\Desktop\TradingAgents-CN\reports\crypto-backtest\baseline-audit-v2\artifacts\ROLLBACK.sh
+
+Hashes
+- Original SHA256: BA3DFB048ADF61C9A2B1304C788F8150FFA326102B0D609ED8D238D08A441D5B
+- Modified SHA256: 19B9E85528580A25FF4460A50A25D9D027AF0473CC73F6BC05310C9CFCA1DA33
+
+BASELINE
+- Command: python research/crypto_backtest/validate_corrected_baseline.py --trades reports/crypto-backtest/BASELINE_trades.csv --out reports/crypto-backtest/corrected-validation
+- Input: reports/crypto-backtest/BASELINE_trades.csv
+- Literal result: BASELINE_EXIT=0
+- Exit status: 0
+
+CORRECTED BASELINE GENERATION
+- Command: python research/crypto_backtest/backtest.py --data-dir research/crypto_backtest/data --output-dir reports/crypto-backtest --baseline-only
+- Input: Binance public-data BTCUSD_PERP 15m archive under research/crypto_backtest/data
+- Literal output: {"output": "reports\\crypto-backtest", "baseline_trades": 1858, "parameter_combinations": 288, "market": "cm"}
+- Exit status: 0
+- Result: baseline-only path ran; the 288 combinations were enumerated as metadata but not executed.
+
+MODIFIED
+- Command: python research/crypto_backtest/audit_corrected_baseline.py --trades reports/crypto-backtest/BASELINE_trades.csv --old reports/crypto-backtest/diagnostics/diagnostic_summary.json --output reports/crypto-backtest/baseline-audit-v2 --initial-usd 1000
+- Input: corrected BASELINE trade signals plus OLD diagnostic JSON
+- Literal output: {"output": "reports\\crypto-backtest\\baseline-audit-v2", "signals": 1858, "scenario_A_expectancy": 0.04346386086471876, "scenario_D_expectancy_all_in": -0.12605299189956812, "signal_sets_exact_match": true, "ledger": "PASS"}
+- Exit status: 0
+- Result: A/B/C/D CSV and JSON written; all ledger assertions passed; all four signal sets matched exactly.
+
+UNIT TEST
+- Command: python research/crypto_backtest/test_coin_m_engine.py
+- Input: four synthetic long/short profit/loss directions and fee case
+- Literal output: COIN-M engine 4-direction and fee tests: PASS
+- Exit status: 0
+
+ROLLBACK
+- Command: python reports/crypto-backtest/baseline-audit-v2/artifacts/ROLLBACK.sh --target reports/crypto-backtest/baseline-audit-v2/artifacts/rollback-test/audit_corrected_baseline.py --source reports/crypto-backtest/baseline-audit-v2/artifacts/validate_corrected_baseline.ORIGINAL.py
+- Input: another copy of MODIFIED_FILE and preserved original copy
+- Literal output: ROLLBACK PASS target=reports\crypto-backtest\baseline-audit-v2\artifacts\rollback-test\audit_corrected_baseline.py sha256=ba3dfb048adf61c9a2b1304c788f8150ffa326102b0d609ed8d238d08a441d5b
+- Exit status: 0
+- Restored behavior/status: rollback-test copy matched the original SHA256; MODIFIED_FILE remained changed and present.
+
+Additional checks
+- python -m compileall -q research/crypto_backtest: exit 0
+- git diff --check: exit 0

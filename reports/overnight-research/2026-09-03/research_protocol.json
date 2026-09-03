@@ -1,0 +1,793 @@
+{
+  "generated_at_utc": "2026-09-03T08:41:08.331327+08:00",
+  "warning_flags": [
+    "exploratory_survivorship_bias_present",
+    "funding_unmodeled_not_deployable"
+  ],
+  "inputs": {
+    "data_manifest": {
+      "path": "reports\\crypto-backtest\\strategy-discovery-sprint-v1\\dataset-repair-v1-final2\\normalized_data_manifest.json",
+      "sha256": "088f9c7f69844ac87af493bdf2d54f8deabe157902e3d888732a9fe53444d9a6"
+    },
+    "universe_manifest": {
+      "path": "reports\\crypto-backtest\\strategy-discovery-sprint-v1\\universe_manifest.json",
+      "sha256": "8f1c6957163a56032f8eff1fdbb9ac4ecaaedc90d9873784471d8c7250617f30"
+    }
+  },
+  "capital": {
+    "initial_equity_usdt": 1000.0,
+    "symbol_exposure_pct": 0.1,
+    "portfolio_exposure_pct": 0.8,
+    "leverage": 0.0
+  },
+  "costs": {
+    "baseline_fee_rate": 0.0004,
+    "baseline_slippage": 0.0002,
+    "stress_multiplier": 1.5
+  },
+  "stages": {
+    "development": {
+      "start_utc": "2026-06-01 00:00:00+00:00",
+      "end_utc": "2026-06-30 23:45:00+00:00",
+      "members": 30,
+      "market_summary": {
+        "stage": "development",
+        "symbols": 30,
+        "tiers": {
+          "hot": {
+            "symbols": 10,
+            "median_period_return_pct": -21.949470996018494,
+            "median_abs_15m_return_pct": 0.21755427664842952,
+            "median_coverage_pct": 100.0
+          },
+          "mid": {
+            "symbols": 10,
+            "median_period_return_pct": -24.23164679410343,
+            "median_abs_15m_return_pct": 0.3148389498994375,
+            "median_coverage_pct": 100.0
+          },
+          "low": {
+            "symbols": 10,
+            "median_period_return_pct": -30.66495222403053,
+            "median_abs_15m_return_pct": 0.2816311718018494,
+            "median_coverage_pct": 100.0
+          }
+        }
+      }
+    },
+    "validation": {
+      "start_utc": "2026-07-01 00:00:00+00:00",
+      "end_utc": "2026-07-31 23:45:00+00:00",
+      "members": 30,
+      "market_summary": {
+        "stage": "validation",
+        "symbols": 30,
+        "tiers": {
+          "hot": {
+            "symbols": 10,
+            "median_period_return_pct": -2.277734717752761,
+            "median_abs_15m_return_pct": 0.16241010628621488,
+            "median_coverage_pct": 100.0
+          },
+          "mid": {
+            "symbols": 10,
+            "median_period_return_pct": -6.994029536574386,
+            "median_abs_15m_return_pct": 0.2028695338422426,
+            "median_coverage_pct": 100.0
+          },
+          "low": {
+            "symbols": 10,
+            "median_period_return_pct": -5.855275048076209,
+            "median_abs_15m_return_pct": 0.14517135117074753,
+            "median_coverage_pct": 100.0
+          }
+        }
+      }
+    },
+    "holdout": {
+      "start_utc": "2026-08-01 00:00:00+00:00",
+      "end_utc": "2026-08-29 23:45:00+00:00",
+      "members": 30,
+      "market_summary": {
+        "stage": "holdout",
+        "symbols": 30,
+        "tiers": {
+          "hot": {
+            "symbols": 10,
+            "median_period_return_pct": 23.460658358979202,
+            "median_abs_15m_return_pct": 0.11586662287873528,
+            "median_coverage_pct": 100.0
+          },
+          "mid": {
+            "symbols": 10,
+            "median_period_return_pct": 16.41112566453502,
+            "median_abs_15m_return_pct": 0.1705237515225333,
+            "median_coverage_pct": 100.0
+          },
+          "low": {
+            "symbols": 10,
+            "median_period_return_pct": 11.685994647636043,
+            "median_abs_15m_return_pct": 0.17292062943110587,
+            "median_coverage_pct": 100.0
+          }
+        }
+      }
+    }
+  },
+  "selection_rule": "Development rank by trade_count>=100 first, then net_expectancy_bps, profit_factor, net_pnl, trade_count.",
+  "validation_gate": {
+    "trade_count_min": 150,
+    "win_rate_gt": 50,
+    "net_expectancy_bps_gt": 0,
+    "profit_factor_gt": 1.05,
+    "max_drawdown_pct_gte": -25
+  },
+  "holdout_gate": {
+    "trade_count_min": 300,
+    "win_rate_gt": 50,
+    "net_expectancy_bps_gt": 0,
+    "profit_factor_gt": 1.1,
+    "max_drawdown_pct_gte": -25,
+    "stress_net_expectancy_bps_gt": 0,
+    "stress_profit_factor_gt": 1.0
+  },
+  "parameter_budget": {
+    "generated_at_utc": "2026-09-03T08:41:08.332328+08:00",
+    "warning_flags": [
+      "exploratory_survivorship_bias_present",
+      "funding_unmodeled_not_deployable"
+    ],
+    "total_parameter_sets": 96,
+    "total_cap": 192,
+    "family_cap": 48,
+    "families": [
+      {
+        "family": "A",
+        "family_name": "mean_reversion_bollinger_rsi",
+        "parameter_sets": 24,
+        "selected_param_id": "A08",
+        "selected_params": {
+          "family": "A",
+          "param_id": "A08",
+          "bb_window": 18,
+          "bb_width": 2.0,
+          "rsi_length": 14,
+          "rsi_entry": 25,
+          "max_hold_bars": 12
+        }
+      },
+      {
+        "family": "B",
+        "family_name": "trend_pullback_hourly_filter",
+        "parameter_sets": 32,
+        "selected_param_id": "B08",
+        "selected_params": {
+          "family": "B",
+          "param_id": "B08",
+          "trend_fast": 36,
+          "trend_slow": 120,
+          "pullback_ema": 20,
+          "rsi_length": 14,
+          "rsi_floor": 55,
+          "take_profit_atr": 1.5,
+          "max_hold_bars": 16
+        }
+      },
+      {
+        "family": "C",
+        "family_name": "tiered_cross_sectional_momentum",
+        "parameter_sets": 24,
+        "selected_param_id": "C03",
+        "selected_params": {
+          "family": "C",
+          "param_id": "C03",
+          "lookback_hours": 12,
+          "selection_pct": 0.2,
+          "hold_hours": 8,
+          "rebalance_hours": 1
+        }
+      },
+      {
+        "family": "D",
+        "family_name": "donchian_atr_breakout",
+        "parameter_sets": 16,
+        "selected_param_id": "D12",
+        "selected_params": {
+          "family": "D",
+          "param_id": "D12",
+          "donchian_window": 40,
+          "breakout_buffer_atr": 0.0,
+          "atr_ratio_threshold": 1.2,
+          "max_hold_bars": 20,
+          "take_profit_atr": 2.0
+        }
+      }
+    ]
+  },
+  "data_inventory": [
+    {
+      "symbol": "BTCUSDT",
+      "path": "D:\\Desktop\\TradingAgents-CN\\reports\\crypto-backtest\\strategy-discovery-sprint-v1\\dataset-repair-v1-final2\\normalized_15m_data\\BTCUSDT-15m.csv.gz",
+      "sha256": "3d775a39a421b16f2ecdc3425680cb92a692e293209d0f1a39fa8c69aff7ce34",
+      "rows": 128352,
+      "utc_start": "2023-01-01 00:00:00+00:00",
+      "utc_end": "2026-08-29 23:45:00+00:00"
+    },
+    {
+      "symbol": "ETHUSDT",
+      "path": "D:\\Desktop\\TradingAgents-CN\\reports\\crypto-backtest\\strategy-discovery-sprint-v1\\dataset-repair-v1-final2\\normalized_15m_data\\ETHUSDT-15m.csv.gz",
+      "sha256": "7b538928a0fd721fd5647752aae3f7ecbc54cd44190557ee384032e2e08e3c45",
+      "rows": 128352,
+      "utc_start": "2023-01-01 00:00:00+00:00",
+      "utc_end": "2026-08-29 23:45:00+00:00"
+    },
+    {
+      "symbol": "SOLUSDT",
+      "path": "D:\\Desktop\\TradingAgents-CN\\reports\\crypto-backtest\\strategy-discovery-sprint-v1\\dataset-repair-v1-final2\\normalized_15m_data\\SOLUSDT-15m.csv.gz",
+      "sha256": "2d537851e13f5612ed7b2554a56b72cfc7d524c5fe9f06514cba6616c5b4f26c",
+      "rows": 128352,
+      "utc_start": "2023-01-01 00:00:00+00:00",
+      "utc_end": "2026-08-29 23:45:00+00:00"
+    },
+    {
+      "symbol": "HYPEUSDT",
+      "path": "D:\\Desktop\\TradingAgents-CN\\reports\\crypto-backtest\\strategy-discovery-sprint-v1\\dataset-repair-v1-final2\\normalized_15m_data\\HYPEUSDT-15m.csv.gz",
+      "sha256": "ae1feddb394c42111ac43170f1486417218ac717728a3869bd823067f76e2d35",
+      "rows": 8640,
+      "utc_start": "2026-05-02 00:00:00+00:00",
+      "utc_end": "2026-07-31 23:45:00+00:00"
+    },
+    {
+      "symbol": "XRPUSDT",
+      "path": "D:\\Desktop\\TradingAgents-CN\\reports\\crypto-backtest\\strategy-discovery-sprint-v1\\dataset-repair-v1-final2\\normalized_15m_data\\XRPUSDT-15m.csv.gz",
+      "sha256": "ce0d373e5adc87908285c27c536b511a18a82cc68beac0431b79b468aad134c2",
+      "rows": 128352,
+      "utc_start": "2023-01-01 00:00:00+00:00",
+      "utc_end": "2026-08-29 23:45:00+00:00"
+    },
+    {
+      "symbol": "ZECUSDT",
+      "path": "D:\\Desktop\\TradingAgents-CN\\reports\\crypto-backtest\\strategy-discovery-sprint-v1\\dataset-repair-v1-final2\\normalized_15m_data\\ZECUSDT-15m.csv.gz",
+      "sha256": "ba2a053215183ebbd92bf88f71558b64a27a550f38645a9b58f74dc0279b9d4e",
+      "rows": 8640,
+      "utc_start": "2026-05-02 00:00:00+00:00",
+      "utc_end": "2026-07-31 23:45:00+00:00"
+    },
+    {
+      "symbol": "DOGEUSDT",
+      "path": "D:\\Desktop\\TradingAgents-CN\\reports\\crypto-backtest\\strategy-discovery-sprint-v1\\dataset-repair-v1-final2\\normalized_15m_data\\DOGEUSDT-15m.csv.gz",
+      "sha256": "ea99f85fea2011a13694fd1ff64fbaf619d5e615f22e66c53a9cf315ae9eda1a",
+      "rows": 128352,
+      "utc_start": "2023-01-01 00:00:00+00:00",
+      "utc_end": "2026-08-29 23:45:00+00:00"
+    },
+    {
+      "symbol": "LABUSDT",
+      "path": "D:\\Desktop\\TradingAgents-CN\\reports\\crypto-backtest\\strategy-discovery-sprint-v1\\dataset-repair-v1-final2\\normalized_15m_data\\LABUSDT-15m.csv.gz",
+      "sha256": "dd3a046714bf6ad459cffdc155409fdfe16e7571c84d13997bfe0d7b969bf914",
+      "rows": 8640,
+      "utc_start": "2026-05-02 00:00:00+00:00",
+      "utc_end": "2026-07-31 23:45:00+00:00"
+    },
+    {
+      "symbol": "NEARUSDT",
+      "path": "D:\\Desktop\\TradingAgents-CN\\reports\\crypto-backtest\\strategy-discovery-sprint-v1\\dataset-repair-v1-final2\\normalized_15m_data\\NEARUSDT-15m.csv.gz",
+      "sha256": "8d0b5daf0bc54526dc29f9ac3a3593f67b119610d356277639fc5e4fa67c7bac",
+      "rows": 8640,
+      "utc_start": "2026-05-02 00:00:00+00:00",
+      "utc_end": "2026-07-31 23:45:00+00:00"
+    },
+    {
+      "symbol": "SUIUSDT",
+      "path": "D:\\Desktop\\TradingAgents-CN\\reports\\crypto-backtest\\strategy-discovery-sprint-v1\\dataset-repair-v1-final2\\normalized_15m_data\\SUIUSDT-15m.csv.gz",
+      "sha256": "7c3c86f74c18751baa08981995abdb635db4765418c9600c9ead660ec43e64e8",
+      "rows": 8640,
+      "utc_start": "2026-05-02 00:00:00+00:00",
+      "utc_end": "2026-07-31 23:45:00+00:00"
+    },
+    {
+      "symbol": "BRUSDT",
+      "path": "D:\\Desktop\\TradingAgents-CN\\reports\\crypto-backtest\\strategy-discovery-sprint-v1\\dataset-repair-v1-final2\\normalized_15m_data\\BRUSDT-15m.csv.gz",
+      "sha256": "b07523fa55bef4ae348ea717c03f81ef7b866f69d7e5934253b0edfb53eca4e6",
+      "rows": 8640,
+      "utc_start": "2026-05-02 00:00:00+00:00",
+      "utc_end": "2026-07-31 23:45:00+00:00"
+    },
+    {
+      "symbol": "ZAMAUSDT",
+      "path": "D:\\Desktop\\TradingAgents-CN\\reports\\crypto-backtest\\strategy-discovery-sprint-v1\\dataset-repair-v1-final2\\normalized_15m_data\\ZAMAUSDT-15m.csv.gz",
+      "sha256": "42b0ad6a5d0c3cb00cb27352428389fa992af9e9f8c21132be3dc9a16abf67bb",
+      "rows": 8640,
+      "utc_start": "2026-05-02 00:00:00+00:00",
+      "utc_end": "2026-07-31 23:45:00+00:00"
+    },
+    {
+      "symbol": "FIGHTUSDT",
+      "path": "D:\\Desktop\\TradingAgents-CN\\reports\\crypto-backtest\\strategy-discovery-sprint-v1\\dataset-repair-v1-final2\\normalized_15m_data\\FIGHTUSDT-15m.csv.gz",
+      "sha256": "de7478551d93e122d2fa6cf7abfa8cbade8f7dfd18914a5d6ca52228328b4278",
+      "rows": 8640,
+      "utc_start": "2026-05-02 00:00:00+00:00",
+      "utc_end": "2026-07-31 23:45:00+00:00"
+    },
+    {
+      "symbol": "SONICUSDT",
+      "path": "D:\\Desktop\\TradingAgents-CN\\reports\\crypto-backtest\\strategy-discovery-sprint-v1\\dataset-repair-v1-final2\\normalized_15m_data\\SONICUSDT-15m.csv.gz",
+      "sha256": "8e9b4725441f652047a8069c562ef5975414cc5af77cd5dc875ec3e8b71358a8",
+      "rows": 8640,
+      "utc_start": "2026-05-02 00:00:00+00:00",
+      "utc_end": "2026-07-31 23:45:00+00:00"
+    },
+    {
+      "symbol": "PTBUSDT",
+      "path": "D:\\Desktop\\TradingAgents-CN\\reports\\crypto-backtest\\strategy-discovery-sprint-v1\\dataset-repair-v1-final2\\normalized_15m_data\\PTBUSDT-15m.csv.gz",
+      "sha256": "10a5fda5fc60578af3d4198054f24e7e9ee53e57a90849fcf13e4bdad77593a3",
+      "rows": 8640,
+      "utc_start": "2026-05-02 00:00:00+00:00",
+      "utc_end": "2026-07-31 23:45:00+00:00"
+    },
+    {
+      "symbol": "INTCUSDT",
+      "path": "D:\\Desktop\\TradingAgents-CN\\reports\\crypto-backtest\\strategy-discovery-sprint-v1\\dataset-repair-v1-final2\\normalized_15m_data\\INTCUSDT-15m.csv.gz",
+      "sha256": "58194c9de0fc9fe434b15394cd3819fa6a579c6a6a5038bb87881d9abaef941f",
+      "rows": 8640,
+      "utc_start": "2026-05-02 00:00:00+00:00",
+      "utc_end": "2026-07-31 23:45:00+00:00"
+    },
+    {
+      "symbol": "RONINUSDT",
+      "path": "D:\\Desktop\\TradingAgents-CN\\reports\\crypto-backtest\\strategy-discovery-sprint-v1\\dataset-repair-v1-final2\\normalized_15m_data\\RONINUSDT-15m.csv.gz",
+      "sha256": "f5ec4242b2f25660236addf7c5d81071e8e3a17ecf91b5f151f917ca27ffeba5",
+      "rows": 8640,
+      "utc_start": "2026-05-02 00:00:00+00:00",
+      "utc_end": "2026-07-31 23:45:00+00:00"
+    },
+    {
+      "symbol": "COREUSDT",
+      "path": "D:\\Desktop\\TradingAgents-CN\\reports\\crypto-backtest\\strategy-discovery-sprint-v1\\dataset-repair-v1-final2\\normalized_15m_data\\COREUSDT-15m.csv.gz",
+      "sha256": "f6dcf2852495d3f37c4661d15790a310fb07d2e7b0db43d2896c9c078306b1f7",
+      "rows": 8640,
+      "utc_start": "2026-05-02 00:00:00+00:00",
+      "utc_end": "2026-07-31 23:45:00+00:00"
+    },
+    {
+      "symbol": "APRUSDT",
+      "path": "D:\\Desktop\\TradingAgents-CN\\reports\\crypto-backtest\\strategy-discovery-sprint-v1\\dataset-repair-v1-final2\\normalized_15m_data\\APRUSDT-15m.csv.gz",
+      "sha256": "6f9970bcd661bbb71913bc72b3151007fcd15fdadbc992f35507b74e8365f399",
+      "rows": 8640,
+      "utc_start": "2026-05-02 00:00:00+00:00",
+      "utc_end": "2026-07-31 23:45:00+00:00"
+    },
+    {
+      "symbol": "MOVRUSDT",
+      "path": "D:\\Desktop\\TradingAgents-CN\\reports\\crypto-backtest\\strategy-discovery-sprint-v1\\dataset-repair-v1-final2\\normalized_15m_data\\MOVRUSDT-15m.csv.gz",
+      "sha256": "fe753bce1127dfe6fcefb69b4ed64b534cf04d57d0afb18e67e0b26051f7390b",
+      "rows": 8640,
+      "utc_start": "2026-05-02 00:00:00+00:00",
+      "utc_end": "2026-07-31 23:45:00+00:00"
+    },
+    {
+      "symbol": "SENTUSDT",
+      "path": "D:\\Desktop\\TradingAgents-CN\\reports\\crypto-backtest\\strategy-discovery-sprint-v1\\dataset-repair-v1-final2\\normalized_15m_data\\SENTUSDT-15m.csv.gz",
+      "sha256": "275db7b8d355d5fecef6cb5d529550cc5d80fae75786617582c056e3e39f1744",
+      "rows": 8640,
+      "utc_start": "2026-05-02 00:00:00+00:00",
+      "utc_end": "2026-07-31 23:45:00+00:00"
+    },
+    {
+      "symbol": "1000XECUSDT",
+      "path": "D:\\Desktop\\TradingAgents-CN\\reports\\crypto-backtest\\strategy-discovery-sprint-v1\\dataset-repair-v1-final2\\normalized_15m_data\\1000XECUSDT-15m.csv.gz",
+      "sha256": "1aad6949a4247bea2642e7bad66c75898bf96d4a4d7d7c5be19ee48bf3621bb2",
+      "rows": 8640,
+      "utc_start": "2026-05-02 00:00:00+00:00",
+      "utc_end": "2026-07-31 23:45:00+00:00"
+    },
+    {
+      "symbol": "HNTUSDT",
+      "path": "D:\\Desktop\\TradingAgents-CN\\reports\\crypto-backtest\\strategy-discovery-sprint-v1\\dataset-repair-v1-final2\\normalized_15m_data\\HNTUSDT-15m.csv.gz",
+      "sha256": "b49ba63f79d26d149f7b321feaa11325d8ebfd75ecc2779408ba90ee66746a83",
+      "rows": 8640,
+      "utc_start": "2026-05-02 00:00:00+00:00",
+      "utc_end": "2026-07-31 23:45:00+00:00"
+    },
+    {
+      "symbol": "1000RATSUSDT",
+      "path": "D:\\Desktop\\TradingAgents-CN\\reports\\crypto-backtest\\strategy-discovery-sprint-v1\\dataset-repair-v1-final2\\normalized_15m_data\\1000RATSUSDT-15m.csv.gz",
+      "sha256": "caab6de5cc29ec6f08db0379395d0b5a8935cfcd9ee46e03a91848bfbeba68a2",
+      "rows": 8640,
+      "utc_start": "2026-05-02 00:00:00+00:00",
+      "utc_end": "2026-07-31 23:45:00+00:00"
+    },
+    {
+      "symbol": "SXTUSDT",
+      "path": "D:\\Desktop\\TradingAgents-CN\\reports\\crypto-backtest\\strategy-discovery-sprint-v1\\dataset-repair-v1-final2\\normalized_15m_data\\SXTUSDT-15m.csv.gz",
+      "sha256": "7b161ba99dc74e3689b8a9cce663c2f84b79bf14bf1cb15bae7fb7f285b948cd",
+      "rows": 8640,
+      "utc_start": "2026-05-02 00:00:00+00:00",
+      "utc_end": "2026-07-31 23:45:00+00:00"
+    },
+    {
+      "symbol": "MINAUSDT",
+      "path": "D:\\Desktop\\TradingAgents-CN\\reports\\crypto-backtest\\strategy-discovery-sprint-v1\\dataset-repair-v1-final2\\normalized_15m_data\\MINAUSDT-15m.csv.gz",
+      "sha256": "9d83c2807a678219d1644ea4590d098459fef6c183a2f9776e82c8a8fc6173c0",
+      "rows": 8640,
+      "utc_start": "2026-05-02 00:00:00+00:00",
+      "utc_end": "2026-07-31 23:45:00+00:00"
+    },
+    {
+      "symbol": "ELSAUSDT",
+      "path": "D:\\Desktop\\TradingAgents-CN\\reports\\crypto-backtest\\strategy-discovery-sprint-v1\\dataset-repair-v1-final2\\normalized_15m_data\\ELSAUSDT-15m.csv.gz",
+      "sha256": "c0ea47cea95d350d416e2fcb6cc8f308bd86e15df7c6b488fef87e1c1d406c4a",
+      "rows": 8640,
+      "utc_start": "2026-05-02 00:00:00+00:00",
+      "utc_end": "2026-07-31 23:45:00+00:00"
+    },
+    {
+      "symbol": "MASKUSDT",
+      "path": "D:\\Desktop\\TradingAgents-CN\\reports\\crypto-backtest\\strategy-discovery-sprint-v1\\dataset-repair-v1-final2\\normalized_15m_data\\MASKUSDT-15m.csv.gz",
+      "sha256": "7a9b36738a0ff5dc0efe1fcaafcbcf012fdfdcd0a3d40eb4ec37c732ebef7946",
+      "rows": 8640,
+      "utc_start": "2026-05-02 00:00:00+00:00",
+      "utc_end": "2026-07-31 23:45:00+00:00"
+    },
+    {
+      "symbol": "BIRBUSDT",
+      "path": "D:\\Desktop\\TradingAgents-CN\\reports\\crypto-backtest\\strategy-discovery-sprint-v1\\dataset-repair-v1-final2\\normalized_15m_data\\BIRBUSDT-15m.csv.gz",
+      "sha256": "935030c73f9f7872428d5ace2b7a15f7377ace29aac713aa272e866dde4acee8",
+      "rows": 8640,
+      "utc_start": "2026-05-02 00:00:00+00:00",
+      "utc_end": "2026-07-31 23:45:00+00:00"
+    },
+    {
+      "symbol": "AEVOUSDT",
+      "path": "D:\\Desktop\\TradingAgents-CN\\reports\\crypto-backtest\\strategy-discovery-sprint-v1\\dataset-repair-v1-final2\\normalized_15m_data\\AEVOUSDT-15m.csv.gz",
+      "sha256": "a2c50024f9ab3cfe68630e8376470005fadae4a943cd1ac8c0990923589e4132",
+      "rows": 8640,
+      "utc_start": "2026-05-02 00:00:00+00:00",
+      "utc_end": "2026-07-31 23:45:00+00:00"
+    },
+    {
+      "symbol": "WLDUSDT",
+      "path": "D:\\Desktop\\TradingAgents-CN\\reports\\crypto-backtest\\strategy-discovery-sprint-v1\\dataset-repair-v1-final2\\normalized_15m_data\\WLDUSDT-15m.csv.gz",
+      "sha256": "ba64001abb990db777066259837e5461550d778da5d6884a94a73a2b3a98a125",
+      "rows": 8736,
+      "utc_start": "2026-05-02 00:00:00+00:00",
+      "utc_end": "2026-07-31 23:45:00+00:00"
+    },
+    {
+      "symbol": "CFGUSDT",
+      "path": "D:\\Desktop\\TradingAgents-CN\\reports\\crypto-backtest\\strategy-discovery-sprint-v1\\dataset-repair-v1-final2\\normalized_15m_data\\CFGUSDT-15m.csv.gz",
+      "sha256": "f61872ac5b0a1c684004a913bcc1d88e3a3c785f8d053da6ef57b6d546f8ddff",
+      "rows": 8736,
+      "utc_start": "2026-05-02 00:00:00+00:00",
+      "utc_end": "2026-07-31 23:45:00+00:00"
+    },
+    {
+      "symbol": "SKRUSDT",
+      "path": "D:\\Desktop\\TradingAgents-CN\\reports\\crypto-backtest\\strategy-discovery-sprint-v1\\dataset-repair-v1-final2\\normalized_15m_data\\SKRUSDT-15m.csv.gz",
+      "sha256": "c1e07fae0841d922419fc415f5c546e124e91e6e283379d81fbd75465af2d225",
+      "rows": 8736,
+      "utc_start": "2026-05-02 00:00:00+00:00",
+      "utc_end": "2026-07-31 23:45:00+00:00"
+    },
+    {
+      "symbol": "WCTUSDT",
+      "path": "D:\\Desktop\\TradingAgents-CN\\reports\\crypto-backtest\\strategy-discovery-sprint-v1\\dataset-repair-v1-final2\\normalized_15m_data\\WCTUSDT-15m.csv.gz",
+      "sha256": "fad0c8ed98969082c3f0d03a75d56a04fc503f5e3f1a06f73759efd74d4a7e3f",
+      "rows": 8736,
+      "utc_start": "2026-05-02 00:00:00+00:00",
+      "utc_end": "2026-07-31 23:45:00+00:00"
+    },
+    {
+      "symbol": "COMPUSDT",
+      "path": "D:\\Desktop\\TradingAgents-CN\\reports\\crypto-backtest\\strategy-discovery-sprint-v1\\dataset-repair-v1-final2\\normalized_15m_data\\COMPUSDT-15m.csv.gz",
+      "sha256": "023cb28163f577b0cf872805c56a0db370974b1f0457e12205411c9c2e151b4f",
+      "rows": 8736,
+      "utc_start": "2026-05-02 00:00:00+00:00",
+      "utc_end": "2026-07-31 23:45:00+00:00"
+    },
+    {
+      "symbol": "GPSUSDT",
+      "path": "D:\\Desktop\\TradingAgents-CN\\reports\\crypto-backtest\\strategy-discovery-sprint-v1\\dataset-repair-v1-final2\\normalized_15m_data\\GPSUSDT-15m.csv.gz",
+      "sha256": "7dc3a01527c5a3ac4249ed8da8ec36b75204b995376e90cab63d2dd952520f66",
+      "rows": 8736,
+      "utc_start": "2026-05-02 00:00:00+00:00",
+      "utc_end": "2026-07-31 23:45:00+00:00"
+    },
+    {
+      "symbol": "0GUSDT",
+      "path": "D:\\Desktop\\TradingAgents-CN\\reports\\crypto-backtest\\strategy-discovery-sprint-v1\\dataset-repair-v1-final2\\normalized_15m_data\\0GUSDT-15m.csv.gz",
+      "sha256": "b5f089569b65092b975ac9859831186e351efda9043567efae0bc85a0e780607",
+      "rows": 8736,
+      "utc_start": "2026-05-02 00:00:00+00:00",
+      "utc_end": "2026-07-31 23:45:00+00:00"
+    },
+    {
+      "symbol": "TAIKOUSDT",
+      "path": "D:\\Desktop\\TradingAgents-CN\\reports\\crypto-backtest\\strategy-discovery-sprint-v1\\dataset-repair-v1-final2\\normalized_15m_data\\TAIKOUSDT-15m.csv.gz",
+      "sha256": "f45b4fdb4bd8ea09f60e5c2ffcb56caea6cdaf7d31a9de163e041978d65b528d",
+      "rows": 8736,
+      "utc_start": "2026-05-02 00:00:00+00:00",
+      "utc_end": "2026-07-31 23:45:00+00:00"
+    },
+    {
+      "symbol": "INITUSDT",
+      "path": "D:\\Desktop\\TradingAgents-CN\\reports\\crypto-backtest\\strategy-discovery-sprint-v1\\dataset-repair-v1-final2\\normalized_15m_data\\INITUSDT-15m.csv.gz",
+      "sha256": "544e8146bfab52a1603e1d44c34a51980e52e5433f575ec7f05624faea96e478",
+      "rows": 8736,
+      "utc_start": "2026-05-02 00:00:00+00:00",
+      "utc_end": "2026-07-31 23:45:00+00:00"
+    },
+    {
+      "symbol": "LIGHTUSDT",
+      "path": "D:\\Desktop\\TradingAgents-CN\\reports\\crypto-backtest\\strategy-discovery-sprint-v1\\dataset-repair-v1-final2\\normalized_15m_data\\LIGHTUSDT-15m.csv.gz",
+      "sha256": "4d3fdbde7886df0a1175343119c547e709a6c9d8d98b032d7c58c336e703ea41",
+      "rows": 8736,
+      "utc_start": "2026-05-02 00:00:00+00:00",
+      "utc_end": "2026-07-31 23:45:00+00:00"
+    },
+    {
+      "symbol": "CAKEUSDT",
+      "path": "D:\\Desktop\\TradingAgents-CN\\reports\\crypto-backtest\\strategy-discovery-sprint-v1\\dataset-repair-v1-final2\\normalized_15m_data\\CAKEUSDT-15m.csv.gz",
+      "sha256": "a7b42d3e461881297d376f50c50d990114a6dc5a4c2a45526863a7af34c67de7",
+      "rows": 8736,
+      "utc_start": "2026-05-02 00:00:00+00:00",
+      "utc_end": "2026-07-31 23:45:00+00:00"
+    },
+    {
+      "symbol": "FLRUSDT",
+      "path": "D:\\Desktop\\TradingAgents-CN\\reports\\crypto-backtest\\strategy-discovery-sprint-v1\\dataset-repair-v1-final2\\normalized_15m_data\\FLRUSDT-15m.csv.gz",
+      "sha256": "122379339eed593e5fa48f13ca7468ca7a456cbd4a447f5bec79598acfa81e5a",
+      "rows": 8736,
+      "utc_start": "2026-05-02 00:00:00+00:00",
+      "utc_end": "2026-07-31 23:45:00+00:00"
+    },
+    {
+      "symbol": "ZKPUSDT",
+      "path": "D:\\Desktop\\TradingAgents-CN\\reports\\crypto-backtest\\strategy-discovery-sprint-v1\\dataset-repair-v1-final2\\normalized_15m_data\\ZKPUSDT-15m.csv.gz",
+      "sha256": "ff1d155079066bda6873cd3fcecdfb9c4fefd39e994d1ea763f52e3e93f8c707",
+      "rows": 8736,
+      "utc_start": "2026-05-02 00:00:00+00:00",
+      "utc_end": "2026-07-31 23:45:00+00:00"
+    },
+    {
+      "symbol": "KAVAUSDT",
+      "path": "D:\\Desktop\\TradingAgents-CN\\reports\\crypto-backtest\\strategy-discovery-sprint-v1\\dataset-repair-v1-final2\\normalized_15m_data\\KAVAUSDT-15m.csv.gz",
+      "sha256": "d9c5ee67e2046fb271489c2fd74aed5fb50df05f46da23ff3d3d2017fc17ac98",
+      "rows": 8736,
+      "utc_start": "2026-05-02 00:00:00+00:00",
+      "utc_end": "2026-07-31 23:45:00+00:00"
+    },
+    {
+      "symbol": "ONGUSDT",
+      "path": "D:\\Desktop\\TradingAgents-CN\\reports\\crypto-backtest\\strategy-discovery-sprint-v1\\dataset-repair-v1-final2\\normalized_15m_data\\ONGUSDT-15m.csv.gz",
+      "sha256": "a2a2ecc7d61711613b02664b15503f880b68a3cf6866bd767ae302dea8128f99",
+      "rows": 8736,
+      "utc_start": "2026-05-02 00:00:00+00:00",
+      "utc_end": "2026-07-31 23:45:00+00:00"
+    },
+    {
+      "symbol": "FUSDT",
+      "path": "D:\\Desktop\\TradingAgents-CN\\reports\\crypto-backtest\\strategy-discovery-sprint-v1\\dataset-repair-v1-final2\\normalized_15m_data\\FUSDT-15m.csv.gz",
+      "sha256": "aadcadf51af51ca4b58177e6df792922d5f829af487ede61cbd681853084f6f6",
+      "rows": 8736,
+      "utc_start": "2026-05-02 00:00:00+00:00",
+      "utc_end": "2026-07-31 23:45:00+00:00"
+    },
+    {
+      "symbol": "ZBCNUSDT",
+      "path": "D:\\Desktop\\TradingAgents-CN\\reports\\crypto-backtest\\strategy-discovery-sprint-v1\\dataset-repair-v1-final2\\normalized_15m_data\\ZBCNUSDT-15m.csv.gz",
+      "sha256": "449919fdd2d2a345bc5c6eaf2bfd18ac137a1409b7847a48c4264ec57588fc7d",
+      "rows": 8736,
+      "utc_start": "2026-05-02 00:00:00+00:00",
+      "utc_end": "2026-07-31 23:45:00+00:00"
+    },
+    {
+      "symbol": "LUNA2USDT",
+      "path": "D:\\Desktop\\TradingAgents-CN\\reports\\crypto-backtest\\strategy-discovery-sprint-v1\\dataset-repair-v1-final2\\normalized_15m_data\\LUNA2USDT-15m.csv.gz",
+      "sha256": "79b0f489652a851c8c1b527600ac7105852a969b3be9629a1b9405bf30ca9b39",
+      "rows": 8736,
+      "utc_start": "2026-05-02 00:00:00+00:00",
+      "utc_end": "2026-07-31 23:45:00+00:00"
+    },
+    {
+      "symbol": "ACUUSDT",
+      "path": "D:\\Desktop\\TradingAgents-CN\\reports\\crypto-backtest\\strategy-discovery-sprint-v1\\dataset-repair-v1-final2\\normalized_15m_data\\ACUUSDT-15m.csv.gz",
+      "sha256": "7c8e66f3e1170e33da33be61db5988e92be71f22142441b61e17fe86588ab5b1",
+      "rows": 8736,
+      "utc_start": "2026-05-02 00:00:00+00:00",
+      "utc_end": "2026-07-31 23:45:00+00:00"
+    },
+    {
+      "symbol": "CYBERUSDT",
+      "path": "D:\\Desktop\\TradingAgents-CN\\reports\\crypto-backtest\\strategy-discovery-sprint-v1\\dataset-repair-v1-final2\\normalized_15m_data\\CYBERUSDT-15m.csv.gz",
+      "sha256": "28f3e24f2e20f2924ba580f0c80870eb474b7ba05d7feeb3b1c0346775d74af2",
+      "rows": 8736,
+      "utc_start": "2026-05-02 00:00:00+00:00",
+      "utc_end": "2026-07-31 23:45:00+00:00"
+    },
+    {
+      "symbol": "BEAMUSDT",
+      "path": "D:\\Desktop\\TradingAgents-CN\\reports\\crypto-backtest\\strategy-discovery-sprint-v1\\dataset-repair-v1-final2\\normalized_15m_data\\BEAMUSDT-15m.csv.gz",
+      "sha256": "50f5ecb5b51a85aff7dc26aee08c0590c7fc6470a11cc9c8980e96db3a6c6fa4",
+      "rows": 8736,
+      "utc_start": "2026-05-02 00:00:00+00:00",
+      "utc_end": "2026-07-31 23:45:00+00:00"
+    },
+    {
+      "symbol": "SOXLUSDT",
+      "path": "D:\\Desktop\\TradingAgents-CN\\reports\\crypto-backtest\\strategy-discovery-sprint-v1\\dataset-repair-v1-final2\\normalized_15m_data\\SOXLUSDT-15m.csv.gz",
+      "sha256": "5535716615b0c40ff43cdcd93f02902be4c187981a7cf8b7ae4a47421208328d",
+      "rows": 9754,
+      "utc_start": "2026-05-19 09:30:00+00:00",
+      "utc_end": "2026-08-29 23:45:00+00:00"
+    },
+    {
+      "symbol": "XAUUSDT",
+      "path": "D:\\Desktop\\TradingAgents-CN\\reports\\crypto-backtest\\strategy-discovery-sprint-v1\\dataset-repair-v1-final2\\normalized_15m_data\\XAUUSDT-15m.csv.gz",
+      "sha256": "9c78de2f7b2ccad24d85a4c4b6d5ac116379818e4637d978e8ff3c838178a22f",
+      "rows": 11424,
+      "utc_start": "2026-05-02 00:00:00+00:00",
+      "utc_end": "2026-08-29 23:45:00+00:00"
+    },
+    {
+      "symbol": "SNDKUSDT",
+      "path": "D:\\Desktop\\TradingAgents-CN\\reports\\crypto-backtest\\strategy-discovery-sprint-v1\\dataset-repair-v1-final2\\normalized_15m_data\\SNDKUSDT-15m.csv.gz",
+      "sha256": "65c5c7c0b2c83177bd4e5d66de77c025ecb85bc9fa39e85e615809967b400bdf",
+      "rows": 11424,
+      "utc_start": "2026-05-02 00:00:00+00:00",
+      "utc_end": "2026-08-29 23:45:00+00:00"
+    },
+    {
+      "symbol": "BANKUSDT",
+      "path": "D:\\Desktop\\TradingAgents-CN\\reports\\crypto-backtest\\strategy-discovery-sprint-v1\\dataset-repair-v1-final2\\normalized_15m_data\\BANKUSDT-15m.csv.gz",
+      "sha256": "19b774967b01a3aa5550c352134f771dbf586c50c4b81e6c9cdc10ecd51d0009",
+      "rows": 11424,
+      "utc_start": "2026-05-02 00:00:00+00:00",
+      "utc_end": "2026-08-29 23:45:00+00:00"
+    },
+    {
+      "symbol": "THETAUSDT",
+      "path": "D:\\Desktop\\TradingAgents-CN\\reports\\crypto-backtest\\strategy-discovery-sprint-v1\\dataset-repair-v1-final2\\normalized_15m_data\\THETAUSDT-15m.csv.gz",
+      "sha256": "fc5db9851f48eab7bf940b2d0ac04ebf772b618c516d96c4d27318f48202f0f8",
+      "rows": 11424,
+      "utc_start": "2026-05-02 00:00:00+00:00",
+      "utc_end": "2026-08-29 23:45:00+00:00"
+    },
+    {
+      "symbol": "HANAUSDT",
+      "path": "D:\\Desktop\\TradingAgents-CN\\reports\\crypto-backtest\\strategy-discovery-sprint-v1\\dataset-repair-v1-final2\\normalized_15m_data\\HANAUSDT-15m.csv.gz",
+      "sha256": "a5afa097dd09c31814acf43efa24a6c5deeb5a9e59885a69f6097940cbaa6447",
+      "rows": 11424,
+      "utc_start": "2026-05-02 00:00:00+00:00",
+      "utc_end": "2026-08-29 23:45:00+00:00"
+    },
+    {
+      "symbol": "CHZUSDT",
+      "path": "D:\\Desktop\\TradingAgents-CN\\reports\\crypto-backtest\\strategy-discovery-sprint-v1\\dataset-repair-v1-final2\\normalized_15m_data\\CHZUSDT-15m.csv.gz",
+      "sha256": "f0b45fe96235dee39efec0828f4e61f6edd7db6d004e8b7b9fb7214eff142458",
+      "rows": 11424,
+      "utc_start": "2026-05-02 00:00:00+00:00",
+      "utc_end": "2026-08-29 23:45:00+00:00"
+    },
+    {
+      "symbol": "COINUSDT",
+      "path": "D:\\Desktop\\TradingAgents-CN\\reports\\crypto-backtest\\strategy-discovery-sprint-v1\\dataset-repair-v1-final2\\normalized_15m_data\\COINUSDT-15m.csv.gz",
+      "sha256": "65852a920114847718d7044c97be2ba5e542f802ac3db319910a00dafd32b193",
+      "rows": 8544,
+      "utc_start": "2026-06-01 00:00:00+00:00",
+      "utc_end": "2026-08-29 23:45:00+00:00"
+    },
+    {
+      "symbol": "IMXUSDT",
+      "path": "D:\\Desktop\\TradingAgents-CN\\reports\\crypto-backtest\\strategy-discovery-sprint-v1\\dataset-repair-v1-final2\\normalized_15m_data\\IMXUSDT-15m.csv.gz",
+      "sha256": "99f7ba3f70789f3516066b38b71af84be4be360e204668b94d1a22d4b4907e8b",
+      "rows": 11424,
+      "utc_start": "2026-05-02 00:00:00+00:00",
+      "utc_end": "2026-08-29 23:45:00+00:00"
+    },
+    {
+      "symbol": "CFXUSDT",
+      "path": "D:\\Desktop\\TradingAgents-CN\\reports\\crypto-backtest\\strategy-discovery-sprint-v1\\dataset-repair-v1-final2\\normalized_15m_data\\CFXUSDT-15m.csv.gz",
+      "sha256": "bba4718f2f0292093e9a83025f5f074d9e44216ad1942ef7e36b2431b64dd070",
+      "rows": 11424,
+      "utc_start": "2026-05-02 00:00:00+00:00",
+      "utc_end": "2026-08-29 23:45:00+00:00"
+    },
+    {
+      "symbol": "ORCLUSDT",
+      "path": "D:\\Desktop\\TradingAgents-CN\\reports\\crypto-backtest\\strategy-discovery-sprint-v1\\dataset-repair-v1-final2\\normalized_15m_data\\ORCLUSDT-15m.csv.gz",
+      "sha256": "b95651ea0d58df03e2c94d23bb664340b08da59d99771bb12df691bc812b0298",
+      "rows": 11004,
+      "utc_start": "2026-05-06 09:00:00+00:00",
+      "utc_end": "2026-08-29 23:45:00+00:00"
+    },
+    {
+      "symbol": "XANUSDT",
+      "path": "D:\\Desktop\\TradingAgents-CN\\reports\\crypto-backtest\\strategy-discovery-sprint-v1\\dataset-repair-v1-final2\\normalized_15m_data\\XANUSDT-15m.csv.gz",
+      "sha256": "3b422705affd24a04a5d25c1ff8840b8f1bd8f3974fee45ceab9a1d61202a01e",
+      "rows": 11424,
+      "utc_start": "2026-05-02 00:00:00+00:00",
+      "utc_end": "2026-08-29 23:45:00+00:00"
+    },
+    {
+      "symbol": "ICNTUSDT",
+      "path": "D:\\Desktop\\TradingAgents-CN\\reports\\crypto-backtest\\strategy-discovery-sprint-v1\\dataset-repair-v1-final2\\normalized_15m_data\\ICNTUSDT-15m.csv.gz",
+      "sha256": "a5bf4556113c2aed81d3563901af1b3e41bc135518ad54addae84ea2f967442c",
+      "rows": 11424,
+      "utc_start": "2026-05-02 00:00:00+00:00",
+      "utc_end": "2026-08-29 23:45:00+00:00"
+    },
+    {
+      "symbol": "1000000BABYDOGEUSDT",
+      "path": "D:\\Desktop\\TradingAgents-CN\\reports\\crypto-backtest\\strategy-discovery-sprint-v1\\dataset-repair-v1-final2\\normalized_15m_data\\1000000BABYDOGEUSDT-15m.csv.gz",
+      "sha256": "83c9c11ce5f1fac25869d1e41c749f29ab337d916735503075ba9c8c2bffb125",
+      "rows": 11424,
+      "utc_start": "2026-05-02 00:00:00+00:00",
+      "utc_end": "2026-08-29 23:45:00+00:00"
+    },
+    {
+      "symbol": "AWEUSDT",
+      "path": "D:\\Desktop\\TradingAgents-CN\\reports\\crypto-backtest\\strategy-discovery-sprint-v1\\dataset-repair-v1-final2\\normalized_15m_data\\AWEUSDT-15m.csv.gz",
+      "sha256": "c0a01df041449bfd8aeaec41ae576c335b25a8dc3b2df868e1e64ea0ea159f03",
+      "rows": 11424,
+      "utc_start": "2026-05-02 00:00:00+00:00",
+      "utc_end": "2026-08-29 23:45:00+00:00"
+    },
+    {
+      "symbol": "NEWTUSDT",
+      "path": "D:\\Desktop\\TradingAgents-CN\\reports\\crypto-backtest\\strategy-discovery-sprint-v1\\dataset-repair-v1-final2\\normalized_15m_data\\NEWTUSDT-15m.csv.gz",
+      "sha256": "9d7a79c26b193395523b1ad7c1960e1d335a84677cde3a8969ba98bc83a6da64",
+      "rows": 11424,
+      "utc_start": "2026-05-02 00:00:00+00:00",
+      "utc_end": "2026-08-29 23:45:00+00:00"
+    },
+    {
+      "symbol": "PUFFERUSDT",
+      "path": "D:\\Desktop\\TradingAgents-CN\\reports\\crypto-backtest\\strategy-discovery-sprint-v1\\dataset-repair-v1-final2\\normalized_15m_data\\PUFFERUSDT-15m.csv.gz",
+      "sha256": "c7a66d2417e4989ceb9c706ead7b59d7dbf8ea66230cdc5f6c8e91770311b986",
+      "rows": 11424,
+      "utc_start": "2026-05-02 00:00:00+00:00",
+      "utc_end": "2026-08-29 23:45:00+00:00"
+    },
+    {
+      "symbol": "GASUSDT",
+      "path": "D:\\Desktop\\TradingAgents-CN\\reports\\crypto-backtest\\strategy-discovery-sprint-v1\\dataset-repair-v1-final2\\normalized_15m_data\\GASUSDT-15m.csv.gz",
+      "sha256": "afbdb90aec9065db45ccdfee779936c0c4f711429a876b5375e3da7e99afdc9c",
+      "rows": 11424,
+      "utc_start": "2026-05-02 00:00:00+00:00",
+      "utc_end": "2026-08-29 23:45:00+00:00"
+    },
+    {
+      "symbol": "PLAYSOUTUSDT",
+      "path": "D:\\Desktop\\TradingAgents-CN\\reports\\crypto-backtest\\strategy-discovery-sprint-v1\\dataset-repair-v1-final2\\normalized_15m_data\\PLAYSOUTUSDT-15m.csv.gz",
+      "sha256": "9b674f1c048be28db1e785038d9eeb6bc8fd156c078fbcf2666b7b5bb0a06602",
+      "rows": 8544,
+      "utc_start": "2026-05-02 00:00:00+00:00",
+      "utc_end": "2026-08-29 23:45:00+00:00"
+    },
+    {
+      "symbol": "KMNOUSDT",
+      "path": "D:\\Desktop\\TradingAgents-CN\\reports\\crypto-backtest\\strategy-discovery-sprint-v1\\dataset-repair-v1-final2\\normalized_15m_data\\KMNOUSDT-15m.csv.gz",
+      "sha256": "e43a46c4bbfea42a616be9c8307e6dcd047163419464e116f0b6ef0feda0d2c5",
+      "rows": 11424,
+      "utc_start": "2026-05-02 00:00:00+00:00",
+      "utc_end": "2026-08-29 23:45:00+00:00"
+    },
+    {
+      "symbol": "FOGOUSDT",
+      "path": "D:\\Desktop\\TradingAgents-CN\\reports\\crypto-backtest\\strategy-discovery-sprint-v1\\dataset-repair-v1-final2\\normalized_15m_data\\FOGOUSDT-15m.csv.gz",
+      "sha256": "2e2376cb0480024cf67dce1ab4a7e17366df0049a5f4bec4623444c9e84f139e",
+      "rows": 11424,
+      "utc_start": "2026-05-02 00:00:00+00:00",
+      "utc_end": "2026-08-29 23:45:00+00:00"
+    },
+    {
+      "symbol": "PROVEUSDT",
+      "path": "D:\\Desktop\\TradingAgents-CN\\reports\\crypto-backtest\\strategy-discovery-sprint-v1\\dataset-repair-v1-final2\\normalized_15m_data\\PROVEUSDT-15m.csv.gz",
+      "sha256": "3363318d9c94e6b611f9ef418be3374757fa4b279750cb67e3ca1220a8b425ae",
+      "rows": 11424,
+      "utc_start": "2026-05-02 00:00:00+00:00",
+      "utc_end": "2026-08-29 23:45:00+00:00"
+    }
+  ]
+}

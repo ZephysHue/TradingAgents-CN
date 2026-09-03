@@ -1,0 +1,28 @@
+{
+  "version": "v1",
+  "generated_at_utc": "2026-08-30T13:05:07.129654+00:00",
+  "method": "edge_floor = round_trip_fee + 2 * one_way_slippage",
+  "tiers": {
+    "hot": {
+      "status": "pending_evidence",
+      "round_trip_fee": null,
+      "one_way_slippage": null,
+      "edge_floor": null,
+      "reason": "No tier-specific reproducible historical fee and slippage evidence was supplied or fetched in this unlabelled census."
+    },
+    "mid": {
+      "status": "pending_evidence",
+      "round_trip_fee": null,
+      "one_way_slippage": null,
+      "edge_floor": null,
+      "reason": "No tier-specific reproducible historical fee and slippage evidence was supplied or fetched in this unlabelled census."
+    },
+    "low": {
+      "status": "pending_evidence",
+      "round_trip_fee": null,
+      "one_way_slippage": null,
+      "edge_floor": null,
+      "reason": "No tier-specific reproducible historical fee and slippage evidence was supplied or fetched in this unlabelled census."
+    }
+  }
+}

@@ -1,0 +1,342 @@
+{
+  "validation_nature": "Retrospective Stability Validation / Pseudo-OOS Validation",
+  "frozen_definition": {
+    "bear": "completed Daily Close < completed Daily EMA200",
+    "volatility": "completed Daily ATR14 / Daily Close < 0.04839",
+    "threshold": 0.04839,
+    "changed": false
+  },
+  "candidate_trades": 368,
+  "full_history": {
+    "trades": 368,
+    "long": 148,
+    "short": 220,
+    "win_rate": 0.421195652173913,
+    "scenario_a": {
+      "trades": 368,
+      "expectancy": 0.26971115357753067,
+      "profit_factor": 1.4359682580424837,
+      "net_pnl_btc": 0.13274461617372876,
+      "max_drawdown": -0.14890323476992506,
+      "win_rate": 0.421195652173913,
+      "avg_win_r": 2.0145400291389115,
+      "avg_loss_r": 1.0
+    },
+    "scenario_d": {
+      "trades": 368,
+      "expectancy": 0.027717899843014586,
+      "profit_factor": 1.0011136007695252,
+      "net_pnl_btc": 0.00023703187893476304,
+      "max_drawdown": -0.21729472652311566,
+      "win_rate": 0.421195652173913,
+      "avg_win_r": 1.4400012073692203,
+      "avg_loss_r": 0.9999999999999989
+    }
+  },
+  "annual": [
+    {
+      "year": 2020,
+      "validation": "Retrospective Stability Validation / Pseudo-OOS Validation",
+      "trades": 0,
+      "long": 0,
+      "short": 0,
+      "win_rate": NaN,
+      "a_expectancy": NaN,
+      "d_expectancy": NaN,
+      "a_pf": NaN,
+      "d_pf": NaN,
+      "a_net_pnl_btc": 0.0,
+      "d_net_pnl_btc": 0.0,
+      "a_max_drawdown": 0.0,
+      "d_max_drawdown": 0.0,
+      "a_avg_win_r": NaN,
+      "a_avg_loss_r": NaN,
+      "d_avg_win_r": NaN,
+      "d_avg_loss_r": NaN
+    },
+    {
+      "year": 2021,
+      "validation": "Retrospective Stability Validation / Pseudo-OOS Validation",
+      "trades": 0,
+      "long": 0,
+      "short": 0,
+      "win_rate": NaN,
+      "a_expectancy": NaN,
+      "d_expectancy": NaN,
+      "a_pf": NaN,
+      "d_pf": NaN,
+      "a_net_pnl_btc": 0.0,
+      "d_net_pnl_btc": 0.0,
+      "a_max_drawdown": 0.0,
+      "d_max_drawdown": 0.0,
+      "a_avg_win_r": NaN,
+      "a_avg_loss_r": NaN,
+      "d_avg_win_r": NaN,
+      "d_avg_loss_r": NaN
+    },
+    {
+      "year": 2022,
+      "validation": "Retrospective Stability Validation / Pseudo-OOS Validation",
+      "trades": 105,
+      "long": 37,
+      "short": 68,
+      "win_rate": 0.4380952380952381,
+      "a_expectancy": 0.321233824306539,
+      "d_expectancy": 0.057954450834663676,
+      "a_pf": 1.5465745620218723,
+      "d_pf": 1.034497556776903,
+      "a_net_pnl_btc": 0.03191597041957266,
+      "d_net_pnl_btc": 0.0020980004942970525,
+      "a_max_drawdown": -0.07466968382906869,
+      "d_max_drawdown": -0.13784604736604145,
+      "a_avg_win_r": 2.015859816351882,
+      "a_avg_loss_r": 1.0,
+      "d_avg_win_r": 1.41489602907912,
+      "d_avg_loss_r": 0.9999999999999972
+    },
+    {
+      "year": 2023,
+      "validation": "Retrospective Stability Validation / Pseudo-OOS Validation",
+      "trades": 41,
+      "long": 26,
+      "short": 15,
+      "win_rate": 0.3902439024390244,
+      "a_expectancy": 0.16518404838221307,
+      "d_expectancy": -0.058621795783925075,
+      "a_pf": 1.2423949760052484,
+      "d_pf": 0.8221947425009535,
+      "a_net_pnl_btc": 0.005373461109918303,
+      "d_net_pnl_btc": -0.004552736608761161,
+      "a_max_drawdown": -0.07652147794688069,
+      "d_max_drawdown": -0.11174876504414011,
+      "a_avg_win_r": 1.985784123979421,
+      "a_avg_loss_r": 1.0,
+      "d_avg_win_r": 1.4122816483036882,
+      "d_avg_loss_r": 0.9999999999999976
+    },
+    {
+      "year": 2024,
+      "validation": "Retrospective Stability Validation / Pseudo-OOS Validation",
+      "trades": 19,
+      "long": 2,
+      "short": 17,
+      "win_rate": 0.5263157894736842,
+      "a_expectancy": 0.5959261553260573,
+      "d_expectancy": 0.36717064877388933,
+      "a_pf": 2.277042670461653,
+      "d_pf": 1.680104314781671,
+      "a_net_pnl_btc": 0.009790103636611586,
+      "d_net_pnl_btc": 0.006012841920979022,
+      "a_max_drawdown": -0.019767209959262177,
+      "d_max_drawdown": -0.02278868142480417,
+      "a_avg_win_r": 2.032259695119509,
+      "a_avg_loss_r": 1.0,
+      "d_avg_win_r": 1.5976242326703871,
+      "d_avg_loss_r": 0.999999999999997
+    },
+    {
+      "year": 2025,
+      "validation": "Retrospective Stability Validation / Pseudo-OOS Validation",
+      "trades": 61,
+      "long": 15,
+      "short": 46,
+      "win_rate": 0.32786885245901637,
+      "a_expectancy": -0.005127761010935268,
+      "d_expectancy": -0.18570922277125626,
+      "a_pf": 0.9777248321497556,
+      "d_pf": 0.7318485080377081,
+      "a_net_pnl_btc": -0.0008151522197870789,
+      "d_net_pnl_btc": -0.010340081586847983,
+      "a_max_drawdown": -0.14866742651154918,
+      "d_max_drawdown": -0.19079463693475673,
+      "a_avg_win_r": 2.034360328916647,
+      "a_avg_loss_r": 1.0,
+      "d_avg_win_r": 1.4835868705476662,
+      "d_avg_loss_r": 0.999999999999999
+    },
+    {
+      "year": 2026,
+      "validation": "Retrospective Stability Validation / Pseudo-OOS Validation",
+      "trades": 142,
+      "long": 68,
+      "short": 74,
+      "win_rate": 0.44366197183098594,
+      "a_expectancy": 0.3362098834587741,
+      "d_expectancy": 0.07655270207093905,
+      "a_pf": 1.5550874782639252,
+      "d_pf": 1.0984378617101158,
+      "a_net_pnl_btc": 0.04934875623713576,
+      "d_net_pnl_btc": 0.00832757938268966,
+      "a_max_drawdown": -0.08162155049328246,
+      "d_max_drawdown": -0.18211488502167728,
+      "a_avg_win_r": 2.0117746579546973,
+      "a_avg_loss_r": 1.0,
+      "d_avg_win_r": 1.426515614191641,
+      "d_avg_loss_r": 1.0000000000000009
+    }
+  ],
+  "rolling_summary": {
+    "windows": 11,
+    "windows_with_trades": 10,
+    "positive_d_expectancy_windows": 6,
+    "positive_d_expectancy_ratio": 0.6,
+    "d_pf_above_1_windows": 4,
+    "d_pf_above_1_ratio": 0.4,
+    "a_and_d_positive_windows": 6,
+    "a_and_d_positive_ratio": 0.6
+  },
+  "walk_forward_combined_tests": {
+    "trades": 330,
+    "long": 138,
+    "short": 192,
+    "win_rate": 0.41818181818181815,
+    "scenario_a": {
+      "trades": 330,
+      "expectancy": 0.2608773823087617,
+      "profit_factor": 1.4232876559049206,
+      "net_pnl_btc": 0.10624062988779277,
+      "max_drawdown": -0.14904526511179872,
+      "win_rate": 0.41818181818181815,
+      "avg_win_r": 2.015141566390517,
+      "avg_loss_r": 1.0
+    },
+    "scenario_d": {
+      "trades": 330,
+      "expectancy": 0.01645317201532607,
+      "profit_factor": 0.9824165256208188,
+      "net_pnl_btc": -0.0032499590442523,
+      "max_drawdown": -0.21777054946870011,
+      "win_rate": 0.41818181818181815,
+      "avg_win_r": 1.4306488896018648,
+      "avg_loss_r": 0.9999999999999986
+    }
+  },
+  "threshold_sensitivity": [
+    {
+      "threshold": 0.04,
+      "official_candidate": false,
+      "trades": 208,
+      "a_expectancy": 0.2288344588475119,
+      "d_expectancy": -0.041614242538294974,
+      "a_pf": 1.3665064728233998,
+      "d_pf": 0.8860575133831521,
+      "d_max_drawdown": -0.24495713692716292
+    },
+    {
+      "threshold": 0.045,
+      "official_candidate": false,
+      "trades": 319,
+      "a_expectancy": 0.2572627165284319,
+      "d_expectancy": 0.008328222915097524,
+      "a_pf": 1.4002034243703374,
+      "d_pf": 0.9683362100815144,
+      "d_max_drawdown": -0.25088007488453923
+    },
+    {
+      "threshold": 0.04839,
+      "official_candidate": true,
+      "trades": 368,
+      "a_expectancy": 0.26971115357753067,
+      "d_expectancy": 0.027717899843014586,
+      "a_pf": 1.4359682580424837,
+      "d_pf": 1.0011136007695252,
+      "d_max_drawdown": -0.21729472652311566
+    },
+    {
+      "threshold": 0.05,
+      "official_candidate": false,
+      "trades": 402,
+      "a_expectancy": 0.2601418910054541,
+      "d_expectancy": 0.027712414413314557,
+      "a_pf": 1.4125247484293038,
+      "d_pf": 0.998645176584836,
+      "d_max_drawdown": -0.2589489623398096
+    },
+    {
+      "threshold": 0.055,
+      "official_candidate": false,
+      "trades": 474,
+      "a_expectancy": 0.24142720935595868,
+      "d_expectancy": 0.021877377849139394,
+      "a_pf": 1.3729313061828692,
+      "d_pf": 0.9957282017144083,
+      "d_max_drawdown": -0.28707794407940523
+    }
+  ],
+  "break_even": {
+    "fee_rate_at_2bp": 0.0004946316248874609,
+    "slippage_bp_at_004_fee": 2.9463163803620773
+  },
+  "bootstrap": {
+    "runs": 10000,
+    "trades_per_run": 368,
+    "mean_expectancy": 0.027425760678847496,
+    "median_expectancy": 0.02711252625063036,
+    "expectancy_quantiles": {
+      "0.05": -0.07717551902330898,
+      "0.25": -0.014992583170845092,
+      "0.5": 0.02711252625063036,
+      "0.75": 0.07114391247334924,
+      "0.95": 0.13089989913784725
+    },
+    "p_expectancy_gt_0": 0.6641,
+    "p_pf_gt_1": 0.6641,
+    "max_drawdown_quantiles": {
+      "0.05": -0.3674603803937436,
+      "0.25": -0.2653261356365745,
+      "0.5": -0.20554595087267302,
+      "0.75": -0.16092894665268043,
+      "0.95": -0.11700713024621415
+    },
+    "note": "Bootstrap measures uncertainty in the observed sample; it is not future proof."
+  },
+  "streaks_and_drawdown": {
+    "max_consecutive_losses": 11,
+    "p95_losing_streak_length": 5.0,
+    "max_drawdown": -0.21729472652311566,
+    "average_underwater_drawdown": -0.0989379996704207,
+    "longest_underwater": {
+      "trades": 306,
+      "days": 1384.4583333333333
+    },
+    "annual_max_drawdown": {
+      "2020": 0.0,
+      "2021": 0.0,
+      "2022": -0.13784604736604145,
+      "2023": -0.11174876504414011,
+      "2024": -0.02278868142480417,
+      "2025": -0.19079463693475673,
+      "2026": -0.18211488502167728
+    }
+  },
+  "contribution": [
+    {
+      "top_winners": 5,
+      "top_profit_btc": 0.00905273088734221,
+      "multiple_of_total_net_profit": 38.192039518168535,
+      "share_of_total_net_profit_pct": 3819.2039518168535,
+      "remaining_trades": 363,
+      "remaining_d_expectancy": -0.0005197320565341042,
+      "remaining_d_pf": 0.9585829161723644
+    },
+    {
+      "top_winners": 10,
+      "top_profit_btc": 0.017645700240468368,
+      "multiple_of_total_net_profit": 74.44441785539276,
+      "share_of_total_net_profit_pct": 7444.441785539276,
+      "remaining_trades": 358,
+      "remaining_d_expectancy": -0.02656699693037874,
+      "remaining_d_pf": 0.918212239758921
+    },
+    {
+      "top_winners": 20,
+      "top_profit_btc": 0.03401647930965416,
+      "multiple_of_total_net_profit": 143.51014497512514,
+      "share_of_total_net_profit_pct": 14351.014497512515,
+      "remaining_trades": 348,
+      "remaining_d_expectancy": -0.0786589093473557,
+      "remaining_d_pf": 0.8413005928905852
+    }
+  ],
+  "multiple_testing": "Candidate was discovered on the full 2020-08 to 2026-08 history. These results are retrospective stability checks, not independent OOS proof."
+}

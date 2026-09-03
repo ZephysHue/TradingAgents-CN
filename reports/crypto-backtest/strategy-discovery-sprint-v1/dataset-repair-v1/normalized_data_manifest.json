@@ -1,0 +1,49 @@
+{
+  "generated_at_utc": "2026-09-01T04:35:39.998563+00:00",
+  "warning_flags": [
+    "exploratory_survivorship_bias_present",
+    "funding_not_modeled_not_deployable"
+  ],
+  "files": [
+    {
+      "symbol": "BTCUSDT",
+      "path": "reports\\crypto-backtest\\strategy-discovery-sprint-v1\\dataset-repair-v1\\normalized_15m_data\\BTCUSDT-15m.csv.gz",
+      "sha256": "ee28254e9d39cc6b8e8314fb7224744f841fa4b2038c0a0236167ef11761d390",
+      "rows": 128352,
+      "utc_start": "2023-01-01T00:00:00+00:00",
+      "utc_end": "2026-08-29T23:45:00+00:00"
+    },
+    {
+      "symbol": "ETHUSDT",
+      "path": "reports\\crypto-backtest\\strategy-discovery-sprint-v1\\dataset-repair-v1\\normalized_15m_data\\ETHUSDT-15m.csv.gz",
+      "sha256": "efb03dfedd48c619680803d687d924e4f4e4163f4b671a2d1873349ba27ff8dd",
+      "rows": 128352,
+      "utc_start": "2023-01-01T00:00:00+00:00",
+      "utc_end": "2026-08-29T23:45:00+00:00"
+    },
+    {
+      "symbol": "SOLUSDT",
+      "path": "reports\\crypto-backtest\\strategy-discovery-sprint-v1\\dataset-repair-v1\\normalized_15m_data\\SOLUSDT-15m.csv.gz",
+      "sha256": "20b726d56dba157de7de53d98dfad7bc33b56e1a5daa62367116fc09f4a3b933",
+      "rows": 128352,
+      "utc_start": "2023-01-01T00:00:00+00:00",
+      "utc_end": "2026-08-29T23:45:00+00:00"
+    },
+    {
+      "symbol": "XRPUSDT",
+      "path": "reports\\crypto-backtest\\strategy-discovery-sprint-v1\\dataset-repair-v1\\normalized_15m_data\\XRPUSDT-15m.csv.gz",
+      "sha256": "b09ff6e76acd0d65e559b2158896a06448a5bf20608c8a1f955592b651f0e3a0",
+      "rows": 128352,
+      "utc_start": "2023-01-01T00:00:00+00:00",
+      "utc_end": "2026-08-29T23:45:00+00:00"
+    },
+    {
+      "symbol": "DOGEUSDT",
+      "path": "reports\\crypto-backtest\\strategy-discovery-sprint-v1\\dataset-repair-v1\\normalized_15m_data\\DOGEUSDT-15m.csv.gz",
+      "sha256": "3ba4bdfbf2bc117dfebdca5f1081a2fca28720cbc54dfd9001a1dc85a9cbfc8e",
+      "rows": 128352,
+      "utc_start": "2023-01-01T00:00:00+00:00",
+      "utc_end": "2026-08-29T23:45:00+00:00"
+    }
+  ]
+}

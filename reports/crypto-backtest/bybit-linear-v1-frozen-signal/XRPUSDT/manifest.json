@@ -1,0 +1,23 @@
+{
+  "source": "Bybit V5 public linear perpetual kline API",
+  "market": "linear",
+  "strategy": "frozen V1 signal rules; separate USDT-linear settlement",
+  "start": "2023-01-01",
+  "end": "2026-08-29",
+  "symbols": [
+    "XRPUSDT"
+  ],
+  "records": [
+    {
+      "symbol": "XRPUSDT",
+      "path": "research\\crypto_backtest\\data\\bybit-linear-v1\\XRPUSDT-15m.csv",
+      "sha256": "d20f0f7680590778baefc146600e47e8357bd69104669be851fd6a10e09ced74",
+      "bars": 128352,
+      "start": "2023-01-01T00:00:00+00:00",
+      "end": "2026-08-29T23:45:00+00:00"
+    }
+  ],
+  "funding": "excluded",
+  "fee_rate_D": 0.0004,
+  "slippage_bp_D": 2.0
+}

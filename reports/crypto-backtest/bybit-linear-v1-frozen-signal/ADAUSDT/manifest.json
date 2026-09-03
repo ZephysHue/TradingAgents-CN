@@ -1,0 +1,23 @@
+{
+  "source": "Bybit V5 public linear perpetual kline API",
+  "market": "linear",
+  "strategy": "frozen V1 signal rules; separate USDT-linear settlement",
+  "start": "2023-01-01",
+  "end": "2026-08-29",
+  "symbols": [
+    "ADAUSDT"
+  ],
+  "records": [
+    {
+      "symbol": "ADAUSDT",
+      "path": "research\\crypto_backtest\\data\\bybit-linear-v1\\ADAUSDT-15m.csv",
+      "sha256": "f75786b67ae396c8bbf13b15c4ff242cd6e770d3aa0072d138e41c55c2fa9e05",
+      "bars": 128352,
+      "start": "2023-01-01T00:00:00+00:00",
+      "end": "2026-08-29T23:45:00+00:00"
+    }
+  ],
+  "funding": "excluded",
+  "fee_rate_D": 0.0004,
+  "slippage_bp_D": 2.0
+}

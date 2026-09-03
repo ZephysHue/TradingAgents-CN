@@ -1,0 +1,249 @@
+{
+  "generated_at_utc": "2026-09-01T04:45:09.466488+00:00",
+  "warning_flags": [
+    "exploratory_survivorship_bias_present",
+    "funding_not_modeled_not_deployable"
+  ],
+  "files": [
+    {
+      "symbol": "BTCUSDT",
+      "path": "reports\\crypto-backtest\\strategy-discovery-sprint-v1\\dataset-repair-v1-local-cache-corrected\\normalized_15m_data\\BTCUSDT-15m.csv.gz",
+      "sha256": "f345ca67701d2a1af1a5b84ae55d5f7937026763949e8400953af6802104d241",
+      "rows": 128352,
+      "utc_start": "2023-01-01T00:00:00+00:00",
+      "utc_end": "2026-08-29T23:45:00+00:00"
+    },
+    {
+      "symbol": "ETHUSDT",
+      "path": "reports\\crypto-backtest\\strategy-discovery-sprint-v1\\dataset-repair-v1-local-cache-corrected\\normalized_15m_data\\ETHUSDT-15m.csv.gz",
+      "sha256": "59f068824dc6f513891fc098396571d42c4a61691096fac021d7f4361ab823fa",
+      "rows": 128352,
+      "utc_start": "2023-01-01T00:00:00+00:00",
+      "utc_end": "2026-08-29T23:45:00+00:00"
+    },
+    {
+      "symbol": "SOLUSDT",
+      "path": "reports\\crypto-backtest\\strategy-discovery-sprint-v1\\dataset-repair-v1-local-cache-corrected\\normalized_15m_data\\SOLUSDT-15m.csv.gz",
+      "sha256": "4004aa658b0e93cbdd776f75c5bb9c704c6ab47917e9688f73778b73375af65a",
+      "rows": 128352,
+      "utc_start": "2023-01-01T00:00:00+00:00",
+      "utc_end": "2026-08-29T23:45:00+00:00"
+    },
+    {
+      "symbol": "HYPEUSDT",
+      "path": "reports\\crypto-backtest\\strategy-discovery-sprint-v1\\dataset-repair-v1-local-cache-corrected\\normalized_15m_data\\HYPEUSDT-15m.csv.gz",
+      "sha256": "ad2e47b4293632ecd26463701d5820cf960cc9cdc9f0475aa03687204bf18915",
+      "rows": 8640,
+      "utc_start": "2026-05-02T00:00:00+00:00",
+      "utc_end": "2026-07-31T23:45:00+00:00"
+    },
+    {
+      "symbol": "XRPUSDT",
+      "path": "reports\\crypto-backtest\\strategy-discovery-sprint-v1\\dataset-repair-v1-local-cache-corrected\\normalized_15m_data\\XRPUSDT-15m.csv.gz",
+      "sha256": "9af3f83adcd5915f1183e5a91efe204b2c0a83fd22761d05389c99c0e105a6fd",
+      "rows": 128352,
+      "utc_start": "2023-01-01T00:00:00+00:00",
+      "utc_end": "2026-08-29T23:45:00+00:00"
+    },
+    {
+      "symbol": "ZECUSDT",
+      "path": "reports\\crypto-backtest\\strategy-discovery-sprint-v1\\dataset-repair-v1-local-cache-corrected\\normalized_15m_data\\ZECUSDT-15m.csv.gz",
+      "sha256": "c8b08a4755a2ae9f95bcc98922f85802eaabd03263182ad3fe32e6838c9af62d",
+      "rows": 8640,
+      "utc_start": "2026-05-02T00:00:00+00:00",
+      "utc_end": "2026-07-31T23:45:00+00:00"
+    },
+    {
+      "symbol": "DOGEUSDT",
+      "path": "reports\\crypto-backtest\\strategy-discovery-sprint-v1\\dataset-repair-v1-local-cache-corrected\\normalized_15m_data\\DOGEUSDT-15m.csv.gz",
+      "sha256": "16bef6d4bb0488a80d64777c620751a60a50a3c777e862181c2348a5af268a76",
+      "rows": 128352,
+      "utc_start": "2023-01-01T00:00:00+00:00",
+      "utc_end": "2026-08-29T23:45:00+00:00"
+    },
+    {
+      "symbol": "LABUSDT",
+      "path": "reports\\crypto-backtest\\strategy-discovery-sprint-v1\\dataset-repair-v1-local-cache-corrected\\normalized_15m_data\\LABUSDT-15m.csv.gz",
+      "sha256": "bb43916bfd9479aad4ce68c88ff57f21ff4af1f06708a3a3b251553192ff5009",
+      "rows": 8640,
+      "utc_start": "2026-05-02T00:00:00+00:00",
+      "utc_end": "2026-07-31T23:45:00+00:00"
+    },
+    {
+      "symbol": "NEARUSDT",
+      "path": "reports\\crypto-backtest\\strategy-discovery-sprint-v1\\dataset-repair-v1-local-cache-corrected\\normalized_15m_data\\NEARUSDT-15m.csv.gz",
+      "sha256": "ee6fdfad4d52b82504d79f7b83580336bb7816fb802fbb6c135f52b18950a613",
+      "rows": 8640,
+      "utc_start": "2026-05-02T00:00:00+00:00",
+      "utc_end": "2026-07-31T23:45:00+00:00"
+    },
+    {
+      "symbol": "SUIUSDT",
+      "path": "reports\\crypto-backtest\\strategy-discovery-sprint-v1\\dataset-repair-v1-local-cache-corrected\\normalized_15m_data\\SUIUSDT-15m.csv.gz",
+      "sha256": "2ec63cc674dc988b23c8e41799f6026dbb4221ca551221d42f0d6fa0e83b524d",
+      "rows": 8640,
+      "utc_start": "2026-05-02T00:00:00+00:00",
+      "utc_end": "2026-07-31T23:45:00+00:00"
+    },
+    {
+      "symbol": "BRUSDT",
+      "path": "reports\\crypto-backtest\\strategy-discovery-sprint-v1\\dataset-repair-v1-local-cache-corrected\\normalized_15m_data\\BRUSDT-15m.csv.gz",
+      "sha256": "da240b1bde56be1cecca0ae89341a1783234a3ceb91e436cb15202dd311bb184",
+      "rows": 8640,
+      "utc_start": "2026-05-02T00:00:00+00:00",
+      "utc_end": "2026-07-31T23:45:00+00:00"
+    },
+    {
+      "symbol": "ZAMAUSDT",
+      "path": "reports\\crypto-backtest\\strategy-discovery-sprint-v1\\dataset-repair-v1-local-cache-corrected\\normalized_15m_data\\ZAMAUSDT-15m.csv.gz",
+      "sha256": "57868684c6b6c1d6c3cea82986830db7e0adfeb0f68ad5189fc240759863682b",
+      "rows": 8640,
+      "utc_start": "2026-05-02T00:00:00+00:00",
+      "utc_end": "2026-07-31T23:45:00+00:00"
+    },
+    {
+      "symbol": "FIGHTUSDT",
+      "path": "reports\\crypto-backtest\\strategy-discovery-sprint-v1\\dataset-repair-v1-local-cache-corrected\\normalized_15m_data\\FIGHTUSDT-15m.csv.gz",
+      "sha256": "fb26ebaef82766224512b651dca7dc860bc8983c7ed7fed43e7a3b477c6b725e",
+      "rows": 8640,
+      "utc_start": "2026-05-02T00:00:00+00:00",
+      "utc_end": "2026-07-31T23:45:00+00:00"
+    },
+    {
+      "symbol": "SONICUSDT",
+      "path": "reports\\crypto-backtest\\strategy-discovery-sprint-v1\\dataset-repair-v1-local-cache-corrected\\normalized_15m_data\\SONICUSDT-15m.csv.gz",
+      "sha256": "9877f4f8571e5100aa957c6e7d83327a2058f5f353c794551c96a1931bb234eb",
+      "rows": 8640,
+      "utc_start": "2026-05-02T00:00:00+00:00",
+      "utc_end": "2026-07-31T23:45:00+00:00"
+    },
+    {
+      "symbol": "PTBUSDT",
+      "path": "reports\\crypto-backtest\\strategy-discovery-sprint-v1\\dataset-repair-v1-local-cache-corrected\\normalized_15m_data\\PTBUSDT-15m.csv.gz",
+      "sha256": "f63c0f4b09a961eb5220f610ea4959a1c108d3262536092b0dbf982ca5beb5e3",
+      "rows": 8640,
+      "utc_start": "2026-05-02T00:00:00+00:00",
+      "utc_end": "2026-07-31T23:45:00+00:00"
+    },
+    {
+      "symbol": "INTCUSDT",
+      "path": "reports\\crypto-backtest\\strategy-discovery-sprint-v1\\dataset-repair-v1-local-cache-corrected\\normalized_15m_data\\INTCUSDT-15m.csv.gz",
+      "sha256": "e43fc2c2e85959a63ebe6f3d38ede26d73801aa8e6f8623d79a70493163806ba",
+      "rows": 8640,
+      "utc_start": "2026-05-02T00:00:00+00:00",
+      "utc_end": "2026-07-31T23:45:00+00:00"
+    },
+    {
+      "symbol": "RONINUSDT",
+      "path": "reports\\crypto-backtest\\strategy-discovery-sprint-v1\\dataset-repair-v1-local-cache-corrected\\normalized_15m_data\\RONINUSDT-15m.csv.gz",
+      "sha256": "6517cb11a191dad5ba04cbcd095c4feadadb965a65ff7df6d5f9e23038446938",
+      "rows": 8640,
+      "utc_start": "2026-05-02T00:00:00+00:00",
+      "utc_end": "2026-07-31T23:45:00+00:00"
+    },
+    {
+      "symbol": "COREUSDT",
+      "path": "reports\\crypto-backtest\\strategy-discovery-sprint-v1\\dataset-repair-v1-local-cache-corrected\\normalized_15m_data\\COREUSDT-15m.csv.gz",
+      "sha256": "881fe7130fd59d62c5d287a48a69441c6a1c33bc814ad26a1259320154ab8d2e",
+      "rows": 8640,
+      "utc_start": "2026-05-02T00:00:00+00:00",
+      "utc_end": "2026-07-31T23:45:00+00:00"
+    },
+    {
+      "symbol": "APRUSDT",
+      "path": "reports\\crypto-backtest\\strategy-discovery-sprint-v1\\dataset-repair-v1-local-cache-corrected\\normalized_15m_data\\APRUSDT-15m.csv.gz",
+      "sha256": "cf7db4f225107338c66a25ff5f76f2105bd1daca344557d44da5e4216bc1e845",
+      "rows": 8640,
+      "utc_start": "2026-05-02T00:00:00+00:00",
+      "utc_end": "2026-07-31T23:45:00+00:00"
+    },
+    {
+      "symbol": "MOVRUSDT",
+      "path": "reports\\crypto-backtest\\strategy-discovery-sprint-v1\\dataset-repair-v1-local-cache-corrected\\normalized_15m_data\\MOVRUSDT-15m.csv.gz",
+      "sha256": "9f75381c5e24c98d5a374ee1ddec21af8596fa59ff1ca3840a50eecaaea17988",
+      "rows": 8640,
+      "utc_start": "2026-05-02T00:00:00+00:00",
+      "utc_end": "2026-07-31T23:45:00+00:00"
+    },
+    {
+      "symbol": "SENTUSDT",
+      "path": "reports\\crypto-backtest\\strategy-discovery-sprint-v1\\dataset-repair-v1-local-cache-corrected\\normalized_15m_data\\SENTUSDT-15m.csv.gz",
+      "sha256": "fd8390825a0f63c61b891928aee433bd16de09757005b86cac407380c784993c",
+      "rows": 8640,
+      "utc_start": "2026-05-02T00:00:00+00:00",
+      "utc_end": "2026-07-31T23:45:00+00:00"
+    },
+    {
+      "symbol": "1000XECUSDT",
+      "path": "reports\\crypto-backtest\\strategy-discovery-sprint-v1\\dataset-repair-v1-local-cache-corrected\\normalized_15m_data\\1000XECUSDT-15m.csv.gz",
+      "sha256": "ad90ce039aab2c9219ddb78c92bc73e7254bc9d9b6676ee357b9fc20ce29d1d8",
+      "rows": 8640,
+      "utc_start": "2026-05-02T00:00:00+00:00",
+      "utc_end": "2026-07-31T23:45:00+00:00"
+    },
+    {
+      "symbol": "HNTUSDT",
+      "path": "reports\\crypto-backtest\\strategy-discovery-sprint-v1\\dataset-repair-v1-local-cache-corrected\\normalized_15m_data\\HNTUSDT-15m.csv.gz",
+      "sha256": "137e531fe6d1bf7a0f1cb00c7e31d5fd7f1d0f35446334d16ca913b3a371fc5a",
+      "rows": 8640,
+      "utc_start": "2026-05-02T00:00:00+00:00",
+      "utc_end": "2026-07-31T23:45:00+00:00"
+    },
+    {
+      "symbol": "1000RATSUSDT",
+      "path": "reports\\crypto-backtest\\strategy-discovery-sprint-v1\\dataset-repair-v1-local-cache-corrected\\normalized_15m_data\\1000RATSUSDT-15m.csv.gz",
+      "sha256": "0fea057b68a7b5374c41571f0af61441be0ae73d19a077ddf6fdcd6a788d17c2",
+      "rows": 8640,
+      "utc_start": "2026-05-02T00:00:00+00:00",
+      "utc_end": "2026-07-31T23:45:00+00:00"
+    },
+    {
+      "symbol": "SXTUSDT",
+      "path": "reports\\crypto-backtest\\strategy-discovery-sprint-v1\\dataset-repair-v1-local-cache-corrected\\normalized_15m_data\\SXTUSDT-15m.csv.gz",
+      "sha256": "be96dd31f9e8c45d35899fe787d99cf23dd56881caf69d9efac5888885e855a1",
+      "rows": 8640,
+      "utc_start": "2026-05-02T00:00:00+00:00",
+      "utc_end": "2026-07-31T23:45:00+00:00"
+    },
+    {
+      "symbol": "MINAUSDT",
+      "path": "reports\\crypto-backtest\\strategy-discovery-sprint-v1\\dataset-repair-v1-local-cache-corrected\\normalized_15m_data\\MINAUSDT-15m.csv.gz",
+      "sha256": "8ee382b8f3766fd9204794d49dba75ce5906e1b0de0215569e35c4b29d573c09",
+      "rows": 8640,
+      "utc_start": "2026-05-02T00:00:00+00:00",
+      "utc_end": "2026-07-31T23:45:00+00:00"
+    },
+    {
+      "symbol": "ELSAUSDT",
+      "path": "reports\\crypto-backtest\\strategy-discovery-sprint-v1\\dataset-repair-v1-local-cache-corrected\\normalized_15m_data\\ELSAUSDT-15m.csv.gz",
+      "sha256": "321093b9312f148eb1994d43f84316f103bcad5fe1223448caeeef13659f8cbf",
+      "rows": 8640,
+      "utc_start": "2026-05-02T00:00:00+00:00",
+      "utc_end": "2026-07-31T23:45:00+00:00"
+    },
+    {
+      "symbol": "MASKUSDT",
+      "path": "reports\\crypto-backtest\\strategy-discovery-sprint-v1\\dataset-repair-v1-local-cache-corrected\\normalized_15m_data\\MASKUSDT-15m.csv.gz",
+      "sha256": "4da638022afbaf6e6a82bc0cdde3b2a832b8362cd49d404cf163d2abc3ea651c",
+      "rows": 8640,
+      "utc_start": "2026-05-02T00:00:00+00:00",
+      "utc_end": "2026-07-31T23:45:00+00:00"
+    },
+    {
+      "symbol": "BIRBUSDT",
+      "path": "reports\\crypto-backtest\\strategy-discovery-sprint-v1\\dataset-repair-v1-local-cache-corrected\\normalized_15m_data\\BIRBUSDT-15m.csv.gz",
+      "sha256": "83bcb1177de6fb38172a5a799e29680d5a14a762473ed257be93b34ce337d4e5",
+      "rows": 8640,
+      "utc_start": "2026-05-02T00:00:00+00:00",
+      "utc_end": "2026-07-31T23:45:00+00:00"
+    },
+    {
+      "symbol": "AEVOUSDT",
+      "path": "reports\\crypto-backtest\\strategy-discovery-sprint-v1\\dataset-repair-v1-local-cache-corrected\\normalized_15m_data\\AEVOUSDT-15m.csv.gz",
+      "sha256": "f48df26eb442b623eed32efa893797ed1bf82ea7c8242fe81facb7e5c7d996d8",
+      "rows": 8640,
+      "utc_start": "2026-05-02T00:00:00+00:00",
+      "utc_end": "2026-07-31T23:45:00+00:00"
+    }
+  ]
+}

@@ -1,0 +1,985 @@
+{
+  "audit_version": "historical-evidence-audit-v1",
+  "generated_at_utc": "2026-08-31T06:39:58.622927+00:00",
+  "scope": "first 20 symbols in deterministic current-instrument order",
+  "traces": [
+    {
+      "symbol": "0GUSDT",
+      "source": "prior_audit_public_response_hashes_only",
+      "pages": [
+        {
+          "params": {
+            "category": "linear",
+            "symbol": "0GUSDT",
+            "endTime": 1788048000000,
+            "limit": 200
+          },
+          "response_sha256": "2aca0a4ab5ad4b42b96da09a71afd7918ca296cd4d75597bdd89bafb4aad4c8c",
+          "rows": 200
+        },
+        {
+          "params": {
+            "category": "linear",
+            "symbol": "0GUSDT",
+            "endTime": 1785182399999,
+            "limit": 200
+          },
+          "response_sha256": "0ca6230cfdfec5005e713982b6aeb6ae5acfbf05b90ddb85abe23b3676467a74",
+          "rows": 200
+        },
+        {
+          "params": {
+            "category": "linear",
+            "symbol": "0GUSDT",
+            "endTime": 1782302399999,
+            "limit": 200
+          },
+          "response_sha256": "d2693e1386cbda801429cb68e0ed99cfe785f89694c608fa87e0330148741bdc",
+          "rows": 200
+        },
+        {
+          "params": {
+            "category": "linear",
+            "symbol": "0GUSDT",
+            "endTime": 1779422399999,
+            "limit": 200
+          },
+          "response_sha256": "0e6c66939d8cb5494ac7f519e3459c71003764dea1c672d980b0171fb4d1d040",
+          "rows": 200
+        }
+      ],
+      "page_count": 4,
+      "end_time_progression_ok": true,
+      "end_time_progression_reason": "strictly_decreasing",
+      "raw_response_bodies_available": false,
+      "live_refetch": {
+        "pages": [
+          {
+            "request_url": "https://api.bybit.com/v5/market/funding/history",
+            "request_params": {
+              "category": "linear",
+              "symbol": "0GUSDT",
+              "endTime": 1788048000000,
+              "limit": 200
+            },
+            "fetched_at_utc": "2026-08-31T06:40:02.750468+00:00",
+            "http_status": null,
+            "response_sha256": null,
+            "response_bytes": 0,
+            "error": "ReadTimeout: HTTPSConnectionPool(host='api.bybit.com', port=443): Read timed out. (read timeout=1)",
+            "rows": 0
+          }
+        ],
+        "timestamps": [],
+        "failure": "ReadTimeout: HTTPSConnectionPool(host='api.bybit.com', port=443): Read timed out. (read timeout=1)",
+        "stop_reason": "request_failure"
+      }
+    },
+    {
+      "symbol": "1000000BABYDOGEUSDT",
+      "source": "prior_audit_public_response_hashes_only",
+      "pages": [
+        {
+          "params": {
+            "category": "linear",
+            "symbol": "1000000BABYDOGEUSDT",
+            "endTime": 1788048000000,
+            "limit": 200
+          },
+          "response_sha256": "7bc504adcd0969387eb84e806fb177036af02e3b99c6404e464de1cc60e77978",
+          "rows": 200
+        },
+        {
+          "params": {
+            "category": "linear",
+            "symbol": "1000000BABYDOGEUSDT",
+            "endTime": 1785182399999,
+            "limit": 200
+          },
+          "response_sha256": "0a5ada91b8f512b4a1c54779138cd9a9859cbadb83de3e0fa221c19afe4aa124",
+          "rows": 200
+        },
+        {
+          "params": {
+            "category": "linear",
+            "symbol": "1000000BABYDOGEUSDT",
+            "endTime": 1782302399999,
+            "limit": 200
+          },
+          "response_sha256": "700e46cf0d934ed78ab2dc4ad22b9653fb5a621e856689821d3e555b73822949",
+          "rows": 200
+        },
+        {
+          "params": {
+            "category": "linear",
+            "symbol": "1000000BABYDOGEUSDT",
+            "endTime": 1779422399999,
+            "limit": 200
+          },
+          "response_sha256": "729be9204c64aaa92192f6e5f70fd4e8b0013a664a16b30bde84f1377a35e7a3",
+          "rows": 200
+        }
+      ],
+      "page_count": 4,
+      "end_time_progression_ok": true,
+      "end_time_progression_reason": "strictly_decreasing",
+      "raw_response_bodies_available": false,
+      "live_refetch": {
+        "not_attempted_per_symbol": true,
+        "shared_first_request_failure": "ReadTimeout: HTTPSConnectionPool(host='api.bybit.com', port=443): Read timed out. (read timeout=1)"
+      }
+    },
+    {
+      "symbol": "1000000MOGUSDT",
+      "source": "prior_audit_public_response_hashes_only",
+      "pages": [
+        {
+          "params": {
+            "category": "linear",
+            "symbol": "1000000MOGUSDT",
+            "endTime": 1788048000000,
+            "limit": 200
+          },
+          "response_sha256": "ef053455bdc4eabf28b11d7ebfc64556aa997a1702d6284697cb7bfac86525d7",
+          "rows": 200
+        },
+        {
+          "params": {
+            "category": "linear",
+            "symbol": "1000000MOGUSDT",
+            "endTime": 1785182399999,
+            "limit": 200
+          },
+          "response_sha256": "78ed830d3349575349b19f9e4a3b1d4f545d69e19643c13fb5354c046b1dd0ca",
+          "rows": 200
+        },
+        {
+          "params": {
+            "category": "linear",
+            "symbol": "1000000MOGUSDT",
+            "endTime": 1782302399999,
+            "limit": 200
+          },
+          "response_sha256": "09e03615bf2060254918578543b1f8a4e54abc248e523831eed227c1a733115d",
+          "rows": 200
+        },
+        {
+          "params": {
+            "category": "linear",
+            "symbol": "1000000MOGUSDT",
+            "endTime": 1779422399999,
+            "limit": 200
+          },
+          "response_sha256": "9cb217e1d101998cd291729e4e7f99f99a63a67215a438501732a499560a2cd0",
+          "rows": 200
+        }
+      ],
+      "page_count": 4,
+      "end_time_progression_ok": true,
+      "end_time_progression_reason": "strictly_decreasing",
+      "raw_response_bodies_available": false,
+      "live_refetch": {
+        "not_attempted_per_symbol": true,
+        "shared_first_request_failure": "ReadTimeout: HTTPSConnectionPool(host='api.bybit.com', port=443): Read timed out. (read timeout=1)"
+      }
+    },
+    {
+      "symbol": "10000NEXUSDT",
+      "source": "prior_audit_public_response_hashes_only",
+      "pages": [
+        {
+          "params": {
+            "category": "linear",
+            "symbol": "10000NEXUSDT",
+            "endTime": 1788048000000,
+            "limit": 200
+          },
+          "response_sha256": "ab1a78615021f4d968d03f7d6d856a2757d4286a2792dd5296761617617c0491",
+          "rows": 200
+        },
+        {
+          "params": {
+            "category": "linear",
+            "symbol": "10000NEXUSDT",
+            "endTime": 1785182399999,
+            "limit": 200
+          },
+          "response_sha256": "447200d25480dd09e9a33915e0ea6b2d94d65419ea3f1d7326343b9bf785d27c",
+          "rows": 200
+        },
+        {
+          "params": {
+            "category": "linear",
+            "symbol": "10000NEXUSDT",
+            "endTime": 1782302399999,
+            "limit": 200
+          },
+          "response_sha256": "34adf7777bf2d70f6456c6c53f9e9acd5e4ba348abf049eab6a056ae44a60f23",
+          "rows": 200
+        },
+        {
+          "params": {
+            "category": "linear",
+            "symbol": "10000NEXUSDT",
+            "endTime": 1779422399999,
+            "limit": 200
+          },
+          "response_sha256": "a9235d95b6a264181c5c3179021426ed57b62b8b527d30d5dc6d77b228725211",
+          "rows": 5
+        }
+      ],
+      "page_count": 4,
+      "end_time_progression_ok": true,
+      "end_time_progression_reason": "strictly_decreasing",
+      "raw_response_bodies_available": false,
+      "live_refetch": {
+        "not_attempted_per_symbol": true,
+        "shared_first_request_failure": "ReadTimeout: HTTPSConnectionPool(host='api.bybit.com', port=443): Read timed out. (read timeout=1)"
+      }
+    },
+    {
+      "symbol": "10000SATSUSDT",
+      "source": "prior_audit_public_response_hashes_only",
+      "pages": [
+        {
+          "params": {
+            "category": "linear",
+            "symbol": "10000SATSUSDT",
+            "endTime": 1788048000000,
+            "limit": 200
+          },
+          "response_sha256": "d7e0889bbd60f72a1371df7290d8289651d573ac46b0e3a0df2afe14db23a463",
+          "rows": 200
+        },
+        {
+          "params": {
+            "category": "linear",
+            "symbol": "10000SATSUSDT",
+            "endTime": 1785182399999,
+            "limit": 200
+          },
+          "response_sha256": "a66c3400774c6704dc6e0f7e4852c301f7209a01f5500c569147601fb43edd39",
+          "rows": 200
+        },
+        {
+          "params": {
+            "category": "linear",
+            "symbol": "10000SATSUSDT",
+            "endTime": 1782302399999,
+            "limit": 200
+          },
+          "response_sha256": "0faf28251818c5dfae79862954ec621761cb89935391778d55f7a5586f26b39a",
+          "rows": 200
+        },
+        {
+          "params": {
+            "category": "linear",
+            "symbol": "10000SATSUSDT",
+            "endTime": 1779422399999,
+            "limit": 200
+          },
+          "response_sha256": "e8aae8d818477f7dc5a207a63f5a6220dc9e790d2ef4a5d81a881bb3a88e0d7e",
+          "rows": 200
+        }
+      ],
+      "page_count": 4,
+      "end_time_progression_ok": true,
+      "end_time_progression_reason": "strictly_decreasing",
+      "raw_response_bodies_available": false,
+      "live_refetch": {
+        "not_attempted_per_symbol": true,
+        "shared_first_request_failure": "ReadTimeout: HTTPSConnectionPool(host='api.bybit.com', port=443): Read timed out. (read timeout=1)"
+      }
+    },
+    {
+      "symbol": "1000BONKUSDT",
+      "source": "prior_audit_public_response_hashes_only",
+      "pages": [
+        {
+          "params": {
+            "category": "linear",
+            "symbol": "1000BONKUSDT",
+            "endTime": 1788048000000,
+            "limit": 200
+          },
+          "response_sha256": "8713475d265ab769816d9984b96705123a911f22b92130a85d30818fdd83a6b3",
+          "rows": 200
+        },
+        {
+          "params": {
+            "category": "linear",
+            "symbol": "1000BONKUSDT",
+            "endTime": 1785182399999,
+            "limit": 200
+          },
+          "response_sha256": "063b58ef227dcf5398f456854293960880b8fa03ac4ed78b5bdd178bdc2a0151",
+          "rows": 200
+        },
+        {
+          "params": {
+            "category": "linear",
+            "symbol": "1000BONKUSDT",
+            "endTime": 1782302399999,
+            "limit": 200
+          },
+          "response_sha256": "f51ab9e5ee4c53ae895dd225d31f10b8c22fc63b4bce2afa2a7ce288b8ddf231",
+          "rows": 200
+        },
+        {
+          "params": {
+            "category": "linear",
+            "symbol": "1000BONKUSDT",
+            "endTime": 1779422399999,
+            "limit": 200
+          },
+          "response_sha256": "3a261c3d09d126c9bef1f9e2445fea44935467af5bcf65530ffc583b5576c1d5",
+          "rows": 200
+        }
+      ],
+      "page_count": 4,
+      "end_time_progression_ok": true,
+      "end_time_progression_reason": "strictly_decreasing",
+      "raw_response_bodies_available": false,
+      "live_refetch": {
+        "not_attempted_per_symbol": true,
+        "shared_first_request_failure": "ReadTimeout: HTTPSConnectionPool(host='api.bybit.com', port=443): Read timed out. (read timeout=1)"
+      }
+    },
+    {
+      "symbol": "1000BTTUSDT",
+      "source": "prior_audit_public_response_hashes_only",
+      "pages": [
+        {
+          "params": {
+            "category": "linear",
+            "symbol": "1000BTTUSDT",
+            "endTime": 1788048000000,
+            "limit": 200
+          },
+          "response_sha256": "1f7e306a8d11025046853dad4b58053dc5ed93d65dadf03699d10e4051394e86",
+          "rows": 200
+        },
+        {
+          "params": {
+            "category": "linear",
+            "symbol": "1000BTTUSDT",
+            "endTime": 1782316799999,
+            "limit": 200
+          },
+          "response_sha256": "bd062a10e2c490090968dfb7ff693e7000ec5a490d57604a69e2d138f46f0f2e",
+          "rows": 200
+        }
+      ],
+      "page_count": 2,
+      "end_time_progression_ok": true,
+      "end_time_progression_reason": "strictly_decreasing",
+      "raw_response_bodies_available": false,
+      "live_refetch": {
+        "not_attempted_per_symbol": true,
+        "shared_first_request_failure": "ReadTimeout: HTTPSConnectionPool(host='api.bybit.com', port=443): Read timed out. (read timeout=1)"
+      }
+    },
+    {
+      "symbol": "1000CATUSDT",
+      "source": "prior_audit_public_response_hashes_only",
+      "pages": [
+        {
+          "params": {
+            "category": "linear",
+            "symbol": "1000CATUSDT",
+            "endTime": 1788048000000,
+            "limit": 200
+          },
+          "response_sha256": "33e77bea49b727ee73012502fd15bd23b535ccc69d22103e8c134f7e9638c137",
+          "rows": 200
+        },
+        {
+          "params": {
+            "category": "linear",
+            "symbol": "1000CATUSDT",
+            "endTime": 1785182399999,
+            "limit": 200
+          },
+          "response_sha256": "0069e7a3d214085eae64528a1773e313eb5eca2c5af51c6649a6e53bb9b28322",
+          "rows": 200
+        },
+        {
+          "params": {
+            "category": "linear",
+            "symbol": "1000CATUSDT",
+            "endTime": 1782302399999,
+            "limit": 200
+          },
+          "response_sha256": "5bcef2c7414974959e18cad022549d147278cc4542343aa70d66f241d731e985",
+          "rows": 200
+        },
+        {
+          "params": {
+            "category": "linear",
+            "symbol": "1000CATUSDT",
+            "endTime": 1779422399999,
+            "limit": 200
+          },
+          "response_sha256": "88e74072a276f74527c56ac26543ce038f120d17cea652a6266bc836d6d8a649",
+          "rows": 200
+        }
+      ],
+      "page_count": 4,
+      "end_time_progression_ok": true,
+      "end_time_progression_reason": "strictly_decreasing",
+      "raw_response_bodies_available": false,
+      "live_refetch": {
+        "not_attempted_per_symbol": true,
+        "shared_first_request_failure": "ReadTimeout: HTTPSConnectionPool(host='api.bybit.com', port=443): Read timed out. (read timeout=1)"
+      }
+    },
+    {
+      "symbol": "1000FLOKIUSDT",
+      "source": "prior_audit_public_response_hashes_only",
+      "pages": [
+        {
+          "params": {
+            "category": "linear",
+            "symbol": "1000FLOKIUSDT",
+            "endTime": 1788048000000,
+            "limit": 200
+          },
+          "response_sha256": "3a7a5ca28229ccb80ab7618eeedf2d0d06d3dd1ff68e169c44d2547a432ecd02",
+          "rows": 200
+        },
+        {
+          "params": {
+            "category": "linear",
+            "symbol": "1000FLOKIUSDT",
+            "endTime": 1782316799999,
+            "limit": 200
+          },
+          "response_sha256": "0ff3a8e4fd81f2f2d0f50f570be57ffc7a7e2533c8a7da0e30d3eef845d3e15d",
+          "rows": 200
+        }
+      ],
+      "page_count": 2,
+      "end_time_progression_ok": true,
+      "end_time_progression_reason": "strictly_decreasing",
+      "raw_response_bodies_available": false,
+      "live_refetch": {
+        "not_attempted_per_symbol": true,
+        "shared_first_request_failure": "ReadTimeout: HTTPSConnectionPool(host='api.bybit.com', port=443): Read timed out. (read timeout=1)"
+      }
+    },
+    {
+      "symbol": "1000LUNCUSDT",
+      "source": "prior_audit_public_response_hashes_only",
+      "pages": [
+        {
+          "params": {
+            "category": "linear",
+            "symbol": "1000LUNCUSDT",
+            "endTime": 1788048000000,
+            "limit": 200
+          },
+          "response_sha256": "3bb50aea6cfd99482641f4b254ce3feb7d52e145b2b19ad9f68ce8b5de83d968",
+          "rows": 200
+        },
+        {
+          "params": {
+            "category": "linear",
+            "symbol": "1000LUNCUSDT",
+            "endTime": 1782316799999,
+            "limit": 200
+          },
+          "response_sha256": "863bd5bfc1294f1cb66a440c0454d6218f9e802a0b5d759ffc2800a49fff500d",
+          "rows": 200
+        }
+      ],
+      "page_count": 2,
+      "end_time_progression_ok": true,
+      "end_time_progression_reason": "strictly_decreasing",
+      "raw_response_bodies_available": false,
+      "live_refetch": {
+        "not_attempted_per_symbol": true,
+        "shared_first_request_failure": "ReadTimeout: HTTPSConnectionPool(host='api.bybit.com', port=443): Read timed out. (read timeout=1)"
+      }
+    },
+    {
+      "symbol": "1000NEIROCTOUSDT",
+      "source": "prior_audit_public_response_hashes_only",
+      "pages": [
+        {
+          "params": {
+            "category": "linear",
+            "symbol": "1000NEIROCTOUSDT",
+            "endTime": 1788048000000,
+            "limit": 200
+          },
+          "response_sha256": "75c4d94346399fa19ca0cbe785a39f22975db8dd36e4613e00df080b06b0d339",
+          "rows": 200
+        },
+        {
+          "params": {
+            "category": "linear",
+            "symbol": "1000NEIROCTOUSDT",
+            "endTime": 1785182399999,
+            "limit": 200
+          },
+          "response_sha256": "f5d81af1b64dcfdf6ed1dbdd2a51707596b95bb28d2110b1d3dbf6d36e5de2b6",
+          "rows": 200
+        },
+        {
+          "params": {
+            "category": "linear",
+            "symbol": "1000NEIROCTOUSDT",
+            "endTime": 1782302399999,
+            "limit": 200
+          },
+          "response_sha256": "62f6111e8ec095e8bd4b76fd2369a2dc7eeb20d110f0a875d04a9ba76414443c",
+          "rows": 200
+        },
+        {
+          "params": {
+            "category": "linear",
+            "symbol": "1000NEIROCTOUSDT",
+            "endTime": 1779422399999,
+            "limit": 200
+          },
+          "response_sha256": "581f37b6f7cb92357a09f4fd683719dd527f9b25f85e98bf070004ef06094910",
+          "rows": 200
+        }
+      ],
+      "page_count": 4,
+      "end_time_progression_ok": true,
+      "end_time_progression_reason": "strictly_decreasing",
+      "raw_response_bodies_available": false,
+      "live_refetch": {
+        "not_attempted_per_symbol": true,
+        "shared_first_request_failure": "ReadTimeout: HTTPSConnectionPool(host='api.bybit.com', port=443): Read timed out. (read timeout=1)"
+      }
+    },
+    {
+      "symbol": "1000PEPEUSDT",
+      "source": "prior_audit_public_response_hashes_only",
+      "pages": [
+        {
+          "params": {
+            "category": "linear",
+            "symbol": "1000PEPEUSDT",
+            "endTime": 1788048000000,
+            "limit": 200
+          },
+          "response_sha256": "c6c856438238a152cf5f197cdaed880cd1ba440351496e059b573789a51e00a2",
+          "rows": 200
+        },
+        {
+          "params": {
+            "category": "linear",
+            "symbol": "1000PEPEUSDT",
+            "endTime": 1782316799999,
+            "limit": 200
+          },
+          "response_sha256": "da651d429cad5ce32c4ba9cad69fc69dbd0d2da8becf5b2abc73fd5956a77c12",
+          "rows": 200
+        }
+      ],
+      "page_count": 2,
+      "end_time_progression_ok": true,
+      "end_time_progression_reason": "strictly_decreasing",
+      "raw_response_bodies_available": false,
+      "live_refetch": {
+        "not_attempted_per_symbol": true,
+        "shared_first_request_failure": "ReadTimeout: HTTPSConnectionPool(host='api.bybit.com', port=443): Read timed out. (read timeout=1)"
+      }
+    },
+    {
+      "symbol": "1000RATSUSDT",
+      "source": "prior_audit_public_response_hashes_only",
+      "pages": [
+        {
+          "params": {
+            "category": "linear",
+            "symbol": "1000RATSUSDT",
+            "endTime": 1788048000000,
+            "limit": 200
+          },
+          "response_sha256": "b4264fe0187e25fc8935df546082f50d964402bf040a6f46eef8b8d7ab9ad7ab",
+          "rows": 200
+        },
+        {
+          "params": {
+            "category": "linear",
+            "symbol": "1000RATSUSDT",
+            "endTime": 1785182399999,
+            "limit": 200
+          },
+          "response_sha256": "fc07425f8bf00b96770b960743925147a321bbf1aa4f231103e28b4be0ddc694",
+          "rows": 200
+        },
+        {
+          "params": {
+            "category": "linear",
+            "symbol": "1000RATSUSDT",
+            "endTime": 1782302399999,
+            "limit": 200
+          },
+          "response_sha256": "2bc1aac3d7189b3c5791183d7b975bd76fcc177a578354af0e65856478609995",
+          "rows": 200
+        },
+        {
+          "params": {
+            "category": "linear",
+            "symbol": "1000RATSUSDT",
+            "endTime": 1779422399999,
+            "limit": 200
+          },
+          "response_sha256": "4e4b3461172220d781b613da740204fc116593c467663a5eeb7a784cf190809b",
+          "rows": 200
+        }
+      ],
+      "page_count": 4,
+      "end_time_progression_ok": true,
+      "end_time_progression_reason": "strictly_decreasing",
+      "raw_response_bodies_available": false,
+      "live_refetch": {
+        "not_attempted_per_symbol": true,
+        "shared_first_request_failure": "ReadTimeout: HTTPSConnectionPool(host='api.bybit.com', port=443): Read timed out. (read timeout=1)"
+      }
+    },
+    {
+      "symbol": "1000TAGUSDT",
+      "source": "prior_audit_public_response_hashes_only",
+      "pages": [
+        {
+          "params": {
+            "category": "linear",
+            "symbol": "1000TAGUSDT",
+            "endTime": 1788048000000,
+            "limit": 200
+          },
+          "response_sha256": "2fbdca31aee14229b156db26ad3997ae5fdca904544d603ac36bc52c91d428df",
+          "rows": 200
+        },
+        {
+          "params": {
+            "category": "linear",
+            "symbol": "1000TAGUSDT",
+            "endTime": 1785182399999,
+            "limit": 200
+          },
+          "response_sha256": "eba1616fa6c4211a2f6c9f100204bdb9184eca8c0ad43fea02025c7be1dc1d6a",
+          "rows": 200
+        },
+        {
+          "params": {
+            "category": "linear",
+            "symbol": "1000TAGUSDT",
+            "endTime": 1782302399999,
+            "limit": 200
+          },
+          "response_sha256": "e1090eddc6989af24c13af67ef6375a63b8c59f4949c083312f2e021ed35fa17",
+          "rows": 200
+        },
+        {
+          "params": {
+            "category": "linear",
+            "symbol": "1000TAGUSDT",
+            "endTime": 1779422399999,
+            "limit": 200
+          },
+          "response_sha256": "cbb5303103da904c25e36667ac0a3910b4a659b38ed31eb52076ada313aa96c8",
+          "rows": 200
+        }
+      ],
+      "page_count": 4,
+      "end_time_progression_ok": true,
+      "end_time_progression_reason": "strictly_decreasing",
+      "raw_response_bodies_available": false,
+      "live_refetch": {
+        "not_attempted_per_symbol": true,
+        "shared_first_request_failure": "ReadTimeout: HTTPSConnectionPool(host='api.bybit.com', port=443): Read timed out. (read timeout=1)"
+      }
+    },
+    {
+      "symbol": "1000TOSHIUSDT",
+      "source": "prior_audit_public_response_hashes_only",
+      "pages": [
+        {
+          "params": {
+            "category": "linear",
+            "symbol": "1000TOSHIUSDT",
+            "endTime": 1788048000000,
+            "limit": 200
+          },
+          "response_sha256": "cae87aef0d160ddf9ab3a7fb854f1b3168af74e1ebe9adb498615582e6bf9f71",
+          "rows": 200
+        },
+        {
+          "params": {
+            "category": "linear",
+            "symbol": "1000TOSHIUSDT",
+            "endTime": 1785182399999,
+            "limit": 200
+          },
+          "response_sha256": "a25c012c7b697adbb513f9bb63235162438c9bd1b833ce89007b76b0f70fef91",
+          "rows": 200
+        },
+        {
+          "params": {
+            "category": "linear",
+            "symbol": "1000TOSHIUSDT",
+            "endTime": 1782302399999,
+            "limit": 200
+          },
+          "response_sha256": "120146ecc75a8971db48b5ad28552467ff8b5abe94ec5a3d66f679ede9748e53",
+          "rows": 200
+        },
+        {
+          "params": {
+            "category": "linear",
+            "symbol": "1000TOSHIUSDT",
+            "endTime": 1779422399999,
+            "limit": 200
+          },
+          "response_sha256": "8146c2e4c4166ddea89028b8d73240bb4f2f666301ac28a6d104f91a51bd0b3b",
+          "rows": 200
+        }
+      ],
+      "page_count": 4,
+      "end_time_progression_ok": true,
+      "end_time_progression_reason": "strictly_decreasing",
+      "raw_response_bodies_available": false,
+      "live_refetch": {
+        "not_attempted_per_symbol": true,
+        "shared_first_request_failure": "ReadTimeout: HTTPSConnectionPool(host='api.bybit.com', port=443): Read timed out. (read timeout=1)"
+      }
+    },
+    {
+      "symbol": "1000TURBOUSDT",
+      "source": "prior_audit_public_response_hashes_only",
+      "pages": [
+        {
+          "params": {
+            "category": "linear",
+            "symbol": "1000TURBOUSDT",
+            "endTime": 1788048000000,
+            "limit": 200
+          },
+          "response_sha256": "3f12f2a66214a5be212ebaae26830127b1754d391cde3acfc211b43a5521a4b9",
+          "rows": 200
+        },
+        {
+          "params": {
+            "category": "linear",
+            "symbol": "1000TURBOUSDT",
+            "endTime": 1785182399999,
+            "limit": 200
+          },
+          "response_sha256": "b90bd7c5df60ecf6e93af87a892e0b8c0b021ae7dfb86bbdffb49f34ad0e92c8",
+          "rows": 200
+        },
+        {
+          "params": {
+            "category": "linear",
+            "symbol": "1000TURBOUSDT",
+            "endTime": 1782302399999,
+            "limit": 200
+          },
+          "response_sha256": "68ff83aa9bbc67eb5a388904bf5cd06a1e7bcc469a5730dbf60e17040345db58",
+          "rows": 200
+        },
+        {
+          "params": {
+            "category": "linear",
+            "symbol": "1000TURBOUSDT",
+            "endTime": 1779422399999,
+            "limit": 200
+          },
+          "response_sha256": "6c3fcbd018becb01d6cc314cedaf7a4eb66ffb914cbde09e04f872a43c357cb4",
+          "rows": 200
+        }
+      ],
+      "page_count": 4,
+      "end_time_progression_ok": true,
+      "end_time_progression_reason": "strictly_decreasing",
+      "raw_response_bodies_available": false,
+      "live_refetch": {
+        "not_attempted_per_symbol": true,
+        "shared_first_request_failure": "ReadTimeout: HTTPSConnectionPool(host='api.bybit.com', port=443): Read timed out. (read timeout=1)"
+      }
+    },
+    {
+      "symbol": "1000XECUSDT",
+      "source": "prior_audit_public_response_hashes_only",
+      "pages": [
+        {
+          "params": {
+            "category": "linear",
+            "symbol": "1000XECUSDT",
+            "endTime": 1788048000000,
+            "limit": 200
+          },
+          "response_sha256": "984810b1afd1bdee537804139beb31815ecbe7e374ca23865ced65a3606481d6",
+          "rows": 200
+        },
+        {
+          "params": {
+            "category": "linear",
+            "symbol": "1000XECUSDT",
+            "endTime": 1782316799999,
+            "limit": 200
+          },
+          "response_sha256": "caf702c67bd930aafe003abd8d335f8496d56bea73ce3b29059e7f72cbe75ce4",
+          "rows": 200
+        }
+      ],
+      "page_count": 2,
+      "end_time_progression_ok": true,
+      "end_time_progression_reason": "strictly_decreasing",
+      "raw_response_bodies_available": false,
+      "live_refetch": {
+        "not_attempted_per_symbol": true,
+        "shared_first_request_failure": "ReadTimeout: HTTPSConnectionPool(host='api.bybit.com', port=443): Read timed out. (read timeout=1)"
+      }
+    },
+    {
+      "symbol": "1INCHUSDT",
+      "source": "prior_audit_public_response_hashes_only",
+      "pages": [
+        {
+          "params": {
+            "category": "linear",
+            "symbol": "1INCHUSDT",
+            "endTime": 1788048000000,
+            "limit": 200
+          },
+          "response_sha256": "865813faf4f96306fb437d9bcb71931597a70f7eeff787d3e035da519cbacd51",
+          "rows": 200
+        },
+        {
+          "params": {
+            "category": "linear",
+            "symbol": "1INCHUSDT",
+            "endTime": 1782316799999,
+            "limit": 200
+          },
+          "response_sha256": "addc1313b5d91e4bdaf66b18a62d26ac9debb606c320c52eed8be3cd7e522171",
+          "rows": 200
+        }
+      ],
+      "page_count": 2,
+      "end_time_progression_ok": true,
+      "end_time_progression_reason": "strictly_decreasing",
+      "raw_response_bodies_available": false,
+      "live_refetch": {
+        "not_attempted_per_symbol": true,
+        "shared_first_request_failure": "ReadTimeout: HTTPSConnectionPool(host='api.bybit.com', port=443): Read timed out. (read timeout=1)"
+      }
+    },
+    {
+      "symbol": "2ZUSDT",
+      "source": "prior_audit_public_response_hashes_only",
+      "pages": [
+        {
+          "params": {
+            "category": "linear",
+            "symbol": "2ZUSDT",
+            "endTime": 1788048000000,
+            "limit": 200
+          },
+          "response_sha256": "838507404c60bbebcca0f19ddddd37a61bcb18fd390cd5394f500bb2ba60666e",
+          "rows": 200
+        },
+        {
+          "params": {
+            "category": "linear",
+            "symbol": "2ZUSDT",
+            "endTime": 1785614399999,
+            "limit": 200
+          },
+          "response_sha256": "be6e7d4be139d03759f4a9713ebeab325c64c7b50d30ec14f108cb3934f01328",
+          "rows": 200
+        },
+        {
+          "params": {
+            "category": "linear",
+            "symbol": "2ZUSDT",
+            "endTime": 1782734399999,
+            "limit": 200
+          },
+          "response_sha256": "f2c34a86a922b3b9fb22aebc36f167898d69e6e363b266932fdbe375505eae52",
+          "rows": 200
+        },
+        {
+          "params": {
+            "category": "linear",
+            "symbol": "2ZUSDT",
+            "endTime": 1779854399999,
+            "limit": 200
+          },
+          "response_sha256": "52db0a31904664e35aa90544bcbe94d004109d48d7dff013fc2e06c4a256bcbe",
+          "rows": 200
+        }
+      ],
+      "page_count": 4,
+      "end_time_progression_ok": true,
+      "end_time_progression_reason": "strictly_decreasing",
+      "raw_response_bodies_available": false,
+      "live_refetch": {
+        "not_attempted_per_symbol": true,
+        "shared_first_request_failure": "ReadTimeout: HTTPSConnectionPool(host='api.bybit.com', port=443): Read timed out. (read timeout=1)"
+      }
+    },
+    {
+      "symbol": "4USDT",
+      "source": "prior_audit_public_response_hashes_only",
+      "pages": [
+        {
+          "params": {
+            "category": "linear",
+            "symbol": "4USDT",
+            "endTime": 1788048000000,
+            "limit": 200
+          },
+          "response_sha256": "4afe55c1e834294805e091649a6ca82d59301c80904371a08df00e9102c1677f",
+          "rows": 200
+        },
+        {
+          "params": {
+            "category": "linear",
+            "symbol": "4USDT",
+            "endTime": 1785182399999,
+            "limit": 200
+          },
+          "response_sha256": "8069c3f27380498c9821e7587bc9e6330233c86a838a2ecffd08ed1bb40d0c78",
+          "rows": 200
+        },
+        {
+          "params": {
+            "category": "linear",
+            "symbol": "4USDT",
+            "endTime": 1782302399999,
+            "limit": 200
+          },
+          "response_sha256": "95359ddfa4f14755c05f81f91bd21b0fb249bf346812e2ea1798b45a77a22096",
+          "rows": 200
+        },
+        {
+          "params": {
+            "category": "linear",
+            "symbol": "4USDT",
+            "endTime": 1779422399999,
+            "limit": 200
+          },
+          "response_sha256": "2dabc5a29d6258a0f0bf0fc64c3f221ea4d6c422b1077ef2653e8b58baa21da9",
+          "rows": 200
+        }
+      ],
+      "page_count": 4,
+      "end_time_progression_ok": true,
+      "end_time_progression_reason": "strictly_decreasing",
+      "raw_response_bodies_available": false,
+      "live_refetch": {
+        "not_attempted_per_symbol": true,
+        "shared_first_request_failure": "ReadTimeout: HTTPSConnectionPool(host='api.bybit.com', port=443): Read timed out. (read timeout=1)"
+      }
+    }
+  ]
+}

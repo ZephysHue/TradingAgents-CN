@@ -1,0 +1,2066 @@
+{
+  "generated_at_utc": "2026-09-01T04:50:48.579622+00:00",
+  "status": "attempted",
+  "pages": [
+    {
+      "symbol": "HYPEUSDT",
+      "page": 1,
+      "params": {
+        "category": "linear",
+        "symbol": "HYPEUSDT",
+        "interval": "15",
+        "start": 1782864000000,
+        "end": 1782950399999,
+        "limit": 1000
+      },
+      "requested_at_utc": "2026-09-01T04:50:48.580623+00:00",
+      "http_status": 200,
+      "raw_path": "reports\\crypto-backtest\\strategy-discovery-sprint-v1\\dataset-repair-v1-final2\\raw_kline_pages\\HYPEUSDT\\HYPEUSDT-page-0001-start-1782864000000-end-1782950399999.json",
+      "sha256": "b83d721ac64783427b4b6521fe6dae76ae1ece55b4c8ee91acc54e6f280bc2f8",
+      "rows": 96,
+      "earliest_ms": 1782864000000,
+      "latest_ms": 1782949500000,
+      "error": null
+    },
+    {
+      "symbol": "LABUSDT",
+      "page": 1,
+      "params": {
+        "category": "linear",
+        "symbol": "LABUSDT",
+        "interval": "15",
+        "start": 1782864000000,
+        "end": 1782950399999,
+        "limit": 1000
+      },
+      "requested_at_utc": "2026-09-01T04:50:53.002269+00:00",
+      "http_status": 200,
+      "raw_path": "reports\\crypto-backtest\\strategy-discovery-sprint-v1\\dataset-repair-v1-final2\\raw_kline_pages\\LABUSDT\\LABUSDT-page-0001-start-1782864000000-end-1782950399999.json",
+      "sha256": "54baefc3b36d16b08f8bf5aaff6752c050b02105fd6e995b9b633c30b940c094",
+      "rows": 96,
+      "earliest_ms": 1782864000000,
+      "latest_ms": 1782949500000,
+      "error": null
+    },
+    {
+      "symbol": "WCTUSDT",
+      "page": 1,
+      "params": {
+        "category": "linear",
+        "symbol": "WCTUSDT",
+        "interval": "15",
+        "start": 1782864000000,
+        "end": 1782950399999,
+        "limit": 1000
+      },
+      "requested_at_utc": "2026-09-01T04:50:53.013022+00:00",
+      "http_status": 200,
+      "raw_path": "reports\\crypto-backtest\\strategy-discovery-sprint-v1\\dataset-repair-v1-final2\\raw_kline_pages\\WCTUSDT\\WCTUSDT-page-0001-start-1782864000000-end-1782950399999.json",
+      "sha256": "676e4e5fce476571e23cdd8cedf276e3f288b999e895743fa9cb035b2baf9cae",
+      "rows": 96,
+      "earliest_ms": 1782864000000,
+      "latest_ms": 1782949500000,
+      "error": null
+    },
+    {
+      "symbol": "SKRUSDT",
+      "page": 1,
+      "params": {
+        "category": "linear",
+        "symbol": "SKRUSDT",
+        "interval": "15",
+        "start": 1782864000000,
+        "end": 1782950399999,
+        "limit": 1000
+      },
+      "requested_at_utc": "2026-09-01T04:50:53.009831+00:00",
+      "http_status": 200,
+      "raw_path": "reports\\crypto-backtest\\strategy-discovery-sprint-v1\\dataset-repair-v1-final2\\raw_kline_pages\\SKRUSDT\\SKRUSDT-page-0001-start-1782864000000-end-1782950399999.json",
+      "sha256": "746437d84b54ec44b9fd7d33b7d4fae6e9076afca13fb58e68f1a6fdd7c95dbc",
+      "rows": 96,
+      "earliest_ms": 1782864000000,
+      "latest_ms": 1782949500000,
+      "error": null
+    },
+    {
+      "symbol": "NEARUSDT",
+      "page": 1,
+      "params": {
+        "category": "linear",
+        "symbol": "NEARUSDT",
+        "interval": "15",
+        "start": 1782864000000,
+        "end": 1782950399999,
+        "limit": 1000
+      },
+      "requested_at_utc": "2026-09-01T04:50:52.999672+00:00",
+      "http_status": 200,
+      "raw_path": "reports\\crypto-backtest\\strategy-discovery-sprint-v1\\dataset-repair-v1-final2\\raw_kline_pages\\NEARUSDT\\NEARUSDT-page-0001-start-1782864000000-end-1782950399999.json",
+      "sha256": "f22462875aa3bb969a0bccdcd65bb1a504a36b2d8193519755cf817b5b15f330",
+      "rows": 96,
+      "earliest_ms": 1782864000000,
+      "latest_ms": 1782949500000,
+      "error": null
+    },
+    {
+      "symbol": "ZECUSDT",
+      "page": 1,
+      "params": {
+        "category": "linear",
+        "symbol": "ZECUSDT",
+        "interval": "15",
+        "start": 1782864000000,
+        "end": 1782950399999,
+        "limit": 1000
+      },
+      "requested_at_utc": "2026-09-01T04:50:52.993439+00:00",
+      "http_status": 200,
+      "raw_path": "reports\\crypto-backtest\\strategy-discovery-sprint-v1\\dataset-repair-v1-final2\\raw_kline_pages\\ZECUSDT\\ZECUSDT-page-0001-start-1782864000000-end-1782950399999.json",
+      "sha256": "e65a4ef4f7362583f964808b15131ffc0f8a8879289bfd2a5123d223a5fbb193",
+      "rows": 96,
+      "earliest_ms": 1782864000000,
+      "latest_ms": 1782949500000,
+      "error": null
+    },
+    {
+      "symbol": "WLDUSDT",
+      "page": 1,
+      "params": {
+        "category": "linear",
+        "symbol": "WLDUSDT",
+        "interval": "15",
+        "start": 1782864000000,
+        "end": 1782950399999,
+        "limit": 1000
+      },
+      "requested_at_utc": "2026-09-01T04:50:52.996151+00:00",
+      "http_status": 200,
+      "raw_path": "reports\\crypto-backtest\\strategy-discovery-sprint-v1\\dataset-repair-v1-final2\\raw_kline_pages\\WLDUSDT\\WLDUSDT-page-0001-start-1782864000000-end-1782950399999.json",
+      "sha256": "9380fe2a1d50d0553e242064be9cbd43e933b83356bd91ec61c6ee43b7aab4cf",
+      "rows": 96,
+      "earliest_ms": 1782864000000,
+      "latest_ms": 1782949500000,
+      "error": null
+    },
+    {
+      "symbol": "CFGUSDT",
+      "page": 1,
+      "params": {
+        "category": "linear",
+        "symbol": "CFGUSDT",
+        "interval": "15",
+        "start": 1782864000000,
+        "end": 1782950399999,
+        "limit": 1000
+      },
+      "requested_at_utc": "2026-09-01T04:50:53.005674+00:00",
+      "http_status": 200,
+      "raw_path": "reports\\crypto-backtest\\strategy-discovery-sprint-v1\\dataset-repair-v1-final2\\raw_kline_pages\\CFGUSDT\\CFGUSDT-page-0001-start-1782864000000-end-1782950399999.json",
+      "sha256": "78d8f58442611deb8a1234d87ccaba652b0349952b7fa72e444bd33dfeabb561",
+      "rows": 96,
+      "earliest_ms": 1782864000000,
+      "latest_ms": 1782949500000,
+      "error": null
+    },
+    {
+      "symbol": "GPSUSDT",
+      "page": 1,
+      "params": {
+        "category": "linear",
+        "symbol": "GPSUSDT",
+        "interval": "15",
+        "start": 1782864000000,
+        "end": 1782950399999,
+        "limit": 1000
+      },
+      "requested_at_utc": "2026-09-01T04:50:53.565081+00:00",
+      "http_status": 200,
+      "raw_path": "reports\\crypto-backtest\\strategy-discovery-sprint-v1\\dataset-repair-v1-final2\\raw_kline_pages\\GPSUSDT\\GPSUSDT-page-0001-start-1782864000000-end-1782950399999.json",
+      "sha256": "72f80699805b4818da2e24eb176a50a9d069bee9bd7269c40c211fbecd5c438f",
+      "rows": 96,
+      "earliest_ms": 1782864000000,
+      "latest_ms": 1782949500000,
+      "error": null
+    },
+    {
+      "symbol": "TAIKOUSDT",
+      "page": 1,
+      "params": {
+        "category": "linear",
+        "symbol": "TAIKOUSDT",
+        "interval": "15",
+        "start": 1782864000000,
+        "end": 1782950399999,
+        "limit": 1000
+      },
+      "requested_at_utc": "2026-09-01T04:50:53.713456+00:00",
+      "http_status": 200,
+      "raw_path": "reports\\crypto-backtest\\strategy-discovery-sprint-v1\\dataset-repair-v1-final2\\raw_kline_pages\\TAIKOUSDT\\TAIKOUSDT-page-0001-start-1782864000000-end-1782950399999.json",
+      "sha256": "ad9591a60dd010f7f6f6cfca33d005b817e976d4ed16060712ebb068cbba1c36",
+      "rows": 96,
+      "earliest_ms": 1782864000000,
+      "latest_ms": 1782949500000,
+      "error": null
+    },
+    {
+      "symbol": "0GUSDT",
+      "page": 1,
+      "params": {
+        "category": "linear",
+        "symbol": "0GUSDT",
+        "interval": "15",
+        "start": 1782864000000,
+        "end": 1782950399999,
+        "limit": 1000
+      },
+      "requested_at_utc": "2026-09-01T04:50:53.692079+00:00",
+      "http_status": 200,
+      "raw_path": "reports\\crypto-backtest\\strategy-discovery-sprint-v1\\dataset-repair-v1-final2\\raw_kline_pages\\0GUSDT\\0GUSDT-page-0001-start-1782864000000-end-1782950399999.json",
+      "sha256": "7c71faa911b00b76a396c56e056f1fc47fcde2d935485c85a89148d6915d35e1",
+      "rows": 96,
+      "earliest_ms": 1782864000000,
+      "latest_ms": 1782949500000,
+      "error": null
+    },
+    {
+      "symbol": "LIGHTUSDT",
+      "page": 1,
+      "params": {
+        "category": "linear",
+        "symbol": "LIGHTUSDT",
+        "interval": "15",
+        "start": 1782864000000,
+        "end": 1782950399999,
+        "limit": 1000
+      },
+      "requested_at_utc": "2026-09-01T04:50:53.722110+00:00",
+      "http_status": 200,
+      "raw_path": "reports\\crypto-backtest\\strategy-discovery-sprint-v1\\dataset-repair-v1-final2\\raw_kline_pages\\LIGHTUSDT\\LIGHTUSDT-page-0001-start-1782864000000-end-1782950399999.json",
+      "sha256": "3fa4d5c9564bb08115e97061a555c1617f98a169570374099e58b25fc77c16a0",
+      "rows": 96,
+      "earliest_ms": 1782864000000,
+      "latest_ms": 1782949500000,
+      "error": null
+    },
+    {
+      "symbol": "COMPUSDT",
+      "page": 1,
+      "params": {
+        "category": "linear",
+        "symbol": "COMPUSDT",
+        "interval": "15",
+        "start": 1782864000000,
+        "end": 1782950399999,
+        "limit": 1000
+      },
+      "requested_at_utc": "2026-09-01T04:50:53.015728+00:00",
+      "http_status": 200,
+      "raw_path": "reports\\crypto-backtest\\strategy-discovery-sprint-v1\\dataset-repair-v1-final2\\raw_kline_pages\\COMPUSDT\\COMPUSDT-page-0001-start-1782864000000-end-1782950399999.json",
+      "sha256": "a6140cdec8a0ae1a8fbbbf5f8e1f72198afd526d0a2770a92034ee87f84ea0d3",
+      "rows": 96,
+      "earliest_ms": 1782864000000,
+      "latest_ms": 1782949500000,
+      "error": null
+    },
+    {
+      "symbol": "INITUSDT",
+      "page": 1,
+      "params": {
+        "category": "linear",
+        "symbol": "INITUSDT",
+        "interval": "15",
+        "start": 1782864000000,
+        "end": 1782950399999,
+        "limit": 1000
+      },
+      "requested_at_utc": "2026-09-01T04:50:53.722110+00:00",
+      "http_status": 200,
+      "raw_path": "reports\\crypto-backtest\\strategy-discovery-sprint-v1\\dataset-repair-v1-final2\\raw_kline_pages\\INITUSDT\\INITUSDT-page-0001-start-1782864000000-end-1782950399999.json",
+      "sha256": "6b95d94196065f4bbe7d41ffc5f274516199565a7d1b9ce755577cb5d0475a5e",
+      "rows": 96,
+      "earliest_ms": 1782864000000,
+      "latest_ms": 1782949500000,
+      "error": null
+    },
+    {
+      "symbol": "ZKPUSDT",
+      "page": 1,
+      "params": {
+        "category": "linear",
+        "symbol": "ZKPUSDT",
+        "interval": "15",
+        "start": 1782864000000,
+        "end": 1782950399999,
+        "limit": 1000
+      },
+      "requested_at_utc": "2026-09-01T04:50:54.255313+00:00",
+      "http_status": 200,
+      "raw_path": "reports\\crypto-backtest\\strategy-discovery-sprint-v1\\dataset-repair-v1-final2\\raw_kline_pages\\ZKPUSDT\\ZKPUSDT-page-0001-start-1782864000000-end-1782950399999.json",
+      "sha256": "b44697141b6a3595217fe50b6529ff5f382780c5de3364f07107e8656fa56682",
+      "rows": 96,
+      "earliest_ms": 1782864000000,
+      "latest_ms": 1782949500000,
+      "error": null
+    },
+    {
+      "symbol": "ONGUSDT",
+      "page": 1,
+      "params": {
+        "category": "linear",
+        "symbol": "ONGUSDT",
+        "interval": "15",
+        "start": 1782864000000,
+        "end": 1782950399999,
+        "limit": 1000
+      },
+      "requested_at_utc": "2026-09-01T04:50:54.413534+00:00",
+      "http_status": 200,
+      "raw_path": "reports\\crypto-backtest\\strategy-discovery-sprint-v1\\dataset-repair-v1-final2\\raw_kline_pages\\ONGUSDT\\ONGUSDT-page-0001-start-1782864000000-end-1782950399999.json",
+      "sha256": "4cf5ac622811de74ea3808643fa2d1ed3374c7fb123a427921571bafa87862e9",
+      "rows": 96,
+      "earliest_ms": 1782864000000,
+      "latest_ms": 1782949500000,
+      "error": null
+    },
+    {
+      "symbol": "ZBCNUSDT",
+      "page": 1,
+      "params": {
+        "category": "linear",
+        "symbol": "ZBCNUSDT",
+        "interval": "15",
+        "start": 1782864000000,
+        "end": 1782950399999,
+        "limit": 1000
+      },
+      "requested_at_utc": "2026-09-01T04:50:54.632173+00:00",
+      "http_status": 200,
+      "raw_path": "reports\\crypto-backtest\\strategy-discovery-sprint-v1\\dataset-repair-v1-final2\\raw_kline_pages\\ZBCNUSDT\\ZBCNUSDT-page-0001-start-1782864000000-end-1782950399999.json",
+      "sha256": "72c36325d10e4cebcefae5780435a33a440baefeae6d76233d6b47e352d89227",
+      "rows": 96,
+      "earliest_ms": 1782864000000,
+      "latest_ms": 1782949500000,
+      "error": null
+    },
+    {
+      "symbol": "FUSDT",
+      "page": 1,
+      "params": {
+        "category": "linear",
+        "symbol": "FUSDT",
+        "interval": "15",
+        "start": 1782864000000,
+        "end": 1782950399999,
+        "limit": 1000
+      },
+      "requested_at_utc": "2026-09-01T04:50:54.530973+00:00",
+      "http_status": 200,
+      "raw_path": "reports\\crypto-backtest\\strategy-discovery-sprint-v1\\dataset-repair-v1-final2\\raw_kline_pages\\FUSDT\\FUSDT-page-0001-start-1782864000000-end-1782950399999.json",
+      "sha256": "852ab84e9ecfbf28688b8e41f372d6209f99400a84bac12e8cb3df385e3e55b5",
+      "rows": 96,
+      "earliest_ms": 1782864000000,
+      "latest_ms": 1782949500000,
+      "error": null
+    },
+    {
+      "symbol": "LUNA2USDT",
+      "page": 1,
+      "params": {
+        "category": "linear",
+        "symbol": "LUNA2USDT",
+        "interval": "15",
+        "start": 1782864000000,
+        "end": 1782950399999,
+        "limit": 1000
+      },
+      "requested_at_utc": "2026-09-01T04:50:54.735121+00:00",
+      "http_status": 200,
+      "raw_path": "reports\\crypto-backtest\\strategy-discovery-sprint-v1\\dataset-repair-v1-final2\\raw_kline_pages\\LUNA2USDT\\LUNA2USDT-page-0001-start-1782864000000-end-1782950399999.json",
+      "sha256": "804a49305d3392d07d56a57d70f3194ef4f7109bae109dfe14d83867a09c3fac",
+      "rows": 96,
+      "earliest_ms": 1782864000000,
+      "latest_ms": 1782949500000,
+      "error": null
+    },
+    {
+      "symbol": "CAKEUSDT",
+      "page": 1,
+      "params": {
+        "category": "linear",
+        "symbol": "CAKEUSDT",
+        "interval": "15",
+        "start": 1782864000000,
+        "end": 1782950399999,
+        "limit": 1000
+      },
+      "requested_at_utc": "2026-09-01T04:50:53.733328+00:00",
+      "http_status": 200,
+      "raw_path": "reports\\crypto-backtest\\strategy-discovery-sprint-v1\\dataset-repair-v1-final2\\raw_kline_pages\\CAKEUSDT\\CAKEUSDT-page-0001-start-1782864000000-end-1782950399999.json",
+      "sha256": "669b952bd3ed6eb754138a376ced8c05fa722df295031c38c83bafdcdff9a1f4",
+      "rows": 96,
+      "earliest_ms": 1782864000000,
+      "latest_ms": 1782949500000,
+      "error": null
+    },
+    {
+      "symbol": "KAVAUSDT",
+      "page": 1,
+      "params": {
+        "category": "linear",
+        "symbol": "KAVAUSDT",
+        "interval": "15",
+        "start": 1782864000000,
+        "end": 1782950399999,
+        "limit": 1000
+      },
+      "requested_at_utc": "2026-09-01T04:50:54.397430+00:00",
+      "http_status": 200,
+      "raw_path": "reports\\crypto-backtest\\strategy-discovery-sprint-v1\\dataset-repair-v1-final2\\raw_kline_pages\\KAVAUSDT\\KAVAUSDT-page-0001-start-1782864000000-end-1782950399999.json",
+      "sha256": "32355adbcc7de36793b023300714639eefdc4f5da09621cc6b9189beb494db52",
+      "rows": 96,
+      "earliest_ms": 1782864000000,
+      "latest_ms": 1782949500000,
+      "error": null
+    },
+    {
+      "symbol": "FLRUSDT",
+      "page": 1,
+      "params": {
+        "category": "linear",
+        "symbol": "FLRUSDT",
+        "interval": "15",
+        "start": 1782864000000,
+        "end": 1782950399999,
+        "limit": 1000
+      },
+      "requested_at_utc": "2026-09-01T04:50:53.914920+00:00",
+      "http_status": 200,
+      "raw_path": "reports\\crypto-backtest\\strategy-discovery-sprint-v1\\dataset-repair-v1-final2\\raw_kline_pages\\FLRUSDT\\FLRUSDT-page-0001-start-1782864000000-end-1782950399999.json",
+      "sha256": "3fcecd77ea7013aec1ac8e1e1d2c7f69c915e69d0e2c294c43a1a1c9b5c2507b",
+      "rows": 96,
+      "earliest_ms": 1782864000000,
+      "latest_ms": 1782949500000,
+      "error": null
+    },
+    {
+      "symbol": "ACUUSDT",
+      "page": 1,
+      "params": {
+        "category": "linear",
+        "symbol": "ACUUSDT",
+        "interval": "15",
+        "start": 1782864000000,
+        "end": 1782950399999,
+        "limit": 1000
+      },
+      "requested_at_utc": "2026-09-01T04:50:54.966697+00:00",
+      "http_status": 200,
+      "raw_path": "reports\\crypto-backtest\\strategy-discovery-sprint-v1\\dataset-repair-v1-final2\\raw_kline_pages\\ACUUSDT\\ACUUSDT-page-0001-start-1782864000000-end-1782950399999.json",
+      "sha256": "577b80243ea963e1999ba28c84ce604e052ad1cba4bcc5103b7917564ecb5a78",
+      "rows": 96,
+      "earliest_ms": 1782864000000,
+      "latest_ms": 1782949500000,
+      "error": null
+    },
+    {
+      "symbol": "CYBERUSDT",
+      "page": 1,
+      "params": {
+        "category": "linear",
+        "symbol": "CYBERUSDT",
+        "interval": "15",
+        "start": 1782864000000,
+        "end": 1782950399999,
+        "limit": 1000
+      },
+      "requested_at_utc": "2026-09-01T04:50:54.982804+00:00",
+      "http_status": 200,
+      "raw_path": "reports\\crypto-backtest\\strategy-discovery-sprint-v1\\dataset-repair-v1-final2\\raw_kline_pages\\CYBERUSDT\\CYBERUSDT-page-0001-start-1782864000000-end-1782950399999.json",
+      "sha256": "0d68378524180a579bebf67737f907d88dd694c350fd76c3d8caa1c81a2801da",
+      "rows": 96,
+      "earliest_ms": 1782864000000,
+      "latest_ms": 1782949500000,
+      "error": null
+    },
+    {
+      "symbol": "BEAMUSDT",
+      "page": 1,
+      "params": {
+        "category": "linear",
+        "symbol": "BEAMUSDT",
+        "interval": "15",
+        "start": 1782864000000,
+        "end": 1782950399999,
+        "limit": 1000
+      },
+      "requested_at_utc": "2026-09-01T04:50:55.317410+00:00",
+      "http_status": 200,
+      "raw_path": "reports\\crypto-backtest\\strategy-discovery-sprint-v1\\dataset-repair-v1-final2\\raw_kline_pages\\BEAMUSDT\\BEAMUSDT-page-0001-start-1782864000000-end-1782950399999.json",
+      "sha256": "5c5051a3449e880ee0779bf1cc9378ef58b495b6d6f4c861950fe1e6dd38c3f2",
+      "rows": 96,
+      "earliest_ms": 1782864000000,
+      "latest_ms": 1782949500000,
+      "error": null
+    },
+    {
+      "symbol": "XAUUSDT",
+      "page": 1,
+      "params": {
+        "category": "linear",
+        "symbol": "XAUUSDT",
+        "interval": "15",
+        "start": 1785542400000,
+        "end": 1786442399999,
+        "limit": 1000
+      },
+      "requested_at_utc": "2026-09-01T04:50:55.498101+00:00",
+      "http_status": 200,
+      "raw_path": "reports\\crypto-backtest\\strategy-discovery-sprint-v1\\dataset-repair-v1-final2\\raw_kline_pages\\XAUUSDT\\XAUUSDT-page-0001-start-1785542400000-end-1786442399999.json",
+      "sha256": "85c2c282cd8b43c71a41263ae5d93ec1d1ea8e8c29b508ff35bd39d643e336c8",
+      "rows": 1000,
+      "earliest_ms": 1785542400000,
+      "latest_ms": 1786441500000,
+      "error": null
+    },
+    {
+      "symbol": "XAUUSDT",
+      "page": 2,
+      "params": {
+        "category": "linear",
+        "symbol": "XAUUSDT",
+        "interval": "15",
+        "start": 1786442400000,
+        "end": 1787342399999,
+        "limit": 1000
+      },
+      "requested_at_utc": "2026-09-01T04:50:56.371813+00:00",
+      "http_status": 200,
+      "raw_path": "reports\\crypto-backtest\\strategy-discovery-sprint-v1\\dataset-repair-v1-final2\\raw_kline_pages\\XAUUSDT\\XAUUSDT-page-0002-start-1786442400000-end-1787342399999.json",
+      "sha256": "00bd23aa05332d774d187218920d9e12f5e959db5b7ed084f36b46855c1330a2",
+      "rows": 1000,
+      "earliest_ms": 1786442400000,
+      "latest_ms": 1787341500000,
+      "error": null
+    },
+    {
+      "symbol": "XAUUSDT",
+      "page": 3,
+      "params": {
+        "category": "linear",
+        "symbol": "XAUUSDT",
+        "interval": "15",
+        "start": 1787342400000,
+        "end": 1788047999999,
+        "limit": 1000
+      },
+      "requested_at_utc": "2026-09-01T04:50:57.052456+00:00",
+      "http_status": 200,
+      "raw_path": "reports\\crypto-backtest\\strategy-discovery-sprint-v1\\dataset-repair-v1-final2\\raw_kline_pages\\XAUUSDT\\XAUUSDT-page-0003-start-1787342400000-end-1788047999999.json",
+      "sha256": "a1524ccf0d5236abc65e8a1234d46add729e62b683e016b22eddd6fbabecfd3d",
+      "rows": 784,
+      "earliest_ms": 1787342400000,
+      "latest_ms": 1788047100000,
+      "error": null
+    },
+    {
+      "symbol": "THETAUSDT",
+      "page": 1,
+      "params": {
+        "category": "linear",
+        "symbol": "THETAUSDT",
+        "interval": "15",
+        "start": 1785542400000,
+        "end": 1786442399999,
+        "limit": 1000
+      },
+      "requested_at_utc": "2026-09-01T04:50:55.658025+00:00",
+      "http_status": 200,
+      "raw_path": "reports\\crypto-backtest\\strategy-discovery-sprint-v1\\dataset-repair-v1-final2\\raw_kline_pages\\THETAUSDT\\THETAUSDT-page-0001-start-1785542400000-end-1786442399999.json",
+      "sha256": "94c2119cde336c9f2f4833a83a96bbcca9cc4798fd861c2cee81e7ec4e89f119",
+      "rows": 1000,
+      "earliest_ms": 1785542400000,
+      "latest_ms": 1786441500000,
+      "error": null
+    },
+    {
+      "symbol": "THETAUSDT",
+      "page": 2,
+      "params": {
+        "category": "linear",
+        "symbol": "THETAUSDT",
+        "interval": "15",
+        "start": 1786442400000,
+        "end": 1787342399999,
+        "limit": 1000
+      },
+      "requested_at_utc": "2026-09-01T04:50:56.368798+00:00",
+      "http_status": 200,
+      "raw_path": "reports\\crypto-backtest\\strategy-discovery-sprint-v1\\dataset-repair-v1-final2\\raw_kline_pages\\THETAUSDT\\THETAUSDT-page-0002-start-1786442400000-end-1787342399999.json",
+      "sha256": "9e5b3dfdeb255498203b77589f6b5a6f3759e4df7d6f92202b50c70593fa8581",
+      "rows": 1000,
+      "earliest_ms": 1786442400000,
+      "latest_ms": 1787341500000,
+      "error": null
+    },
+    {
+      "symbol": "THETAUSDT",
+      "page": 3,
+      "params": {
+        "category": "linear",
+        "symbol": "THETAUSDT",
+        "interval": "15",
+        "start": 1787342400000,
+        "end": 1788047999999,
+        "limit": 1000
+      },
+      "requested_at_utc": "2026-09-01T04:50:57.167737+00:00",
+      "http_status": 200,
+      "raw_path": "reports\\crypto-backtest\\strategy-discovery-sprint-v1\\dataset-repair-v1-final2\\raw_kline_pages\\THETAUSDT\\THETAUSDT-page-0003-start-1787342400000-end-1788047999999.json",
+      "sha256": "10799d911a7527e46c77b31fde745ad14de06496a6bcdf2aa4a600dc541e9dd0",
+      "rows": 784,
+      "earliest_ms": 1787342400000,
+      "latest_ms": 1788047100000,
+      "error": null
+    },
+    {
+      "symbol": "BANKUSDT",
+      "page": 1,
+      "params": {
+        "category": "linear",
+        "symbol": "BANKUSDT",
+        "interval": "15",
+        "start": 1785542400000,
+        "end": 1786442399999,
+        "limit": 1000
+      },
+      "requested_at_utc": "2026-09-01T04:50:55.624149+00:00",
+      "http_status": 200,
+      "raw_path": "reports\\crypto-backtest\\strategy-discovery-sprint-v1\\dataset-repair-v1-final2\\raw_kline_pages\\BANKUSDT\\BANKUSDT-page-0001-start-1785542400000-end-1786442399999.json",
+      "sha256": "352c68584d5a1d03d1cc75c6d95fca2219cd3a9e27c5cd30b46a61388d4e52b9",
+      "rows": 1000,
+      "earliest_ms": 1785542400000,
+      "latest_ms": 1786441500000,
+      "error": null
+    },
+    {
+      "symbol": "BANKUSDT",
+      "page": 2,
+      "params": {
+        "category": "linear",
+        "symbol": "BANKUSDT",
+        "interval": "15",
+        "start": 1786442400000,
+        "end": 1787342399999,
+        "limit": 1000
+      },
+      "requested_at_utc": "2026-09-01T04:50:56.351386+00:00",
+      "http_status": 200,
+      "raw_path": "reports\\crypto-backtest\\strategy-discovery-sprint-v1\\dataset-repair-v1-final2\\raw_kline_pages\\BANKUSDT\\BANKUSDT-page-0002-start-1786442400000-end-1787342399999.json",
+      "sha256": "80e354ff9470a3c3d62d0420531665f490424cdb937296f5731607d016bd2894",
+      "rows": 1000,
+      "earliest_ms": 1786442400000,
+      "latest_ms": 1787341500000,
+      "error": null
+    },
+    {
+      "symbol": "BANKUSDT",
+      "page": 3,
+      "params": {
+        "category": "linear",
+        "symbol": "BANKUSDT",
+        "interval": "15",
+        "start": 1787342400000,
+        "end": 1788047999999,
+        "limit": 1000
+      },
+      "requested_at_utc": "2026-09-01T04:50:56.996922+00:00",
+      "http_status": 200,
+      "raw_path": "reports\\crypto-backtest\\strategy-discovery-sprint-v1\\dataset-repair-v1-final2\\raw_kline_pages\\BANKUSDT\\BANKUSDT-page-0003-start-1787342400000-end-1788047999999.json",
+      "sha256": "22c44d06f240229b9d54c93ead89afde747b78e5dfea2753d26a7fd741347c79",
+      "rows": 784,
+      "earliest_ms": 1787342400000,
+      "latest_ms": 1788047100000,
+      "error": null
+    },
+    {
+      "symbol": "HYPEUSDT",
+      "page": 1,
+      "params": {
+        "category": "linear",
+        "symbol": "HYPEUSDT",
+        "interval": "15",
+        "start": 1785542400000,
+        "end": 1786442399999,
+        "limit": 1000
+      },
+      "requested_at_utc": "2026-09-01T04:50:55.337329+00:00",
+      "http_status": 200,
+      "raw_path": "reports\\crypto-backtest\\strategy-discovery-sprint-v1\\dataset-repair-v1-final2\\raw_kline_pages\\HYPEUSDT\\HYPEUSDT-page-0001-start-1785542400000-end-1786442399999.json",
+      "sha256": "165bd1f25eaf06b190dda3b61b2257856f946dbc71943fd2b46a19976026edfa",
+      "rows": 1000,
+      "earliest_ms": 1785542400000,
+      "latest_ms": 1786441500000,
+      "error": null
+    },
+    {
+      "symbol": "HYPEUSDT",
+      "page": 2,
+      "params": {
+        "category": "linear",
+        "symbol": "HYPEUSDT",
+        "interval": "15",
+        "start": 1786442400000,
+        "end": 1787342399999,
+        "limit": 1000
+      },
+      "requested_at_utc": "2026-09-01T04:50:56.062412+00:00",
+      "http_status": 200,
+      "raw_path": "reports\\crypto-backtest\\strategy-discovery-sprint-v1\\dataset-repair-v1-final2\\raw_kline_pages\\HYPEUSDT\\HYPEUSDT-page-0002-start-1786442400000-end-1787342399999.json",
+      "sha256": "7effd3f00cb9b513cb4befd1dce674ecc3bc72f243432ee0752cef90a2a89e8d",
+      "rows": 1000,
+      "earliest_ms": 1786442400000,
+      "latest_ms": 1787341500000,
+      "error": null
+    },
+    {
+      "symbol": "HYPEUSDT",
+      "page": 3,
+      "params": {
+        "category": "linear",
+        "symbol": "HYPEUSDT",
+        "interval": "15",
+        "start": 1787342400000,
+        "end": 1788047999999,
+        "limit": 1000
+      },
+      "requested_at_utc": "2026-09-01T04:50:57.314990+00:00",
+      "http_status": 200,
+      "raw_path": "reports\\crypto-backtest\\strategy-discovery-sprint-v1\\dataset-repair-v1-final2\\raw_kline_pages\\HYPEUSDT\\HYPEUSDT-page-0003-start-1787342400000-end-1788047999999.json",
+      "sha256": "c1a0ad249d4107dca11f68bf8cdb336cc39b50cb079c180587657c8650c01d4a",
+      "rows": 784,
+      "earliest_ms": 1787342400000,
+      "latest_ms": 1788047100000,
+      "error": null
+    },
+    {
+      "symbol": "SOXLUSDT",
+      "page": 1,
+      "params": {
+        "category": "linear",
+        "symbol": "SOXLUSDT",
+        "interval": "15",
+        "start": 1785542400000,
+        "end": 1786442399999,
+        "limit": 1000
+      },
+      "requested_at_utc": "2026-09-01T04:50:55.430684+00:00",
+      "http_status": 200,
+      "raw_path": "reports\\crypto-backtest\\strategy-discovery-sprint-v1\\dataset-repair-v1-final2\\raw_kline_pages\\SOXLUSDT\\SOXLUSDT-page-0001-start-1785542400000-end-1786442399999.json",
+      "sha256": "66ef7522e0c8e9eaeb5c0391901d148d9c7e14df50bd6adfbe7a58dd34331043",
+      "rows": 1000,
+      "earliest_ms": 1785542400000,
+      "latest_ms": 1786441500000,
+      "error": null
+    },
+    {
+      "symbol": "SOXLUSDT",
+      "page": 2,
+      "params": {
+        "category": "linear",
+        "symbol": "SOXLUSDT",
+        "interval": "15",
+        "start": 1786442400000,
+        "end": 1787342399999,
+        "limit": 1000
+      },
+      "requested_at_utc": "2026-09-01T04:50:56.415355+00:00",
+      "http_status": 200,
+      "raw_path": "reports\\crypto-backtest\\strategy-discovery-sprint-v1\\dataset-repair-v1-final2\\raw_kline_pages\\SOXLUSDT\\SOXLUSDT-page-0002-start-1786442400000-end-1787342399999.json",
+      "sha256": "1561c773b0ae5468702c474faedc3d7b4aa848399a618cd163fcf32e01b25f18",
+      "rows": 1000,
+      "earliest_ms": 1786442400000,
+      "latest_ms": 1787341500000,
+      "error": null
+    },
+    {
+      "symbol": "SOXLUSDT",
+      "page": 3,
+      "params": {
+        "category": "linear",
+        "symbol": "SOXLUSDT",
+        "interval": "15",
+        "start": 1787342400000,
+        "end": 1788047999999,
+        "limit": 1000
+      },
+      "requested_at_utc": "2026-09-01T04:50:57.179328+00:00",
+      "http_status": 200,
+      "raw_path": "reports\\crypto-backtest\\strategy-discovery-sprint-v1\\dataset-repair-v1-final2\\raw_kline_pages\\SOXLUSDT\\SOXLUSDT-page-0003-start-1787342400000-end-1788047999999.json",
+      "sha256": "45723f336ada0d4b992832e8d9f86027bcb165019b30d8fd41729d702616e005",
+      "rows": 784,
+      "earliest_ms": 1787342400000,
+      "latest_ms": 1788047100000,
+      "error": null
+    },
+    {
+      "symbol": "SNDKUSDT",
+      "page": 1,
+      "params": {
+        "category": "linear",
+        "symbol": "SNDKUSDT",
+        "interval": "15",
+        "start": 1785542400000,
+        "end": 1786442399999,
+        "limit": 1000
+      },
+      "requested_at_utc": "2026-09-01T04:50:55.615069+00:00",
+      "http_status": 200,
+      "raw_path": "reports\\crypto-backtest\\strategy-discovery-sprint-v1\\dataset-repair-v1-final2\\raw_kline_pages\\SNDKUSDT\\SNDKUSDT-page-0001-start-1785542400000-end-1786442399999.json",
+      "sha256": "aa96b3e805b259b612442c2f2045fcb7430af6faf6f176dcce22a88aa7df6836",
+      "rows": 1000,
+      "earliest_ms": 1785542400000,
+      "latest_ms": 1786441500000,
+      "error": null
+    },
+    {
+      "symbol": "SNDKUSDT",
+      "page": 2,
+      "params": {
+        "category": "linear",
+        "symbol": "SNDKUSDT",
+        "interval": "15",
+        "start": 1786442400000,
+        "end": 1787342399999,
+        "limit": 1000
+      },
+      "requested_at_utc": "2026-09-01T04:50:56.327505+00:00",
+      "http_status": 200,
+      "raw_path": "reports\\crypto-backtest\\strategy-discovery-sprint-v1\\dataset-repair-v1-final2\\raw_kline_pages\\SNDKUSDT\\SNDKUSDT-page-0002-start-1786442400000-end-1787342399999.json",
+      "sha256": "b00ce04773c114c91b1817ac46585a6d1cb8c3d14b1d3627be1ab71c4d8d778c",
+      "rows": 1000,
+      "earliest_ms": 1786442400000,
+      "latest_ms": 1787341500000,
+      "error": null
+    },
+    {
+      "symbol": "SNDKUSDT",
+      "page": 3,
+      "params": {
+        "category": "linear",
+        "symbol": "SNDKUSDT",
+        "interval": "15",
+        "start": 1787342400000,
+        "end": 1788047999999,
+        "limit": 1000
+      },
+      "requested_at_utc": "2026-09-01T04:50:57.169490+00:00",
+      "http_status": 200,
+      "raw_path": "reports\\crypto-backtest\\strategy-discovery-sprint-v1\\dataset-repair-v1-final2\\raw_kline_pages\\SNDKUSDT\\SNDKUSDT-page-0003-start-1787342400000-end-1788047999999.json",
+      "sha256": "d0568b8c93a71d7bb2fa8eebc30dc7770afb1a989b645a7ff9022bfaef8da784",
+      "rows": 784,
+      "earliest_ms": 1787342400000,
+      "latest_ms": 1788047100000,
+      "error": null
+    },
+    {
+      "symbol": "ZECUSDT",
+      "page": 1,
+      "params": {
+        "category": "linear",
+        "symbol": "ZECUSDT",
+        "interval": "15",
+        "start": 1785542400000,
+        "end": 1786442399999,
+        "limit": 1000
+      },
+      "requested_at_utc": "2026-09-01T04:50:55.457771+00:00",
+      "http_status": 200,
+      "raw_path": "reports\\crypto-backtest\\strategy-discovery-sprint-v1\\dataset-repair-v1-final2\\raw_kline_pages\\ZECUSDT\\ZECUSDT-page-0001-start-1785542400000-end-1786442399999.json",
+      "sha256": "1620c23bb3c04a00117d5c8859058059aa57ad33de1a4b50b6c73f91212bbe83",
+      "rows": 1000,
+      "earliest_ms": 1785542400000,
+      "latest_ms": 1786441500000,
+      "error": null
+    },
+    {
+      "symbol": "ZECUSDT",
+      "page": 2,
+      "params": {
+        "category": "linear",
+        "symbol": "ZECUSDT",
+        "interval": "15",
+        "start": 1786442400000,
+        "end": 1787342399999,
+        "limit": 1000
+      },
+      "requested_at_utc": "2026-09-01T04:50:56.321672+00:00",
+      "http_status": 200,
+      "raw_path": "reports\\crypto-backtest\\strategy-discovery-sprint-v1\\dataset-repair-v1-final2\\raw_kline_pages\\ZECUSDT\\ZECUSDT-page-0002-start-1786442400000-end-1787342399999.json",
+      "sha256": "fd410c322c7f64d82c753325437aabc11d1c42a84ac2bb6659dfe6d9678ef556",
+      "rows": 1000,
+      "earliest_ms": 1786442400000,
+      "latest_ms": 1787341500000,
+      "error": null
+    },
+    {
+      "symbol": "ZECUSDT",
+      "page": 3,
+      "params": {
+        "category": "linear",
+        "symbol": "ZECUSDT",
+        "interval": "15",
+        "start": 1787342400000,
+        "end": 1788047999999,
+        "limit": 1000
+      },
+      "requested_at_utc": "2026-09-01T04:50:57.076571+00:00",
+      "http_status": 200,
+      "raw_path": "reports\\crypto-backtest\\strategy-discovery-sprint-v1\\dataset-repair-v1-final2\\raw_kline_pages\\ZECUSDT\\ZECUSDT-page-0003-start-1787342400000-end-1788047999999.json",
+      "sha256": "81e8af01772800738fb090cac2811d1949a21cad9d34b3173bdb0c5a8ec5d919",
+      "rows": 784,
+      "earliest_ms": 1787342400000,
+      "latest_ms": 1788047100000,
+      "error": null
+    },
+    {
+      "symbol": "CAKEUSDT",
+      "page": 1,
+      "params": {
+        "category": "linear",
+        "symbol": "CAKEUSDT",
+        "interval": "15",
+        "start": 1785542400000,
+        "end": 1786442399999,
+        "limit": 1000
+      },
+      "requested_at_utc": "2026-09-01T04:50:56.034485+00:00",
+      "http_status": 200,
+      "raw_path": "reports\\crypto-backtest\\strategy-discovery-sprint-v1\\dataset-repair-v1-final2\\raw_kline_pages\\CAKEUSDT\\CAKEUSDT-page-0001-start-1785542400000-end-1786442399999.json",
+      "sha256": "936a454a07d3e52317a26a484dd75ee6e6ee23cd05dbc4483da325ed4ca8f291",
+      "rows": 1000,
+      "earliest_ms": 1785542400000,
+      "latest_ms": 1786441500000,
+      "error": null
+    },
+    {
+      "symbol": "CAKEUSDT",
+      "page": 2,
+      "params": {
+        "category": "linear",
+        "symbol": "CAKEUSDT",
+        "interval": "15",
+        "start": 1786442400000,
+        "end": 1787342399999,
+        "limit": 1000
+      },
+      "requested_at_utc": "2026-09-01T04:50:56.818343+00:00",
+      "http_status": 200,
+      "raw_path": "reports\\crypto-backtest\\strategy-discovery-sprint-v1\\dataset-repair-v1-final2\\raw_kline_pages\\CAKEUSDT\\CAKEUSDT-page-0002-start-1786442400000-end-1787342399999.json",
+      "sha256": "13220e6c427ef9202281ce0b9aabed56d8780068b35c5a51a53fda1395a55269",
+      "rows": 1000,
+      "earliest_ms": 1786442400000,
+      "latest_ms": 1787341500000,
+      "error": null
+    },
+    {
+      "symbol": "CAKEUSDT",
+      "page": 3,
+      "params": {
+        "category": "linear",
+        "symbol": "CAKEUSDT",
+        "interval": "15",
+        "start": 1787342400000,
+        "end": 1788047999999,
+        "limit": 1000
+      },
+      "requested_at_utc": "2026-09-01T04:50:58.666094+00:00",
+      "http_status": 200,
+      "raw_path": "reports\\crypto-backtest\\strategy-discovery-sprint-v1\\dataset-repair-v1-final2\\raw_kline_pages\\CAKEUSDT\\CAKEUSDT-page-0003-start-1787342400000-end-1788047999999.json",
+      "sha256": "91dbf2936ccc5382431914f0be8e412983a32b12a29734e795a081e12698baa9",
+      "rows": 784,
+      "earliest_ms": 1787342400000,
+      "latest_ms": 1788047100000,
+      "error": null
+    },
+    {
+      "symbol": "COINUSDT",
+      "page": 1,
+      "params": {
+        "category": "linear",
+        "symbol": "COINUSDT",
+        "interval": "15",
+        "start": 1785542400000,
+        "end": 1786442399999,
+        "limit": 1000
+      },
+      "requested_at_utc": "2026-09-01T04:50:58.596748+00:00",
+      "http_status": 200,
+      "raw_path": "reports\\crypto-backtest\\strategy-discovery-sprint-v1\\dataset-repair-v1-final2\\raw_kline_pages\\COINUSDT\\COINUSDT-page-0001-start-1785542400000-end-1786442399999.json",
+      "sha256": "e40d37f874b47944368cd64240d0acb6a46bb79f2afe5f0c867c263b10b55c15",
+      "rows": 1000,
+      "earliest_ms": 1785542400000,
+      "latest_ms": 1786441500000,
+      "error": null
+    },
+    {
+      "symbol": "COINUSDT",
+      "page": 2,
+      "params": {
+        "category": "linear",
+        "symbol": "COINUSDT",
+        "interval": "15",
+        "start": 1786442400000,
+        "end": 1787342399999,
+        "limit": 1000
+      },
+      "requested_at_utc": "2026-09-01T04:50:59.237232+00:00",
+      "http_status": 200,
+      "raw_path": "reports\\crypto-backtest\\strategy-discovery-sprint-v1\\dataset-repair-v1-final2\\raw_kline_pages\\COINUSDT\\COINUSDT-page-0002-start-1786442400000-end-1787342399999.json",
+      "sha256": "27b82b46e65e9d58b02e7a80b4861b34a66d69e0fbba6aee31661a5c5ebe95aa",
+      "rows": 1000,
+      "earliest_ms": 1786442400000,
+      "latest_ms": 1787341500000,
+      "error": null
+    },
+    {
+      "symbol": "COINUSDT",
+      "page": 3,
+      "params": {
+        "category": "linear",
+        "symbol": "COINUSDT",
+        "interval": "15",
+        "start": 1787342400000,
+        "end": 1788047999999,
+        "limit": 1000
+      },
+      "requested_at_utc": "2026-09-01T04:50:59.877920+00:00",
+      "http_status": 200,
+      "raw_path": "reports\\crypto-backtest\\strategy-discovery-sprint-v1\\dataset-repair-v1-final2\\raw_kline_pages\\COINUSDT\\COINUSDT-page-0003-start-1787342400000-end-1788047999999.json",
+      "sha256": "cdadecf9c582819cf944175f11203272fc602d048149bd8ec3923daf9837dd0a",
+      "rows": 784,
+      "earliest_ms": 1787342400000,
+      "latest_ms": 1788047100000,
+      "error": null
+    },
+    {
+      "symbol": "XANUSDT",
+      "page": 1,
+      "params": {
+        "category": "linear",
+        "symbol": "XANUSDT",
+        "interval": "15",
+        "start": 1785542400000,
+        "end": 1786442399999,
+        "limit": 1000
+      },
+      "requested_at_utc": "2026-09-01T04:50:58.775218+00:00",
+      "http_status": 200,
+      "raw_path": "reports\\crypto-backtest\\strategy-discovery-sprint-v1\\dataset-repair-v1-final2\\raw_kline_pages\\XANUSDT\\XANUSDT-page-0001-start-1785542400000-end-1786442399999.json",
+      "sha256": "fd0c509371f57c965dd1a7de198d6bc257d75e409506dd1ceb24723d43a04123",
+      "rows": 1000,
+      "earliest_ms": 1785542400000,
+      "latest_ms": 1786441500000,
+      "error": null
+    },
+    {
+      "symbol": "XANUSDT",
+      "page": 2,
+      "params": {
+        "category": "linear",
+        "symbol": "XANUSDT",
+        "interval": "15",
+        "start": 1786442400000,
+        "end": 1787342399999,
+        "limit": 1000
+      },
+      "requested_at_utc": "2026-09-01T04:50:59.443822+00:00",
+      "http_status": 200,
+      "raw_path": "reports\\crypto-backtest\\strategy-discovery-sprint-v1\\dataset-repair-v1-final2\\raw_kline_pages\\XANUSDT\\XANUSDT-page-0002-start-1786442400000-end-1787342399999.json",
+      "sha256": "a39ff8c0540411e0772527df2351d142cc16589e20b1554e51cf3486f393a0f9",
+      "rows": 1000,
+      "earliest_ms": 1786442400000,
+      "latest_ms": 1787341500000,
+      "error": null
+    },
+    {
+      "symbol": "XANUSDT",
+      "page": 3,
+      "params": {
+        "category": "linear",
+        "symbol": "XANUSDT",
+        "interval": "15",
+        "start": 1787342400000,
+        "end": 1788047999999,
+        "limit": 1000
+      },
+      "requested_at_utc": "2026-09-01T04:51:00.150549+00:00",
+      "http_status": 200,
+      "raw_path": "reports\\crypto-backtest\\strategy-discovery-sprint-v1\\dataset-repair-v1-final2\\raw_kline_pages\\XANUSDT\\XANUSDT-page-0003-start-1787342400000-end-1788047999999.json",
+      "sha256": "dab387532a3e58ab48a5a4b124c89fcb676818ef5123599c8e375fb0e49494bf",
+      "rows": 784,
+      "earliest_ms": 1787342400000,
+      "latest_ms": 1788047100000,
+      "error": null
+    },
+    {
+      "symbol": "CHZUSDT",
+      "page": 1,
+      "params": {
+        "category": "linear",
+        "symbol": "CHZUSDT",
+        "interval": "15",
+        "start": 1785542400000,
+        "end": 1786442399999,
+        "limit": 1000
+      },
+      "requested_at_utc": "2026-09-01T04:50:58.517887+00:00",
+      "http_status": 200,
+      "raw_path": "reports\\crypto-backtest\\strategy-discovery-sprint-v1\\dataset-repair-v1-final2\\raw_kline_pages\\CHZUSDT\\CHZUSDT-page-0001-start-1785542400000-end-1786442399999.json",
+      "sha256": "b69eee9781afa6d0351890f1f7d0acf4d1dfbbc4d1deeded3c71f0afd1225b0b",
+      "rows": 1000,
+      "earliest_ms": 1785542400000,
+      "latest_ms": 1786441500000,
+      "error": null
+    },
+    {
+      "symbol": "CHZUSDT",
+      "page": 2,
+      "params": {
+        "category": "linear",
+        "symbol": "CHZUSDT",
+        "interval": "15",
+        "start": 1786442400000,
+        "end": 1787342399999,
+        "limit": 1000
+      },
+      "requested_at_utc": "2026-09-01T04:50:59.442309+00:00",
+      "http_status": 200,
+      "raw_path": "reports\\crypto-backtest\\strategy-discovery-sprint-v1\\dataset-repair-v1-final2\\raw_kline_pages\\CHZUSDT\\CHZUSDT-page-0002-start-1786442400000-end-1787342399999.json",
+      "sha256": "e231d35f2fc4a4722b3917564f5098ee86a8aee8701e1eef2bc18a35ddfff7d9",
+      "rows": 1000,
+      "earliest_ms": 1786442400000,
+      "latest_ms": 1787341500000,
+      "error": null
+    },
+    {
+      "symbol": "CHZUSDT",
+      "page": 3,
+      "params": {
+        "category": "linear",
+        "symbol": "CHZUSDT",
+        "interval": "15",
+        "start": 1787342400000,
+        "end": 1788047999999,
+        "limit": 1000
+      },
+      "requested_at_utc": "2026-09-01T04:51:00.390542+00:00",
+      "http_status": 200,
+      "raw_path": "reports\\crypto-backtest\\strategy-discovery-sprint-v1\\dataset-repair-v1-final2\\raw_kline_pages\\CHZUSDT\\CHZUSDT-page-0003-start-1787342400000-end-1788047999999.json",
+      "sha256": "5ba25be067b01aa4e538a82cc9c3e621a354dfc5bc62976e0994e01f96881ed6",
+      "rows": 784,
+      "earliest_ms": 1787342400000,
+      "latest_ms": 1788047100000,
+      "error": null
+    },
+    {
+      "symbol": "IMXUSDT",
+      "page": 1,
+      "params": {
+        "category": "linear",
+        "symbol": "IMXUSDT",
+        "interval": "15",
+        "start": 1785542400000,
+        "end": 1786442399999,
+        "limit": 1000
+      },
+      "requested_at_utc": "2026-09-01T04:50:58.677725+00:00",
+      "http_status": 200,
+      "raw_path": "reports\\crypto-backtest\\strategy-discovery-sprint-v1\\dataset-repair-v1-final2\\raw_kline_pages\\IMXUSDT\\IMXUSDT-page-0001-start-1785542400000-end-1786442399999.json",
+      "sha256": "1666a9b462e7fb68c6983f630595841e3fe8fa9a71e846e1f5280325c74d4b27",
+      "rows": 1000,
+      "earliest_ms": 1785542400000,
+      "latest_ms": 1786441500000,
+      "error": null
+    },
+    {
+      "symbol": "IMXUSDT",
+      "page": 2,
+      "params": {
+        "category": "linear",
+        "symbol": "IMXUSDT",
+        "interval": "15",
+        "start": 1786442400000,
+        "end": 1787342399999,
+        "limit": 1000
+      },
+      "requested_at_utc": "2026-09-01T04:50:59.588111+00:00",
+      "http_status": 200,
+      "raw_path": "reports\\crypto-backtest\\strategy-discovery-sprint-v1\\dataset-repair-v1-final2\\raw_kline_pages\\IMXUSDT\\IMXUSDT-page-0002-start-1786442400000-end-1787342399999.json",
+      "sha256": "bbe34fb802a43eb8fa8178db8d8b0dda657d1de6d0e199b6f8b7b55562e00359",
+      "rows": 1000,
+      "earliest_ms": 1786442400000,
+      "latest_ms": 1787341500000,
+      "error": null
+    },
+    {
+      "symbol": "IMXUSDT",
+      "page": 3,
+      "params": {
+        "category": "linear",
+        "symbol": "IMXUSDT",
+        "interval": "15",
+        "start": 1787342400000,
+        "end": 1788047999999,
+        "limit": 1000
+      },
+      "requested_at_utc": "2026-09-01T04:51:00.406259+00:00",
+      "http_status": 200,
+      "raw_path": "reports\\crypto-backtest\\strategy-discovery-sprint-v1\\dataset-repair-v1-final2\\raw_kline_pages\\IMXUSDT\\IMXUSDT-page-0003-start-1787342400000-end-1788047999999.json",
+      "sha256": "25433bced58ec04ac75c9b15214dfc9a49019a16652a8250d6113ecf7f69cf4b",
+      "rows": 784,
+      "earliest_ms": 1787342400000,
+      "latest_ms": 1788047100000,
+      "error": null
+    },
+    {
+      "symbol": "ORCLUSDT",
+      "page": 1,
+      "params": {
+        "category": "linear",
+        "symbol": "ORCLUSDT",
+        "interval": "15",
+        "start": 1785542400000,
+        "end": 1786442399999,
+        "limit": 1000
+      },
+      "requested_at_utc": "2026-09-01T04:50:58.771490+00:00",
+      "http_status": 200,
+      "raw_path": "reports\\crypto-backtest\\strategy-discovery-sprint-v1\\dataset-repair-v1-final2\\raw_kline_pages\\ORCLUSDT\\ORCLUSDT-page-0001-start-1785542400000-end-1786442399999.json",
+      "sha256": "713d4221a818b8460b2d2ae63fdee18fffd66e3195c3d6c459994afa34897918",
+      "rows": 1000,
+      "earliest_ms": 1785542400000,
+      "latest_ms": 1786441500000,
+      "error": null
+    },
+    {
+      "symbol": "ORCLUSDT",
+      "page": 2,
+      "params": {
+        "category": "linear",
+        "symbol": "ORCLUSDT",
+        "interval": "15",
+        "start": 1786442400000,
+        "end": 1787342399999,
+        "limit": 1000
+      },
+      "requested_at_utc": "2026-09-01T04:50:59.508933+00:00",
+      "http_status": 200,
+      "raw_path": "reports\\crypto-backtest\\strategy-discovery-sprint-v1\\dataset-repair-v1-final2\\raw_kline_pages\\ORCLUSDT\\ORCLUSDT-page-0002-start-1786442400000-end-1787342399999.json",
+      "sha256": "ed3ae46fccdf95f176df98466884f94b13ac6d1082861f13d7bb80bd7352861c",
+      "rows": 1000,
+      "earliest_ms": 1786442400000,
+      "latest_ms": 1787341500000,
+      "error": null
+    },
+    {
+      "symbol": "ORCLUSDT",
+      "page": 3,
+      "params": {
+        "category": "linear",
+        "symbol": "ORCLUSDT",
+        "interval": "15",
+        "start": 1787342400000,
+        "end": 1788047999999,
+        "limit": 1000
+      },
+      "requested_at_utc": "2026-09-01T04:51:00.461170+00:00",
+      "http_status": 200,
+      "raw_path": "reports\\crypto-backtest\\strategy-discovery-sprint-v1\\dataset-repair-v1-final2\\raw_kline_pages\\ORCLUSDT\\ORCLUSDT-page-0003-start-1787342400000-end-1788047999999.json",
+      "sha256": "5439ccb96f5689e82414691dab4b33e4682149ff09fc7398d994542914035dd7",
+      "rows": 784,
+      "earliest_ms": 1787342400000,
+      "latest_ms": 1788047100000,
+      "error": null
+    },
+    {
+      "symbol": "HANAUSDT",
+      "page": 1,
+      "params": {
+        "category": "linear",
+        "symbol": "HANAUSDT",
+        "interval": "15",
+        "start": 1785542400000,
+        "end": 1786442399999,
+        "limit": 1000
+      },
+      "requested_at_utc": "2026-09-01T04:50:58.468365+00:00",
+      "http_status": 200,
+      "raw_path": "reports\\crypto-backtest\\strategy-discovery-sprint-v1\\dataset-repair-v1-final2\\raw_kline_pages\\HANAUSDT\\HANAUSDT-page-0001-start-1785542400000-end-1786442399999.json",
+      "sha256": "bff9f228c58e0f71ea80e27e29f72f08712ec57dad4162f18aa3e55a4a47b5f0",
+      "rows": 1000,
+      "earliest_ms": 1785542400000,
+      "latest_ms": 1786441500000,
+      "error": null
+    },
+    {
+      "symbol": "HANAUSDT",
+      "page": 2,
+      "params": {
+        "category": "linear",
+        "symbol": "HANAUSDT",
+        "interval": "15",
+        "start": 1786442400000,
+        "end": 1787342399999,
+        "limit": 1000
+      },
+      "requested_at_utc": "2026-09-01T04:50:59.241420+00:00",
+      "http_status": 200,
+      "raw_path": "reports\\crypto-backtest\\strategy-discovery-sprint-v1\\dataset-repair-v1-final2\\raw_kline_pages\\HANAUSDT\\HANAUSDT-page-0002-start-1786442400000-end-1787342399999.json",
+      "sha256": "55b3657f9bd7068b85e92651764ab4b51e7b9aa7fb9f70cd30f9435258fcaa9c",
+      "rows": 1000,
+      "earliest_ms": 1786442400000,
+      "latest_ms": 1787341500000,
+      "error": null
+    },
+    {
+      "symbol": "HANAUSDT",
+      "page": 3,
+      "params": {
+        "category": "linear",
+        "symbol": "HANAUSDT",
+        "interval": "15",
+        "start": 1787342400000,
+        "end": 1788047999999,
+        "limit": 1000
+      },
+      "requested_at_utc": "2026-09-01T04:51:00.016002+00:00",
+      "http_status": 200,
+      "raw_path": "reports\\crypto-backtest\\strategy-discovery-sprint-v1\\dataset-repair-v1-final2\\raw_kline_pages\\HANAUSDT\\HANAUSDT-page-0003-start-1787342400000-end-1788047999999.json",
+      "sha256": "13090e53e8ff6d990e620928c1cc1d83ac82bc3a6a4a8bbd613e916e773495d8",
+      "rows": 784,
+      "earliest_ms": 1787342400000,
+      "latest_ms": 1788047100000,
+      "error": null
+    },
+    {
+      "symbol": "CFXUSDT",
+      "page": 1,
+      "params": {
+        "category": "linear",
+        "symbol": "CFXUSDT",
+        "interval": "15",
+        "start": 1785542400000,
+        "end": 1786442399999,
+        "limit": 1000
+      },
+      "requested_at_utc": "2026-09-01T04:50:58.768988+00:00",
+      "http_status": 200,
+      "raw_path": "reports\\crypto-backtest\\strategy-discovery-sprint-v1\\dataset-repair-v1-final2\\raw_kline_pages\\CFXUSDT\\CFXUSDT-page-0001-start-1785542400000-end-1786442399999.json",
+      "sha256": "c3677c72667f6fbe70dea6c2b8dcc17e3f26c14a4d15f106b49c5c79170d1d4b",
+      "rows": 1000,
+      "earliest_ms": 1785542400000,
+      "latest_ms": 1786441500000,
+      "error": null
+    },
+    {
+      "symbol": "CFXUSDT",
+      "page": 2,
+      "params": {
+        "category": "linear",
+        "symbol": "CFXUSDT",
+        "interval": "15",
+        "start": 1786442400000,
+        "end": 1787342399999,
+        "limit": 1000
+      },
+      "requested_at_utc": "2026-09-01T04:50:59.538265+00:00",
+      "http_status": 200,
+      "raw_path": "reports\\crypto-backtest\\strategy-discovery-sprint-v1\\dataset-repair-v1-final2\\raw_kline_pages\\CFXUSDT\\CFXUSDT-page-0002-start-1786442400000-end-1787342399999.json",
+      "sha256": "9ec1741d84a42ee03fa5dde932c0e72cd6c7f443d570ca73ed5afec246d39759",
+      "rows": 1000,
+      "earliest_ms": 1786442400000,
+      "latest_ms": 1787341500000,
+      "error": null
+    },
+    {
+      "symbol": "CFXUSDT",
+      "page": 3,
+      "params": {
+        "category": "linear",
+        "symbol": "CFXUSDT",
+        "interval": "15",
+        "start": 1787342400000,
+        "end": 1788047999999,
+        "limit": 1000
+      },
+      "requested_at_utc": "2026-09-01T04:51:00.476696+00:00",
+      "http_status": 200,
+      "raw_path": "reports\\crypto-backtest\\strategy-discovery-sprint-v1\\dataset-repair-v1-final2\\raw_kline_pages\\CFXUSDT\\CFXUSDT-page-0003-start-1787342400000-end-1788047999999.json",
+      "sha256": "007fb41c1cce79bdb4a752826ac19d14e52fcdbb6ce7919f73809af5f910e24b",
+      "rows": 784,
+      "earliest_ms": 1787342400000,
+      "latest_ms": 1788047100000,
+      "error": null
+    },
+    {
+      "symbol": "ICNTUSDT",
+      "page": 1,
+      "params": {
+        "category": "linear",
+        "symbol": "ICNTUSDT",
+        "interval": "15",
+        "start": 1785542400000,
+        "end": 1786442399999,
+        "limit": 1000
+      },
+      "requested_at_utc": "2026-09-01T04:50:59.439862+00:00",
+      "http_status": 200,
+      "raw_path": "reports\\crypto-backtest\\strategy-discovery-sprint-v1\\dataset-repair-v1-final2\\raw_kline_pages\\ICNTUSDT\\ICNTUSDT-page-0001-start-1785542400000-end-1786442399999.json",
+      "sha256": "000d4f8d2e8001c8885c522c7107f2b485dddd40d84b64cb4117683aa4b0cafe",
+      "rows": 1000,
+      "earliest_ms": 1785542400000,
+      "latest_ms": 1786441500000,
+      "error": null
+    },
+    {
+      "symbol": "ICNTUSDT",
+      "page": 2,
+      "params": {
+        "category": "linear",
+        "symbol": "ICNTUSDT",
+        "interval": "15",
+        "start": 1786442400000,
+        "end": 1787342399999,
+        "limit": 1000
+      },
+      "requested_at_utc": "2026-09-01T04:51:00.154088+00:00",
+      "http_status": 200,
+      "raw_path": "reports\\crypto-backtest\\strategy-discovery-sprint-v1\\dataset-repair-v1-final2\\raw_kline_pages\\ICNTUSDT\\ICNTUSDT-page-0002-start-1786442400000-end-1787342399999.json",
+      "sha256": "3eb6b27cea3efec2cc129ffb781ffc7c103dec400f0fdd4506a982cf9a4322f0",
+      "rows": 1000,
+      "earliest_ms": 1786442400000,
+      "latest_ms": 1787341500000,
+      "error": null
+    },
+    {
+      "symbol": "ICNTUSDT",
+      "page": 3,
+      "params": {
+        "category": "linear",
+        "symbol": "ICNTUSDT",
+        "interval": "15",
+        "start": 1787342400000,
+        "end": 1788047999999,
+        "limit": 1000
+      },
+      "requested_at_utc": "2026-09-01T04:51:01.536785+00:00",
+      "http_status": 200,
+      "raw_path": "reports\\crypto-backtest\\strategy-discovery-sprint-v1\\dataset-repair-v1-final2\\raw_kline_pages\\ICNTUSDT\\ICNTUSDT-page-0003-start-1787342400000-end-1788047999999.json",
+      "sha256": "410bfeadb2f69bf9be41f7f75f2cfb2613535849b4e69e1d1aba5f7630af8e76",
+      "rows": 784,
+      "earliest_ms": 1787342400000,
+      "latest_ms": 1788047100000,
+      "error": null
+    },
+    {
+      "symbol": "PUFFERUSDT",
+      "page": 1,
+      "params": {
+        "category": "linear",
+        "symbol": "PUFFERUSDT",
+        "interval": "15",
+        "start": 1785542400000,
+        "end": 1786442399999,
+        "limit": 1000
+      },
+      "requested_at_utc": "2026-09-01T04:51:01.297117+00:00",
+      "http_status": 200,
+      "raw_path": "reports\\crypto-backtest\\strategy-discovery-sprint-v1\\dataset-repair-v1-final2\\raw_kline_pages\\PUFFERUSDT\\PUFFERUSDT-page-0001-start-1785542400000-end-1786442399999.json",
+      "sha256": "34069abc90b187ca8a260dae5690d95c2f48a98408ec57d87e6dfd2b78dbaae3",
+      "rows": 1000,
+      "earliest_ms": 1785542400000,
+      "latest_ms": 1786441500000,
+      "error": null
+    },
+    {
+      "symbol": "PUFFERUSDT",
+      "page": 2,
+      "params": {
+        "category": "linear",
+        "symbol": "PUFFERUSDT",
+        "interval": "15",
+        "start": 1786442400000,
+        "end": 1787342399999,
+        "limit": 1000
+      },
+      "requested_at_utc": "2026-09-01T04:51:01.974371+00:00",
+      "http_status": 200,
+      "raw_path": "reports\\crypto-backtest\\strategy-discovery-sprint-v1\\dataset-repair-v1-final2\\raw_kline_pages\\PUFFERUSDT\\PUFFERUSDT-page-0002-start-1786442400000-end-1787342399999.json",
+      "sha256": "c17b1b7cd3c4bf0486be5c23f9806adcdccc4896170c0c22497d3f1e3e9c804a",
+      "rows": 1000,
+      "earliest_ms": 1786442400000,
+      "latest_ms": 1787341500000,
+      "error": null
+    },
+    {
+      "symbol": "PUFFERUSDT",
+      "page": 3,
+      "params": {
+        "category": "linear",
+        "symbol": "PUFFERUSDT",
+        "interval": "15",
+        "start": 1787342400000,
+        "end": 1788047999999,
+        "limit": 1000
+      },
+      "requested_at_utc": "2026-09-01T04:51:02.595876+00:00",
+      "http_status": 200,
+      "raw_path": "reports\\crypto-backtest\\strategy-discovery-sprint-v1\\dataset-repair-v1-final2\\raw_kline_pages\\PUFFERUSDT\\PUFFERUSDT-page-0003-start-1787342400000-end-1788047999999.json",
+      "sha256": "d7de1615e2434420877b5b384ceb955531992c171f84da7bde6c2c526c3f8e32",
+      "rows": 784,
+      "earliest_ms": 1787342400000,
+      "latest_ms": 1788047100000,
+      "error": null
+    },
+    {
+      "symbol": "GASUSDT",
+      "page": 1,
+      "params": {
+        "category": "linear",
+        "symbol": "GASUSDT",
+        "interval": "15",
+        "start": 1785542400000,
+        "end": 1786442399999,
+        "limit": 1000
+      },
+      "requested_at_utc": "2026-09-01T04:51:01.334347+00:00",
+      "http_status": 200,
+      "raw_path": "reports\\crypto-backtest\\strategy-discovery-sprint-v1\\dataset-repair-v1-final2\\raw_kline_pages\\GASUSDT\\GASUSDT-page-0001-start-1785542400000-end-1786442399999.json",
+      "sha256": "991140604d2dd7c54c2a21b476793aaa213c5831a7c8f7fbef4f580f6e48cc61",
+      "rows": 1000,
+      "earliest_ms": 1785542400000,
+      "latest_ms": 1786441500000,
+      "error": null
+    },
+    {
+      "symbol": "GASUSDT",
+      "page": 2,
+      "params": {
+        "category": "linear",
+        "symbol": "GASUSDT",
+        "interval": "15",
+        "start": 1786442400000,
+        "end": 1787342399999,
+        "limit": 1000
+      },
+      "requested_at_utc": "2026-09-01T04:51:02.020920+00:00",
+      "http_status": 200,
+      "raw_path": "reports\\crypto-backtest\\strategy-discovery-sprint-v1\\dataset-repair-v1-final2\\raw_kline_pages\\GASUSDT\\GASUSDT-page-0002-start-1786442400000-end-1787342399999.json",
+      "sha256": "db12d15b17832fea471c571d123cee9f220163ac4e0072484a2e0177c33b5292",
+      "rows": 1000,
+      "earliest_ms": 1786442400000,
+      "latest_ms": 1787341500000,
+      "error": null
+    },
+    {
+      "symbol": "GASUSDT",
+      "page": 3,
+      "params": {
+        "category": "linear",
+        "symbol": "GASUSDT",
+        "interval": "15",
+        "start": 1787342400000,
+        "end": 1788047999999,
+        "limit": 1000
+      },
+      "requested_at_utc": "2026-09-01T04:51:02.855930+00:00",
+      "http_status": 200,
+      "raw_path": "reports\\crypto-backtest\\strategy-discovery-sprint-v1\\dataset-repair-v1-final2\\raw_kline_pages\\GASUSDT\\GASUSDT-page-0003-start-1787342400000-end-1788047999999.json",
+      "sha256": "4ed55690582557f56d792f27d0035f9025f7e3de45cfabd1e1482788525d6b9e",
+      "rows": 784,
+      "earliest_ms": 1787342400000,
+      "latest_ms": 1788047100000,
+      "error": null
+    },
+    {
+      "symbol": "KMNOUSDT",
+      "page": 1,
+      "params": {
+        "category": "linear",
+        "symbol": "KMNOUSDT",
+        "interval": "15",
+        "start": 1785542400000,
+        "end": 1786442399999,
+        "limit": 1000
+      },
+      "requested_at_utc": "2026-09-01T04:51:01.469392+00:00",
+      "http_status": 200,
+      "raw_path": "reports\\crypto-backtest\\strategy-discovery-sprint-v1\\dataset-repair-v1-final2\\raw_kline_pages\\KMNOUSDT\\KMNOUSDT-page-0001-start-1785542400000-end-1786442399999.json",
+      "sha256": "7edcdcbc3468c10aabc5df3700cebec2eea54b45edcdb500148f9d30804f72c1",
+      "rows": 1000,
+      "earliest_ms": 1785542400000,
+      "latest_ms": 1786441500000,
+      "error": null
+    },
+    {
+      "symbol": "KMNOUSDT",
+      "page": 2,
+      "params": {
+        "category": "linear",
+        "symbol": "KMNOUSDT",
+        "interval": "15",
+        "start": 1786442400000,
+        "end": 1787342399999,
+        "limit": 1000
+      },
+      "requested_at_utc": "2026-09-01T04:51:02.369900+00:00",
+      "http_status": 200,
+      "raw_path": "reports\\crypto-backtest\\strategy-discovery-sprint-v1\\dataset-repair-v1-final2\\raw_kline_pages\\KMNOUSDT\\KMNOUSDT-page-0002-start-1786442400000-end-1787342399999.json",
+      "sha256": "f3b9199a302d393b0e7fcae283963257751efe0039687722896c4e45d57b04d8",
+      "rows": 1000,
+      "earliest_ms": 1786442400000,
+      "latest_ms": 1787341500000,
+      "error": null
+    },
+    {
+      "symbol": "KMNOUSDT",
+      "page": 3,
+      "params": {
+        "category": "linear",
+        "symbol": "KMNOUSDT",
+        "interval": "15",
+        "start": 1787342400000,
+        "end": 1788047999999,
+        "limit": 1000
+      },
+      "requested_at_utc": "2026-09-01T04:51:03.004816+00:00",
+      "http_status": 200,
+      "raw_path": "reports\\crypto-backtest\\strategy-discovery-sprint-v1\\dataset-repair-v1-final2\\raw_kline_pages\\KMNOUSDT\\KMNOUSDT-page-0003-start-1787342400000-end-1788047999999.json",
+      "sha256": "a9094f89fcfb70ec9c34e8540d228c78db69a48b48bcdb7c5a66f898a3054d67",
+      "rows": 784,
+      "earliest_ms": 1787342400000,
+      "latest_ms": 1788047100000,
+      "error": null
+    },
+    {
+      "symbol": "NEWTUSDT",
+      "page": 1,
+      "params": {
+        "category": "linear",
+        "symbol": "NEWTUSDT",
+        "interval": "15",
+        "start": 1785542400000,
+        "end": 1786442399999,
+        "limit": 1000
+      },
+      "requested_at_utc": "2026-09-01T04:51:01.244087+00:00",
+      "http_status": 200,
+      "raw_path": "reports\\crypto-backtest\\strategy-discovery-sprint-v1\\dataset-repair-v1-final2\\raw_kline_pages\\NEWTUSDT\\NEWTUSDT-page-0001-start-1785542400000-end-1786442399999.json",
+      "sha256": "5ea1796ba361221a05217b847750dca32f90254d6196e27f4bd6c8e1a9d038ba",
+      "rows": 1000,
+      "earliest_ms": 1785542400000,
+      "latest_ms": 1786441500000,
+      "error": null
+    },
+    {
+      "symbol": "NEWTUSDT",
+      "page": 2,
+      "params": {
+        "category": "linear",
+        "symbol": "NEWTUSDT",
+        "interval": "15",
+        "start": 1786442400000,
+        "end": 1787342399999,
+        "limit": 1000
+      },
+      "requested_at_utc": "2026-09-01T04:51:02.477387+00:00",
+      "http_status": 200,
+      "raw_path": "reports\\crypto-backtest\\strategy-discovery-sprint-v1\\dataset-repair-v1-final2\\raw_kline_pages\\NEWTUSDT\\NEWTUSDT-page-0002-start-1786442400000-end-1787342399999.json",
+      "sha256": "c491789d98ee7f35bbd0c48112526af23493f14b4436e5d57f05e53015be25c8",
+      "rows": 1000,
+      "earliest_ms": 1786442400000,
+      "latest_ms": 1787341500000,
+      "error": null
+    },
+    {
+      "symbol": "NEWTUSDT",
+      "page": 3,
+      "params": {
+        "category": "linear",
+        "symbol": "NEWTUSDT",
+        "interval": "15",
+        "start": 1787342400000,
+        "end": 1788047999999,
+        "limit": 1000
+      },
+      "requested_at_utc": "2026-09-01T04:51:03.212495+00:00",
+      "http_status": 200,
+      "raw_path": "reports\\crypto-backtest\\strategy-discovery-sprint-v1\\dataset-repair-v1-final2\\raw_kline_pages\\NEWTUSDT\\NEWTUSDT-page-0003-start-1787342400000-end-1788047999999.json",
+      "sha256": "72af87ea5b17a1518422cd28ef365d54942db4df0a14b64fd1e5db1e3065e706",
+      "rows": 784,
+      "earliest_ms": 1787342400000,
+      "latest_ms": 1788047100000,
+      "error": null
+    },
+    {
+      "symbol": "PLAYSOUTUSDT",
+      "page": 1,
+      "params": {
+        "category": "linear",
+        "symbol": "PLAYSOUTUSDT",
+        "interval": "15",
+        "start": 1785542400000,
+        "end": 1786442399999,
+        "limit": 1000
+      },
+      "requested_at_utc": "2026-09-01T04:51:01.419735+00:00",
+      "http_status": 200,
+      "raw_path": "reports\\crypto-backtest\\strategy-discovery-sprint-v1\\dataset-repair-v1-final2\\raw_kline_pages\\PLAYSOUTUSDT\\PLAYSOUTUSDT-page-0001-start-1785542400000-end-1786442399999.json",
+      "sha256": "bd3fc258b82a6afa59abdfcd9ca9ebd2d3abcbaea69e6839bfe965e879eaf05a",
+      "rows": 1000,
+      "earliest_ms": 1785542400000,
+      "latest_ms": 1786441500000,
+      "error": null
+    },
+    {
+      "symbol": "PLAYSOUTUSDT",
+      "page": 2,
+      "params": {
+        "category": "linear",
+        "symbol": "PLAYSOUTUSDT",
+        "interval": "15",
+        "start": 1786442400000,
+        "end": 1787342399999,
+        "limit": 1000
+      },
+      "requested_at_utc": "2026-09-01T04:51:02.243865+00:00",
+      "http_status": 200,
+      "raw_path": "reports\\crypto-backtest\\strategy-discovery-sprint-v1\\dataset-repair-v1-final2\\raw_kline_pages\\PLAYSOUTUSDT\\PLAYSOUTUSDT-page-0002-start-1786442400000-end-1787342399999.json",
+      "sha256": "255db3223fdb620c9cf63855180e0227acc85ddb9f4bdbd6b7dac6243f84114d",
+      "rows": 1000,
+      "earliest_ms": 1786442400000,
+      "latest_ms": 1787341500000,
+      "error": null
+    },
+    {
+      "symbol": "PLAYSOUTUSDT",
+      "page": 3,
+      "params": {
+        "category": "linear",
+        "symbol": "PLAYSOUTUSDT",
+        "interval": "15",
+        "start": 1787342400000,
+        "end": 1788047999999,
+        "limit": 1000
+      },
+      "requested_at_utc": "2026-09-01T04:51:02.990718+00:00",
+      "http_status": 200,
+      "raw_path": "reports\\crypto-backtest\\strategy-discovery-sprint-v1\\dataset-repair-v1-final2\\raw_kline_pages\\PLAYSOUTUSDT\\PLAYSOUTUSDT-page-0003-start-1787342400000-end-1788047999999.json",
+      "sha256": "7d425700b680c944fd2f28f71ebe4de0f9a7036bcdb0d5cda7f28f8be495384a",
+      "rows": 784,
+      "earliest_ms": 1787342400000,
+      "latest_ms": 1788047100000,
+      "error": null
+    },
+    {
+      "symbol": "1000000BABYDOGEUSDT",
+      "page": 1,
+      "params": {
+        "category": "linear",
+        "symbol": "1000000BABYDOGEUSDT",
+        "interval": "15",
+        "start": 1785542400000,
+        "end": 1786442399999,
+        "limit": 1000
+      },
+      "requested_at_utc": "2026-09-01T04:51:00.741522+00:00",
+      "http_status": 200,
+      "raw_path": "reports\\crypto-backtest\\strategy-discovery-sprint-v1\\dataset-repair-v1-final2\\raw_kline_pages\\1000000BABYDOGEUSDT\\1000000BABYDOGEUSDT-page-0001-start-1785542400000-end-1786442399999.json",
+      "sha256": "73bc4536fe14ff7c610f0fb150c86ff1fd32d044b57692a12eb910edaaaa85f1",
+      "rows": 1000,
+      "earliest_ms": 1785542400000,
+      "latest_ms": 1786441500000,
+      "error": null
+    },
+    {
+      "symbol": "1000000BABYDOGEUSDT",
+      "page": 2,
+      "params": {
+        "category": "linear",
+        "symbol": "1000000BABYDOGEUSDT",
+        "interval": "15",
+        "start": 1786442400000,
+        "end": 1787342399999,
+        "limit": 1000
+      },
+      "requested_at_utc": "2026-09-01T04:51:01.548290+00:00",
+      "http_status": 200,
+      "raw_path": "reports\\crypto-backtest\\strategy-discovery-sprint-v1\\dataset-repair-v1-final2\\raw_kline_pages\\1000000BABYDOGEUSDT\\1000000BABYDOGEUSDT-page-0002-start-1786442400000-end-1787342399999.json",
+      "sha256": "f0e2db2ab51a7c1cc8d313d26ec32a95cfc3a74185a684ba4167a39a07aed7ea",
+      "rows": 1000,
+      "earliest_ms": 1786442400000,
+      "latest_ms": 1787341500000,
+      "error": null
+    },
+    {
+      "symbol": "1000000BABYDOGEUSDT",
+      "page": 3,
+      "params": {
+        "category": "linear",
+        "symbol": "1000000BABYDOGEUSDT",
+        "interval": "15",
+        "start": 1787342400000,
+        "end": 1788047999999,
+        "limit": 1000
+      },
+      "requested_at_utc": "2026-09-01T04:51:02.376048+00:00",
+      "http_status": 200,
+      "raw_path": "reports\\crypto-backtest\\strategy-discovery-sprint-v1\\dataset-repair-v1-final2\\raw_kline_pages\\1000000BABYDOGEUSDT\\1000000BABYDOGEUSDT-page-0003-start-1787342400000-end-1788047999999.json",
+      "sha256": "a6b88bc8c936e7ec3c9da947c0cdb33c68aa6bf20264ae0c6af3788f1ce35337",
+      "rows": 784,
+      "earliest_ms": 1787342400000,
+      "latest_ms": 1788047100000,
+      "error": null
+    },
+    {
+      "symbol": "AWEUSDT",
+      "page": 1,
+      "params": {
+        "category": "linear",
+        "symbol": "AWEUSDT",
+        "interval": "15",
+        "start": 1785542400000,
+        "end": 1786442399999,
+        "limit": 1000
+      },
+      "requested_at_utc": "2026-09-01T04:51:01.135479+00:00",
+      "http_status": 200,
+      "raw_path": "reports\\crypto-backtest\\strategy-discovery-sprint-v1\\dataset-repair-v1-final2\\raw_kline_pages\\AWEUSDT\\AWEUSDT-page-0001-start-1785542400000-end-1786442399999.json",
+      "sha256": "1f0332d5ede2ec7dedaf8ac1bd862e5cf747c8f52b86693b394735caeff64f9f",
+      "rows": 1000,
+      "earliest_ms": 1785542400000,
+      "latest_ms": 1786441500000,
+      "error": null
+    },
+    {
+      "symbol": "AWEUSDT",
+      "page": 2,
+      "params": {
+        "category": "linear",
+        "symbol": "AWEUSDT",
+        "interval": "15",
+        "start": 1786442400000,
+        "end": 1787342399999,
+        "limit": 1000
+      },
+      "requested_at_utc": "2026-09-01T04:51:01.746963+00:00",
+      "http_status": 200,
+      "raw_path": "reports\\crypto-backtest\\strategy-discovery-sprint-v1\\dataset-repair-v1-final2\\raw_kline_pages\\AWEUSDT\\AWEUSDT-page-0002-start-1786442400000-end-1787342399999.json",
+      "sha256": "4cf8fdcd91cc175cc8509fc2eaee5d029c52fc22e04a33b1055dfc2f313ed5dc",
+      "rows": 1000,
+      "earliest_ms": 1786442400000,
+      "latest_ms": 1787341500000,
+      "error": null
+    },
+    {
+      "symbol": "AWEUSDT",
+      "page": 3,
+      "params": {
+        "category": "linear",
+        "symbol": "AWEUSDT",
+        "interval": "15",
+        "start": 1787342400000,
+        "end": 1788047999999,
+        "limit": 1000
+      },
+      "requested_at_utc": "2026-09-01T04:51:03.622021+00:00",
+      "http_status": 200,
+      "raw_path": "reports\\crypto-backtest\\strategy-discovery-sprint-v1\\dataset-repair-v1-final2\\raw_kline_pages\\AWEUSDT\\AWEUSDT-page-0003-start-1787342400000-end-1788047999999.json",
+      "sha256": "6e6940baac303415418e09e126d121fb52bd523d4a543821c73c535f7ed345b1",
+      "rows": 784,
+      "earliest_ms": 1787342400000,
+      "latest_ms": 1788047100000,
+      "error": null
+    },
+    {
+      "symbol": "FOGOUSDT",
+      "page": 1,
+      "params": {
+        "category": "linear",
+        "symbol": "FOGOUSDT",
+        "interval": "15",
+        "start": 1785542400000,
+        "end": 1786442399999,
+        "limit": 1000
+      },
+      "requested_at_utc": "2026-09-01T04:51:02.298694+00:00",
+      "http_status": 200,
+      "raw_path": "reports\\crypto-backtest\\strategy-discovery-sprint-v1\\dataset-repair-v1-final2\\raw_kline_pages\\FOGOUSDT\\FOGOUSDT-page-0001-start-1785542400000-end-1786442399999.json",
+      "sha256": "ae74975eaa05b1eb1d4c87a7dbb4d410c8f08c5f0660cd11ff1c5eee2e4ca3da",
+      "rows": 1000,
+      "earliest_ms": 1785542400000,
+      "latest_ms": 1786441500000,
+      "error": null
+    },
+    {
+      "symbol": "FOGOUSDT",
+      "page": 2,
+      "params": {
+        "category": "linear",
+        "symbol": "FOGOUSDT",
+        "interval": "15",
+        "start": 1786442400000,
+        "end": 1787342399999,
+        "limit": 1000
+      },
+      "requested_at_utc": "2026-09-01T04:51:02.936428+00:00",
+      "http_status": 200,
+      "raw_path": "reports\\crypto-backtest\\strategy-discovery-sprint-v1\\dataset-repair-v1-final2\\raw_kline_pages\\FOGOUSDT\\FOGOUSDT-page-0002-start-1786442400000-end-1787342399999.json",
+      "sha256": "1f36160728c7e07fe05f477ca814edfdcb33073d0a166318a112c0b394f86847",
+      "rows": 1000,
+      "earliest_ms": 1786442400000,
+      "latest_ms": 1787341500000,
+      "error": null
+    },
+    {
+      "symbol": "FOGOUSDT",
+      "page": 3,
+      "params": {
+        "category": "linear",
+        "symbol": "FOGOUSDT",
+        "interval": "15",
+        "start": 1787342400000,
+        "end": 1788047999999,
+        "limit": 1000
+      },
+      "requested_at_utc": "2026-09-01T04:51:03.602585+00:00",
+      "http_status": 200,
+      "raw_path": "reports\\crypto-backtest\\strategy-discovery-sprint-v1\\dataset-repair-v1-final2\\raw_kline_pages\\FOGOUSDT\\FOGOUSDT-page-0003-start-1787342400000-end-1788047999999.json",
+      "sha256": "adbb0ba6cdebaf7464526143122557a77b6af1dd165540870fcef2f7dee520e7",
+      "rows": 784,
+      "earliest_ms": 1787342400000,
+      "latest_ms": 1788047100000,
+      "error": null
+    },
+    {
+      "symbol": "PROVEUSDT",
+      "page": 1,
+      "params": {
+        "category": "linear",
+        "symbol": "PROVEUSDT",
+        "interval": "15",
+        "start": 1785542400000,
+        "end": 1786442399999,
+        "limit": 1000
+      },
+      "requested_at_utc": "2026-09-01T04:51:03.674485+00:00",
+      "http_status": 200,
+      "raw_path": "reports\\crypto-backtest\\strategy-discovery-sprint-v1\\dataset-repair-v1-final2\\raw_kline_pages\\PROVEUSDT\\PROVEUSDT-page-0001-start-1785542400000-end-1786442399999.json",
+      "sha256": "158e185348eca169dab83730ba650235dc7a5c5f5ad861b7e9ac121a89b3937a",
+      "rows": 1000,
+      "earliest_ms": 1785542400000,
+      "latest_ms": 1786441500000,
+      "error": null
+    },
+    {
+      "symbol": "PROVEUSDT",
+      "page": 2,
+      "params": {
+        "category": "linear",
+        "symbol": "PROVEUSDT",
+        "interval": "15",
+        "start": 1786442400000,
+        "end": 1787342399999,
+        "limit": 1000
+      },
+      "requested_at_utc": "2026-09-01T04:51:04.457483+00:00",
+      "http_status": 200,
+      "raw_path": "reports\\crypto-backtest\\strategy-discovery-sprint-v1\\dataset-repair-v1-final2\\raw_kline_pages\\PROVEUSDT\\PROVEUSDT-page-0002-start-1786442400000-end-1787342399999.json",
+      "sha256": "e9a0dcbe0117c3c305e2b2240ab98047a05cb56f78b325ba5117d10076e1a831",
+      "rows": 1000,
+      "earliest_ms": 1786442400000,
+      "latest_ms": 1787341500000,
+      "error": null
+    },
+    {
+      "symbol": "PROVEUSDT",
+      "page": 3,
+      "params": {
+        "category": "linear",
+        "symbol": "PROVEUSDT",
+        "interval": "15",
+        "start": 1787342400000,
+        "end": 1788047999999,
+        "limit": 1000
+      },
+      "requested_at_utc": "2026-09-01T04:51:05.225404+00:00",
+      "http_status": 200,
+      "raw_path": "reports\\crypto-backtest\\strategy-discovery-sprint-v1\\dataset-repair-v1-final2\\raw_kline_pages\\PROVEUSDT\\PROVEUSDT-page-0003-start-1787342400000-end-1788047999999.json",
+      "sha256": "470c9d9b0cf941dbb8790b0d916a202d6a60bac389bf7b44d6925e9ea864893e",
+      "rows": 784,
+      "earliest_ms": 1787342400000,
+      "latest_ms": 1788047100000,
+      "error": null
+    },
+    {
+      "symbol": "MOVRUSDT",
+      "page": 1,
+      "params": {
+        "category": "linear",
+        "symbol": "MOVRUSDT",
+        "interval": "15",
+        "start": 1785542400000,
+        "end": 1786442399999,
+        "limit": 1000
+      },
+      "requested_at_utc": "2026-09-01T04:51:03.395077+00:00",
+      "http_status": 200,
+      "raw_path": "reports\\crypto-backtest\\strategy-discovery-sprint-v1\\dataset-repair-v1-final2\\raw_kline_pages\\MOVRUSDT\\MOVRUSDT-page-0001-start-1785542400000-end-1786442399999.json",
+      "sha256": "47f475c892b15db261413833670a863e03fc9849adef8e82aebe5e13b1e31186",
+      "rows": 1000,
+      "earliest_ms": 1785542400000,
+      "latest_ms": 1786441500000,
+      "error": null
+    },
+    {
+      "symbol": "MOVRUSDT",
+      "page": 2,
+      "params": {
+        "category": "linear",
+        "symbol": "MOVRUSDT",
+        "interval": "15",
+        "start": 1786442400000,
+        "end": 1787342399999,
+        "limit": 1000
+      },
+      "requested_at_utc": "2026-09-01T04:51:04.181484+00:00",
+      "http_status": 200,
+      "raw_path": "reports\\crypto-backtest\\strategy-discovery-sprint-v1\\dataset-repair-v1-final2\\raw_kline_pages\\MOVRUSDT\\MOVRUSDT-page-0002-start-1786442400000-end-1787342399999.json",
+      "sha256": "ecfb6729941519e4b9cd56504ef2639258beb19212a0d019444aca08b4d524db",
+      "rows": 1000,
+      "earliest_ms": 1786442400000,
+      "latest_ms": 1787341500000,
+      "error": null
+    },
+    {
+      "symbol": "MOVRUSDT",
+      "page": 3,
+      "params": {
+        "category": "linear",
+        "symbol": "MOVRUSDT",
+        "interval": "15",
+        "start": 1787342400000,
+        "end": 1788047999999,
+        "limit": 1000
+      },
+      "requested_at_utc": "2026-09-01T04:51:05.736263+00:00",
+      "http_status": 200,
+      "raw_path": "reports\\crypto-backtest\\strategy-discovery-sprint-v1\\dataset-repair-v1-final2\\raw_kline_pages\\MOVRUSDT\\MOVRUSDT-page-0003-start-1787342400000-end-1788047999999.json",
+      "sha256": "bc90a93e89d449976ac3a9d4a274b627f5226f3ddad1af0c05372c5f68c79b4d",
+      "rows": 784,
+      "earliest_ms": 1787342400000,
+      "latest_ms": 1788047100000,
+      "error": null
+    }
+  ]
+}

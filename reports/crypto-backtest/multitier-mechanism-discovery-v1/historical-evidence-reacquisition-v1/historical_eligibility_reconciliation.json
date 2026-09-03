@@ -1,0 +1,6 @@
+{
+  "generated_at_utc": "2026-08-31T14:28:13.233889+00:00",
+  "run_status": "network_evidence_unavailable",
+  "rule": "current status and kline presence never produce verified",
+  "decisions": []
+}

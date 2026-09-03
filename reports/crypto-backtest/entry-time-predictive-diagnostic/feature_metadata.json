@@ -1,0 +1,42 @@
+{
+  "features": [
+    "pullback_to_impulse",
+    "impulse_atr",
+    "impulse_efficiency",
+    "pullback_atr",
+    "pullback_bars",
+    "pullback_time_ratio",
+    "recovery_fraction",
+    "structure_room_r",
+    "stop_distance_atr",
+    "ema_distance_15m",
+    "ema_distance_1h",
+    "ema_distance_4h",
+    "return_3bar_atr",
+    "return_5bar_atr",
+    "atr_ratio_15m",
+    "range_compression_5"
+  ],
+  "excluded": {
+    "swing_sequence": "Unavailable: no unambiguous direction-normalized mapping was preregistered.",
+    "alignment_score": "No Discriminative Information check only: BASELINE trend setup creates mostly fixed values."
+  },
+  "feature_explanations": {
+    "pullback_to_impulse": "Retracement size relative to the preceding confirmed structural impulse.",
+    "impulse_atr": "Confirmed impulse amplitude normalized by pre-entry 15m ATR.",
+    "impulse_efficiency": "Directional cleanliness of the prior impulse path.",
+    "pullback_atr": "Maximum adverse pullback from impulse endpoint in ATR units.",
+    "pullback_bars": "Completed 15m bars elapsed from impulse endpoint to entry decision.",
+    "pullback_time_ratio": "Pullback duration divided by impulse duration.",
+    "recovery_fraction": "Recovery from pullback extreme by confirmation close.",
+    "structure_room_r": "Distance to last confirmed direction-side swing expressed in initial R.",
+    "stop_distance_atr": "Initial Swing stop distance in pre-entry ATR units.",
+    "ema_distance_15m": "Direction-standardized EMA20/EMA50 distance on completed 15m data.",
+    "ema_distance_1h": "Direction-standardized EMA20/EMA50 distance on completed 1H data.",
+    "ema_distance_4h": "Direction-standardized EMA20/EMA50 distance on completed 4H data.",
+    "return_3bar_atr": "Direction-standardized completed three-bar return in ATR units.",
+    "return_5bar_atr": "Direction-standardized completed five-bar return in ATR units.",
+    "atr_ratio_15m": "Completed ATR relative to its prior 100-bar median.",
+    "range_compression_5": "Last five completed ranges divided by prior 20 completed ranges."
+  }
+}

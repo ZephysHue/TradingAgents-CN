@@ -1,0 +1,4 @@
+MODIFIED: python -m pytest tests/unit/test_strategy_discovery_executor_v1.py tests/unit/test_strategy_discovery_sprint_v1.py tests/unit/test_repair_strategy_sprint_dataset_v1.py -q
+RESULT: 14 passed in 9.76s
+EXECUTION: python research/crypto_backtest/run_strategy_discovery_sprint_v1.py --output reports/crypto-backtest/strategy-discovery-sprint-v1/execution-v1
+RESULT: real Development ledgers generated; all strategies rejected in Development.

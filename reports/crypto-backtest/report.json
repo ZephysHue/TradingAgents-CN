@@ -1,0 +1,672 @@
+{
+  "data_manifest": {
+    "source": "Binance public data archive",
+    "requested_start": "2020-01-01",
+    "requested_end": "2026-08-29",
+    "selected_market": "cm",
+    "selected_symbol": "BTCUSD_PERP",
+    "records": [
+      {
+        "market": "cm",
+        "symbol": "BTCUSD_PERP",
+        "month": "2020-08",
+        "path": "research\\crypto_backtest\\data\\cm\\BTCUSD_PERP\\BTCUSD_PERP-15m-2020-08.zip",
+        "sha256": "69cfa7a44c1fd5373056d40005a4d7242abe316777cf396774f2373713ef45a0",
+        "bytes": 76294
+      },
+      {
+        "market": "cm",
+        "symbol": "BTCUSD_PERP",
+        "month": "2020-09",
+        "path": "research\\crypto_backtest\\data\\cm\\BTCUSD_PERP\\BTCUSD_PERP-15m-2020-09.zip",
+        "sha256": "fdbc85f8420a2c52ea6e025cd71f5a6d9f5c6365a1ac04ecabf34dc1a3e8efe0",
+        "bytes": 111551
+      },
+      {
+        "market": "cm",
+        "symbol": "BTCUSD_PERP",
+        "month": "2020-10",
+        "path": "research\\crypto_backtest\\data\\cm\\BTCUSD_PERP\\BTCUSD_PERP-15m-2020-10.zip",
+        "sha256": "111afcc467ff1bfbd10397073132b532055d145ed6ab22f1e4c61dda645ed89f",
+        "bytes": 116657
+      },
+      {
+        "market": "cm",
+        "symbol": "BTCUSD_PERP",
+        "month": "2020-11",
+        "path": "research\\crypto_backtest\\data\\cm\\BTCUSD_PERP\\BTCUSD_PERP-15m-2020-11.zip",
+        "sha256": "1ee58f7bf6fafaa2099c9d29bccc478b9766a8b353829be21dcd791815538b11",
+        "bytes": 121794
+      },
+      {
+        "market": "cm",
+        "symbol": "BTCUSD_PERP",
+        "month": "2020-12",
+        "path": "research\\crypto_backtest\\data\\cm\\BTCUSD_PERP\\BTCUSD_PERP-15m-2020-12.zip",
+        "sha256": "b97b3741846173a0b74ecf39de9eea7c1fa66c1ae1e19210fb3ebf3985ce9662",
+        "bytes": 127795
+      },
+      {
+        "market": "cm",
+        "symbol": "BTCUSD_PERP",
+        "month": "2021-01",
+        "path": "research\\crypto_backtest\\data\\cm\\BTCUSD_PERP\\BTCUSD_PERP-15m-2021-01.zip",
+        "sha256": "927b62d5a9193bac5615788ed5b3e6a53fbcfb0d85cc099b0e8db6d7c3c47374",
+        "bytes": 134437
+      },
+      {
+        "market": "cm",
+        "symbol": "BTCUSD_PERP",
+        "month": "2021-02",
+        "path": "research\\crypto_backtest\\data\\cm\\BTCUSD_PERP\\BTCUSD_PERP-15m-2021-02.zip",
+        "sha256": "cd36f15a540a221c0d138761fa340263668a43ff41fc4f813a59cb2cd4ca84ef",
+        "bytes": 121244
+      },
+      {
+        "market": "cm",
+        "symbol": "BTCUSD_PERP",
+        "month": "2021-03",
+        "path": "research\\crypto_backtest\\data\\cm\\BTCUSD_PERP\\BTCUSD_PERP-15m-2021-03.zip",
+        "sha256": "ace29ed5c78179a18579f9332d4369e1df666a810312d9a8c782e7fa43e86faa",
+        "bytes": 133927
+      },
+      {
+        "market": "cm",
+        "symbol": "BTCUSD_PERP",
+        "month": "2021-04",
+        "path": "research\\crypto_backtest\\data\\cm\\BTCUSD_PERP\\BTCUSD_PERP-15m-2021-04.zip",
+        "sha256": "958c37f12f534860001dd2c29ef2ad0da4a44c7152358230beaaa87916800c5f",
+        "bytes": 128931
+      },
+      {
+        "market": "cm",
+        "symbol": "BTCUSD_PERP",
+        "month": "2021-05",
+        "path": "research\\crypto_backtest\\data\\cm\\BTCUSD_PERP\\BTCUSD_PERP-15m-2021-05.zip",
+        "sha256": "63cd9eac25bd9e2ca1e4e0ee751c05a9054d879b53589fd50833c4fda07af271",
+        "bytes": 135676
+      },
+      {
+        "market": "cm",
+        "symbol": "BTCUSD_PERP",
+        "month": "2021-06",
+        "path": "research\\crypto_backtest\\data\\cm\\BTCUSD_PERP\\BTCUSD_PERP-15m-2021-06.zip",
+        "sha256": "83d70f837794f2eea8318bf55991ad71b35f8a86eb71ec22c6e91c60a62bcf23",
+        "bytes": 130123
+      },
+      {
+        "market": "cm",
+        "symbol": "BTCUSD_PERP",
+        "month": "2021-07",
+        "path": "research\\crypto_backtest\\data\\cm\\BTCUSD_PERP\\BTCUSD_PERP-15m-2021-07.zip",
+        "sha256": "f41ad216d97d5f475e87b454d6b08266f1581dd621e7ffc89f18e1e5ddc4d654",
+        "bytes": 132001
+      },
+      {
+        "market": "cm",
+        "symbol": "BTCUSD_PERP",
+        "month": "2021-08",
+        "path": "research\\crypto_backtest\\data\\cm\\BTCUSD_PERP\\BTCUSD_PERP-15m-2021-08.zip",
+        "sha256": "eb83a89241694838f4e98e79d6d18617c734f5d95c653cdc93031dce12c81bea",
+        "bytes": 132917
+      },
+      {
+        "market": "cm",
+        "symbol": "BTCUSD_PERP",
+        "month": "2021-09",
+        "path": "research\\crypto_backtest\\data\\cm\\BTCUSD_PERP\\BTCUSD_PERP-15m-2021-09.zip",
+        "sha256": "bafa23389878538e956f69961368a993c0bc194e439bcb7fef2f7737f643285b",
+        "bytes": 128767
+      },
+      {
+        "market": "cm",
+        "symbol": "BTCUSD_PERP",
+        "month": "2021-10",
+        "path": "research\\crypto_backtest\\data\\cm\\BTCUSD_PERP\\BTCUSD_PERP-15m-2021-10.zip",
+        "sha256": "c3436dd24fcdd7b40791ffacb0c7111aaea142a7f0d32351d1bfbcc259c9c6a9",
+        "bytes": 133448
+      },
+      {
+        "market": "cm",
+        "symbol": "BTCUSD_PERP",
+        "month": "2021-11",
+        "path": "research\\crypto_backtest\\data\\cm\\BTCUSD_PERP\\BTCUSD_PERP-15m-2021-11.zip",
+        "sha256": "174e75a388dd97e2cd9f5dc2e362b56c0515cd326582e2071751967e7a8f0a95",
+        "bytes": 129398
+      },
+      {
+        "market": "cm",
+        "symbol": "BTCUSD_PERP",
+        "month": "2021-12",
+        "path": "research\\crypto_backtest\\data\\cm\\BTCUSD_PERP\\BTCUSD_PERP-15m-2021-12.zip",
+        "sha256": "d70edcc2bde49dcfaa7bc17f193ab3eceb098b0238011b3132d4c00f6e72aec1",
+        "bytes": 133663
+      },
+      {
+        "market": "cm",
+        "symbol": "BTCUSD_PERP",
+        "month": "2022-01",
+        "path": "research\\crypto_backtest\\data\\cm\\BTCUSD_PERP\\BTCUSD_PERP-15m-2022-01.zip",
+        "sha256": "95688fdd46cc688d26ad2250d26aff33776a95ed98e44fe377704e41c13353e6",
+        "bytes": 132231
+      },
+      {
+        "market": "cm",
+        "symbol": "BTCUSD_PERP",
+        "month": "2022-02",
+        "path": "research\\crypto_backtest\\data\\cm\\BTCUSD_PERP\\BTCUSD_PERP-15m-2022-02.zip",
+        "sha256": "11ac6f90e4abde93c977f316fca950e1ee6fa08bbde7728188ad531a69a3cec9",
+        "bytes": 119684
+      },
+      {
+        "market": "cm",
+        "symbol": "BTCUSD_PERP",
+        "month": "2022-03",
+        "path": "research\\crypto_backtest\\data\\cm\\BTCUSD_PERP\\BTCUSD_PERP-15m-2022-03.zip",
+        "sha256": "18a1fa2e98e1cecab679906209d1f29c6785cc7ee7efc02efb19dff6e1126171",
+        "bytes": 131251
+      },
+      {
+        "market": "cm",
+        "symbol": "BTCUSD_PERP",
+        "month": "2022-04",
+        "path": "research\\crypto_backtest\\data\\cm\\BTCUSD_PERP\\BTCUSD_PERP-15m-2022-04.zip",
+        "sha256": "697c9b165315fb46fa6733abd1cda97856d3482817d5c7cee721b5978674f0be",
+        "bytes": 125828
+      },
+      {
+        "market": "cm",
+        "symbol": "BTCUSD_PERP",
+        "month": "2022-05",
+        "path": "research\\crypto_backtest\\data\\cm\\BTCUSD_PERP\\BTCUSD_PERP-15m-2022-05.zip",
+        "sha256": "eeeab4bef7f256fe1a26a2d0af917a91533b7ef9739c5a858eeebc4f111488d4",
+        "bytes": 131485
+      },
+      {
+        "market": "cm",
+        "symbol": "BTCUSD_PERP",
+        "month": "2022-06",
+        "path": "research\\crypto_backtest\\data\\cm\\BTCUSD_PERP\\BTCUSD_PERP-15m-2022-06.zip",
+        "sha256": "05c6f73c210d78015041f9dce942942719161581c0effe33d62e8c7b1282f81e",
+        "bytes": 128118
+      },
+      {
+        "market": "cm",
+        "symbol": "BTCUSD_PERP",
+        "month": "2022-07",
+        "path": "research\\crypto_backtest\\data\\cm\\BTCUSD_PERP\\BTCUSD_PERP-15m-2022-07.zip",
+        "sha256": "5c02c6a0e9491a8f0df04483c32fe04c1eaab15e1d2c40900269229fe3e4ea8d",
+        "bytes": 131599
+      },
+      {
+        "market": "cm",
+        "symbol": "BTCUSD_PERP",
+        "month": "2022-08",
+        "path": "research\\crypto_backtest\\data\\cm\\BTCUSD_PERP\\BTCUSD_PERP-15m-2022-08.zip",
+        "sha256": "1349081ea609ae5a5ebb27416f936b11436aaaec77e37f3dac40687f019e21d4",
+        "bytes": 129579
+      },
+      {
+        "market": "cm",
+        "symbol": "BTCUSD_PERP",
+        "month": "2022-09",
+        "path": "research\\crypto_backtest\\data\\cm\\BTCUSD_PERP\\BTCUSD_PERP-15m-2022-09.zip",
+        "sha256": "3f04cd507d45e288b3d90f27030ed2a63e4f0ae7bd65caf65f4f579bdfece8c0",
+        "bytes": 125680
+      },
+      {
+        "market": "cm",
+        "symbol": "BTCUSD_PERP",
+        "month": "2022-10",
+        "path": "research\\crypto_backtest\\data\\cm\\BTCUSD_PERP\\BTCUSD_PERP-15m-2022-10.zip",
+        "sha256": "c53569a5a431d19ce7ee0acfb10eea2c65cc7aab5a10cabb332369bbc1b35faf",
+        "bytes": 125239
+      },
+      {
+        "market": "cm",
+        "symbol": "BTCUSD_PERP",
+        "month": "2022-11",
+        "path": "research\\crypto_backtest\\data\\cm\\BTCUSD_PERP\\BTCUSD_PERP-15m-2022-11.zip",
+        "sha256": "a8fdd618fde4fa535475481c0a663c3c0d5b15b57d90a2dd88be21fdbeb8f5dd",
+        "bytes": 122419
+      },
+      {
+        "market": "cm",
+        "symbol": "BTCUSD_PERP",
+        "month": "2022-12",
+        "path": "research\\crypto_backtest\\data\\cm\\BTCUSD_PERP\\BTCUSD_PERP-15m-2022-12.zip",
+        "sha256": "8832dc544b6f772f2eaaf08f11a8e02e004771a60487c3716490e41cb0a65d29",
+        "bytes": 120092
+      },
+      {
+        "market": "cm",
+        "symbol": "BTCUSD_PERP",
+        "month": "2023-01",
+        "path": "research\\crypto_backtest\\data\\cm\\BTCUSD_PERP\\BTCUSD_PERP-15m-2023-01.zip",
+        "sha256": "a48d0bb0d7c4ae267328de3569bebe5d2b172a1ff7815cdf7f8fe75e3d2f7d78",
+        "bytes": 123642
+      },
+      {
+        "market": "cm",
+        "symbol": "BTCUSD_PERP",
+        "month": "2023-02",
+        "path": "research\\crypto_backtest\\data\\cm\\BTCUSD_PERP\\BTCUSD_PERP-15m-2023-02.zip",
+        "sha256": "911963898e889865abdbeff5ee154acfda25f748136c12e887bbf81dfa1f71a1",
+        "bytes": 114622
+      },
+      {
+        "market": "cm",
+        "symbol": "BTCUSD_PERP",
+        "month": "2023-03",
+        "path": "research\\crypto_backtest\\data\\cm\\BTCUSD_PERP\\BTCUSD_PERP-15m-2023-03.zip",
+        "sha256": "df397dfda30165ade57309f950c25a8f432580a7b2ea2906d42e0acf70e2f83e",
+        "bytes": 129049
+      },
+      {
+        "market": "cm",
+        "symbol": "BTCUSD_PERP",
+        "month": "2023-04",
+        "path": "research\\crypto_backtest\\data\\cm\\BTCUSD_PERP\\BTCUSD_PERP-15m-2023-04.zip",
+        "sha256": "0ff0ae5135b35574256cfb50c77a63afed0f69a8e9310df2b49c8749a737c277",
+        "bytes": 122396
+      },
+      {
+        "market": "cm",
+        "symbol": "BTCUSD_PERP",
+        "month": "2023-05",
+        "path": "research\\crypto_backtest\\data\\cm\\BTCUSD_PERP\\BTCUSD_PERP-15m-2023-05.zip",
+        "sha256": "abecdc09634f35a37f600f03449a9f3dfcfa4e6bc66d244bba1660be55d6a3f3",
+        "bytes": 125740
+      },
+      {
+        "market": "cm",
+        "symbol": "BTCUSD_PERP",
+        "month": "2023-06",
+        "path": "research\\crypto_backtest\\data\\cm\\BTCUSD_PERP\\BTCUSD_PERP-15m-2023-06.zip",
+        "sha256": "a6c2d6d993b866d6ba8b0bc45534a742627775e131541c264420425ec914a78e",
+        "bytes": 122170
+      },
+      {
+        "market": "cm",
+        "symbol": "BTCUSD_PERP",
+        "month": "2023-07",
+        "path": "research\\crypto_backtest\\data\\cm\\BTCUSD_PERP\\BTCUSD_PERP-15m-2023-07.zip",
+        "sha256": "a24f573bb04d578605711e22333c96cb76d0e0cbaf977032c2a47e5ab085ae3d",
+        "bytes": 122495
+      },
+      {
+        "market": "cm",
+        "symbol": "BTCUSD_PERP",
+        "month": "2023-08",
+        "path": "research\\crypto_backtest\\data\\cm\\BTCUSD_PERP\\BTCUSD_PERP-15m-2023-08.zip",
+        "sha256": "374ac8bac9c35110e35381499871d9d375db8a7e8cf19c24db97a6e17e5bf250",
+        "bytes": 104758
+      },
+      {
+        "market": "cm",
+        "symbol": "BTCUSD_PERP",
+        "month": "2023-09",
+        "path": "research\\crypto_backtest\\data\\cm\\BTCUSD_PERP\\BTCUSD_PERP-15m-2023-09.zip",
+        "sha256": "e0d3f213118925897e3b14e86c87094b0d39f0e710e7b27f71a72f1d816d6ac4",
+        "bytes": 117952
+      },
+      {
+        "market": "cm",
+        "symbol": "BTCUSD_PERP",
+        "month": "2023-10",
+        "path": "research\\crypto_backtest\\data\\cm\\BTCUSD_PERP\\BTCUSD_PERP-15m-2023-10.zip",
+        "sha256": "bd084b5dd435e3f570fd1191beafbda6f64efee206f4c0ac24fc00ef8e89c615",
+        "bytes": 125720
+      },
+      {
+        "market": "cm",
+        "symbol": "BTCUSD_PERP",
+        "month": "2023-11",
+        "path": "research\\crypto_backtest\\data\\cm\\BTCUSD_PERP\\BTCUSD_PERP-15m-2023-11.zip",
+        "sha256": "f37f342b531a6a175e098b42a29a0d02a337ea121222c566035376b804389289",
+        "bytes": 122552
+      },
+      {
+        "market": "cm",
+        "symbol": "BTCUSD_PERP",
+        "month": "2023-12",
+        "path": "research\\crypto_backtest\\data\\cm\\BTCUSD_PERP\\BTCUSD_PERP-15m-2023-12.zip",
+        "sha256": "651b520c604e83a19fb5f3e1a27575571ca9019e2b626b0ac66ba8b3272233da",
+        "bytes": 127937
+      },
+      {
+        "market": "cm",
+        "symbol": "BTCUSD_PERP",
+        "month": "2024-01",
+        "path": "research\\crypto_backtest\\data\\cm\\BTCUSD_PERP\\BTCUSD_PERP-15m-2024-01.zip",
+        "sha256": "754cf38a72b5a64a27021dff7cea73dede952a4b417c1425bed7fbe21a474c6f",
+        "bytes": 128784
+      },
+      {
+        "market": "cm",
+        "symbol": "BTCUSD_PERP",
+        "month": "2024-02",
+        "path": "research\\crypto_backtest\\data\\cm\\BTCUSD_PERP\\BTCUSD_PERP-15m-2024-02.zip",
+        "sha256": "cc42a567380557ec6151faca571a0c3d175ddec7011eb9bbaac479808a7f5a8e",
+        "bytes": 119927
+      },
+      {
+        "market": "cm",
+        "symbol": "BTCUSD_PERP",
+        "month": "2024-03",
+        "path": "research\\crypto_backtest\\data\\cm\\BTCUSD_PERP\\BTCUSD_PERP-15m-2024-03.zip",
+        "sha256": "b99fb75476e673e5cfc17818751ea5ab9bc8d5fa3bcf89a7b4cbf59c32129f4e",
+        "bytes": 132124
+      },
+      {
+        "market": "cm",
+        "symbol": "BTCUSD_PERP",
+        "month": "2024-04",
+        "path": "research\\crypto_backtest\\data\\cm\\BTCUSD_PERP\\BTCUSD_PERP-15m-2024-04.zip",
+        "sha256": "fcd9afe3e70295fa7f428ee5fa15d6a73dfa6af16fccf0827f1d73263465c71c",
+        "bytes": 126797
+      },
+      {
+        "market": "cm",
+        "symbol": "BTCUSD_PERP",
+        "month": "2024-05",
+        "path": "research\\crypto_backtest\\data\\cm\\BTCUSD_PERP\\BTCUSD_PERP-15m-2024-05.zip",
+        "sha256": "3323edf4813fcef4a0a1cd9b75e50243dfa50f0a896f26fb871da902ae0bde33",
+        "bytes": 128801
+      },
+      {
+        "market": "cm",
+        "symbol": "BTCUSD_PERP",
+        "month": "2024-06",
+        "path": "research\\crypto_backtest\\data\\cm\\BTCUSD_PERP\\BTCUSD_PERP-15m-2024-06.zip",
+        "sha256": "0d32f363e08bf00eb0172f451fc1160fd2a71d2f4bb0cbf0d31e27830521cd17",
+        "bytes": 122291
+      },
+      {
+        "market": "cm",
+        "symbol": "BTCUSD_PERP",
+        "month": "2024-07",
+        "path": "research\\crypto_backtest\\data\\cm\\BTCUSD_PERP\\BTCUSD_PERP-15m-2024-07.zip",
+        "sha256": "d72fc7dd2c51c4728e7ede000aa5db17283af53f77b647dcb25b2d966f6b00dd",
+        "bytes": 128878
+      },
+      {
+        "market": "cm",
+        "symbol": "BTCUSD_PERP",
+        "month": "2024-08",
+        "path": "research\\crypto_backtest\\data\\cm\\BTCUSD_PERP\\BTCUSD_PERP-15m-2024-08.zip",
+        "sha256": "24e3bd23bfb94fd364662d914408df02cc6ff91db71c47b7bcc2c7c896b7e192",
+        "bytes": 129027
+      },
+      {
+        "market": "cm",
+        "symbol": "BTCUSD_PERP",
+        "month": "2024-09",
+        "path": "research\\crypto_backtest\\data\\cm\\BTCUSD_PERP\\BTCUSD_PERP-15m-2024-09.zip",
+        "sha256": "1085139669e2cd9ede657573767d611b0e9b3f86d1fcacf74263b21dc5224835",
+        "bytes": 122846
+      },
+      {
+        "market": "cm",
+        "symbol": "BTCUSD_PERP",
+        "month": "2024-10",
+        "path": "research\\crypto_backtest\\data\\cm\\BTCUSD_PERP\\BTCUSD_PERP-15m-2024-10.zip",
+        "sha256": "dd7dfb19640ad212e88c97d7a3b24f36049c62a872ad5fc5d785e17b043db52c",
+        "bytes": 126510
+      },
+      {
+        "market": "cm",
+        "symbol": "BTCUSD_PERP",
+        "month": "2024-11",
+        "path": "research\\crypto_backtest\\data\\cm\\BTCUSD_PERP\\BTCUSD_PERP-15m-2024-11.zip",
+        "sha256": "d66f7321339a5cc5d3677f0117c9e595e294e8879d1e9a3e94119cbc8f00943a",
+        "bytes": 126857
+      },
+      {
+        "market": "cm",
+        "symbol": "BTCUSD_PERP",
+        "month": "2024-12",
+        "path": "research\\crypto_backtest\\data\\cm\\BTCUSD_PERP\\BTCUSD_PERP-15m-2024-12.zip",
+        "sha256": "5ce737db4a6b929626992cbb914464b16fab2a7510e92c183b556fd54a30e7a1",
+        "bytes": 131724
+      },
+      {
+        "market": "cm",
+        "symbol": "BTCUSD_PERP",
+        "month": "2025-01",
+        "path": "research\\crypto_backtest\\data\\cm\\BTCUSD_PERP\\BTCUSD_PERP-15m-2025-01.zip",
+        "sha256": "bc0c5f246140f0359ac1d9843fb597e023fec514155c7d6e89b93193571d002d",
+        "bytes": 130483
+      },
+      {
+        "market": "cm",
+        "symbol": "BTCUSD_PERP",
+        "month": "2025-02",
+        "path": "research\\crypto_backtest\\data\\cm\\BTCUSD_PERP\\BTCUSD_PERP-15m-2025-02.zip",
+        "sha256": "f0a1311fdc4970da58c70d89e8cb822ddf81b84234e9da2038b6f6b29734852c",
+        "bytes": 116511
+      },
+      {
+        "market": "cm",
+        "symbol": "BTCUSD_PERP",
+        "month": "2025-03",
+        "path": "research\\crypto_backtest\\data\\cm\\BTCUSD_PERP\\BTCUSD_PERP-15m-2025-03.zip",
+        "sha256": "049bc2881753b20a0144c80819202f19645d8df45b80550e1153b7943539668f",
+        "bytes": 129002
+      },
+      {
+        "market": "cm",
+        "symbol": "BTCUSD_PERP",
+        "month": "2025-04",
+        "path": "research\\crypto_backtest\\data\\cm\\BTCUSD_PERP\\BTCUSD_PERP-15m-2025-04.zip",
+        "sha256": "f9fded970c889e5a3d046680f675c0218e85ea30a50602b021728844ab553fb1",
+        "bytes": 124024
+      },
+      {
+        "market": "cm",
+        "symbol": "BTCUSD_PERP",
+        "month": "2025-05",
+        "path": "research\\crypto_backtest\\data\\cm\\BTCUSD_PERP\\BTCUSD_PERP-15m-2025-05.zip",
+        "sha256": "6bffe1db10c28732cd0472a579d41702b9c522258f265589527b4a3c413112ce",
+        "bytes": 129007
+      },
+      {
+        "market": "cm",
+        "symbol": "BTCUSD_PERP",
+        "month": "2025-06",
+        "path": "research\\crypto_backtest\\data\\cm\\BTCUSD_PERP\\BTCUSD_PERP-15m-2025-06.zip",
+        "sha256": "93c40a40d3cf731945062ce7fcaf6589e4ade55477b2373fd0da781d12fb967e",
+        "bytes": 123454
+      },
+      {
+        "market": "cm",
+        "symbol": "BTCUSD_PERP",
+        "month": "2025-07",
+        "path": "research\\crypto_backtest\\data\\cm\\BTCUSD_PERP\\BTCUSD_PERP-15m-2025-07.zip",
+        "sha256": "f57efb0e0cd08cf0eea89e6364e4a806c20bd46f8de9db507ecebccddf6ba61d",
+        "bytes": 128121
+      },
+      {
+        "market": "cm",
+        "symbol": "BTCUSD_PERP",
+        "month": "2025-08",
+        "path": "research\\crypto_backtest\\data\\cm\\BTCUSD_PERP\\BTCUSD_PERP-15m-2025-08.zip",
+        "sha256": "fbb9b9501c324cb3a735575bcc23d4a38b8786b90a0aca68d4d505384612f3ce",
+        "bytes": 128543
+      },
+      {
+        "market": "cm",
+        "symbol": "BTCUSD_PERP",
+        "month": "2025-09",
+        "path": "research\\crypto_backtest\\data\\cm\\BTCUSD_PERP\\BTCUSD_PERP-15m-2025-09.zip",
+        "sha256": "2a904f0f93bcdcf6fd1b94c4af17aa0089e879cea050898b757f55ad46d4db84",
+        "bytes": 122868
+      },
+      {
+        "market": "cm",
+        "symbol": "BTCUSD_PERP",
+        "month": "2025-10",
+        "path": "research\\crypto_backtest\\data\\cm\\BTCUSD_PERP\\BTCUSD_PERP-15m-2025-10.zip",
+        "sha256": "f7aa028542d8fc79185178dabd591d0898832138481d4f581f839ba1fce49493",
+        "bytes": 130827
+      },
+      {
+        "market": "cm",
+        "symbol": "BTCUSD_PERP",
+        "month": "2025-11",
+        "path": "research\\crypto_backtest\\data\\cm\\BTCUSD_PERP\\BTCUSD_PERP-15m-2025-11.zip",
+        "sha256": "d8f1301071716c42bedddaf900b83d3bc2da88517bb4e6daa3831b9330a75940",
+        "bytes": 125999
+      },
+      {
+        "market": "cm",
+        "symbol": "BTCUSD_PERP",
+        "month": "2025-12",
+        "path": "research\\crypto_backtest\\data\\cm\\BTCUSD_PERP\\BTCUSD_PERP-15m-2025-12.zip",
+        "sha256": "33ee4bb458171b4c6e7060431f0d188d9afefe229ef2865e035ce15e3599c211",
+        "bytes": 126355
+      },
+      {
+        "market": "cm",
+        "symbol": "BTCUSD_PERP",
+        "month": "2026-01",
+        "path": "research\\crypto_backtest\\data\\cm\\BTCUSD_PERP\\BTCUSD_PERP-15m-2026-01.zip",
+        "sha256": "d19c549d9bbcd8248fdc0ceed81337de59067b0bdfd58af4cbc98b9676b8c3a8",
+        "bytes": 125426
+      },
+      {
+        "market": "cm",
+        "symbol": "BTCUSD_PERP",
+        "month": "2026-02",
+        "path": "research\\crypto_backtest\\data\\cm\\BTCUSD_PERP\\BTCUSD_PERP-15m-2026-02.zip",
+        "sha256": "77a3ca0992fa45ebf76f973b573ab38b3507d0a461a2045218ad6bf5a11ec5ba",
+        "bytes": 116623
+      },
+      {
+        "market": "cm",
+        "symbol": "BTCUSD_PERP",
+        "month": "2026-03",
+        "path": "research\\crypto_backtest\\data\\cm\\BTCUSD_PERP\\BTCUSD_PERP-15m-2026-03.zip",
+        "sha256": "a3a7b4b4b41713de285faf26c11922792eaac4b4003a0ef822f633d1aeea6e34",
+        "bytes": 127954
+      },
+      {
+        "market": "cm",
+        "symbol": "BTCUSD_PERP",
+        "month": "2026-04",
+        "path": "research\\crypto_backtest\\data\\cm\\BTCUSD_PERP\\BTCUSD_PERP-15m-2026-04.zip",
+        "sha256": "38daf0a93bfa5edc5730f4c955107219b6eb0e8b2cc208abe6d1ae08b7f68c02",
+        "bytes": 121638
+      },
+      {
+        "market": "cm",
+        "symbol": "BTCUSD_PERP",
+        "month": "2026-05",
+        "path": "research\\crypto_backtest\\data\\cm\\BTCUSD_PERP\\BTCUSD_PERP-15m-2026-05.zip",
+        "sha256": "ecf2daa41202eb213b34ae2e61e8e1fcaf3cbd5380d7a4516c0d71b044adf1cc",
+        "bytes": 124219
+      },
+      {
+        "market": "cm",
+        "symbol": "BTCUSD_PERP",
+        "month": "2026-06",
+        "path": "research\\crypto_backtest\\data\\cm\\BTCUSD_PERP\\BTCUSD_PERP-15m-2026-06.zip",
+        "sha256": "0d9c95ca13d8f7fd71e3e2b1f834d70baedf8c0279a428efb97dfef2fea04e6e",
+        "bytes": 121561
+      },
+      {
+        "market": "cm",
+        "symbol": "BTCUSD_PERP",
+        "month": "2026-07",
+        "path": "research\\crypto_backtest\\data\\cm\\BTCUSD_PERP\\BTCUSD_PERP-15m-2026-07.zip",
+        "sha256": "8542d11a9a47eecb35334afc0517bff298259a9d4578b10a8c428f796164c504",
+        "bytes": 123304
+      }
+    ]
+  },
+  "data_rows_15m": 208933,
+  "baseline": {
+    "k": 0.2,
+    "stop_atr": 0.3,
+    "target_r": 2.0,
+    "risk_pct": 0.01,
+    "model": "A",
+    "zone_mode": "touch",
+    "slippage_bp": 2.0,
+    "fee_rate": 0.0004,
+    "daily_loss_r": 3.0,
+    "daily_loss_streak": 3,
+    "contract_size_usd": 100.0,
+    "accounting_unit": "BTC",
+    "trades": 1858,
+    "long_trades": 1016,
+    "short_trades": 842,
+    "win_rate": 0.3471474703982777,
+    "avg_win_r": 1.6814047458734291,
+    "avg_loss_r": 1.1288764888882812,
+    "expectancy_r": -0.15329446713300496,
+    "profit_factor": 0.9300081877307161,
+    "gross_profit_btc": 0.30702292521938723,
+    "gross_loss_btc": -0.3301292711933475,
+    "gross_pnl_btc": -0.023106345973960163,
+    "net_pnl_btc": -0.08039182798960623,
+    "fees_btc": 0.05728548201564607,
+    "slippage_cost_btc": -0.028642741007823037,
+    "funding_cost_btc": 0.0,
+    "initial_equity_btc": 0.0848536274925753,
+    "max_drawdown": -0.951441882780684,
+    "max_drawdown_pct": -0.951441882780684,
+    "final_equity_btc": 0.004461799502969093,
+    "max_win_streak": 6,
+    "max_loss_streak": 15,
+    "avg_holding_hours": 8.811221743810549,
+    "max_holding_hours": 318.25,
+    "monthly_trade_rate": 26.061232718894008
+  },
+  "out_of_sample_70_30": {
+    "k": 0.2,
+    "stop_atr": 0.3,
+    "target_r": 2.0,
+    "risk_pct": 0.01,
+    "model": "A",
+    "zone_mode": "touch",
+    "slippage_bp": 2.0,
+    "fee_rate": 0.0004,
+    "daily_loss_r": 3.0,
+    "daily_loss_streak": 3,
+    "contract_size_usd": 100.0,
+    "accounting_unit": "BTC",
+    "trades": 528,
+    "long_trades": 268,
+    "short_trades": 260,
+    "win_rate": 0.35795454545454547,
+    "avg_win_r": 1.648333334183594,
+    "avg_loss_r": 1.1401975673146467,
+    "expectancy_r": -0.1420302559828901,
+    "profit_factor": 0.9694750273880282,
+    "gross_profit_btc": 0.033711912814846326,
+    "gross_loss_btc": -0.03477336894966071,
+    "gross_pnl_btc": -0.001061456134814392,
+    "net_pnl_btc": -0.00853948022774877,
+    "fees_btc": 0.007478024092934379,
+    "slippage_cost_btc": -0.0037390120464671894,
+    "funding_cost_btc": 0.0,
+    "initial_equity_btc": 0.015900804421695693,
+    "max_drawdown": -0.6092902300773684,
+    "max_drawdown_pct": -0.6092902300773684,
+    "final_equity_btc": 0.007361324193946913,
+    "max_win_streak": 6,
+    "max_loss_streak": 15,
+    "avg_holding_hours": 9.753314393939393,
+    "max_holding_hours": 317.75,
+    "monthly_trade_rate": 24.313161875945536
+  },
+  "monte_carlo_10000": {
+    "status": "paused_by_request"
+  },
+  "notes": [
+    "Funding history is not included until a verified funding archive is supplied; funding is reported as unavailable, not zero.",
+    "This runner uses conservative SL-first handling for same-bar SL/TP; 1m sequencing is not available in this dataset.",
+    "COIN-M correction is active: BTC-denominated inverse settlement, integer contract quantity, and directional slippage. Optimization and paused experiments are not run in this validation."
+  ]
+}

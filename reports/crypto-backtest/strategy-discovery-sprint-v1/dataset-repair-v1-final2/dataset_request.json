@@ -1,0 +1,12 @@
+{
+  "generated_at_utc": "2026-09-01T04:49:43.983104+00:00",
+  "warmup_start": "2026-05-20T00:00:00+00:00",
+  "research_end": "2026-08-29T23:59:59+00:00",
+  "interval": "15m",
+  "warning_flags": [
+    "exploratory_survivorship_bias_present",
+    "funding_not_modeled_not_deployable"
+  ],
+  "universe_sha256": "25150f68b9f1af23aa136956dd9ea103cfc683402214eba33e3a2604870d9fcc",
+  "spec_sha256": "de6481e28ca857aef4afe902521f1fb1fe0bb642e480242fde829af68cbaeae8"
+}

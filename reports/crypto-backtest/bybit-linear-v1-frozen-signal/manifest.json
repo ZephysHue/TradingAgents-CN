@@ -1,0 +1,68 @@
+{
+  "source": "Bybit V5 public linear perpetual kline API",
+  "market": "linear",
+  "strategy": "frozen V1 signal rules; separate USDT-linear settlement",
+  "start": "2023-01-01",
+  "end": "2026-08-29",
+  "symbols": [
+    "BTCUSDT",
+    "ETHUSDT",
+    "SOLUSDT",
+    "XRPUSDT",
+    "DOGEUSDT",
+    "ADAUSDT"
+  ],
+  "records": [
+    {
+      "symbol": "BTCUSDT",
+      "path": "research\\crypto_backtest\\data\\bybit-linear-v1\\BTCUSDT-15m.csv",
+      "sha256": "946368f95fcbf3d09b2152d350bb3dd2a27dce3fb842ec26a0a3cd9feade45c2",
+      "bars": 128352,
+      "start": "2023-01-01T00:00:00+00:00",
+      "end": "2026-08-29T23:45:00+00:00"
+    },
+    {
+      "symbol": "ETHUSDT",
+      "path": "research\\crypto_backtest\\data\\bybit-linear-v1\\ETHUSDT-15m.csv",
+      "sha256": "7b34593d36d41c00d48ab2d1d972b73d1cb44456d1c65f3549e397cc73df0f41",
+      "bars": 128352,
+      "start": "2023-01-01T00:00:00+00:00",
+      "end": "2026-08-29T23:45:00+00:00"
+    },
+    {
+      "symbol": "SOLUSDT",
+      "path": "research\\crypto_backtest\\data\\bybit-linear-v1\\SOLUSDT-15m.csv",
+      "sha256": "8115ed0fa02f58cf6b8d7ace4a99d6258b188183d60859a97ca0f1eb4688e061",
+      "bars": 128352,
+      "start": "2023-01-01T00:00:00+00:00",
+      "end": "2026-08-29T23:45:00+00:00"
+    },
+    {
+      "symbol": "XRPUSDT",
+      "path": "research\\crypto_backtest\\data\\bybit-linear-v1\\XRPUSDT-15m.csv",
+      "sha256": "d20f0f7680590778baefc146600e47e8357bd69104669be851fd6a10e09ced74",
+      "bars": 128352,
+      "start": "2023-01-01T00:00:00+00:00",
+      "end": "2026-08-29T23:45:00+00:00"
+    },
+    {
+      "symbol": "DOGEUSDT",
+      "path": "research\\crypto_backtest\\data\\bybit-linear-v1\\DOGEUSDT-15m.csv",
+      "sha256": "886c627cc563cf322c574ba19110606d3c15851a60f346d08c124efcdaba3a93",
+      "bars": 128352,
+      "start": "2023-01-01T00:00:00+00:00",
+      "end": "2026-08-29T23:45:00+00:00"
+    },
+    {
+      "symbol": "ADAUSDT",
+      "path": "research\\crypto_backtest\\data\\bybit-linear-v1\\ADAUSDT-15m.csv",
+      "sha256": "f75786b67ae396c8bbf13b15c4ff242cd6e770d3aa0072d138e41c55c2fa9e05",
+      "bars": 128352,
+      "start": "2023-01-01T00:00:00+00:00",
+      "end": "2026-08-29T23:45:00+00:00"
+    }
+  ],
+  "funding": "excluded",
+  "fee_rate_D": 0.0004,
+  "slippage_bp_D": 2.0
+}

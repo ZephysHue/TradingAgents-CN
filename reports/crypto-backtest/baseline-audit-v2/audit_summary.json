@@ -1,0 +1,339 @@
+{
+  "accounting": {
+    "primary_unit": "BTC",
+    "usd_mark_rule": "equity BTC multiplied by each trade exit fill; initial USD fixed at CLI input",
+    "risk_pct": 0.01,
+    "contract_spec": {
+      "contract_size_usd": 100,
+      "min_qty": 1,
+      "max_qty": 60000,
+      "step_size": 1
+    }
+  },
+  "scenarios": {
+    "A_0fee_0slip": {
+      "signals": 1858,
+      "trades": 1858,
+      "long_trades": 1016,
+      "short_trades": 842,
+      "win_rate_net": 0.34768568353067814,
+      "win_rate_gross": 0.34768568353067814,
+      "gross_profit_btc": 1.2836300951534352,
+      "gross_loss_btc": -1.2112846169794378,
+      "gross_pnl_btc": 0.07234547817399753,
+      "fee_btc": 0.0,
+      "slippage_cost_btc": 0.0,
+      "net_pnl_btc": 0.07234547817399753,
+      "initial_equity_btc": 0.0848536274925753,
+      "final_equity_btc": 0.15719910566657297,
+      "return_btc_pct": 85.25914602805626,
+      "initial_equity_usd": 1000.0,
+      "final_equity_usd_mark": 9830.359754965879,
+      "return_usd_mark_pct": 883.035975496588,
+      "expectancy_price_r": 0.04346386086471876,
+      "expectancy_all_in_r": 0.04346386086471876,
+      "profit_factor": 1.0597262420077656,
+      "gross_profit_factor": 1.0597262420077656,
+      "max_drawdown_btc_pct": -35.5712867547442,
+      "max_drawdown_usd_mark_pct": -69.1919327013597,
+      "skipped_min_qty": 0
+    },
+    "B_004fee_0slip": {
+      "signals": 1858,
+      "trades": 1858,
+      "long_trades": 1016,
+      "short_trades": 842,
+      "win_rate_net": 0.34768568353067814,
+      "win_rate_gross": 0.34768568353067814,
+      "gross_profit_btc": 0.44100480323844243,
+      "gross_loss_btc": -0.4282672393693656,
+      "gross_pnl_btc": 0.01273756386907677,
+      "fee_btc": 0.08696108575180996,
+      "slippage_cost_btc": 0.0,
+      "net_pnl_btc": -0.07422352188273319,
+      "initial_equity_btc": 0.0848536274925753,
+      "final_equity_btc": 0.010630105609842129,
+      "return_btc_pct": -87.47242053880105,
+      "initial_equity_usd": 1000.0,
+      "final_equity_usd_mark": 664.7478173296607,
+      "return_usd_mark_pct": -33.52521826703393,
+      "expectancy_price_r": -0.1035952314054802,
+      "expectancy_all_in_r": -0.07900618216997204,
+      "profit_factor": 0.8470584509983123,
+      "gross_profit_factor": 1.029742092549113,
+      "max_drawdown_btc_pct": -89.26955153243277,
+      "max_drawdown_usd_mark_pct": -85.10824677224875,
+      "skipped_min_qty": 0
+    },
+    "C_0fee_2bp": {
+      "signals": 1858,
+      "trades": 1858,
+      "long_trades": 1016,
+      "short_trades": 842,
+      "win_rate_net": 0.34768568353067814,
+      "win_rate_gross": 0.34768568353067814,
+      "gross_profit_btc": 0.684275624513851,
+      "gross_loss_btc": -0.6557480952745803,
+      "gross_pnl_btc": 0.028527529239270696,
+      "fee_btc": 0.0,
+      "slippage_cost_btc": 0.06719035227928402,
+      "net_pnl_btc": -0.038662823040013325,
+      "initial_equity_btc": 0.0848536274925753,
+      "final_equity_btc": 0.04619080445256192,
+      "return_btc_pct": -45.56413695265577,
+      "initial_equity_usd": 1000.0,
+      "final_equity_usd_mark": 2889.0942964287183,
+      "return_usd_mark_pct": 188.9094296428718,
+      "expectancy_price_r": -0.023853307425480294,
+      "expectancy_all_in_r": -0.023853307425480294,
+      "profit_factor": 0.9447560903296822,
+      "gross_profit_factor": 1.043503792759513,
+      "max_drawdown_btc_pct": -57.759295086219865,
+      "max_drawdown_usd_mark_pct": -75.60127728366076,
+      "skipped_min_qty": 0
+    },
+    "D_004fee_2bp": {
+      "signals": 1858,
+      "trades": 1858,
+      "long_trades": 1016,
+      "short_trades": 842,
+      "win_rate_net": 0.3471474703982777,
+      "win_rate_gross": 0.34768568353067814,
+      "gross_profit_btc": 0.31692936894318674,
+      "gross_loss_btc": -0.31139297390932374,
+      "gross_pnl_btc": 0.005536395033862988,
+      "fee_btc": 0.05728548201564607,
+      "slippage_cost_btc": 0.028642741007823037,
+      "net_pnl_btc": -0.08039182798960612,
+      "initial_equity_btc": 0.0848536274925753,
+      "final_equity_btc": 0.004461799502969237,
+      "return_btc_pct": -94.74176928575075,
+      "initial_equity_usd": 1000.0,
+      "final_equity_usd_mark": 279.0719851843142,
+      "return_usd_mark_pct": -72.09280148156859,
+      "expectancy_price_r": -0.15329446713300476,
+      "expectancy_all_in_r": -0.12605299189956812,
+      "profit_factor": 0.7813478370022217,
+      "gross_profit_factor": 1.0177794475076216,
+      "max_drawdown_btc_pct": -95.19941620654144,
+      "max_drawdown_usd_mark_pct": -93.02234064770431,
+      "skipped_min_qty": 0
+    }
+  },
+  "cost_drag": {
+    "primary_metric": "expectancy_all_in_r",
+    "fee_drag_r_per_trade": -0.1224700430346908,
+    "slippage_drag_r_per_trade": -0.06731716829019906,
+    "total_cost_drag_r_per_trade": -0.16951685276428688,
+    "fee_drag_btc": -0.14656900005673074,
+    "slippage_drag_btc": -0.11100830121401085,
+    "total_cost_drag_btc": -0.15273730616360365,
+    "fee_drag_btc_per_trade": -7.888536063333194e-05,
+    "slippage_drag_btc_per_trade": -5.97461255188433e-05,
+    "total_cost_drag_btc_per_trade": -8.220522398471671e-05,
+    "fee_as_pct_of_A_gross_profit": 6.774621916403051,
+    "slippage_as_pct_of_A_gross_profit": 5.234401447346293,
+    "fee_as_pct_of_B_gross_profit": 19.718852292135207,
+    "fee_as_pct_of_D_gross_profit": 18.075157315545333,
+    "slippage_as_pct_of_C_gross_profit": 9.819194177349212,
+    "slippage_as_pct_of_D_gross_profit": 9.037578657772666,
+    "interaction_note": "Scenario equity paths and integer quantities differ, so fee and slippage drags are counterfactual differences and are not strictly additive."
+  },
+  "signal_consistency": {
+    "reference": "A_0fee_0slip",
+    "signal_count": 1858,
+    "scenarios": {
+      "A_0fee_0slip": {
+        "same_entry_signals": 1858,
+        "different_entry_signals": 0,
+        "exact_match": true
+      },
+      "B_004fee_0slip": {
+        "same_entry_signals": 1858,
+        "different_entry_signals": 0,
+        "exact_match": true
+      },
+      "C_0fee_2bp": {
+        "same_entry_signals": 1858,
+        "different_entry_signals": 0,
+        "exact_match": true
+      },
+      "D_004fee_2bp": {
+        "same_entry_signals": 1858,
+        "different_entry_signals": 0,
+        "exact_match": true
+      }
+    }
+  },
+  "direction_summary": [
+    {
+      "scenario": "A_0fee_0slip",
+      "direction": "long",
+      "trades": 1016,
+      "expectancy_price_r": 0.024481526503642888,
+      "expectancy_all_in_r": 0.024481526503642888,
+      "profit_factor": 1.021671509960461,
+      "net_pnl_btc": 0.014294863944395927,
+      "max_drawdown_btc_pct": -31.108746331440827
+    },
+    {
+      "scenario": "A_0fee_0slip",
+      "direction": "short",
+      "trades": 842,
+      "expectancy_price_r": 0.06636891040254901,
+      "expectancy_all_in_r": 0.06636891040254901,
+      "profit_factor": 1.1052272327083672,
+      "net_pnl_btc": 0.058050614229601595,
+      "max_drawdown_btc_pct": -19.596399800434007
+    },
+    {
+      "scenario": "B_004fee_0slip",
+      "direction": "long",
+      "trades": 1016,
+      "expectancy_price_r": -0.12240005385680987,
+      "expectancy_all_in_r": -0.09729475765532415,
+      "profit_factor": 0.8275360054558891,
+      "net_pnl_btc": -0.047555018635619575,
+      "max_drawdown_btc_pct": -56.12871906629064
+    },
+    {
+      "scenario": "B_004fee_0slip",
+      "direction": "short",
+      "trades": 842,
+      "expectancy_price_r": -0.08090437676112042,
+      "expectancy_all_in_r": -0.05693825735629302,
+      "profit_factor": 0.8727451273744764,
+      "net_pnl_btc": -0.026668503247113614,
+      "max_drawdown_btc_pct": -33.58897244367929
+    },
+    {
+      "scenario": "C_0fee_2bp",
+      "direction": "long",
+      "trades": 1016,
+      "expectancy_price_r": -0.04202388155054914,
+      "expectancy_all_in_r": -0.04202388155054914,
+      "profit_factor": 0.9171181807890816,
+      "net_pnl_btc": -0.03221622655769606,
+      "max_drawdown_btc_pct": -44.99936527131525
+    },
+    {
+      "scenario": "C_0fee_2bp",
+      "direction": "short",
+      "trades": 842,
+      "expectancy_price_r": -0.0019277690512879632,
+      "expectancy_all_in_r": -0.0019277690512879632,
+      "profit_factor": 0.9792817852966776,
+      "net_pnl_btc": -0.006446596482317267,
+      "max_drawdown_btc_pct": -25.075779585764778
+    },
+    {
+      "scenario": "D_004fee_2bp",
+      "direction": "long",
+      "trades": 1016,
+      "expectancy_price_r": -0.1725528533329377,
+      "expectancy_all_in_r": -0.1446675238078511,
+      "profit_factor": 0.7704630029782146,
+      "net_pnl_btc": -0.048771412407545775,
+      "max_drawdown_btc_pct": -57.47710952229276
+    },
+    {
+      "scenario": "D_004fee_2bp",
+      "direction": "short",
+      "trades": 842,
+      "expectancy_price_r": -0.13005631941432083,
+      "expectancy_all_in_r": -0.10359175149717441,
+      "profit_factor": 0.7962504854811767,
+      "net_pnl_btc": -0.03162041558206034,
+      "max_drawdown_btc_pct": -37.93866009736656
+    }
+  ],
+  "old_vs_corrected": [
+    {
+      "metric": "Trades",
+      "old": 1849.0,
+      "corrected": 1858.0,
+      "difference": 9,
+      "unit": "count"
+    },
+    {
+      "metric": "Win Rate",
+      "old": 0.33964305029745806,
+      "corrected": 0.3471474703982777,
+      "difference": 0.007504420100819642,
+      "unit": "ratio"
+    },
+    {
+      "metric": "Expectancy",
+      "old": -0.15363137065079613,
+      "corrected": -0.12605299189956812,
+      "difference": 0.02757837875122801,
+      "unit": "R/trade"
+    },
+    {
+      "metric": "Profit Factor",
+      "old": 0.7932289972929797,
+      "corrected": 0.7813478370022217,
+      "difference": -0.01188116029075803,
+      "unit": "ratio"
+    },
+    {
+      "metric": "Net PnL",
+      "old": -1363.4765710381816,
+      "corrected": -0.08039182798960612,
+      "difference": "not_comparable",
+      "unit": "OLD=USD; CORRECTED=BTC"
+    },
+    {
+      "metric": "Max Drawdown",
+      "old": -1.385381020239298,
+      "corrected": -0.9519941620654144,
+      "difference": 0.43338685817388356,
+      "unit": "ratio"
+    },
+    {
+      "metric": "Final Equity",
+      "old": -363.4765710381823,
+      "corrected": 0.004461799502969237,
+      "difference": "not_comparable",
+      "unit": "OLD=USD; CORRECTED=BTC"
+    }
+  ],
+  "attribution": {
+    "COIN-M inverse PnL correction": "无法隔离：OLD未保留逐项反事实账本",
+    "position sizing correction": "无法隔离：与BTC权益路径和整数数量联动",
+    "quantity integerization": "无法隔离：OLD与CORRECTED交易集合及权益路径不同",
+    "slippage direction correction": "无法隔离：OLD诊断与仓位、计价同时变化",
+    "fee valuation correction": "无法隔离：OLD为USD线性扣费，CORRECTED为BTC结算",
+    "BTC-base ledger correction": "无法隔离：这是计价体系变更，不是单一加法项"
+  },
+  "conclusions": {
+    "1_zero_cost_has_positive_edge": true,
+    "1_evidence": {
+      "expectancy_price_r": 0.04346386086471876,
+      "profit_factor": 1.0597262420077656,
+      "gross_pnl_btc": 0.07234547817399753
+    },
+    "2_fee_expectancy_drag_r": -0.1224700430346908,
+    "3_slippage_expectancy_drag_r": -0.06731716829019906,
+    "4_total_cost_expectancy_drag_r": -0.16951685276428688,
+    "5_primary_cause": "原始信号仅有很薄的毛优势，手续费和滑点共同将其转为明显负期望",
+    "6_old_vs_corrected": "主要差异来自计价和执行引擎整体修正；现有OLD产物不足以独立定量归因各修正项",
+    "7_enter_next_diagnostic_stage": true,
+    "7_reason": "零成本毛优势过薄且无法覆盖交易摩擦；下一阶段应诊断信号质量，不应进行参数矩阵优化"
+  },
+  "assertions": {
+    "ledger_all_scenarios": "PASS",
+    "signal_sets_exact_match": true
+  },
+  "paused": [
+    "parameter optimization",
+    "288 parameter matrix",
+    "MAE/MFE",
+    "trend strength",
+    "Walk Forward",
+    "Monte Carlo",
+    "200 to 1000",
+    "fixed 0.02",
+    "Funding analysis"
+  ]
+}

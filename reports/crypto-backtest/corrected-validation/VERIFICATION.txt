@@ -1,0 +1,32 @@
+COIN-M baseline engine verification
+
+Changed branch/field:
+- BTC-base equity, PnL, fee, risk, and quantity rounding for BTCUSD_PERP.
+- Correct directional slippage for inverse-contract fills.
+- Ledger invariants and independent PnL cross-check.
+
+Artifacts:
+- MODIFIED_FILE: reports/crypto-backtest/BASELINE_trades.csv
+- DIFF_FILE: reports/crypto-backtest/corrected-validation/engine-correction.diff
+- VERIFICATION.txt: this file
+- ROLLBACK.sh: reports/crypto-backtest/corrected-validation/ROLLBACK.sh
+
+BASELINE command:
+python research/crypto_backtest/backtest.py --data-dir research/crypto_backtest/data --output-dir reports/crypto-backtest --baseline-only
+Result: exit 0; baseline_trades=1851; parameter_combinations=288; market=cm.
+
+MODIFIED command:
+python research/crypto_backtest/validate_corrected_baseline.py --trades reports/crypto-backtest/BASELINE_trades.csv --out reports/crypto-backtest/corrected-validation
+Result: exit 0; four cost scenarios written; ledger assertions passed; independent 100-trade max absolute error=2.981555974335137e-17.
+
+ROLLBACK command:
+PowerShell equivalent: Copy-Item reports/crypto-backtest/corrected-validation/corrected_validation.json.snapshot reports/crypto-backtest/corrected-validation/corrected_validation.json -Force
+Result: exit 0; restored generated validation report from the snapshot copy; corrected MODIFIED_FILE remains in place. ROLLBACK.sh is supplied for POSIX shells; this Windows host has no POSIX shell executable available.
+
+Test command:
+python research/crypto_backtest/test_coin_m_engine.py
+Result: exit 0; COIN-M engine 4-direction and fee tests: PASS.
+
+Restored behavior/status:
+- Rollback is limited to generated validation artifacts and does not revert source or BASELINE_trades.csv.
+- Corrected engine remains the active implementation after verification.

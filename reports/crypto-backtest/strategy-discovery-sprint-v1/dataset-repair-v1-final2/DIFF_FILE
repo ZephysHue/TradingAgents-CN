@@ -1,0 +1,233 @@
+diff --git a/research/crypto_backtest/repair_strategy_sprint_dataset_v1.py b/research/crypto_backtest/repair_strategy_sprint_dataset_v1.py
+new file mode 100644
+index 00000000..fce758bd
+--- /dev/null
++++ b/research/crypto_backtest/repair_strategy_sprint_dataset_v1.py
+@@ -0,0 +1,227 @@
++"""Immutable local-first repair for the fixed strategy-discovery sprint dataset."""
++from __future__ import annotations
++
++import argparse
++import hashlib
++import json
++import time
++from concurrent.futures import ThreadPoolExecutor, as_completed
++from datetime import datetime, timezone
++from pathlib import Path
++from typing import Any
++
++import pandas as pd
++import requests
++
++try:
++    from research.crypto_backtest.run_strategy_discovery_sprint_v1 import STAGES, expected_index
++except ModuleNotFoundError:
++    from run_strategy_discovery_sprint_v1 import STAGES, expected_index
++
++BASE = "https://api.bybit.com"
++WARMUP_START = pd.Timestamp("2026-05-20T00:00:00Z")
++FIELDS = ["open", "high", "low", "close", "volume", "turnover"]
++
++
++def now_utc() -> str:
++    return datetime.now(timezone.utc).isoformat()
++
++
++def sha_file(path: Path) -> str:
++    return hashlib.sha256(path.read_bytes()).hexdigest()
++
++
++def canon(value: Any) -> str:
++    return hashlib.sha256(json.dumps(value, ensure_ascii=False, sort_keys=True, separators=(",", ":"), default=str).encode()).hexdigest()
++
++
++def write_json(path: Path, value: Any) -> None:
++    path.parent.mkdir(parents=True, exist_ok=True)
++    path.write_text(json.dumps(value, ensure_ascii=False, indent=2, default=str) + "\n", encoding="utf-8")
++
++
++def load_ohlcv(path: Path) -> pd.DataFrame:
++    frame = pd.read_csv(path, compression="gzip" if path.suffix == ".gz" else None)
++    timestamp = pd.to_datetime(frame["timestamp"], utc=True, errors="coerce")
++    frame = frame.assign(timestamp=timestamp).dropna(subset=["timestamp"])
++    for field in FIELDS:
++        frame[field] = pd.to_numeric(frame[field], errors="coerce")
++    return frame[["timestamp", *FIELDS]].dropna().sort_values("timestamp")
++
++
++def validate_frame(frame: pd.DataFrame) -> tuple[bool, str]:
++    if frame.empty or frame.timestamp.duplicated().any() or not frame.timestamp.is_monotonic_increasing:
++        return False, "timestamp_not_strict_unique_utc"
++    if (frame[["open", "high", "low", "close"]] <= 0).any().any() or (frame.volume < 0).any():
++        return False, "invalid_ohlcv_values"
++    if (frame.high < frame[["open", "close"]].max(axis=1)).any() or (frame.low > frame[["open", "close"]].min(axis=1)).any() or (frame.high < frame.low).any():
++        return False, "invalid_ohlc_bounds"
++    return True, "quality_pass"
++
++
++def merge_sources(frames: list[pd.DataFrame]) -> tuple[pd.DataFrame | None, str]:
++    if not frames:
++        return pd.DataFrame(columns=["timestamp", *FIELDS]), "no_local_source"
++    combined = pd.concat(frames, ignore_index=True).sort_values("timestamp")
++    for _, group in combined.groupby("timestamp", sort=False):
++        if len(group) > 1 and not (group[FIELDS].nunique(dropna=False) == 1).all():
++            return None, "conflicting_local_source"
++    result = combined.drop_duplicates("timestamp", keep="first").reset_index(drop=True)
++    return result, validate_frame(result)[1]
++
++
++def local_candidates(root: Path, symbol: str) -> list[Path]:
++    return [
++        path for path in root.rglob("*")
++        if path.is_file()
++        and path.suffix in {".csv", ".gz"}
++        and path.name.startswith(f"{symbol}-")
++        and "-15m" in path.name
++        and "dataset-repair-v1" not in str(path)
++    ]
++
++
++def quality_for_stage(frame: pd.DataFrame, stage: str) -> dict[str, Any]:
++    _, start, end = STAGES[stage]; expected = expected_index(start, end)
++    actual = pd.DatetimeIndex(frame.timestamp).intersection(expected)
++    missing = expected.difference(actual)
++    longest, run = 0, 0
++    present = set(actual)
++    for point in expected:
++        run = 0 if point in present else run + 1; longest = max(longest, run)
++    return {"stage": stage, "expected_bars": len(expected), "observed_bars": len(actual), "coverage_ratio": len(actual) / len(expected), "missing_15m_bars": len(missing), "max_consecutive_missing": longest, "missing_start_utc": missing.min().isoformat() if len(missing) else None, "missing_end_utc": missing.max().isoformat() if len(missing) else None, "quality_pass": len(actual) / len(expected) >= .99 and longest <= 4}
++
++
++def missing_segments(frame: pd.DataFrame | None, stage: str) -> list[tuple[pd.Timestamp, pd.Timestamp]]:
++    _, start, end = STAGES[stage]
++    expected = expected_index(start, end)
++    actual = pd.DatetimeIndex([], tz="UTC") if frame is None else pd.DatetimeIndex(frame.timestamp).intersection(expected)
++    missing = expected.difference(actual)
++    if not len(missing):
++        return []
++    groups: list[tuple[pd.Timestamp, pd.Timestamp]] = []
++    segment_start = previous = missing[0]
++    for point in missing[1:]:
++        if point - previous != pd.Timedelta(minutes=15):
++            groups.append((segment_start, previous))
++            segment_start = point
++        previous = point
++    groups.append((segment_start, previous))
++    return groups
++
++
++def request_page(symbol: str, start_ms: int, end_ms: int, output: Path, page: int) -> dict[str, Any]:
++    params = {"category": "linear", "symbol": symbol, "interval": "15", "start": start_ms, "end": end_ms, "limit": 1000}
++    errors = []
++    for attempt in range(1, 4):
++        captured = now_utc()
++        try:
++            response = requests.get(f"{BASE}/v5/market/kline", params=params, timeout=(10, 30))
++            response.raise_for_status(); body = response.content; payload = response.json()
++            raw = output / symbol / f"{symbol}-page-{page:04d}-start-{start_ms}-end-{end_ms}.json"; raw.parent.mkdir(parents=True, exist_ok=True); raw.write_bytes(body)
++            rows = payload.get("result", {}).get("list", [])
++            return {"symbol": symbol, "page": page, "params": params, "requested_at_utc": captured, "http_status": response.status_code, "raw_path": str(raw), "sha256": sha_file(raw), "rows": len(rows), "earliest_ms": min((int(row[0]) for row in rows), default=None), "latest_ms": max((int(row[0]) for row in rows), default=None), "error": None, "payload": payload}
++        except requests.RequestException as exc:
++            errors.append({"attempt": attempt, "utc": captured, "error": type(exc).__name__})
++            if attempt < 3: time.sleep(2 ** (attempt - 1))
++    return {"symbol": symbol, "page": page, "params": params, "requested_at_utc": now_utc(), "http_status": None, "raw_path": None, "sha256": None, "rows": 0, "earliest_ms": None, "latest_ms": None, "error": errors, "payload": None}
++
++
++def fetch_missing_symbol(symbol: str, start: pd.Timestamp, end: pd.Timestamp, raw_dir: Path) -> tuple[pd.DataFrame | None, list[dict[str, Any]]]:
++    raw_dir.mkdir(parents=True, exist_ok=True)
++    rows, pages = [], []
++    cursor, end_ms, step = int(start.timestamp() * 1000), int((end + pd.Timedelta(minutes=15)).timestamp() * 1000) - 1, 1000 * 15 * 60_000
++    page = 1
++    while cursor <= end_ms:
++        result = request_page(symbol, cursor, min(cursor + step - 1, end_ms), raw_dir, page); pages.append({key: value for key, value in result.items() if key != "payload"})
++        if result["error"]: return None, pages
++        rows.extend(result["payload"].get("result", {}).get("list", [])); cursor += step; page += 1
++    frame = pd.DataFrame(rows, columns=["open_time", "open", "high", "low", "close", "volume", "turnover"])
++    if frame.empty: return pd.DataFrame(columns=["timestamp", *FIELDS]), pages
++    frame["timestamp"] = pd.to_datetime(pd.to_numeric(frame.open_time), unit="ms", utc=True)
++    for field in FIELDS:
++        frame[field] = pd.to_numeric(frame[field], errors="coerce")
++    frame = frame.dropna(subset=["timestamp", *FIELDS])
++    return frame[["timestamp", *FIELDS]], pages
++
++
++def fetch_missing_segments(symbol: str, segments: list[tuple[pd.Timestamp, pd.Timestamp]], raw_dir: Path) -> tuple[pd.DataFrame | None, list[dict[str, Any]]]:
++    frames, pages = [], []
++    for start, end in segments:
++        frame, trace = fetch_missing_symbol(symbol, start, end, raw_dir)
++        pages.extend(trace)
++        if frame is None:
++            return None, pages
++        frames.append(frame)
++    return merge_sources(frames)[0], pages
++
++
++def main() -> int:
++    parser = argparse.ArgumentParser(description="Repair strategy sprint OHLCV dataset without touching frozen caches")
++    parser.add_argument("--universe", type=Path, default=Path("reports/crypto-backtest/strategy-discovery-sprint-v1/universe_manifest.json"))
++    parser.add_argument("--spec", type=Path, default=Path("reports/crypto-backtest/strategy-discovery-sprint-v1/strategy_specifications.json"))
++    parser.add_argument("--source-root", type=Path, default=Path("research/crypto_backtest/data"))
++    parser.add_argument("--output", type=Path, default=Path("reports/crypto-backtest/strategy-discovery-sprint-v1/dataset-repair-v1"))
++    args = parser.parse_args(); args.output.mkdir(parents=True, exist_ok=True)
++    universe = json.loads(args.universe.read_text(encoding="utf-8")); spec = json.loads(args.spec.read_text(encoding="utf-8"))
++    request = {"generated_at_utc": now_utc(), "warmup_start": WARMUP_START.isoformat(), "research_end": "2026-08-29T23:59:59+00:00", "interval": "15m", "warning_flags": spec["warning_flags"], "universe_sha256": canon(universe), "spec_sha256": canon(spec)}
++    write_json(args.output / "dataset_request.json", request); (args.output / "dataset_request.sha256").write_text(canon(request) + "\n", encoding="utf-8")
++    selected = universe["selected"]
++    inventory, stage_rows, local_frames, missing_tasks = [], [], {}, []
++    for entry in selected:
++        symbol, stage = entry["symbol"], entry["stage"]
++        if symbol not in local_frames:
++            candidates = local_candidates(args.source_root, symbol); frames = []
++            for path in candidates:
++                inventory.append({"symbol": symbol, "path": str(path), "sha256": sha_file(path), "read_at_utc": now_utc()})
++                frames.append(load_ohlcv(path))
++            merged, status = merge_sources(frames)
++            local_frames[symbol] = (merged, status, [str(path) for path in candidates])
++        frame, status, paths = local_frames[symbol]
++        quality = quality_for_stage(frame, stage) if frame is not None else {"stage": stage, "quality_pass": False, "coverage_ratio": 0.0, "max_consecutive_missing": None}
++        row = {**entry, **quality, "local_status": status, "local_paths": paths}; stage_rows.append(row)
++        if not quality["quality_pass"]: missing_tasks.append((entry, frame))
++    pd.DataFrame(inventory).drop_duplicates().to_csv(args.output / "local_cache_inventory.csv", index=False)
++    write_json(args.output / "local_recovery_manifest.json", {"generated_at_utc": now_utc(), "records": stage_rows})
++    network_manifest: dict[str, Any] = {"generated_at_utc": now_utc(), "status": "not_used" if not missing_tasks else "attempted", "pages": []}
++    recovered: dict[tuple[str, str], pd.DataFrame] = {}
++    if missing_tasks:
++        # One controlled probe precedes concurrent recovery. A failed probe prevents any fabricated data.
++        probe_entry, _ = missing_tasks[0]
++        probe, probe_pages = fetch_missing_segments(probe_entry["symbol"], missing_segments(local_frames[probe_entry["symbol"]][0], probe_entry["stage"]), args.output / "raw_kline_pages")
++        network_manifest["pages"].extend(probe_pages)
++        if probe is None:
++            network_manifest["status"] = "data_acquisition_network_unavailable"
++            network_manifest["failed_symbol"] = probe_entry["symbol"]
++        else:
++            recovered[(probe_entry["symbol"], probe_entry["stage"])] = probe
++            with ThreadPoolExecutor(max_workers=8) as pool:
++                jobs = {pool.submit(fetch_missing_segments, entry["symbol"], missing_segments(local_frames[entry["symbol"]][0], entry["stage"]), args.output / "raw_kline_pages"): entry for entry, _ in missing_tasks[1:]}
++                for job in as_completed(jobs):
++                    entry = jobs[job]; frame, pages = job.result(); network_manifest["pages"].extend(pages)
++                    if frame is None: network_manifest.setdefault("failures", []).append(entry["symbol"])
++                    else: recovered[(entry["symbol"], entry["stage"])] = frame
++    write_json(args.output / "network_acquisition_manifest.json", network_manifest)
++    normalized, final_rows = [], []
++    for entry in selected:
++        frame, _, _ = local_frames[entry["symbol"]]
++        extra = recovered.get((entry["symbol"], entry["stage"]))
++        merged, merge_status = merge_sources([part for part in (frame, extra) if part is not None])
++        quality = quality_for_stage(merged, entry["stage"]) if merged is not None else {"quality_pass": False, "coverage_ratio": 0.0, "max_consecutive_missing": None}
++        final_rows.append({**entry, **quality, "merge_status": merge_status})
++        if quality["quality_pass"] and entry["symbol"] not in {item["symbol"] for item in normalized}:
++            target = args.output / "normalized_15m_data" / f"{entry['symbol']}-15m.csv.gz"; target.parent.mkdir(parents=True, exist_ok=True); merged.to_csv(target, index=False, compression="gzip")
++            normalized.append({"symbol": entry["symbol"], "path": str(target), "sha256": sha_file(target), "rows": len(merged), "utc_start": merged.timestamp.min().isoformat(), "utc_end": merged.timestamp.max().isoformat()})
++    normalized_manifest = {"generated_at_utc": now_utc(), "warning_flags": spec["warning_flags"], "files": normalized}
++    write_json(args.output / "normalized_data_manifest.json", normalized_manifest); (args.output / "normalized_data_manifest.sha256").write_text(canon(normalized_manifest) + "\n", encoding="utf-8")
++    pd.DataFrame(final_rows).to_csv(args.output / "data_quality_reconciliation.csv", index=False); pd.DataFrame([row for row in final_rows if not row["quality_pass"]]).to_csv(args.output / "gap_reconciliation.csv", index=False)
++    all_pass = all(row["quality_pass"] for row in final_rows)
++    status = "dataset_ready_for_rerun" if all_pass else ("data_acquisition_network_unavailable" if network_manifest["status"] == "data_acquisition_network_unavailable" else "local_strategy_data_not_available")
++    report = ["# DATASET_REPAIR_V1", "", *[f"- {flag}" for flag in spec["warning_flags"]], f"- [COMPUTED] status={status}", f"- [COMPUTED] local inventory={len(inventory)} network pages={len(network_manifest['pages'])}", "- [KNOWN] No strategy execution occurs unless all 90 fixed stage-symbol requirements pass."]
++    (args.output / "DATASET_REPAIR_V1.md").write_text("\n".join(report) + "\n", encoding="utf-8")
++    print(json.dumps({"status": status, "local_inventory": len(inventory), "network_pages": len(network_manifest["pages"]), "output": str(args.output)}))
++    return 0
++
++
++if __name__ == "__main__":
++    raise SystemExit(main())

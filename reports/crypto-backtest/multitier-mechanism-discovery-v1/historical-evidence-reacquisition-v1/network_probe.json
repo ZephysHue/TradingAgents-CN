@@ -1,0 +1,247 @@
+{
+  "generated_at_utc": "2026-08-31T14:28:13.194455+00:00",
+  "tls_verification": "requests default verification",
+  "connect_timeout_seconds": 10,
+  "read_timeout_seconds": 30,
+  "retries": 3,
+  "probes": [
+    {
+      "source_id": "bybit_v5_instruments",
+      "ok": false,
+      "reason": "network_request_failed:ReadTimeout",
+      "event": {
+        "source_id": "bybit_v5_instruments",
+        "attempt": 3,
+        "utc": "2026-08-31T14:26:23.963984+00:00",
+        "url": "https://api.bybit.com/v5/market/instruments-info",
+        "params": {
+          "category": "linear",
+          "limit": 1
+        },
+        "http_status": null,
+        "exception": "ReadTimeout",
+        "response_sha256": null,
+        "raw_path": null
+      }
+    },
+    {
+      "source_id": "bybit_v5_funding",
+      "ok": false,
+      "reason": "network_request_failed:ReadTimeout",
+      "event": {
+        "source_id": "bybit_v5_funding",
+        "attempt": 3,
+        "utc": "2026-08-31T14:26:57.025621+00:00",
+        "url": "https://api.bybit.com/v5/market/funding/history",
+        "params": {
+          "category": "linear",
+          "symbol": "BTCUSDT",
+          "limit": 1
+        },
+        "http_status": null,
+        "exception": "ReadTimeout",
+        "response_sha256": null,
+        "raw_path": null
+      }
+    },
+    {
+      "source_id": "bybit_v5_announcements",
+      "ok": false,
+      "reason": "network_request_failed:ReadTimeout",
+      "event": {
+        "source_id": "bybit_v5_announcements",
+        "attempt": 3,
+        "utc": "2026-08-31T14:27:30.089723+00:00",
+        "url": "https://api.bybit.com/v5/announcements/index",
+        "params": {
+          "locale": "en-US",
+          "limit": 1
+        },
+        "http_status": null,
+        "exception": "ReadTimeout",
+        "response_sha256": null,
+        "raw_path": null
+      }
+    },
+    {
+      "source_id": "bybit_public_download",
+      "ok": false,
+      "reason": "network_request_failed:ReadTimeout",
+      "event": {
+        "source_id": "bybit_public_download",
+        "attempt": 3,
+        "utc": "2026-08-31T14:28:03.166905+00:00",
+        "url": "https://public.bybit.com/",
+        "params": {},
+        "http_status": null,
+        "exception": "ReadTimeout",
+        "response_sha256": null,
+        "raw_path": null
+      }
+    }
+  ],
+  "attempts": [
+    {
+      "source_id": "bybit_v5_instruments",
+      "attempt": 1,
+      "utc": "2026-08-31T14:26:00.899922+00:00",
+      "url": "https://api.bybit.com/v5/market/instruments-info",
+      "params": {
+        "category": "linear",
+        "limit": 1
+      },
+      "http_status": null,
+      "exception": "ReadTimeout",
+      "response_sha256": null,
+      "raw_path": null
+    },
+    {
+      "source_id": "bybit_v5_instruments",
+      "attempt": 2,
+      "utc": "2026-08-31T14:26:11.935147+00:00",
+      "url": "https://api.bybit.com/v5/market/instruments-info",
+      "params": {
+        "category": "linear",
+        "limit": 1
+      },
+      "http_status": null,
+      "exception": "ReadTimeout",
+      "response_sha256": null,
+      "raw_path": null
+    },
+    {
+      "source_id": "bybit_v5_instruments",
+      "attempt": 3,
+      "utc": "2026-08-31T14:26:23.963984+00:00",
+      "url": "https://api.bybit.com/v5/market/instruments-info",
+      "params": {
+        "category": "linear",
+        "limit": 1
+      },
+      "http_status": null,
+      "exception": "ReadTimeout",
+      "response_sha256": null,
+      "raw_path": null
+    },
+    {
+      "source_id": "bybit_v5_funding",
+      "attempt": 1,
+      "utc": "2026-08-31T14:26:33.978048+00:00",
+      "url": "https://api.bybit.com/v5/market/funding/history",
+      "params": {
+        "category": "linear",
+        "symbol": "BTCUSDT",
+        "limit": 1
+      },
+      "http_status": null,
+      "exception": "ReadTimeout",
+      "response_sha256": null,
+      "raw_path": null
+    },
+    {
+      "source_id": "bybit_v5_funding",
+      "attempt": 2,
+      "utc": "2026-08-31T14:26:45.004450+00:00",
+      "url": "https://api.bybit.com/v5/market/funding/history",
+      "params": {
+        "category": "linear",
+        "symbol": "BTCUSDT",
+        "limit": 1
+      },
+      "http_status": null,
+      "exception": "ReadTimeout",
+      "response_sha256": null,
+      "raw_path": null
+    },
+    {
+      "source_id": "bybit_v5_funding",
+      "attempt": 3,
+      "utc": "2026-08-31T14:26:57.025621+00:00",
+      "url": "https://api.bybit.com/v5/market/funding/history",
+      "params": {
+        "category": "linear",
+        "symbol": "BTCUSDT",
+        "limit": 1
+      },
+      "http_status": null,
+      "exception": "ReadTimeout",
+      "response_sha256": null,
+      "raw_path": null
+    },
+    {
+      "source_id": "bybit_v5_announcements",
+      "attempt": 1,
+      "utc": "2026-08-31T14:27:07.038190+00:00",
+      "url": "https://api.bybit.com/v5/announcements/index",
+      "params": {
+        "locale": "en-US",
+        "limit": 1
+      },
+      "http_status": null,
+      "exception": "ReadTimeout",
+      "response_sha256": null,
+      "raw_path": null
+    },
+    {
+      "source_id": "bybit_v5_announcements",
+      "attempt": 2,
+      "utc": "2026-08-31T14:27:18.059701+00:00",
+      "url": "https://api.bybit.com/v5/announcements/index",
+      "params": {
+        "locale": "en-US",
+        "limit": 1
+      },
+      "http_status": null,
+      "exception": "ReadTimeout",
+      "response_sha256": null,
+      "raw_path": null
+    },
+    {
+      "source_id": "bybit_v5_announcements",
+      "attempt": 3,
+      "utc": "2026-08-31T14:27:30.089723+00:00",
+      "url": "https://api.bybit.com/v5/announcements/index",
+      "params": {
+        "locale": "en-US",
+        "limit": 1
+      },
+      "http_status": null,
+      "exception": "ReadTimeout",
+      "response_sha256": null,
+      "raw_path": null
+    },
+    {
+      "source_id": "bybit_public_download",
+      "attempt": 1,
+      "utc": "2026-08-31T14:27:40.109962+00:00",
+      "url": "https://public.bybit.com/",
+      "params": {},
+      "http_status": null,
+      "exception": "ReadTimeout",
+      "response_sha256": null,
+      "raw_path": null
+    },
+    {
+      "source_id": "bybit_public_download",
+      "attempt": 2,
+      "utc": "2026-08-31T14:27:51.138094+00:00",
+      "url": "https://public.bybit.com/",
+      "params": {},
+      "http_status": null,
+      "exception": "ReadTimeout",
+      "response_sha256": null,
+      "raw_path": null
+    },
+    {
+      "source_id": "bybit_public_download",
+      "attempt": 3,
+      "utc": "2026-08-31T14:28:03.166905+00:00",
+      "url": "https://public.bybit.com/",
+      "params": {},
+      "http_status": null,
+      "exception": "ReadTimeout",
+      "response_sha256": null,
+      "raw_path": null
+    }
+  ]
+}

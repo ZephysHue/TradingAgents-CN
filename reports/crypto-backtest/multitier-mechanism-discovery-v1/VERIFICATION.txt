@@ -1,0 +1,19 @@
+BASELINE
+COMMAND: python -m py_compile research/crypto_backtest/census_multitier_universe_v1.py tests/unit/test_multitier_census_v1.py
+RESULT: exit 0
+
+MODIFIED
+COMMAND: python research/crypto_backtest/census_multitier_universe_v1.py --start 2026-06-01 --end 2026-08-29
+RESULT: {"status":"PASS","months":3,"contracts":6,"labelled_analysis":"not_run"}
+
+VERIFICATION
+COMMAND: python -m pytest tests/unit/test_multitier_census_v1.py tests/unit/test_bybit_crypto_data.py -q
+RESULT: 5 passed in 6.74s; exit 0
+
+VERIFICATION
+COMMAND: JSON parse and SHA256 recomputation for universe_registry.json and cost_floor_registry.json.
+RESULT: json_and_hashes=PASS; all four census JSON files parse and both published SHA256 values recompute exactly.
+
+ROLLBACK
+COMMAND: C:\Program Files\Git\bin\bash.exe ROLLBACK.sh C:/Users/KSO/AppData/Local/Temp/multitier-rollback-fixture-a54289d1d43a43ca9bab9da64df26eb3
+RESULT: rollback_copy=PASS

@@ -1,0 +1,23 @@
+{
+  "source": "Bybit V5 public linear perpetual kline API",
+  "market": "linear",
+  "strategy": "frozen V1 signal rules; separate USDT-linear settlement",
+  "start": "2023-01-01",
+  "end": "2026-08-29",
+  "symbols": [
+    "BTCUSDT"
+  ],
+  "records": [
+    {
+      "symbol": "BTCUSDT",
+      "path": "research\\crypto_backtest\\data\\bybit-linear-v1\\BTCUSDT-15m.csv",
+      "sha256": "946368f95fcbf3d09b2152d350bb3dd2a27dce3fb842ec26a0a3cd9feade45c2",
+      "bars": 128352,
+      "start": "2023-01-01T00:00:00+00:00",
+      "end": "2026-08-29T23:45:00+00:00"
+    }
+  ],
+  "funding": "excluded",
+  "fee_rate_D": 0.0004,
+  "slippage_bp_D": 2.0
+}

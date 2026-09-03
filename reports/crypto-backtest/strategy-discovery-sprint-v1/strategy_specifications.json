@@ -1,0 +1,20 @@
+{
+  "generated_at_utc": "2026-09-01T03:51:03.489018+00:00",
+  "warning_flags": [
+    "exploratory_survivorship_bias_present",
+    "funding_not_modeled_not_deployable"
+  ],
+  "execution": {
+    "signal": "completed bar t close",
+    "entry": "bar t+1 raw open with directional 2bp slippage",
+    "exit": "next tradable bar open",
+    "taker_fee_one_way": 0.0004,
+    "one_way_slippage": 0.0002,
+    "funding_unmodeled": true
+  },
+  "strategies": {
+    "S1": "15m BB20/2.0 + RSI7 mean reversion; fixed 1 ATR loss, middle-band exit, 12 bar cap",
+    "S2": "completed-1h EMA50/200 background plus 15m EMA20/RSI14 pullback; fixed 1 ATR loss, 1.5 ATR gain, 16 bar cap",
+    "S3": "1h within-tier 24h relative-strength top/bottom 20%; four completed-hour hold"
+  }
+}

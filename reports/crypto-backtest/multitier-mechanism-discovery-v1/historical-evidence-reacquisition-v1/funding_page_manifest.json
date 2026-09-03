@@ -1,0 +1,130 @@
+{
+  "generated_at_utc": "2026-08-31T14:28:13.234890+00:00",
+  "source": "Bybit V5 /v5/market/funding/history",
+  "window_utc": [
+    "2026-06-01T00:00:00+00:00",
+    "2026-08-30T00:00:00+00:00"
+  ],
+  "contracts": [
+    {
+      "symbol": "0GUSDT",
+      "pages": [],
+      "stop_reason": "network_evidence_unavailable",
+      "network_failed": true
+    },
+    {
+      "symbol": "1000000BABYDOGEUSDT",
+      "pages": [],
+      "stop_reason": "network_evidence_unavailable",
+      "network_failed": true
+    },
+    {
+      "symbol": "1000000MOGUSDT",
+      "pages": [],
+      "stop_reason": "network_evidence_unavailable",
+      "network_failed": true
+    },
+    {
+      "symbol": "10000NEXUSDT",
+      "pages": [],
+      "stop_reason": "network_evidence_unavailable",
+      "network_failed": true
+    },
+    {
+      "symbol": "10000SATSUSDT",
+      "pages": [],
+      "stop_reason": "network_evidence_unavailable",
+      "network_failed": true
+    },
+    {
+      "symbol": "1000BONKUSDT",
+      "pages": [],
+      "stop_reason": "network_evidence_unavailable",
+      "network_failed": true
+    },
+    {
+      "symbol": "1000BTTUSDT",
+      "pages": [],
+      "stop_reason": "network_evidence_unavailable",
+      "network_failed": true
+    },
+    {
+      "symbol": "1000CATUSDT",
+      "pages": [],
+      "stop_reason": "network_evidence_unavailable",
+      "network_failed": true
+    },
+    {
+      "symbol": "1000FLOKIUSDT",
+      "pages": [],
+      "stop_reason": "network_evidence_unavailable",
+      "network_failed": true
+    },
+    {
+      "symbol": "1000LUNCUSDT",
+      "pages": [],
+      "stop_reason": "network_evidence_unavailable",
+      "network_failed": true
+    },
+    {
+      "symbol": "1000NEIROCTOUSDT",
+      "pages": [],
+      "stop_reason": "network_evidence_unavailable",
+      "network_failed": true
+    },
+    {
+      "symbol": "1000PEPEUSDT",
+      "pages": [],
+      "stop_reason": "network_evidence_unavailable",
+      "network_failed": true
+    },
+    {
+      "symbol": "1000RATSUSDT",
+      "pages": [],
+      "stop_reason": "network_evidence_unavailable",
+      "network_failed": true
+    },
+    {
+      "symbol": "1000TAGUSDT",
+      "pages": [],
+      "stop_reason": "network_evidence_unavailable",
+      "network_failed": true
+    },
+    {
+      "symbol": "1000TOSHIUSDT",
+      "pages": [],
+      "stop_reason": "network_evidence_unavailable",
+      "network_failed": true
+    },
+    {
+      "symbol": "1000TURBOUSDT",
+      "pages": [],
+      "stop_reason": "network_evidence_unavailable",
+      "network_failed": true
+    },
+    {
+      "symbol": "1000XECUSDT",
+      "pages": [],
+      "stop_reason": "network_evidence_unavailable",
+      "network_failed": true
+    },
+    {
+      "symbol": "1INCHUSDT",
+      "pages": [],
+      "stop_reason": "network_evidence_unavailable",
+      "network_failed": true
+    },
+    {
+      "symbol": "2ZUSDT",
+      "pages": [],
+      "stop_reason": "network_evidence_unavailable",
+      "network_failed": true
+    },
+    {
+      "symbol": "4USDT",
+      "pages": [],
+      "stop_reason": "network_evidence_unavailable",
+      "network_failed": true
+    }
+  ]
+}

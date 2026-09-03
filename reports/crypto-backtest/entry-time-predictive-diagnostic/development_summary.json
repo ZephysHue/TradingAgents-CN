@@ -1,0 +1,12 @@
+{
+  "frozen_entries": 1858,
+  "development_entries": 1403,
+  "holdout_entries_not_ranked": 455,
+  "ranking_sha256": "2f6480e7902672caa44ff9a6cfd47d8f974085fe5d14f3f4e3dd568aba4efee7",
+  "label_counts": {
+    "LOSS": 921,
+    "WIN": 482
+  },
+  "lookahead_assert": true,
+  "feature_count": 16
+}

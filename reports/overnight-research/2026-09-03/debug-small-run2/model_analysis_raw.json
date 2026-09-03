@@ -1,0 +1,215 @@
+{
+  "generated_at_utc": "2026-09-03T03:33:47.203548+08:00",
+  "health_url": "http://127.0.0.1:1234/health",
+  "models_url": "http://127.0.0.1:1234/v1/models",
+  "chat_url": "http://127.0.0.1:1234/v1/chat/completions",
+  "warning_flags": [
+    "exploratory_survivorship_bias_present",
+    "funding_unmodeled_not_deployable"
+  ],
+  "development_market_summary": {
+    "stage": "development",
+    "symbols": 30,
+    "tiers": {
+      "hot": {
+        "symbols": 10,
+        "median_period_return_pct": -21.949470996018494,
+        "median_abs_15m_return_pct": 0.21755427664842952,
+        "median_coverage_pct": 100.0
+      },
+      "mid": {
+        "symbols": 10,
+        "median_period_return_pct": -24.23164679410343,
+        "median_abs_15m_return_pct": 0.3148389498994375,
+        "median_coverage_pct": 100.0
+      },
+      "low": {
+        "symbols": 10,
+        "median_period_return_pct": -30.66495222403053,
+        "median_abs_15m_return_pct": 0.2816311718018494,
+        "median_coverage_pct": 100.0
+      }
+    }
+  },
+  "selected_development_rows": {
+    "A": {
+      "family": "A",
+      "family_name": "mean_reversion_bollinger_rsi",
+      "param_id": "A01",
+      "params_json": "{\"bb_width\": 1.8, \"bb_window\": 18, \"family\": \"A\", \"max_hold_bars\": 12, \"param_id\": \"A01\", \"rsi_entry\": 20, \"rsi_length\": 7}",
+      "stage": "development",
+      "trade_count": 1616,
+      "win_rate": 44.12128712871287,
+      "net_expectancy_bps": 13.098376699604662,
+      "profit_factor": 1.1242016378394073,
+      "net_pnl": 215.591693938268,
+      "ending_equity": 1216.8310057852182,
+      "max_drawdown_pct": -17.942076918645522,
+      "avg_holding_bars": 6.23019801980198,
+      "max_holding_bars": 12.0,
+      "unresolved_positions": 6,
+      "terminal_mtm_pnl": 1.2393118469486246,
+      "max_gross_exposure_pct": 79.40850121090094,
+      "drawdown_start_utc": "2026-06-08 12:00:00+00:00",
+      "drawdown_trough_utc": "2026-06-25 13:45:00+00:00",
+      "recovery_utc": null,
+      "duration_15m_bars": 2159,
+      "status": "development_ranked",
+      "audit_json": "{\"created_signals\": 2432, \"family\": \"A\", \"filled_entries\": 1622, \"filled_exits\": 1616, \"missing_execution_bars\": 0, \"param_id\": \"A01\", \"portfolio_limit_blocks\": 810, \"same_symbol_overlap_blocks\": 0, \"stage\": \"development\", \"unresolved_mtm_pnl\": 1.2393118469486246, \"unresolved_open_positions\": 6}",
+      "selected_for_validation": true
+    },
+    "B": {
+      "family": "B",
+      "family_name": "trend_pullback_hourly_filter",
+      "param_id": "B01",
+      "params_json": "{\"family\": \"B\", \"max_hold_bars\": 16, \"param_id\": \"B01\", \"pullback_ema\": 16, \"rsi_floor\": 50, \"rsi_length\": 10, \"take_profit_atr\": 1.5, \"trend_fast\": 36, \"trend_slow\": 120}",
+      "stage": "development",
+      "trade_count": 2830,
+      "win_rate": 41.342756183745585,
+      "net_expectancy_bps": -16.106195016691906,
+      "profit_factor": 0.801075936937396,
+      "net_pnl": -371.39243267934773,
+      "ending_equity": 628.329754484545,
+      "max_drawdown_pct": -39.8739724433281,
+      "avg_holding_bars": 6.698586572438162,
+      "max_holding_bars": 16.0,
+      "unresolved_positions": 7,
+      "terminal_mtm_pnl": -0.27781283610661067,
+      "max_gross_exposure_pct": 79.87164226125688,
+      "drawdown_start_utc": "2026-06-03 00:00:00+00:00",
+      "drawdown_trough_utc": "2026-06-30 23:45:00+00:00",
+      "recovery_utc": null,
+      "duration_15m_bars": 2687,
+      "status": "development_ranked",
+      "audit_json": "{\"created_signals\": 9560, \"family\": \"B\", \"filled_entries\": 2837, \"filled_exits\": 2830, \"missing_execution_bars\": 0, \"param_id\": \"B01\", \"portfolio_limit_blocks\": 6723, \"same_symbol_overlap_blocks\": 0, \"stage\": \"development\", \"unresolved_mtm_pnl\": -0.27781283610661067, \"unresolved_open_positions\": 7}",
+      "selected_for_validation": true
+    },
+    "C": {
+      "family": "C",
+      "family_name": "tiered_cross_sectional_momentum",
+      "param_id": "C01",
+      "params_json": "{\"family\": \"C\", \"hold_hours\": 4, \"lookback_hours\": 12, \"param_id\": \"C01\", \"rebalance_hours\": 1, \"selection_pct\": 0.2}",
+      "stage": "development",
+      "trade_count": 1339,
+      "win_rate": 46.30321135175504,
+      "net_expectancy_bps": -0.008347208295758688,
+      "profit_factor": 0.9926289896074932,
+      "net_pnl": -13.377776814977118,
+      "ending_equity": 986.6222231850257,
+      "max_drawdown_pct": -14.90832367997006,
+      "avg_holding_bars": 16.0,
+      "max_holding_bars": 16.0,
+      "unresolved_positions": 0,
+      "terminal_mtm_pnl": 0.0,
+      "max_gross_exposure_pct": 79.05868001112776,
+      "drawdown_start_utc": "2026-06-11 09:15:00+00:00",
+      "drawdown_trough_utc": "2026-06-30 06:15:00+00:00",
+      "recovery_utc": null,
+      "duration_15m_bars": 1882,
+      "status": "development_ranked",
+      "audit_json": "{\"created_signals\": 8640, \"family\": \"C\", \"filled_entries\": 1339, \"filled_exits\": 1339, \"late_stage_blocks\": 45, \"missing_execution_bars\": 0, \"param_id\": \"C01\", \"portfolio_limit_blocks\": 4170, \"same_symbol_overlap_blocks\": 3086, \"stage\": \"development\", \"unresolved_mtm_pnl\": 0.0, \"unresolved_open_positions\": 0}",
+      "selected_for_validation": true
+    },
+    "D": {
+      "family": "D",
+      "family_name": "donchian_atr_breakout",
+      "param_id": "D01",
+      "params_json": "{\"atr_ratio_threshold\": 1.0, \"breakout_buffer_atr\": 0.0, \"donchian_window\": 20, \"family\": \"D\", \"max_hold_bars\": 12, \"param_id\": \"D01\", \"take_profit_atr\": 2.0}",
+      "stage": "development",
+      "trade_count": 1828,
+      "win_rate": 35.55798687089716,
+      "net_expectancy_bps": -22.11408627314173,
+      "profit_factor": 0.7571729673358205,
+      "net_pnl": -339.64338006688945,
+      "ending_equity": 661.2188204666039,
+      "max_drawdown_pct": -34.951769112267016,
+      "avg_holding_bars": 5.714989059080962,
+      "max_holding_bars": 12.0,
+      "unresolved_positions": 3,
+      "terminal_mtm_pnl": 0.8622005334914,
+      "max_gross_exposure_pct": 79.33424005156134,
+      "drawdown_start_utc": "2026-06-01 12:00:00+00:00",
+      "drawdown_trough_utc": "2026-06-30 23:15:00+00:00",
+      "recovery_utc": null,
+      "duration_15m_bars": 2831,
+      "status": "development_ranked",
+      "audit_json": "{\"created_signals\": 2902, \"family\": \"D\", \"filled_entries\": 1831, \"filled_exits\": 1828, \"missing_execution_bars\": 0, \"param_id\": \"D01\", \"portfolio_limit_blocks\": 1071, \"same_symbol_overlap_blocks\": 0, \"stage\": \"development\", \"unresolved_mtm_pnl\": 0.8622005334914, \"unresolved_open_positions\": 3}",
+      "selected_for_validation": true
+    }
+  },
+  "health_status_code": 200,
+  "health_body": {
+    "status": "ok"
+  },
+  "models_status_code": 200,
+  "models_body": {
+    "models": [
+      {
+        "name": "M:\\llm\\models\\DeepSeek-R1-Distill-Qwen-32B-Q4_K_M.gguf",
+        "model": "M:\\llm\\models\\DeepSeek-R1-Distill-Qwen-32B-Q4_K_M.gguf",
+        "modified_at": "",
+        "size": "",
+        "digest": "",
+        "type": "model",
+        "description": "",
+        "tags": [
+          ""
+        ],
+        "capabilities": [
+          "completion"
+        ],
+        "parameters": "",
+        "details": {
+          "parent_model": "",
+          "format": "gguf",
+          "family": "",
+          "families": [
+            ""
+          ],
+          "parameter_size": "",
+          "quantization_level": ""
+        }
+      }
+    ],
+    "object": "list",
+    "data": [
+      {
+        "id": "M:\\llm\\models\\DeepSeek-R1-Distill-Qwen-32B-Q4_K_M.gguf",
+        "aliases": [
+          "M:\\llm\\models\\DeepSeek-R1-Distill-Qwen-32B-Q4_K_M.gguf"
+        ],
+        "tags": [],
+        "object": "model",
+        "created": 1788377627,
+        "owned_by": "llamacpp",
+        "meta": {
+          "vocab_type": true,
+          "n_vocab": 152064,
+          "n_ctx": 8192,
+          "n_ctx_train": 131072,
+          "n_embd": 5120,
+          "n_params": 32763876352,
+          "size": 19845357568,
+          "ftype": "Q4_K - Medium"
+        }
+      }
+    ]
+  },
+  "request_payload": {
+    "model": "M:\\llm\\models\\DeepSeek-R1-Distill-Qwen-32B-Q4_K_M.gguf",
+    "temperature": 0.2,
+    "max_tokens": 400,
+    "messages": [
+      {
+        "role": "system",
+        "content": "You are an offline quant research analyst. Do not claim profitability. Summarize only structure, failure modes, and audit focus in JSON."
+      },
+      {
+        "role": "user",
+        "content": "{\"task\": \"Analyze frozen development-stage multi-asset research outputs. Stay descriptive and skeptical.\", \"development_market_summary\": {\"stage\": \"development\", \"symbols\": 30, \"tiers\": {\"hot\": {\"symbols\": 10, \"median_period_return_pct\": -21.949470996018494, \"median_abs_15m_return_pct\": 0.21755427664842952, \"median_coverage_pct\": 100.0}, \"mid\": {\"symbols\": 10, \"median_period_return_pct\": -24.23164679410343, \"median_abs_15m_return_pct\": 0.3148389498994375, \"median_coverage_pct\": 100.0}, \"low\": {\"symbols\": 10, \"median_period_return_pct\": -30.66495222403053, \"median_abs_15m_return_pct\": 0.2816311718018494, \"median_coverage_pct\": 100.0}}}, \"selected_families\": {\"A\": {\"param_id\": \"A01\", \"params_json\": \"{\\\"bb_width\\\": 1.8, \\\"bb_window\\\": 18, \\\"family\\\": \\\"A\\\", \\\"max_hold_bars\\\": 12, \\\"param_id\\\": \\\"A01\\\", \\\"rsi_entry\\\": 20, \\\"rsi_length\\\": 7}\", \"trade_count\": 1616, \"win_rate\": 44.12128712871287, \"net_expectancy_bps\": 13.098376699604662, \"profit_factor\": 1.1242016378394073, \"max_drawdown_pct\": -17.942076918645522}, \"B\": {\"param_id\": \"B01\", \"params_json\": \"{\\\"family\\\": \\\"B\\\", \\\"max_hold_bars\\\": 16, \\\"param_id\\\": \\\"B01\\\", \\\"pullback_ema\\\": 16, \\\"rsi_floor\\\": 50, \\\"rsi_length\\\": 10, \\\"take_profit_atr\\\": 1.5, \\\"trend_fast\\\": 36, \\\"trend_slow\\\": 120}\", \"trade_count\": 2830, \"win_rate\": 41.342756183745585, \"net_expectancy_bps\": -16.106195016691906, \"profit_factor\": 0.801075936937396, \"max_drawdown_pct\": -39.8739724433281}, \"C\": {\"param_id\": \"C01\", \"params_json\": \"{\\\"family\\\": \\\"C\\\", \\\"hold_hours\\\": 4, \\\"lookback_hours\\\": 12, \\\"param_id\\\": \\\"C01\\\", \\\"rebalance_hours\\\": 1, \\\"selection_pct\\\": 0.2}\", \"trade_count\": 1339, \"win_rate\": 46.30321135175504, \"net_expectancy_bps\": -0.008347208295758688, \"profit_factor\": 0.9926289896074932, \"max_drawdown_pct\": -14.90832367997006}, \"D\": {\"param_id\": \"D01\", \"params_json\": \"{\\\"atr_ratio_threshold\\\": 1.0, \\\"breakout_buffer_atr\\\": 0.0, \\\"donchian_window\\\": 20, \\\"family\\\": \\\"D\\\", \\\"max_hold_bars\\\": 12, \\\"param_id\\\": \\\"D01\\\", \\\"take_profit_atr\\\": 2.0}\", \"trade_count\": 1828, \"win_rate\": 35.55798687089716, \"net_expectancy_bps\": -22.11408627314173, \"profit_factor\": 0.7571729673358205, \"max_drawdown_pct\": -34.951769112267016}}, \"required_schema\": {\"overall_market_structure\": \"string\", \"family_fit\": [{\"family\": \"A|B|C|D\", \"why_it_fits\": \"string\", \"failure_mode\": \"string\"}], \"audit_focus\": [\"string\"], \"forbidden\": [\"profit claims\", \"deployment approval\"]}}"
+      }
+    ]
+  },
+  "chat_error": "ReadTimeout(ReadTimeoutError(\"HTTPConnectionPool(host='127.0.0.1', port=1234): Read timed out. (read timeout=180)\"))",
+  "elapsed_seconds": 180.057
+}

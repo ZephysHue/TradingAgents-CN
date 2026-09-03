@@ -1,0 +1,245 @@
+{
+  "corrected_scenarios": {
+    "A_0fee_0slip": {
+      "trades": 1851,
+      "win_rate": 0.33927606699081575,
+      "gross_profit_btc": 0.3355932118290206,
+      "gross_loss_btc": -0.32475294444040864,
+      "gross_pnl_btc": 0.010840267388611886,
+      "net_pnl_btc": 0.010840267388611886,
+      "expectancy_price_r": 0.05536106228476296,
+      "expectancy_all_in_r": 0.05536106228476296,
+      "profit_factor": 1.0333800434274465,
+      "max_drawdown": -0.19547651464554572,
+      "initial_equity_btc": 0.0848536274925753,
+      "final_equity_btc": 0.0956938948811871,
+      "ledger": {
+        "gross_profit_btc": 0.3355932118290206,
+        "gross_loss_btc": -0.32475294444040864,
+        "gross_pnl_btc": 0.010840267388611886,
+        "net_pnl_btc": 0.010840267388611886,
+        "profit_factor": 1.0333800434274465
+      },
+      "initial_equity_usd": 1008.0610946117946,
+      "final_equity_usd_at_last_exit": 5981.697052393725
+    },
+    "B_004fee_0slip": {
+      "trades": 1851,
+      "win_rate": 0.33927606699081575,
+      "gross_profit_btc": 0.3355932118290206,
+      "gross_loss_btc": -0.32475294444040864,
+      "gross_pnl_btc": 0.010840267388611886,
+      "net_pnl_btc": -0.050029635932210374,
+      "expectancy_price_r": -0.09245327281538375,
+      "expectancy_all_in_r": -0.07065400817276263,
+      "profit_factor": 1.0333800434274465,
+      "max_drawdown": -0.5923116070740991,
+      "initial_equity_btc": 0.0848536274925753,
+      "final_equity_btc": 0.034823991560364975,
+      "ledger": {
+        "gross_profit_btc": 0.3355932118290206,
+        "gross_loss_btc": -0.32475294444040864,
+        "gross_pnl_btc": 0.010840267388611886,
+        "net_pnl_btc": -0.050029635932210374,
+        "profit_factor": 1.0333800434274465
+      },
+      "initial_equity_usd": 1008.0610946117946,
+      "final_equity_usd_at_last_exit": 2176.8010166986223
+    },
+    "C_0fee_2bp": {
+      "trades": 1851,
+      "win_rate": 0.33927606699081575,
+      "gross_profit_btc": 0.3253352802144444,
+      "gross_loss_btc": -0.34492996527003106,
+      "gross_pnl_btc": -0.019594685055586654,
+      "net_pnl_btc": -0.019594685055586654,
+      "expectancy_price_r": -0.014134066202477886,
+      "expectancy_all_in_r": -0.014134066202478736,
+      "profit_factor": 0.9431922795102861,
+      "max_drawdown": -0.25614902566256015,
+      "initial_equity_btc": 0.0848536274925753,
+      "final_equity_btc": 0.06525894243698867,
+      "ledger": {
+        "gross_profit_btc": 0.3253352802144444,
+        "gross_loss_btc": -0.34492996527003106,
+        "gross_pnl_btc": -0.019594685055586654,
+        "net_pnl_btc": -0.019594685055586654,
+        "profit_factor": 0.9431922795102861
+      },
+      "initial_equity_usd": 1008.0610946117946,
+      "final_equity_usd_at_last_exit": 4079.2489855526765
+    },
+    "D_004fee_2bp": {
+      "trades": 1851,
+      "win_rate": 0.33927606699081575,
+      "gross_profit_btc": 0.3253352802144444,
+      "gross_loss_btc": -0.34492996527003106,
+      "gross_pnl_btc": -0.019594685055586654,
+      "net_pnl_btc": -0.08046458994398373,
+      "expectancy_price_r": -0.14420789333059422,
+      "expectancy_all_in_r": -0.11868241464149996,
+      "profit_factor": 0.9431922795102861,
+      "max_drawdown": -0.9530087757857805,
+      "initial_equity_btc": 0.0848536274925753,
+      "final_equity_btc": 0.0043890375485914745,
+      "ledger": {
+        "gross_profit_btc": 0.3253352802144444,
+        "gross_loss_btc": -0.34492996527003106,
+        "gross_pnl_btc": -0.019594685055586654,
+        "net_pnl_btc": -0.08046458994398373,
+        "profit_factor": 0.9431922795102861
+      },
+      "initial_equity_usd": 1008.0610946117946,
+      "final_equity_usd_at_last_exit": 274.3528518705573
+    }
+  },
+  "independent_cross_check": {
+    "sample_size": 100,
+    "max_abs_error": 2.981555974335137e-17,
+    "pass": true
+  },
+  "old_vs_corrected": {
+    "A_0fee_0slip": {
+      "old_legacy": {
+        "trades": 1849,
+        "win_rate": 0.33964305029745806,
+        "expectancy_r": 0.018929150892372112,
+        "profit_factor": 0.996299484565783,
+        "max_drawdown": -0.23132290350349483,
+        "final_equity": 978.9001453229865,
+        "net_pnl": -21.09985467701351
+      },
+      "corrected": {
+        "trades": 1851,
+        "win_rate": 0.33927606699081575,
+        "gross_profit_btc": 0.3355932118290206,
+        "gross_loss_btc": -0.32475294444040864,
+        "gross_pnl_btc": 0.010840267388611886,
+        "net_pnl_btc": 0.010840267388611886,
+        "expectancy_price_r": 0.05536106228476296,
+        "expectancy_all_in_r": 0.05536106228476296,
+        "profit_factor": 1.0333800434274465,
+        "max_drawdown": -0.19547651464554572,
+        "initial_equity_btc": 0.0848536274925753,
+        "final_equity_btc": 0.0956938948811871,
+        "ledger": {
+          "gross_profit_btc": 0.3355932118290206,
+          "gross_loss_btc": -0.32475294444040864,
+          "gross_pnl_btc": 0.010840267388611886,
+          "net_pnl_btc": 0.010840267388611886,
+          "profit_factor": 1.0333800434274465
+        },
+        "initial_equity_usd": 1008.0610946117946,
+        "final_equity_usd_at_last_exit": 5981.697052393725
+      }
+    },
+    "B_004fee_0slip": {
+      "old_legacy": {
+        "trades": 1849,
+        "win_rate": 0.33964305029745806,
+        "expectancy_r": -0.11912260487493219,
+        "profit_factor": 0.8293219231336392,
+        "max_drawdown": -1.1168973448128505,
+        "final_equity": -95.03033617530377,
+        "net_pnl": -1095.0303361753051
+      },
+      "corrected": {
+        "trades": 1851,
+        "win_rate": 0.33927606699081575,
+        "gross_profit_btc": 0.3355932118290206,
+        "gross_loss_btc": -0.32475294444040864,
+        "gross_pnl_btc": 0.010840267388611886,
+        "net_pnl_btc": -0.050029635932210374,
+        "expectancy_price_r": -0.09245327281538375,
+        "expectancy_all_in_r": -0.07065400817276263,
+        "profit_factor": 1.0333800434274465,
+        "max_drawdown": -0.5923116070740991,
+        "initial_equity_btc": 0.0848536274925753,
+        "final_equity_btc": 0.034823991560364975,
+        "ledger": {
+          "gross_profit_btc": 0.3355932118290206,
+          "gross_loss_btc": -0.32475294444040864,
+          "gross_pnl_btc": 0.010840267388611886,
+          "net_pnl_btc": -0.050029635932210374,
+          "profit_factor": 1.0333800434274465
+        },
+        "initial_equity_usd": 1008.0610946117946,
+        "final_equity_usd_at_last_exit": 2176.8010166986223
+      }
+    },
+    "C_0fee_2bp": {
+      "old_legacy": {
+        "trades": 1849,
+        "win_rate": 0.33964305029745806,
+        "expectancy_r": -0.015582652300396557,
+        "profit_factor": 0.9507542900264453,
+        "max_drawdown": -0.3771857975832984,
+        "final_equity": 710.4221782473829,
+        "net_pnl": -289.5778217526164
+      },
+      "corrected": {
+        "trades": 1851,
+        "win_rate": 0.33927606699081575,
+        "gross_profit_btc": 0.3253352802144444,
+        "gross_loss_btc": -0.34492996527003106,
+        "gross_pnl_btc": -0.019594685055586654,
+        "net_pnl_btc": -0.019594685055586654,
+        "expectancy_price_r": -0.014134066202477886,
+        "expectancy_all_in_r": -0.014134066202478736,
+        "profit_factor": 0.9431922795102861,
+        "max_drawdown": -0.25614902566256015,
+        "initial_equity_btc": 0.0848536274925753,
+        "final_equity_btc": 0.06525894243698867,
+        "ledger": {
+          "gross_profit_btc": 0.3253352802144444,
+          "gross_loss_btc": -0.34492996527003106,
+          "gross_pnl_btc": -0.019594685055586654,
+          "net_pnl_btc": -0.019594685055586654,
+          "profit_factor": 0.9431922795102861
+        },
+        "initial_equity_usd": 1008.0610946117946,
+        "final_equity_usd_at_last_exit": 4079.2489855526765
+      }
+    },
+    "D_004fee_2bp": {
+      "old_legacy": {
+        "trades": 1849,
+        "win_rate": 0.33964305029745806,
+        "expectancy_r": -0.15363137065079613,
+        "profit_factor": 0.7932289972929797,
+        "max_drawdown": -1.385381020239298,
+        "final_equity": -363.4765710381823,
+        "net_pnl": -1363.4765710381816
+      },
+      "corrected": {
+        "trades": 1851,
+        "win_rate": 0.33927606699081575,
+        "gross_profit_btc": 0.3253352802144444,
+        "gross_loss_btc": -0.34492996527003106,
+        "gross_pnl_btc": -0.019594685055586654,
+        "net_pnl_btc": -0.08046458994398373,
+        "expectancy_price_r": -0.14420789333059422,
+        "expectancy_all_in_r": -0.11868241464149996,
+        "profit_factor": 0.9431922795102861,
+        "max_drawdown": -0.9530087757857805,
+        "initial_equity_btc": 0.0848536274925753,
+        "final_equity_btc": 0.0043890375485914745,
+        "ledger": {
+          "gross_profit_btc": 0.3253352802144444,
+          "gross_loss_btc": -0.34492996527003106,
+          "gross_pnl_btc": -0.019594685055586654,
+          "net_pnl_btc": -0.08046458994398373,
+          "profit_factor": 0.9431922795102861
+        },
+        "initial_equity_usd": 1008.0610946117946,
+        "final_equity_usd_at_last_exit": 274.3528518705573
+      }
+    }
+  },
+  "old_diagnostic_available": true,
+  "notes": [
+    "All figures are BTC-base; USD is presentation conversion.",
+    "Funding is unavailable and excluded, not assumed zero.",
+    "Signals and EMA/ATR/entry rules were not changed."
+  ]
+}

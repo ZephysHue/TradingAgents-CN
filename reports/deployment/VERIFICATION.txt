@@ -1,0 +1,61 @@
+Changed branch/fields:
+- docker-compose.yml: frontend healthcheck localhost -> 127.0.0.1; obsolete version removed.
+- scripts/mongo-init.js: idempotent default admin upsert in tradingagentscn.users.
+- scripts/create_default_admin.py: Docker-aware MongoDB URI/database resolution.
+
+Artifacts:
+- MODIFIED_FILE: reports/deployment/MODIFIED_FILE
+- DIFF_FILE: reports/deployment/DIFF_FILE
+- VERIFICATION.txt: reports/deployment/VERIFICATION.txt
+- ROLLBACK.sh: reports/deployment/ROLLBACK.sh
+
+BASELINE exact commands, inputs, literal results, exit status:
+1. docker exec tradingagents-frontend wget --quiet --tries=1 --spider http://localhost
+   input: no request body
+   literal result: wget: can't connect to remote host: Connection refused; health_exit=1
+   exit status: 0 for the PowerShell wrapper; wget result 1.
+2. docker exec tradingagents-mongodb mongo --quiet --username admin --password tradingagents123 --authenticationDatabase admin tradingagentscn --eval "printjson({users: db.users.count()})"
+   input: MongoDB query users count
+   literal result: { "users" : 0 }
+   exit status: 0.
+
+MODIFIED exact commands, inputs, literal results, exit status:
+1. docker compose config --quiet
+   input: current docker-compose.yml
+   literal result: no output
+   exit status: 0.
+2. docker compose up -d --build backend
+   input: modified backend image and compose configuration
+   literal result: Image tradingagents-backend:v1.0.0-preview Built; Container tradingagents-backend Started
+   exit status: 0.
+3. docker exec tradingagents-backend python scripts/create_default_admin.py --overwrite
+   input: username=admin, password=admin123, database=tradingagentscn
+   literal result: MongoDB 连接成功; 管理员用户创建成功; 当前用户列表 (1 个)
+   exit status: 0.
+4. docker exec tradingagents-frontend wget --quiet --tries=1 --spider http://127.0.0.1
+   input: no request body
+   literal result: frontend_health_exit=0
+   exit status: 0.
+5. Invoke-RestMethod http://127.0.0.1:3000/api/health -Method Get
+   input: GET /api/health
+   literal result: {"success":true,"data":{"status":"ok"},"message":"服务运行正常"}
+   exit status: 0.
+6. Invoke-RestMethod http://127.0.0.1:3000/api/auth/login -Method Post -ContentType application/json -Body '{"username":"admin","password":"admin123"}'
+   input: admin/admin123
+   literal result: {"success":true,"has_access_token":true,"has_refresh_token":true,"username":"admin","is_admin":true}
+   exit status: 0.
+
+Runtime status:
+- backend=Up (healthy), frontend=Up (healthy), mongodb=Up (healthy), nginx-gateway=Up, redis=Up (healthy).
+- GET http://127.0.0.1:3000/ returned frontend_http=200.
+- tradingagentscn.users returned admin_count=1.
+
+ROLLBACK exact command, input, literal result, exit status:
+bash reports/deployment/ROLLBACK.sh "$PWD" "$TEMP_COPY"
+input: a copy containing modified files; source repository HEAD
+literal result: rollback restored baseline files in $TEMP_COPY
+exit status: 0.
+
+Restored behavior/status:
+- Rollback copy hashes matched the three baseline hashes above.
+- Working tree retained all modified files; running containers retained healthy status.

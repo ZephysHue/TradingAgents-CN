@@ -1,0 +1,114 @@
+{
+  "version": "v1",
+  "generated_at_utc": "2026-08-30T13:05:07.129654+00:00",
+  "contracts": [
+    {
+      "symbol": "BTCUSDT",
+      "status": "pending_evidence",
+      "source": "Bybit V5 /v5/market/funding/history",
+      "fetched_at_utc": "2026-08-30T13:05:07.129654+00:00",
+      "requested_start_utc": "2026-05-02T00:00:00+00:00",
+      "requested_end_exclusive_utc": "2026-08-30T00:00:00+00:00",
+      "available_start_utc": "2026-06-24T16:00:00+00:00",
+      "available_end_utc": "2026-08-30T00:00:00+00:00",
+      "records": 200,
+      "metadata_funding_interval_minutes": 480,
+      "metadata_funding_interval_hours": 8.0,
+      "observed_intervals_hours": [
+        8.0
+      ],
+      "gap_count": 0,
+      "note": "Observed timestamps are recorded; current request is marked pending when the returned range does not cover the requested range."
+    },
+    {
+      "symbol": "ETHUSDT",
+      "status": "pending_evidence",
+      "source": "Bybit V5 /v5/market/funding/history",
+      "fetched_at_utc": "2026-08-30T13:05:07.129654+00:00",
+      "requested_start_utc": "2026-05-02T00:00:00+00:00",
+      "requested_end_exclusive_utc": "2026-08-30T00:00:00+00:00",
+      "available_start_utc": "2026-06-24T16:00:00+00:00",
+      "available_end_utc": "2026-08-30T00:00:00+00:00",
+      "records": 200,
+      "metadata_funding_interval_minutes": 480,
+      "metadata_funding_interval_hours": 8.0,
+      "observed_intervals_hours": [
+        8.0
+      ],
+      "gap_count": 0,
+      "note": "Observed timestamps are recorded; current request is marked pending when the returned range does not cover the requested range."
+    },
+    {
+      "symbol": "SOLUSDT",
+      "status": "pending_evidence",
+      "source": "Bybit V5 /v5/market/funding/history",
+      "fetched_at_utc": "2026-08-30T13:05:07.129654+00:00",
+      "requested_start_utc": "2026-05-02T00:00:00+00:00",
+      "requested_end_exclusive_utc": "2026-08-30T00:00:00+00:00",
+      "available_start_utc": "2026-06-24T16:00:00+00:00",
+      "available_end_utc": "2026-08-30T00:00:00+00:00",
+      "records": 200,
+      "metadata_funding_interval_minutes": 480,
+      "metadata_funding_interval_hours": 8.0,
+      "observed_intervals_hours": [
+        8.0
+      ],
+      "gap_count": 0,
+      "note": "Observed timestamps are recorded; current request is marked pending when the returned range does not cover the requested range."
+    },
+    {
+      "symbol": "XRPUSDT",
+      "status": "pending_evidence",
+      "source": "Bybit V5 /v5/market/funding/history",
+      "fetched_at_utc": "2026-08-30T13:05:07.129654+00:00",
+      "requested_start_utc": "2026-05-02T00:00:00+00:00",
+      "requested_end_exclusive_utc": "2026-08-30T00:00:00+00:00",
+      "available_start_utc": "2026-06-24T16:00:00+00:00",
+      "available_end_utc": "2026-08-30T00:00:00+00:00",
+      "records": 200,
+      "metadata_funding_interval_minutes": 480,
+      "metadata_funding_interval_hours": 8.0,
+      "observed_intervals_hours": [
+        8.0
+      ],
+      "gap_count": 0,
+      "note": "Observed timestamps are recorded; current request is marked pending when the returned range does not cover the requested range."
+    },
+    {
+      "symbol": "DOGEUSDT",
+      "status": "pending_evidence",
+      "source": "Bybit V5 /v5/market/funding/history",
+      "fetched_at_utc": "2026-08-30T13:05:07.129654+00:00",
+      "requested_start_utc": "2026-05-02T00:00:00+00:00",
+      "requested_end_exclusive_utc": "2026-08-30T00:00:00+00:00",
+      "available_start_utc": "2026-06-24T16:00:00+00:00",
+      "available_end_utc": "2026-08-30T00:00:00+00:00",
+      "records": 200,
+      "metadata_funding_interval_minutes": 480,
+      "metadata_funding_interval_hours": 8.0,
+      "observed_intervals_hours": [
+        8.0
+      ],
+      "gap_count": 0,
+      "note": "Observed timestamps are recorded; current request is marked pending when the returned range does not cover the requested range."
+    },
+    {
+      "symbol": "ADAUSDT",
+      "status": "pending_evidence",
+      "source": "Bybit V5 /v5/market/funding/history",
+      "fetched_at_utc": "2026-08-30T13:05:07.129654+00:00",
+      "requested_start_utc": "2026-05-02T00:00:00+00:00",
+      "requested_end_exclusive_utc": "2026-08-30T00:00:00+00:00",
+      "available_start_utc": "2026-06-24T16:00:00+00:00",
+      "available_end_utc": "2026-08-30T00:00:00+00:00",
+      "records": 200,
+      "metadata_funding_interval_minutes": 480,
+      "metadata_funding_interval_hours": 8.0,
+      "observed_intervals_hours": [
+        8.0
+      ],
+      "gap_count": 0,
+      "note": "Observed timestamps are recorded; current request is marked pending when the returned range does not cover the requested range."
+    }
+  ]
+}

@@ -1,0 +1,14 @@
+Changed branch/fields:
+- docker-compose.yml: removed obsolete version field; frontend healthcheck now targets 127.0.0.1.
+- scripts/mongo-init.js: added idempotent admin user upsert in tradingagentscn.users.
+- scripts/create_default_admin.py: reads Docker MongoDB settings from environment/application settings.
+
+Baseline hashes:
+- docker-compose.yml b355ef066e6c708da76df67b44667098e33c35a2
+- scripts/mongo-init.js a504a02647bad63c41348766fb3b5a2f9d4d11d4
+- scripts/create_default_admin.py cd15d7f74feeae578033e775418cc52ab8fcdf24
+
+Modified hashes:
+- docker-compose.yml 11c843e9f2fa30657c5ade8eaca04c3235d7d71b
+- scripts/mongo-init.js bf11ab44549e64c3f6f99b64fa7a13994a82a7f3
+- scripts/create_default_admin.py a2a7cd72f47992eaf6f64236922b81e296c05e5d

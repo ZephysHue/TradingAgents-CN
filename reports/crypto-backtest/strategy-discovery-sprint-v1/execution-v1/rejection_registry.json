@@ -1,0 +1,20 @@
+{
+  "warning_flags": [
+    "exploratory_survivorship_bias_present",
+    "funding_not_modeled_not_deployable"
+  ],
+  "results": [
+    {
+      "strategy": "S1",
+      "classification": "rejected_in_development"
+    },
+    {
+      "strategy": "S2",
+      "classification": "rejected_in_development"
+    },
+    {
+      "strategy": "S3",
+      "classification": "rejected_in_development"
+    }
+  ]
+}

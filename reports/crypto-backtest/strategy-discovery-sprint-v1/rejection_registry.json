@@ -1,0 +1,2050 @@
+{
+  "warning_flags": [
+    "exploratory_survivorship_bias_present",
+    "funding_not_modeled_not_deployable"
+  ],
+  "status": "local_strategy_data_not_available",
+  "unavailable": [
+    {
+      "stage": "validation",
+      "month": "2026-07",
+      "tier": "hot",
+      "symbol": "BTCUSDT",
+      "rank": 1,
+      "expected_15m_bars": 2976,
+      "observed_15m_bars": 2880,
+      "coverage_ratio": 0.967741935483871,
+      "missing_15m_bars": 96,
+      "coverage_pass": false,
+      "missing_start_utc": "2026-07-01T00:00:00+00:00",
+      "missing_end_utc": "2026-07-01T23:45:00+00:00",
+      "cache_paths_checked": [
+        {
+          "path": "research\\crypto_backtest\\data\\multitier-expansion-v1\\BTCUSDT-20260502-15m.csv.gz",
+          "manifest_sha256": "0f4f671b397c4e9ad7dd8348413b4e6897662ccc661b35b07a248fe52937a60f",
+          "exists": true,
+          "sha256_matches_manifest": true
+        },
+        {
+          "path": "research\\crypto_backtest\\data\\multitier-expansion-v1\\BTCUSDT-20260601-15m.csv.gz",
+          "manifest_sha256": "ba8a9d55c92a71c61b03233ad01fbf5a578d3ec5d732fb72135f22c3bdba9871",
+          "exists": true,
+          "sha256_matches_manifest": true
+        },
+        {
+          "path": "research\\crypto_backtest\\data\\multitier-expansion-v1\\BTCUSDT-20260702-15m.csv.gz",
+          "manifest_sha256": "25d1334a1f030f8360de78ec9e29cad8424bfb6da08708c7ecae7d21e0ee01e3",
+          "exists": true,
+          "sha256_matches_manifest": true
+        }
+      ]
+    },
+    {
+      "stage": "validation",
+      "month": "2026-07",
+      "tier": "hot",
+      "symbol": "ETHUSDT",
+      "rank": 2,
+      "expected_15m_bars": 2976,
+      "observed_15m_bars": 2880,
+      "coverage_ratio": 0.967741935483871,
+      "missing_15m_bars": 96,
+      "coverage_pass": false,
+      "missing_start_utc": "2026-07-01T00:00:00+00:00",
+      "missing_end_utc": "2026-07-01T23:45:00+00:00",
+      "cache_paths_checked": [
+        {
+          "path": "research\\crypto_backtest\\data\\multitier-expansion-v1\\ETHUSDT-20260702-15m.csv.gz",
+          "manifest_sha256": "124fa6df9e0db3e03c0d48969e79ee77f3e47dccaed99d48b581510b580905bf",
+          "exists": true,
+          "sha256_matches_manifest": true
+        },
+        {
+          "path": "research\\crypto_backtest\\data\\multitier-expansion-v1\\ETHUSDT-20260601-15m.csv.gz",
+          "manifest_sha256": "f03ba748bc6b88aacfaa79bbf873518362ed8008d5feee273ee68a2b335fcba8",
+          "exists": true,
+          "sha256_matches_manifest": true
+        },
+        {
+          "path": "research\\crypto_backtest\\data\\multitier-expansion-v1\\ETHUSDT-20260502-15m.csv.gz",
+          "manifest_sha256": "42fc3ca54ea76911159e8d8089abe4726e71a980c25d39114bd7af04c95c063f",
+          "exists": true,
+          "sha256_matches_manifest": true
+        }
+      ]
+    },
+    {
+      "stage": "validation",
+      "month": "2026-07",
+      "tier": "hot",
+      "symbol": "SOLUSDT",
+      "rank": 3,
+      "expected_15m_bars": 2976,
+      "observed_15m_bars": 2880,
+      "coverage_ratio": 0.967741935483871,
+      "missing_15m_bars": 96,
+      "coverage_pass": false,
+      "missing_start_utc": "2026-07-01T00:00:00+00:00",
+      "missing_end_utc": "2026-07-01T23:45:00+00:00",
+      "cache_paths_checked": [
+        {
+          "path": "research\\crypto_backtest\\data\\multitier-expansion-v1\\SOLUSDT-20260601-15m.csv.gz",
+          "manifest_sha256": "c723aa0f3fe12cb56c1e8869f53eba9a3dc80b9caf4d97c6de36e66e972fc667",
+          "exists": true,
+          "sha256_matches_manifest": true
+        },
+        {
+          "path": "research\\crypto_backtest\\data\\multitier-expansion-v1\\SOLUSDT-20260502-15m.csv.gz",
+          "manifest_sha256": "bf864bd87f0d393aadd6d66095745c8d1440bec24bdeb903d593c504a68610b2",
+          "exists": true,
+          "sha256_matches_manifest": true
+        },
+        {
+          "path": "research\\crypto_backtest\\data\\multitier-expansion-v1\\SOLUSDT-20260702-15m.csv.gz",
+          "manifest_sha256": "4b2ce92bb37ce37c36bf3224c05d6f01e92776573dbd2f965f43a6d095b7e10c",
+          "exists": true,
+          "sha256_matches_manifest": true
+        }
+      ]
+    },
+    {
+      "stage": "validation",
+      "month": "2026-07",
+      "tier": "hot",
+      "symbol": "HYPEUSDT",
+      "rank": 4,
+      "expected_15m_bars": 2976,
+      "observed_15m_bars": 2880,
+      "coverage_ratio": 0.967741935483871,
+      "missing_15m_bars": 96,
+      "coverage_pass": false,
+      "missing_start_utc": "2026-07-01T00:00:00+00:00",
+      "missing_end_utc": "2026-07-01T23:45:00+00:00",
+      "cache_paths_checked": [
+        {
+          "path": "research\\crypto_backtest\\data\\multitier-expansion-v1\\HYPEUSDT-20260502-15m.csv.gz",
+          "manifest_sha256": "44d4465b45d939928ef4dbe80505515b9c9619e8aeffd683324d3a14d434419a",
+          "exists": true,
+          "sha256_matches_manifest": true
+        },
+        {
+          "path": "research\\crypto_backtest\\data\\multitier-expansion-v1\\HYPEUSDT-20260601-15m.csv.gz",
+          "manifest_sha256": "7e272a7fba16a12298ca1f3e724d298ea66a6f29e51b44a78241b66fecbef6dc",
+          "exists": true,
+          "sha256_matches_manifest": true
+        },
+        {
+          "path": "research\\crypto_backtest\\data\\multitier-expansion-v1\\HYPEUSDT-20260702-15m.csv.gz",
+          "manifest_sha256": "1bd4ef4424762f1b9aafb1faa338f161166cb0b7f9f26db7e4d5898c9d8f96f8",
+          "exists": true,
+          "sha256_matches_manifest": true
+        }
+      ]
+    },
+    {
+      "stage": "validation",
+      "month": "2026-07",
+      "tier": "hot",
+      "symbol": "XRPUSDT",
+      "rank": 5,
+      "expected_15m_bars": 2976,
+      "observed_15m_bars": 2880,
+      "coverage_ratio": 0.967741935483871,
+      "missing_15m_bars": 96,
+      "coverage_pass": false,
+      "missing_start_utc": "2026-07-01T00:00:00+00:00",
+      "missing_end_utc": "2026-07-01T23:45:00+00:00",
+      "cache_paths_checked": [
+        {
+          "path": "research\\crypto_backtest\\data\\multitier-expansion-v1\\XRPUSDT-20260502-15m.csv.gz",
+          "manifest_sha256": "0863b26a996096f80014220a11f531fd00bfc213c7a58dc172e7f03a54e24656",
+          "exists": true,
+          "sha256_matches_manifest": true
+        },
+        {
+          "path": "research\\crypto_backtest\\data\\multitier-expansion-v1\\XRPUSDT-20260702-15m.csv.gz",
+          "manifest_sha256": "1e6d3e7cb39ad2be3dad92452d9d20d2bf04ea22b36312724e0c623b2b7a8f67",
+          "exists": true,
+          "sha256_matches_manifest": true
+        },
+        {
+          "path": "research\\crypto_backtest\\data\\multitier-expansion-v1\\XRPUSDT-20260601-15m.csv.gz",
+          "manifest_sha256": "ea2ff5e62ca815e634f73bab378f26706980e5536118ea895495bd434de60ccc",
+          "exists": true,
+          "sha256_matches_manifest": true
+        }
+      ]
+    },
+    {
+      "stage": "validation",
+      "month": "2026-07",
+      "tier": "hot",
+      "symbol": "ZECUSDT",
+      "rank": 6,
+      "expected_15m_bars": 2976,
+      "observed_15m_bars": 2880,
+      "coverage_ratio": 0.967741935483871,
+      "missing_15m_bars": 96,
+      "coverage_pass": false,
+      "missing_start_utc": "2026-07-01T00:00:00+00:00",
+      "missing_end_utc": "2026-07-01T23:45:00+00:00",
+      "cache_paths_checked": [
+        {
+          "path": "research\\crypto_backtest\\data\\multitier-expansion-v1\\ZECUSDT-20260502-15m.csv.gz",
+          "manifest_sha256": "0ab6f2bdc4155d86c44f9211de5e36da6133264df4ace2c865037c29e73fe7ee",
+          "exists": true,
+          "sha256_matches_manifest": true
+        },
+        {
+          "path": "research\\crypto_backtest\\data\\multitier-expansion-v1\\ZECUSDT-20260702-15m.csv.gz",
+          "manifest_sha256": "c02268b8b2006e2da8cface32845cd1c85e0adf142009c4e0d5934c84b9338dc",
+          "exists": true,
+          "sha256_matches_manifest": true
+        },
+        {
+          "path": "research\\crypto_backtest\\data\\multitier-expansion-v1\\ZECUSDT-20260601-15m.csv.gz",
+          "manifest_sha256": "231ee8ec105c04d14993a7370d8a600577dec247cb1e0f43eeec4c0eb21d8b72",
+          "exists": true,
+          "sha256_matches_manifest": true
+        }
+      ]
+    },
+    {
+      "stage": "validation",
+      "month": "2026-07",
+      "tier": "hot",
+      "symbol": "WLDUSDT",
+      "rank": 7,
+      "expected_15m_bars": 2976,
+      "observed_15m_bars": 2880,
+      "coverage_ratio": 0.967741935483871,
+      "missing_15m_bars": 96,
+      "coverage_pass": false,
+      "missing_start_utc": "2026-07-01T00:00:00+00:00",
+      "missing_end_utc": "2026-07-01T23:45:00+00:00",
+      "cache_paths_checked": [
+        {
+          "path": "research\\crypto_backtest\\data\\multitier-expansion-v1\\WLDUSDT-20260502-15m.csv.gz",
+          "manifest_sha256": "41f1ec05a849ef01dcad8936a6fa9c23c4f4bd8434499a61a7ca1bde02385879",
+          "exists": true,
+          "sha256_matches_manifest": true
+        },
+        {
+          "path": "research\\crypto_backtest\\data\\multitier-expansion-v1\\WLDUSDT-20260601-15m.csv.gz",
+          "manifest_sha256": "fa0481234bb87d549516132ada64554132e443056b416ca020050c12ddf8e6c6",
+          "exists": true,
+          "sha256_matches_manifest": true
+        },
+        {
+          "path": "research\\crypto_backtest\\data\\multitier-expansion-v1\\WLDUSDT-20260702-15m.csv.gz",
+          "manifest_sha256": "115ac52720b3a571ec1aa56d9c5f2c333de0f3c1318f38029f8c003bac0134a8",
+          "exists": true,
+          "sha256_matches_manifest": true
+        }
+      ]
+    },
+    {
+      "stage": "validation",
+      "month": "2026-07",
+      "tier": "hot",
+      "symbol": "NEARUSDT",
+      "rank": 8,
+      "expected_15m_bars": 2976,
+      "observed_15m_bars": 2880,
+      "coverage_ratio": 0.967741935483871,
+      "missing_15m_bars": 96,
+      "coverage_pass": false,
+      "missing_start_utc": "2026-07-01T00:00:00+00:00",
+      "missing_end_utc": "2026-07-01T23:45:00+00:00",
+      "cache_paths_checked": [
+        {
+          "path": "research\\crypto_backtest\\data\\multitier-expansion-v1\\NEARUSDT-20260502-15m.csv.gz",
+          "manifest_sha256": "1f84cb24f3f2a551aa298513ce377feec6989c14a0430e29bc7f67e3286d8ae1",
+          "exists": true,
+          "sha256_matches_manifest": true
+        },
+        {
+          "path": "research\\crypto_backtest\\data\\multitier-expansion-v1\\NEARUSDT-20260601-15m.csv.gz",
+          "manifest_sha256": "79726c9cb5c17c2da1e089a7cf89f5216bc6ae9a9bd68f7d44fe5a187d8d8f5a",
+          "exists": true,
+          "sha256_matches_manifest": true
+        },
+        {
+          "path": "research\\crypto_backtest\\data\\multitier-expansion-v1\\NEARUSDT-20260702-15m.csv.gz",
+          "manifest_sha256": "b033432ac012871b0eaa47cbaa41f3dda75d3772f59afd27828e679877d61e6e",
+          "exists": true,
+          "sha256_matches_manifest": true
+        }
+      ]
+    },
+    {
+      "stage": "validation",
+      "month": "2026-07",
+      "tier": "hot",
+      "symbol": "DOGEUSDT",
+      "rank": 9,
+      "expected_15m_bars": 2976,
+      "observed_15m_bars": 2880,
+      "coverage_ratio": 0.967741935483871,
+      "missing_15m_bars": 96,
+      "coverage_pass": false,
+      "missing_start_utc": "2026-07-01T00:00:00+00:00",
+      "missing_end_utc": "2026-07-01T23:45:00+00:00",
+      "cache_paths_checked": [
+        {
+          "path": "research\\crypto_backtest\\data\\multitier-expansion-v1\\DOGEUSDT-20260601-15m.csv.gz",
+          "manifest_sha256": "64e5ab9ee2ec60228c03d45630875ccd9ca65d7b0a1797345cc7b89a6a2174bf",
+          "exists": true,
+          "sha256_matches_manifest": true
+        },
+        {
+          "path": "research\\crypto_backtest\\data\\multitier-expansion-v1\\DOGEUSDT-20260502-15m.csv.gz",
+          "manifest_sha256": "d0ff45a71ceeb72ae4eff4ad2d08608cf3ca77700b507cc2c88806743c66a0fe",
+          "exists": true,
+          "sha256_matches_manifest": true
+        },
+        {
+          "path": "research\\crypto_backtest\\data\\multitier-expansion-v1\\DOGEUSDT-20260702-15m.csv.gz",
+          "manifest_sha256": "c901e1a4c47033adcc1c6625ed086794b005d2ff97094f8fe9cc677747ff8b11",
+          "exists": true,
+          "sha256_matches_manifest": true
+        }
+      ]
+    },
+    {
+      "stage": "validation",
+      "month": "2026-07",
+      "tier": "hot",
+      "symbol": "LABUSDT",
+      "rank": 10,
+      "expected_15m_bars": 2976,
+      "observed_15m_bars": 2880,
+      "coverage_ratio": 0.967741935483871,
+      "missing_15m_bars": 96,
+      "coverage_pass": false,
+      "missing_start_utc": "2026-07-01T00:00:00+00:00",
+      "missing_end_utc": "2026-07-01T23:45:00+00:00",
+      "cache_paths_checked": [
+        {
+          "path": "research\\crypto_backtest\\data\\multitier-expansion-v1\\LABUSDT-20260601-15m.csv.gz",
+          "manifest_sha256": "271823883af7439c66352c7f25e72c827aa95b03309974e173cab6eaa85c4964",
+          "exists": true,
+          "sha256_matches_manifest": true
+        },
+        {
+          "path": "research\\crypto_backtest\\data\\multitier-expansion-v1\\LABUSDT-20260502-15m.csv.gz",
+          "manifest_sha256": "e1f3a7697531c0abfc1c6fc8e8e6863bc80abe6d45aef8fd4ce695982aee6a37",
+          "exists": true,
+          "sha256_matches_manifest": true
+        },
+        {
+          "path": "research\\crypto_backtest\\data\\multitier-expansion-v1\\LABUSDT-20260702-15m.csv.gz",
+          "manifest_sha256": "9a6d6b885e392d48a9500d644546425fe5c45c63ec5e5a692ec25dd70aa574c2",
+          "exists": true,
+          "sha256_matches_manifest": true
+        }
+      ]
+    },
+    {
+      "stage": "validation",
+      "month": "2026-07",
+      "tier": "mid",
+      "symbol": "CFGUSDT",
+      "rank": 1,
+      "expected_15m_bars": 2976,
+      "observed_15m_bars": 2880,
+      "coverage_ratio": 0.967741935483871,
+      "missing_15m_bars": 96,
+      "coverage_pass": false,
+      "missing_start_utc": "2026-07-01T00:00:00+00:00",
+      "missing_end_utc": "2026-07-01T23:45:00+00:00",
+      "cache_paths_checked": [
+        {
+          "path": "research\\crypto_backtest\\data\\multitier-expansion-v1\\CFGUSDT-20260601-15m.csv.gz",
+          "manifest_sha256": "0687bf9acc578a4bd0b75c7979cc7a2ae340d165207a2246caa17effe85202b8",
+          "exists": true,
+          "sha256_matches_manifest": true
+        },
+        {
+          "path": "research\\crypto_backtest\\data\\multitier-expansion-v1\\CFGUSDT-20260502-15m.csv.gz",
+          "manifest_sha256": "1ec727a23f3aab38a6541dc61356b2f11f5dc975e5a4649238c0aaa16381a33d",
+          "exists": true,
+          "sha256_matches_manifest": true
+        },
+        {
+          "path": "research\\crypto_backtest\\data\\multitier-expansion-v1\\CFGUSDT-20260702-15m.csv.gz",
+          "manifest_sha256": "8bdc719c7194b7776c532ee25c29d683b2f18bd12d12d717ecd0c5b7fe546a84",
+          "exists": true,
+          "sha256_matches_manifest": true
+        }
+      ]
+    },
+    {
+      "stage": "validation",
+      "month": "2026-07",
+      "tier": "mid",
+      "symbol": "SKRUSDT",
+      "rank": 2,
+      "expected_15m_bars": 2976,
+      "observed_15m_bars": 2880,
+      "coverage_ratio": 0.967741935483871,
+      "missing_15m_bars": 96,
+      "coverage_pass": false,
+      "missing_start_utc": "2026-07-01T00:00:00+00:00",
+      "missing_end_utc": "2026-07-01T23:45:00+00:00",
+      "cache_paths_checked": [
+        {
+          "path": "research\\crypto_backtest\\data\\multitier-expansion-v1\\SKRUSDT-20260502-15m.csv.gz",
+          "manifest_sha256": "18e6b36864b3821eb3d81233769b5b7706d895cdabd66cd9257d5d083aa430e6",
+          "exists": true,
+          "sha256_matches_manifest": true
+        },
+        {
+          "path": "research\\crypto_backtest\\data\\multitier-expansion-v1\\SKRUSDT-20260702-15m.csv.gz",
+          "manifest_sha256": "2b676eca9992d8d2a26065b963b24dce7d934bd677c9fcfb31389f2a12a6d3bf",
+          "exists": true,
+          "sha256_matches_manifest": true
+        },
+        {
+          "path": "research\\crypto_backtest\\data\\multitier-expansion-v1\\SKRUSDT-20260601-15m.csv.gz",
+          "manifest_sha256": "8c9a0de249e39627da2b9d2ef3ff3c23032c5849fb44dad2ec507e1aa114f906",
+          "exists": true,
+          "sha256_matches_manifest": true
+        }
+      ]
+    },
+    {
+      "stage": "validation",
+      "month": "2026-07",
+      "tier": "mid",
+      "symbol": "WCTUSDT",
+      "rank": 3,
+      "expected_15m_bars": 2976,
+      "observed_15m_bars": 2880,
+      "coverage_ratio": 0.967741935483871,
+      "missing_15m_bars": 96,
+      "coverage_pass": false,
+      "missing_start_utc": "2026-07-01T00:00:00+00:00",
+      "missing_end_utc": "2026-07-01T23:45:00+00:00",
+      "cache_paths_checked": [
+        {
+          "path": "research\\crypto_backtest\\data\\multitier-expansion-v1\\WCTUSDT-20260601-15m.csv.gz",
+          "manifest_sha256": "aec3ec0d8679d537cd42aadb5aced8ef19f6d905036efb1ff4d5d6aae2416de1",
+          "exists": true,
+          "sha256_matches_manifest": true
+        },
+        {
+          "path": "research\\crypto_backtest\\data\\multitier-expansion-v1\\WCTUSDT-20260502-15m.csv.gz",
+          "manifest_sha256": "daebd7b4941310695b1c16e6a9089845602aff84f85c83a8a18a7ea36b2b70ed",
+          "exists": true,
+          "sha256_matches_manifest": true
+        },
+        {
+          "path": "research\\crypto_backtest\\data\\multitier-expansion-v1\\WCTUSDT-20260702-15m.csv.gz",
+          "manifest_sha256": "4d68cc8f777fa85fcaadff50bc4c99d39afa66f2211fbdc5dcf98383bf3ac80c",
+          "exists": true,
+          "sha256_matches_manifest": true
+        }
+      ]
+    },
+    {
+      "stage": "validation",
+      "month": "2026-07",
+      "tier": "mid",
+      "symbol": "COMPUSDT",
+      "rank": 4,
+      "expected_15m_bars": 2976,
+      "observed_15m_bars": 2880,
+      "coverage_ratio": 0.967741935483871,
+      "missing_15m_bars": 96,
+      "coverage_pass": false,
+      "missing_start_utc": "2026-07-01T00:00:00+00:00",
+      "missing_end_utc": "2026-07-01T23:45:00+00:00",
+      "cache_paths_checked": [
+        {
+          "path": "research\\crypto_backtest\\data\\multitier-expansion-v1\\COMPUSDT-20260601-15m.csv.gz",
+          "manifest_sha256": "780e0f0376a404d23e6be06e316129e4ea50a550cc47d340ae7e47040d3dfe66",
+          "exists": true,
+          "sha256_matches_manifest": true
+        },
+        {
+          "path": "research\\crypto_backtest\\data\\multitier-expansion-v1\\COMPUSDT-20260702-15m.csv.gz",
+          "manifest_sha256": "5f21da99f29849d30995fcd0d377f7c25a971f59ea26a52079334fbde8be29ec",
+          "exists": true,
+          "sha256_matches_manifest": true
+        },
+        {
+          "path": "research\\crypto_backtest\\data\\multitier-expansion-v1\\COMPUSDT-20260502-15m.csv.gz",
+          "manifest_sha256": "988bc72b4ad578167da3b0db4ff8964b05f8294aa9c386407a25f93cfd2fa689",
+          "exists": true,
+          "sha256_matches_manifest": true
+        }
+      ]
+    },
+    {
+      "stage": "validation",
+      "month": "2026-07",
+      "tier": "mid",
+      "symbol": "GPSUSDT",
+      "rank": 5,
+      "expected_15m_bars": 2976,
+      "observed_15m_bars": 2880,
+      "coverage_ratio": 0.967741935483871,
+      "missing_15m_bars": 96,
+      "coverage_pass": false,
+      "missing_start_utc": "2026-07-01T00:00:00+00:00",
+      "missing_end_utc": "2026-07-01T23:45:00+00:00",
+      "cache_paths_checked": [
+        {
+          "path": "research\\crypto_backtest\\data\\multitier-expansion-v1\\GPSUSDT-20260601-15m.csv.gz",
+          "manifest_sha256": "ad0ffe49b7f2a28812094b831d4e9a4c41f225387ba28064b4803f3f96fc4bab",
+          "exists": true,
+          "sha256_matches_manifest": true
+        },
+        {
+          "path": "research\\crypto_backtest\\data\\multitier-expansion-v1\\GPSUSDT-20260502-15m.csv.gz",
+          "manifest_sha256": "b06e626c639edd02f9003f13bf201dc727152265703c2304629c2d0aa12f5acd",
+          "exists": true,
+          "sha256_matches_manifest": true
+        },
+        {
+          "path": "research\\crypto_backtest\\data\\multitier-expansion-v1\\GPSUSDT-20260702-15m.csv.gz",
+          "manifest_sha256": "1e7d259683e5fa41242c667a620ee0c9fc00298556bef03bd834281fdc090740",
+          "exists": true,
+          "sha256_matches_manifest": true
+        }
+      ]
+    },
+    {
+      "stage": "validation",
+      "month": "2026-07",
+      "tier": "mid",
+      "symbol": "0GUSDT",
+      "rank": 6,
+      "expected_15m_bars": 2976,
+      "observed_15m_bars": 2880,
+      "coverage_ratio": 0.967741935483871,
+      "missing_15m_bars": 96,
+      "coverage_pass": false,
+      "missing_start_utc": "2026-07-01T00:00:00+00:00",
+      "missing_end_utc": "2026-07-01T23:45:00+00:00",
+      "cache_paths_checked": [
+        {
+          "path": "research\\crypto_backtest\\data\\multitier-expansion-v1\\0GUSDT-20260502-15m.csv.gz",
+          "manifest_sha256": "fc79e7f8819bfa7cbaf74333527b88102804c878b75b6966a40a819ac9abc465",
+          "exists": true,
+          "sha256_matches_manifest": true
+        },
+        {
+          "path": "research\\crypto_backtest\\data\\multitier-expansion-v1\\0GUSDT-20260702-15m.csv.gz",
+          "manifest_sha256": "c1d8e4681d7d7750859dffc50fc129b419035c2d70d3ef6ba216b678a11c09c6",
+          "exists": true,
+          "sha256_matches_manifest": true
+        },
+        {
+          "path": "research\\crypto_backtest\\data\\multitier-expansion-v1\\0GUSDT-20260601-15m.csv.gz",
+          "manifest_sha256": "a44342796e2cb0cb8e2f17a2fbd6bbc6264a8548a81c99633bd9ecd022731f4a",
+          "exists": true,
+          "sha256_matches_manifest": true
+        }
+      ]
+    },
+    {
+      "stage": "validation",
+      "month": "2026-07",
+      "tier": "mid",
+      "symbol": "TAIKOUSDT",
+      "rank": 7,
+      "expected_15m_bars": 2976,
+      "observed_15m_bars": 2880,
+      "coverage_ratio": 0.967741935483871,
+      "missing_15m_bars": 96,
+      "coverage_pass": false,
+      "missing_start_utc": "2026-07-01T00:00:00+00:00",
+      "missing_end_utc": "2026-07-01T23:45:00+00:00",
+      "cache_paths_checked": [
+        {
+          "path": "research\\crypto_backtest\\data\\multitier-expansion-v1\\TAIKOUSDT-20260502-15m.csv.gz",
+          "manifest_sha256": "56be7f05bfba7e013b44b42eac03952e04c5611cf55b5b069066e5146de37c01",
+          "exists": true,
+          "sha256_matches_manifest": true
+        },
+        {
+          "path": "research\\crypto_backtest\\data\\multitier-expansion-v1\\TAIKOUSDT-20260702-15m.csv.gz",
+          "manifest_sha256": "28c8169eb2a2dd29ae10586453c0739ee1d6fb28f0dbb51b6c1fd9692b3bb0f1",
+          "exists": true,
+          "sha256_matches_manifest": true
+        },
+        {
+          "path": "research\\crypto_backtest\\data\\multitier-expansion-v1\\TAIKOUSDT-20260601-15m.csv.gz",
+          "manifest_sha256": "b69453042f44175da066e29135797d0a36a867d1658d3c31704046e9b11fbfa1",
+          "exists": true,
+          "sha256_matches_manifest": true
+        }
+      ]
+    },
+    {
+      "stage": "validation",
+      "month": "2026-07",
+      "tier": "mid",
+      "symbol": "INITUSDT",
+      "rank": 8,
+      "expected_15m_bars": 2976,
+      "observed_15m_bars": 2880,
+      "coverage_ratio": 0.967741935483871,
+      "missing_15m_bars": 96,
+      "coverage_pass": false,
+      "missing_start_utc": "2026-07-01T00:00:00+00:00",
+      "missing_end_utc": "2026-07-01T23:45:00+00:00",
+      "cache_paths_checked": [
+        {
+          "path": "research\\crypto_backtest\\data\\multitier-expansion-v1\\INITUSDT-20260502-15m.csv.gz",
+          "manifest_sha256": "f68895a4e1e65a05535f97fee20bd66a04b9ab3077d7af737e2a9f943d527578",
+          "exists": true,
+          "sha256_matches_manifest": true
+        },
+        {
+          "path": "research\\crypto_backtest\\data\\multitier-expansion-v1\\INITUSDT-20260702-15m.csv.gz",
+          "manifest_sha256": "a19be9293329aa6016ccee7e23b804e5402e40da17f744dc4e2f329b6495cf9d",
+          "exists": true,
+          "sha256_matches_manifest": true
+        },
+        {
+          "path": "research\\crypto_backtest\\data\\multitier-expansion-v1\\INITUSDT-20260601-15m.csv.gz",
+          "manifest_sha256": "9960130365b31a1b57649cf19a1afda198649d8f4f5c800ff0e0f859b0ec7c89",
+          "exists": true,
+          "sha256_matches_manifest": true
+        }
+      ]
+    },
+    {
+      "stage": "validation",
+      "month": "2026-07",
+      "tier": "mid",
+      "symbol": "LIGHTUSDT",
+      "rank": 9,
+      "expected_15m_bars": 2976,
+      "observed_15m_bars": 2880,
+      "coverage_ratio": 0.967741935483871,
+      "missing_15m_bars": 96,
+      "coverage_pass": false,
+      "missing_start_utc": "2026-07-01T00:00:00+00:00",
+      "missing_end_utc": "2026-07-01T23:45:00+00:00",
+      "cache_paths_checked": [
+        {
+          "path": "research\\crypto_backtest\\data\\multitier-expansion-v1\\LIGHTUSDT-20260502-15m.csv.gz",
+          "manifest_sha256": "486a453196ce6acd4956aa32b1c82e091acb4017a71cafddc7b9fb940bfbb6c7",
+          "exists": true,
+          "sha256_matches_manifest": true
+        },
+        {
+          "path": "research\\crypto_backtest\\data\\multitier-expansion-v1\\LIGHTUSDT-20260601-15m.csv.gz",
+          "manifest_sha256": "84d44cc3a1b4c32c896f621e76c04e63d0fe4c22e441efac433cc8f71875f7ca",
+          "exists": true,
+          "sha256_matches_manifest": true
+        },
+        {
+          "path": "research\\crypto_backtest\\data\\multitier-expansion-v1\\LIGHTUSDT-20260702-15m.csv.gz",
+          "manifest_sha256": "a2d3ca21e886e6c0bc6d3afc3cc0765d1b01598959690ab65dda265096eedea5",
+          "exists": true,
+          "sha256_matches_manifest": true
+        }
+      ]
+    },
+    {
+      "stage": "validation",
+      "month": "2026-07",
+      "tier": "mid",
+      "symbol": "CAKEUSDT",
+      "rank": 10,
+      "expected_15m_bars": 2976,
+      "observed_15m_bars": 2880,
+      "coverage_ratio": 0.967741935483871,
+      "missing_15m_bars": 96,
+      "coverage_pass": false,
+      "missing_start_utc": "2026-07-01T00:00:00+00:00",
+      "missing_end_utc": "2026-07-01T23:45:00+00:00",
+      "cache_paths_checked": [
+        {
+          "path": "research\\crypto_backtest\\data\\multitier-expansion-v1\\CAKEUSDT-20260502-15m.csv.gz",
+          "manifest_sha256": "26d9f7e6fdb26e40a5b1bc961d9405663fcf2c85313ef20b997dd0e30dad69e4",
+          "exists": true,
+          "sha256_matches_manifest": true
+        },
+        {
+          "path": "research\\crypto_backtest\\data\\multitier-expansion-v1\\CAKEUSDT-20260601-15m.csv.gz",
+          "manifest_sha256": "c045c4fd4def8be8866d3cd275b91ba27a0dfa632f3cc606b4631619d32fab0e",
+          "exists": true,
+          "sha256_matches_manifest": true
+        },
+        {
+          "path": "research\\crypto_backtest\\data\\multitier-expansion-v1\\CAKEUSDT-20260702-15m.csv.gz",
+          "manifest_sha256": "f6c0de30eec7efbea698e8f20e462dd6f2d23affaf0aa1290c22f73fc03e9622",
+          "exists": true,
+          "sha256_matches_manifest": true
+        }
+      ]
+    },
+    {
+      "stage": "validation",
+      "month": "2026-07",
+      "tier": "low",
+      "symbol": "FLRUSDT",
+      "rank": 1,
+      "expected_15m_bars": 2976,
+      "observed_15m_bars": 2880,
+      "coverage_ratio": 0.967741935483871,
+      "missing_15m_bars": 96,
+      "coverage_pass": false,
+      "missing_start_utc": "2026-07-01T00:00:00+00:00",
+      "missing_end_utc": "2026-07-01T23:45:00+00:00",
+      "cache_paths_checked": [
+        {
+          "path": "research\\crypto_backtest\\data\\multitier-expansion-v1\\FLRUSDT-20260702-15m.csv.gz",
+          "manifest_sha256": "0e52985892140a9192cb78300ae04800ef8ebb0b79753dc960644387ecd2a96b",
+          "exists": true,
+          "sha256_matches_manifest": true
+        },
+        {
+          "path": "research\\crypto_backtest\\data\\multitier-expansion-v1\\FLRUSDT-20260601-15m.csv.gz",
+          "manifest_sha256": "807fa82e8862047e4ea5702134686ed7b3541cae382ee74aff0d029479911d6c",
+          "exists": true,
+          "sha256_matches_manifest": true
+        },
+        {
+          "path": "research\\crypto_backtest\\data\\multitier-expansion-v1\\FLRUSDT-20260502-15m.csv.gz",
+          "manifest_sha256": "866b0f1e24c0cfa8403f6c0f453a40134cb270f06cdf93c24f9b35dd29db162e",
+          "exists": true,
+          "sha256_matches_manifest": true
+        }
+      ]
+    },
+    {
+      "stage": "validation",
+      "month": "2026-07",
+      "tier": "low",
+      "symbol": "ZKPUSDT",
+      "rank": 2,
+      "expected_15m_bars": 2976,
+      "observed_15m_bars": 2880,
+      "coverage_ratio": 0.967741935483871,
+      "missing_15m_bars": 96,
+      "coverage_pass": false,
+      "missing_start_utc": "2026-07-01T00:00:00+00:00",
+      "missing_end_utc": "2026-07-01T23:45:00+00:00",
+      "cache_paths_checked": [
+        {
+          "path": "research\\crypto_backtest\\data\\multitier-expansion-v1\\ZKPUSDT-20260502-15m.csv.gz",
+          "manifest_sha256": "ab690ec77415cda447f340e099d8ad8a21666964245fc596533e6b494effcf2e",
+          "exists": true,
+          "sha256_matches_manifest": true
+        },
+        {
+          "path": "research\\crypto_backtest\\data\\multitier-expansion-v1\\ZKPUSDT-20260702-15m.csv.gz",
+          "manifest_sha256": "40d75e6677a91fede86fd927e31a4781bdf6ae5dedf0182e6b095c81e8f6f021",
+          "exists": true,
+          "sha256_matches_manifest": true
+        },
+        {
+          "path": "research\\crypto_backtest\\data\\multitier-expansion-v1\\ZKPUSDT-20260601-15m.csv.gz",
+          "manifest_sha256": "b6a95669b9b19a2ae57539e3b081f131e17dd1d4052f447e48abbff379b9dc1e",
+          "exists": true,
+          "sha256_matches_manifest": true
+        }
+      ]
+    },
+    {
+      "stage": "validation",
+      "month": "2026-07",
+      "tier": "low",
+      "symbol": "KAVAUSDT",
+      "rank": 3,
+      "expected_15m_bars": 2976,
+      "observed_15m_bars": 2880,
+      "coverage_ratio": 0.967741935483871,
+      "missing_15m_bars": 96,
+      "coverage_pass": false,
+      "missing_start_utc": "2026-07-01T00:00:00+00:00",
+      "missing_end_utc": "2026-07-01T23:45:00+00:00",
+      "cache_paths_checked": [
+        {
+          "path": "research\\crypto_backtest\\data\\multitier-expansion-v1\\KAVAUSDT-20260601-15m.csv.gz",
+          "manifest_sha256": "18dad4a38f7d34a568da245b53761c284860c509b6b1fc49b14f53a02189491e",
+          "exists": true,
+          "sha256_matches_manifest": true
+        },
+        {
+          "path": "research\\crypto_backtest\\data\\multitier-expansion-v1\\KAVAUSDT-20260502-15m.csv.gz",
+          "manifest_sha256": "c2a86e6263578088e14b2280ed4dae7ea8695dd3beefe295a1ac969c759d2274",
+          "exists": true,
+          "sha256_matches_manifest": true
+        },
+        {
+          "path": "research\\crypto_backtest\\data\\multitier-expansion-v1\\KAVAUSDT-20260702-15m.csv.gz",
+          "manifest_sha256": "0147cfb0002e2438bca7a832a7246a0f638b7bbd6d7c1adfc290a2cd820654b0",
+          "exists": true,
+          "sha256_matches_manifest": true
+        }
+      ]
+    },
+    {
+      "stage": "validation",
+      "month": "2026-07",
+      "tier": "low",
+      "symbol": "ONGUSDT",
+      "rank": 4,
+      "expected_15m_bars": 2976,
+      "observed_15m_bars": 2880,
+      "coverage_ratio": 0.967741935483871,
+      "missing_15m_bars": 96,
+      "coverage_pass": false,
+      "missing_start_utc": "2026-07-01T00:00:00+00:00",
+      "missing_end_utc": "2026-07-01T23:45:00+00:00",
+      "cache_paths_checked": [
+        {
+          "path": "research\\crypto_backtest\\data\\multitier-expansion-v1\\ONGUSDT-20260601-15m.csv.gz",
+          "manifest_sha256": "d52632de4801c73f7dc84dbc578259e88c1341c271d6e6285b636d53192abb81",
+          "exists": true,
+          "sha256_matches_manifest": true
+        },
+        {
+          "path": "research\\crypto_backtest\\data\\multitier-expansion-v1\\ONGUSDT-20260502-15m.csv.gz",
+          "manifest_sha256": "37aad0b7c9ce9d93c5daf14602626d5fc95574d1efb72aef661bb0527778bcd2",
+          "exists": true,
+          "sha256_matches_manifest": true
+        },
+        {
+          "path": "research\\crypto_backtest\\data\\multitier-expansion-v1\\ONGUSDT-20260702-15m.csv.gz",
+          "manifest_sha256": "e981524ca795666c075990f91348752aae274e5f25d51061303524311cdf93c2",
+          "exists": true,
+          "sha256_matches_manifest": true
+        }
+      ]
+    },
+    {
+      "stage": "validation",
+      "month": "2026-07",
+      "tier": "low",
+      "symbol": "FUSDT",
+      "rank": 5,
+      "expected_15m_bars": 2976,
+      "observed_15m_bars": 2880,
+      "coverage_ratio": 0.967741935483871,
+      "missing_15m_bars": 96,
+      "coverage_pass": false,
+      "missing_start_utc": "2026-07-01T00:00:00+00:00",
+      "missing_end_utc": "2026-07-01T23:45:00+00:00",
+      "cache_paths_checked": [
+        {
+          "path": "research\\crypto_backtest\\data\\multitier-expansion-v1\\FUSDT-20260601-15m.csv.gz",
+          "manifest_sha256": "06fde7030e66711ef76afe711af041b9c15f21326eb46d9fc1066f86039deecf",
+          "exists": true,
+          "sha256_matches_manifest": true
+        },
+        {
+          "path": "research\\crypto_backtest\\data\\multitier-expansion-v1\\FUSDT-20260702-15m.csv.gz",
+          "manifest_sha256": "5a8012eedd1de16ba5c798cac5d64163b2d8c67834124a0057c981f485a59a79",
+          "exists": true,
+          "sha256_matches_manifest": true
+        },
+        {
+          "path": "research\\crypto_backtest\\data\\multitier-expansion-v1\\FUSDT-20260502-15m.csv.gz",
+          "manifest_sha256": "f9dc5078a10d63f6faffd16bd37098a756ee80a7039894faf11759965767fff0",
+          "exists": true,
+          "sha256_matches_manifest": true
+        }
+      ]
+    },
+    {
+      "stage": "validation",
+      "month": "2026-07",
+      "tier": "low",
+      "symbol": "ZBCNUSDT",
+      "rank": 6,
+      "expected_15m_bars": 2976,
+      "observed_15m_bars": 2880,
+      "coverage_ratio": 0.967741935483871,
+      "missing_15m_bars": 96,
+      "coverage_pass": false,
+      "missing_start_utc": "2026-07-01T00:00:00+00:00",
+      "missing_end_utc": "2026-07-01T23:45:00+00:00",
+      "cache_paths_checked": [
+        {
+          "path": "research\\crypto_backtest\\data\\multitier-expansion-v1\\ZBCNUSDT-20260601-15m.csv.gz",
+          "manifest_sha256": "94d1ab4c4d3ba201d5f9dab0a450303cb947f3620b0a491a4af5887a82a64423",
+          "exists": true,
+          "sha256_matches_manifest": true
+        },
+        {
+          "path": "research\\crypto_backtest\\data\\multitier-expansion-v1\\ZBCNUSDT-20260502-15m.csv.gz",
+          "manifest_sha256": "d3d755e44fbd77b91c067a01cb9af6760ace7b4943f68312a48ae31e22ca72bb",
+          "exists": true,
+          "sha256_matches_manifest": true
+        },
+        {
+          "path": "research\\crypto_backtest\\data\\multitier-expansion-v1\\ZBCNUSDT-20260702-15m.csv.gz",
+          "manifest_sha256": "394e4dc0c3954803a604e4b20f108d96821d84b517965f802a093a07e3c18441",
+          "exists": true,
+          "sha256_matches_manifest": true
+        }
+      ]
+    },
+    {
+      "stage": "validation",
+      "month": "2026-07",
+      "tier": "low",
+      "symbol": "LUNA2USDT",
+      "rank": 7,
+      "expected_15m_bars": 2976,
+      "observed_15m_bars": 2880,
+      "coverage_ratio": 0.967741935483871,
+      "missing_15m_bars": 96,
+      "coverage_pass": false,
+      "missing_start_utc": "2026-07-01T00:00:00+00:00",
+      "missing_end_utc": "2026-07-01T23:45:00+00:00",
+      "cache_paths_checked": [
+        {
+          "path": "research\\crypto_backtest\\data\\multitier-expansion-v1\\LUNA2USDT-20260502-15m.csv.gz",
+          "manifest_sha256": "96f6305e8eb7de7f3f5e0ed4730410e1192c3f3d02cf78a677b98cb56a4fdd62",
+          "exists": true,
+          "sha256_matches_manifest": true
+        },
+        {
+          "path": "research\\crypto_backtest\\data\\multitier-expansion-v1\\LUNA2USDT-20260702-15m.csv.gz",
+          "manifest_sha256": "29e331a49121db6777e7123eda78e62365814eee35567a90783dd1866dad2a5d",
+          "exists": true,
+          "sha256_matches_manifest": true
+        },
+        {
+          "path": "research\\crypto_backtest\\data\\multitier-expansion-v1\\LUNA2USDT-20260601-15m.csv.gz",
+          "manifest_sha256": "59898d67d6d73ecf79fd4070c29afb77ede112ad933730f5512f40533052060d",
+          "exists": true,
+          "sha256_matches_manifest": true
+        }
+      ]
+    },
+    {
+      "stage": "validation",
+      "month": "2026-07",
+      "tier": "low",
+      "symbol": "ACUUSDT",
+      "rank": 8,
+      "expected_15m_bars": 2976,
+      "observed_15m_bars": 2880,
+      "coverage_ratio": 0.967741935483871,
+      "missing_15m_bars": 96,
+      "coverage_pass": false,
+      "missing_start_utc": "2026-07-01T00:00:00+00:00",
+      "missing_end_utc": "2026-07-01T23:45:00+00:00",
+      "cache_paths_checked": [
+        {
+          "path": "research\\crypto_backtest\\data\\multitier-expansion-v1\\ACUUSDT-20260601-15m.csv.gz",
+          "manifest_sha256": "c1eb67b81695aabe25d8e0f5de48dd4cb597d5fa375b0bf5a9ba7612af72be72",
+          "exists": true,
+          "sha256_matches_manifest": true
+        },
+        {
+          "path": "research\\crypto_backtest\\data\\multitier-expansion-v1\\ACUUSDT-20260502-15m.csv.gz",
+          "manifest_sha256": "019a1574c335a96122a152b1a13859b529e60afad05bc6c67b0b73c0080a9c90",
+          "exists": true,
+          "sha256_matches_manifest": true
+        },
+        {
+          "path": "research\\crypto_backtest\\data\\multitier-expansion-v1\\ACUUSDT-20260702-15m.csv.gz",
+          "manifest_sha256": "f9cc3838d81121725aa4b7f51e307bd6fa0dea7578ee5768621a27dcc0564461",
+          "exists": true,
+          "sha256_matches_manifest": true
+        }
+      ]
+    },
+    {
+      "stage": "validation",
+      "month": "2026-07",
+      "tier": "low",
+      "symbol": "CYBERUSDT",
+      "rank": 9,
+      "expected_15m_bars": 2976,
+      "observed_15m_bars": 2880,
+      "coverage_ratio": 0.967741935483871,
+      "missing_15m_bars": 96,
+      "coverage_pass": false,
+      "missing_start_utc": "2026-07-01T00:00:00+00:00",
+      "missing_end_utc": "2026-07-01T23:45:00+00:00",
+      "cache_paths_checked": [
+        {
+          "path": "research\\crypto_backtest\\data\\multitier-expansion-v1\\CYBERUSDT-20260502-15m.csv.gz",
+          "manifest_sha256": "3ed9f59e6df1362f454431e44b1301ba333695b859d6e386ec326b8c352eb6c4",
+          "exists": true,
+          "sha256_matches_manifest": true
+        },
+        {
+          "path": "research\\crypto_backtest\\data\\multitier-expansion-v1\\CYBERUSDT-20260601-15m.csv.gz",
+          "manifest_sha256": "332328cdc1f6aa7b7dfb407b629a22619f7130e3fcd723219540a69ad28da678",
+          "exists": true,
+          "sha256_matches_manifest": true
+        },
+        {
+          "path": "research\\crypto_backtest\\data\\multitier-expansion-v1\\CYBERUSDT-20260702-15m.csv.gz",
+          "manifest_sha256": "7cd8f6a86c17dad7bf71dc9d0421ca897ef5c99ffea54b53f5084167aca77ea7",
+          "exists": true,
+          "sha256_matches_manifest": true
+        }
+      ]
+    },
+    {
+      "stage": "validation",
+      "month": "2026-07",
+      "tier": "low",
+      "symbol": "BEAMUSDT",
+      "rank": 10,
+      "expected_15m_bars": 2976,
+      "observed_15m_bars": 2880,
+      "coverage_ratio": 0.967741935483871,
+      "missing_15m_bars": 96,
+      "coverage_pass": false,
+      "missing_start_utc": "2026-07-01T00:00:00+00:00",
+      "missing_end_utc": "2026-07-01T23:45:00+00:00",
+      "cache_paths_checked": [
+        {
+          "path": "research\\crypto_backtest\\data\\multitier-expansion-v1\\BEAMUSDT-20260601-15m.csv.gz",
+          "manifest_sha256": "2e7442ec9d8d35e2e285fb7f7890a2b2c25b16fae97fc1a7887741ee3da2b481",
+          "exists": true,
+          "sha256_matches_manifest": true
+        },
+        {
+          "path": "research\\crypto_backtest\\data\\multitier-expansion-v1\\BEAMUSDT-20260702-15m.csv.gz",
+          "manifest_sha256": "208f5f34571b8ad6d2c27a727f44f72c791243ec77f9fd2f469a469a9b80f5d2",
+          "exists": true,
+          "sha256_matches_manifest": true
+        },
+        {
+          "path": "research\\crypto_backtest\\data\\multitier-expansion-v1\\BEAMUSDT-20260502-15m.csv.gz",
+          "manifest_sha256": "bdb8b886e0642a360fead8c5cabcc6418162a57a57ba89e8f9c6f45a474b7490",
+          "exists": true,
+          "sha256_matches_manifest": true
+        }
+      ]
+    },
+    {
+      "stage": "holdout",
+      "month": "2026-08",
+      "tier": "hot",
+      "symbol": "BTCUSDT",
+      "rank": 1,
+      "expected_15m_bars": 2784,
+      "observed_15m_bars": 0,
+      "coverage_ratio": 0.0,
+      "missing_15m_bars": 2784,
+      "coverage_pass": false,
+      "missing_start_utc": "2026-08-01T00:00:00+00:00",
+      "missing_end_utc": "2026-08-29T23:45:00+00:00",
+      "cache_paths_checked": [
+        {
+          "path": "research\\crypto_backtest\\data\\multitier-expansion-v1\\BTCUSDT-20260502-15m.csv.gz",
+          "manifest_sha256": "0f4f671b397c4e9ad7dd8348413b4e6897662ccc661b35b07a248fe52937a60f",
+          "exists": true,
+          "sha256_matches_manifest": true
+        },
+        {
+          "path": "research\\crypto_backtest\\data\\multitier-expansion-v1\\BTCUSDT-20260601-15m.csv.gz",
+          "manifest_sha256": "ba8a9d55c92a71c61b03233ad01fbf5a578d3ec5d732fb72135f22c3bdba9871",
+          "exists": true,
+          "sha256_matches_manifest": true
+        },
+        {
+          "path": "research\\crypto_backtest\\data\\multitier-expansion-v1\\BTCUSDT-20260702-15m.csv.gz",
+          "manifest_sha256": "25d1334a1f030f8360de78ec9e29cad8424bfb6da08708c7ecae7d21e0ee01e3",
+          "exists": true,
+          "sha256_matches_manifest": true
+        }
+      ]
+    },
+    {
+      "stage": "holdout",
+      "month": "2026-08",
+      "tier": "hot",
+      "symbol": "ETHUSDT",
+      "rank": 2,
+      "expected_15m_bars": 2784,
+      "observed_15m_bars": 0,
+      "coverage_ratio": 0.0,
+      "missing_15m_bars": 2784,
+      "coverage_pass": false,
+      "missing_start_utc": "2026-08-01T00:00:00+00:00",
+      "missing_end_utc": "2026-08-29T23:45:00+00:00",
+      "cache_paths_checked": [
+        {
+          "path": "research\\crypto_backtest\\data\\multitier-expansion-v1\\ETHUSDT-20260702-15m.csv.gz",
+          "manifest_sha256": "124fa6df9e0db3e03c0d48969e79ee77f3e47dccaed99d48b581510b580905bf",
+          "exists": true,
+          "sha256_matches_manifest": true
+        },
+        {
+          "path": "research\\crypto_backtest\\data\\multitier-expansion-v1\\ETHUSDT-20260601-15m.csv.gz",
+          "manifest_sha256": "f03ba748bc6b88aacfaa79bbf873518362ed8008d5feee273ee68a2b335fcba8",
+          "exists": true,
+          "sha256_matches_manifest": true
+        },
+        {
+          "path": "research\\crypto_backtest\\data\\multitier-expansion-v1\\ETHUSDT-20260502-15m.csv.gz",
+          "manifest_sha256": "42fc3ca54ea76911159e8d8089abe4726e71a980c25d39114bd7af04c95c063f",
+          "exists": true,
+          "sha256_matches_manifest": true
+        }
+      ]
+    },
+    {
+      "stage": "holdout",
+      "month": "2026-08",
+      "tier": "hot",
+      "symbol": "SOLUSDT",
+      "rank": 3,
+      "expected_15m_bars": 2784,
+      "observed_15m_bars": 0,
+      "coverage_ratio": 0.0,
+      "missing_15m_bars": 2784,
+      "coverage_pass": false,
+      "missing_start_utc": "2026-08-01T00:00:00+00:00",
+      "missing_end_utc": "2026-08-29T23:45:00+00:00",
+      "cache_paths_checked": [
+        {
+          "path": "research\\crypto_backtest\\data\\multitier-expansion-v1\\SOLUSDT-20260601-15m.csv.gz",
+          "manifest_sha256": "c723aa0f3fe12cb56c1e8869f53eba9a3dc80b9caf4d97c6de36e66e972fc667",
+          "exists": true,
+          "sha256_matches_manifest": true
+        },
+        {
+          "path": "research\\crypto_backtest\\data\\multitier-expansion-v1\\SOLUSDT-20260502-15m.csv.gz",
+          "manifest_sha256": "bf864bd87f0d393aadd6d66095745c8d1440bec24bdeb903d593c504a68610b2",
+          "exists": true,
+          "sha256_matches_manifest": true
+        },
+        {
+          "path": "research\\crypto_backtest\\data\\multitier-expansion-v1\\SOLUSDT-20260702-15m.csv.gz",
+          "manifest_sha256": "4b2ce92bb37ce37c36bf3224c05d6f01e92776573dbd2f965f43a6d095b7e10c",
+          "exists": true,
+          "sha256_matches_manifest": true
+        }
+      ]
+    },
+    {
+      "stage": "holdout",
+      "month": "2026-08",
+      "tier": "hot",
+      "symbol": "XRPUSDT",
+      "rank": 4,
+      "expected_15m_bars": 2784,
+      "observed_15m_bars": 0,
+      "coverage_ratio": 0.0,
+      "missing_15m_bars": 2784,
+      "coverage_pass": false,
+      "missing_start_utc": "2026-08-01T00:00:00+00:00",
+      "missing_end_utc": "2026-08-29T23:45:00+00:00",
+      "cache_paths_checked": [
+        {
+          "path": "research\\crypto_backtest\\data\\multitier-expansion-v1\\XRPUSDT-20260502-15m.csv.gz",
+          "manifest_sha256": "0863b26a996096f80014220a11f531fd00bfc213c7a58dc172e7f03a54e24656",
+          "exists": true,
+          "sha256_matches_manifest": true
+        },
+        {
+          "path": "research\\crypto_backtest\\data\\multitier-expansion-v1\\XRPUSDT-20260702-15m.csv.gz",
+          "manifest_sha256": "1e6d3e7cb39ad2be3dad92452d9d20d2bf04ea22b36312724e0c623b2b7a8f67",
+          "exists": true,
+          "sha256_matches_manifest": true
+        },
+        {
+          "path": "research\\crypto_backtest\\data\\multitier-expansion-v1\\XRPUSDT-20260601-15m.csv.gz",
+          "manifest_sha256": "ea2ff5e62ca815e634f73bab378f26706980e5536118ea895495bd434de60ccc",
+          "exists": true,
+          "sha256_matches_manifest": true
+        }
+      ]
+    },
+    {
+      "stage": "holdout",
+      "month": "2026-08",
+      "tier": "hot",
+      "symbol": "HYPEUSDT",
+      "rank": 5,
+      "expected_15m_bars": 2784,
+      "observed_15m_bars": 0,
+      "coverage_ratio": 0.0,
+      "missing_15m_bars": 2784,
+      "coverage_pass": false,
+      "missing_start_utc": "2026-08-01T00:00:00+00:00",
+      "missing_end_utc": "2026-08-29T23:45:00+00:00",
+      "cache_paths_checked": [
+        {
+          "path": "research\\crypto_backtest\\data\\multitier-expansion-v1\\HYPEUSDT-20260502-15m.csv.gz",
+          "manifest_sha256": "44d4465b45d939928ef4dbe80505515b9c9619e8aeffd683324d3a14d434419a",
+          "exists": true,
+          "sha256_matches_manifest": true
+        },
+        {
+          "path": "research\\crypto_backtest\\data\\multitier-expansion-v1\\HYPEUSDT-20260601-15m.csv.gz",
+          "manifest_sha256": "7e272a7fba16a12298ca1f3e724d298ea66a6f29e51b44a78241b66fecbef6dc",
+          "exists": true,
+          "sha256_matches_manifest": true
+        },
+        {
+          "path": "research\\crypto_backtest\\data\\multitier-expansion-v1\\HYPEUSDT-20260702-15m.csv.gz",
+          "manifest_sha256": "1bd4ef4424762f1b9aafb1faa338f161166cb0b7f9f26db7e4d5898c9d8f96f8",
+          "exists": true,
+          "sha256_matches_manifest": true
+        }
+      ]
+    },
+    {
+      "stage": "holdout",
+      "month": "2026-08",
+      "tier": "hot",
+      "symbol": "SOXLUSDT",
+      "rank": 6,
+      "expected_15m_bars": 2784,
+      "observed_15m_bars": 0,
+      "coverage_ratio": 0.0,
+      "missing_15m_bars": 2784,
+      "coverage_pass": false,
+      "missing_start_utc": "2026-08-01T00:00:00+00:00",
+      "missing_end_utc": "2026-08-29T23:45:00+00:00",
+      "cache_paths_checked": [
+        {
+          "path": "research\\crypto_backtest\\data\\multitier-expansion-v1\\SOXLUSDT-20260702-15m.csv.gz",
+          "manifest_sha256": "a2b584610479a26fe41d67964a769be7ef2b0e8a012804bc4130ed0111997966",
+          "exists": true,
+          "sha256_matches_manifest": true
+        },
+        {
+          "path": "research\\crypto_backtest\\data\\multitier-expansion-v1\\SOXLUSDT-20260502-15m.csv.gz",
+          "manifest_sha256": "b22e2849029e8a781230995ffab8bf95b549567308f95876a0dbde3ece20e2bb",
+          "exists": true,
+          "sha256_matches_manifest": true
+        },
+        {
+          "path": "research\\crypto_backtest\\data\\multitier-expansion-v1\\SOXLUSDT-20260601-15m.csv.gz",
+          "manifest_sha256": "dcb3fe66705fbdf16d7d858a1d33a8cc27a49891671fa31d2b144eaf610327c7",
+          "exists": true,
+          "sha256_matches_manifest": true
+        }
+      ]
+    },
+    {
+      "stage": "holdout",
+      "month": "2026-08",
+      "tier": "hot",
+      "symbol": "ZECUSDT",
+      "rank": 7,
+      "expected_15m_bars": 2784,
+      "observed_15m_bars": 0,
+      "coverage_ratio": 0.0,
+      "missing_15m_bars": 2784,
+      "coverage_pass": false,
+      "missing_start_utc": "2026-08-01T00:00:00+00:00",
+      "missing_end_utc": "2026-08-29T23:45:00+00:00",
+      "cache_paths_checked": [
+        {
+          "path": "research\\crypto_backtest\\data\\multitier-expansion-v1\\ZECUSDT-20260502-15m.csv.gz",
+          "manifest_sha256": "0ab6f2bdc4155d86c44f9211de5e36da6133264df4ace2c865037c29e73fe7ee",
+          "exists": true,
+          "sha256_matches_manifest": true
+        },
+        {
+          "path": "research\\crypto_backtest\\data\\multitier-expansion-v1\\ZECUSDT-20260702-15m.csv.gz",
+          "manifest_sha256": "c02268b8b2006e2da8cface32845cd1c85e0adf142009c4e0d5934c84b9338dc",
+          "exists": true,
+          "sha256_matches_manifest": true
+        },
+        {
+          "path": "research\\crypto_backtest\\data\\multitier-expansion-v1\\ZECUSDT-20260601-15m.csv.gz",
+          "manifest_sha256": "231ee8ec105c04d14993a7370d8a600577dec247cb1e0f43eeec4c0eb21d8b72",
+          "exists": true,
+          "sha256_matches_manifest": true
+        }
+      ]
+    },
+    {
+      "stage": "holdout",
+      "month": "2026-08",
+      "tier": "hot",
+      "symbol": "XAUUSDT",
+      "rank": 8,
+      "expected_15m_bars": 2784,
+      "observed_15m_bars": 0,
+      "coverage_ratio": 0.0,
+      "missing_15m_bars": 2784,
+      "coverage_pass": false,
+      "missing_start_utc": "2026-08-01T00:00:00+00:00",
+      "missing_end_utc": "2026-08-29T23:45:00+00:00",
+      "cache_paths_checked": [
+        {
+          "path": "research\\crypto_backtest\\data\\multitier-expansion-v1\\XAUUSDT-20260502-15m.csv.gz",
+          "manifest_sha256": "0f6c092ef59ae7ba74bc66acc2b39a4a7400b2c548f66eb9f1af5fad24a0f97f",
+          "exists": true,
+          "sha256_matches_manifest": true
+        },
+        {
+          "path": "research\\crypto_backtest\\data\\multitier-expansion-v1\\XAUUSDT-20260702-15m.csv.gz",
+          "manifest_sha256": "b13c42c8d8c00e0f3b3d15863e0a7b60175f2a22496953a434e95fcb7e5cb336",
+          "exists": true,
+          "sha256_matches_manifest": true
+        },
+        {
+          "path": "research\\crypto_backtest\\data\\multitier-expansion-v1\\XAUUSDT-20260601-15m.csv.gz",
+          "manifest_sha256": "5d5384ac894fff1c3231ce928b241a2b4e1dcfdd1f9a3ba4af174031a7017a2d",
+          "exists": true,
+          "sha256_matches_manifest": true
+        }
+      ]
+    },
+    {
+      "stage": "holdout",
+      "month": "2026-08",
+      "tier": "hot",
+      "symbol": "SNDKUSDT",
+      "rank": 9,
+      "expected_15m_bars": 2784,
+      "observed_15m_bars": 0,
+      "coverage_ratio": 0.0,
+      "missing_15m_bars": 2784,
+      "coverage_pass": false,
+      "missing_start_utc": "2026-08-01T00:00:00+00:00",
+      "missing_end_utc": "2026-08-29T23:45:00+00:00",
+      "cache_paths_checked": [
+        {
+          "path": "research\\crypto_backtest\\data\\multitier-expansion-v1\\SNDKUSDT-20260502-15m.csv.gz",
+          "manifest_sha256": "c5fa71ff3cad147600abd3ad54b25a1462d303e0ed643dfe32ca4ce8bcf8b9c1",
+          "exists": true,
+          "sha256_matches_manifest": true
+        },
+        {
+          "path": "research\\crypto_backtest\\data\\multitier-expansion-v1\\SNDKUSDT-20260702-15m.csv.gz",
+          "manifest_sha256": "de39d1df6b2a7aecc7888bf75f077500ec0444b8f7a930bc86ab97b11f1ecfd5",
+          "exists": true,
+          "sha256_matches_manifest": true
+        },
+        {
+          "path": "research\\crypto_backtest\\data\\multitier-expansion-v1\\SNDKUSDT-20260601-15m.csv.gz",
+          "manifest_sha256": "22dd7333718c9665b7f8b363f2950f3fe8d4ee0df1dc889d986b5148900e0d8d",
+          "exists": true,
+          "sha256_matches_manifest": true
+        }
+      ]
+    },
+    {
+      "stage": "holdout",
+      "month": "2026-08",
+      "tier": "hot",
+      "symbol": "BANKUSDT",
+      "rank": 10,
+      "expected_15m_bars": 2784,
+      "observed_15m_bars": 0,
+      "coverage_ratio": 0.0,
+      "missing_15m_bars": 2784,
+      "coverage_pass": false,
+      "missing_start_utc": "2026-08-01T00:00:00+00:00",
+      "missing_end_utc": "2026-08-29T23:45:00+00:00",
+      "cache_paths_checked": [
+        {
+          "path": "research\\crypto_backtest\\data\\multitier-expansion-v1\\BANKUSDT-20260601-15m.csv.gz",
+          "manifest_sha256": "193449997592381b1302c7decc086420fd8afbca2a0ce35674f0650723fd8175",
+          "exists": true,
+          "sha256_matches_manifest": true
+        },
+        {
+          "path": "research\\crypto_backtest\\data\\multitier-expansion-v1\\BANKUSDT-20260502-15m.csv.gz",
+          "manifest_sha256": "ba4a4ba1407d499c9d1801cb0f128dbf6105641343d0803e33ebf2a323e01d30",
+          "exists": true,
+          "sha256_matches_manifest": true
+        },
+        {
+          "path": "research\\crypto_backtest\\data\\multitier-expansion-v1\\BANKUSDT-20260702-15m.csv.gz",
+          "manifest_sha256": "1d39b951674e1f492026a387a9302d087bdfcb85a58006486fee7facff508ce0",
+          "exists": true,
+          "sha256_matches_manifest": true
+        }
+      ]
+    },
+    {
+      "stage": "holdout",
+      "month": "2026-08",
+      "tier": "mid",
+      "symbol": "THETAUSDT",
+      "rank": 1,
+      "expected_15m_bars": 2784,
+      "observed_15m_bars": 0,
+      "coverage_ratio": 0.0,
+      "missing_15m_bars": 2784,
+      "coverage_pass": false,
+      "missing_start_utc": "2026-08-01T00:00:00+00:00",
+      "missing_end_utc": "2026-08-29T23:45:00+00:00",
+      "cache_paths_checked": [
+        {
+          "path": "research\\crypto_backtest\\data\\multitier-expansion-v1\\THETAUSDT-20260502-15m.csv.gz",
+          "manifest_sha256": "a7ec5de9e1b3999917effe10a002b9f122fa576069769c2d6e11070f6ec64960",
+          "exists": true,
+          "sha256_matches_manifest": true
+        },
+        {
+          "path": "research\\crypto_backtest\\data\\multitier-expansion-v1\\THETAUSDT-20260702-15m.csv.gz",
+          "manifest_sha256": "e49751d8adbc9cc8663532a56bc8732287d26903b753746fad4bfa3b75fc5808",
+          "exists": true,
+          "sha256_matches_manifest": true
+        },
+        {
+          "path": "research\\crypto_backtest\\data\\multitier-expansion-v1\\THETAUSDT-20260601-15m.csv.gz",
+          "manifest_sha256": "ccf6843a4969556287efa447a2d6deb6c3f6a41a5f839dfbed295141393743e6",
+          "exists": true,
+          "sha256_matches_manifest": true
+        }
+      ]
+    },
+    {
+      "stage": "holdout",
+      "month": "2026-08",
+      "tier": "mid",
+      "symbol": "CAKEUSDT",
+      "rank": 2,
+      "expected_15m_bars": 2784,
+      "observed_15m_bars": 0,
+      "coverage_ratio": 0.0,
+      "missing_15m_bars": 2784,
+      "coverage_pass": false,
+      "missing_start_utc": "2026-08-01T00:00:00+00:00",
+      "missing_end_utc": "2026-08-29T23:45:00+00:00",
+      "cache_paths_checked": [
+        {
+          "path": "research\\crypto_backtest\\data\\multitier-expansion-v1\\CAKEUSDT-20260502-15m.csv.gz",
+          "manifest_sha256": "26d9f7e6fdb26e40a5b1bc961d9405663fcf2c85313ef20b997dd0e30dad69e4",
+          "exists": true,
+          "sha256_matches_manifest": true
+        },
+        {
+          "path": "research\\crypto_backtest\\data\\multitier-expansion-v1\\CAKEUSDT-20260601-15m.csv.gz",
+          "manifest_sha256": "c045c4fd4def8be8866d3cd275b91ba27a0dfa632f3cc606b4631619d32fab0e",
+          "exists": true,
+          "sha256_matches_manifest": true
+        },
+        {
+          "path": "research\\crypto_backtest\\data\\multitier-expansion-v1\\CAKEUSDT-20260702-15m.csv.gz",
+          "manifest_sha256": "f6c0de30eec7efbea698e8f20e462dd6f2d23affaf0aa1290c22f73fc03e9622",
+          "exists": true,
+          "sha256_matches_manifest": true
+        }
+      ]
+    },
+    {
+      "stage": "holdout",
+      "month": "2026-08",
+      "tier": "mid",
+      "symbol": "HANAUSDT",
+      "rank": 3,
+      "expected_15m_bars": 2784,
+      "observed_15m_bars": 0,
+      "coverage_ratio": 0.0,
+      "missing_15m_bars": 2784,
+      "coverage_pass": false,
+      "missing_start_utc": "2026-08-01T00:00:00+00:00",
+      "missing_end_utc": "2026-08-29T23:45:00+00:00",
+      "cache_paths_checked": [
+        {
+          "path": "research\\crypto_backtest\\data\\multitier-expansion-v1\\HANAUSDT-20260702-15m.csv.gz",
+          "manifest_sha256": "d3cf98a2e637758997e8bbb201022e42bd5705a5a34292960d7b1e4b90daf4be",
+          "exists": true,
+          "sha256_matches_manifest": true
+        },
+        {
+          "path": "research\\crypto_backtest\\data\\multitier-expansion-v1\\HANAUSDT-20260601-15m.csv.gz",
+          "manifest_sha256": "64c2578156db2eae9cc5d78ec3f7766475d54559e1978551bb9028194e785020",
+          "exists": true,
+          "sha256_matches_manifest": true
+        },
+        {
+          "path": "research\\crypto_backtest\\data\\multitier-expansion-v1\\HANAUSDT-20260502-15m.csv.gz",
+          "manifest_sha256": "0111fe22279edf0e91ac1f53b45ab5b15940f4de925ee7af113dffbd5c890f73",
+          "exists": true,
+          "sha256_matches_manifest": true
+        }
+      ]
+    },
+    {
+      "stage": "holdout",
+      "month": "2026-08",
+      "tier": "mid",
+      "symbol": "CHZUSDT",
+      "rank": 4,
+      "expected_15m_bars": 2784,
+      "observed_15m_bars": 0,
+      "coverage_ratio": 0.0,
+      "missing_15m_bars": 2784,
+      "coverage_pass": false,
+      "missing_start_utc": "2026-08-01T00:00:00+00:00",
+      "missing_end_utc": "2026-08-29T23:45:00+00:00",
+      "cache_paths_checked": [
+        {
+          "path": "research\\crypto_backtest\\data\\multitier-expansion-v1\\CHZUSDT-20260502-15m.csv.gz",
+          "manifest_sha256": "361535e9532dd7ed7219ebb46760094e8ec06b6ea9af6fde964a0a7501ad36eb",
+          "exists": true,
+          "sha256_matches_manifest": true
+        },
+        {
+          "path": "research\\crypto_backtest\\data\\multitier-expansion-v1\\CHZUSDT-20260702-15m.csv.gz",
+          "manifest_sha256": "19a9b1dd22af3efd5172471773bb69bc1beff6af38c58f82375139f7962a7fb8",
+          "exists": true,
+          "sha256_matches_manifest": true
+        },
+        {
+          "path": "research\\crypto_backtest\\data\\multitier-expansion-v1\\CHZUSDT-20260601-15m.csv.gz",
+          "manifest_sha256": "5698cdffd10085543b060f7360f63f903b941e40e00b9b1f461710c6de605bb6",
+          "exists": true,
+          "sha256_matches_manifest": true
+        }
+      ]
+    },
+    {
+      "stage": "holdout",
+      "month": "2026-08",
+      "tier": "mid",
+      "symbol": "COINUSDT",
+      "rank": 5,
+      "expected_15m_bars": 2784,
+      "observed_15m_bars": 0,
+      "coverage_ratio": 0.0,
+      "missing_15m_bars": 2784,
+      "coverage_pass": false,
+      "missing_start_utc": "2026-08-01T00:00:00+00:00",
+      "missing_end_utc": "2026-08-29T23:45:00+00:00",
+      "cache_paths_checked": [
+        {
+          "path": "research\\crypto_backtest\\data\\multitier-expansion-v1\\COINUSDT-20260702-15m.csv.gz",
+          "manifest_sha256": "ca1f8c1a225628cc45efe1c366ca25b8f2845eef9d4430dfc9f95260cb92d300",
+          "exists": true,
+          "sha256_matches_manifest": true
+        },
+        {
+          "path": "research\\crypto_backtest\\data\\multitier-expansion-v1\\COINUSDT-20260601-15m.csv.gz",
+          "manifest_sha256": "229403f6711cbb44fd2542499be7ea40e390c66649515f5632cb5f8d4c9ac814",
+          "exists": true,
+          "sha256_matches_manifest": true
+        },
+        {
+          "path": null,
+          "manifest_sha256": null,
+          "exists": false,
+          "manifest_status": "request_failed_SSLError"
+        }
+      ]
+    },
+    {
+      "stage": "holdout",
+      "month": "2026-08",
+      "tier": "mid",
+      "symbol": "IMXUSDT",
+      "rank": 6,
+      "expected_15m_bars": 2784,
+      "observed_15m_bars": 0,
+      "coverage_ratio": 0.0,
+      "missing_15m_bars": 2784,
+      "coverage_pass": false,
+      "missing_start_utc": "2026-08-01T00:00:00+00:00",
+      "missing_end_utc": "2026-08-29T23:45:00+00:00",
+      "cache_paths_checked": [
+        {
+          "path": "research\\crypto_backtest\\data\\multitier-expansion-v1\\IMXUSDT-20260502-15m.csv.gz",
+          "manifest_sha256": "310a80f65d4ec1fdec93fc3162c3bd4e30c4a72ce657c05d46e7645012c63ecc",
+          "exists": true,
+          "sha256_matches_manifest": true
+        },
+        {
+          "path": "research\\crypto_backtest\\data\\multitier-expansion-v1\\IMXUSDT-20260601-15m.csv.gz",
+          "manifest_sha256": "9c86bf376978e59b75abee754fc8c50cfef9938c2d594db88c76fd1ea5dd36db",
+          "exists": true,
+          "sha256_matches_manifest": true
+        },
+        {
+          "path": "research\\crypto_backtest\\data\\multitier-expansion-v1\\IMXUSDT-20260702-15m.csv.gz",
+          "manifest_sha256": "489efb7e008f28b761d59a570dd5c33df662bb0aff970347e5b5dd655577dec2",
+          "exists": true,
+          "sha256_matches_manifest": true
+        }
+      ]
+    },
+    {
+      "stage": "holdout",
+      "month": "2026-08",
+      "tier": "mid",
+      "symbol": "CFXUSDT",
+      "rank": 7,
+      "expected_15m_bars": 2784,
+      "observed_15m_bars": 0,
+      "coverage_ratio": 0.0,
+      "missing_15m_bars": 2784,
+      "coverage_pass": false,
+      "missing_start_utc": "2026-08-01T00:00:00+00:00",
+      "missing_end_utc": "2026-08-29T23:45:00+00:00",
+      "cache_paths_checked": [
+        {
+          "path": "research\\crypto_backtest\\data\\multitier-expansion-v1\\CFXUSDT-20260702-15m.csv.gz",
+          "manifest_sha256": "3c94977757152b181eaf16876c865abef26ea245bd307c95de2e3ebf43d78c9e",
+          "exists": true,
+          "sha256_matches_manifest": true
+        },
+        {
+          "path": "research\\crypto_backtest\\data\\multitier-expansion-v1\\CFXUSDT-20260502-15m.csv.gz",
+          "manifest_sha256": "16645ce70055d63d0a55e972ba2c74c9f6c50fe01913bce325ffbca0f31895fd",
+          "exists": true,
+          "sha256_matches_manifest": true
+        },
+        {
+          "path": "research\\crypto_backtest\\data\\multitier-expansion-v1\\CFXUSDT-20260601-15m.csv.gz",
+          "manifest_sha256": "554fb7e64a617d8514e855a649c30de1497d31e1f356f1b52ece54b1f4b2db6d",
+          "exists": true,
+          "sha256_matches_manifest": true
+        }
+      ]
+    },
+    {
+      "stage": "holdout",
+      "month": "2026-08",
+      "tier": "mid",
+      "symbol": "ORCLUSDT",
+      "rank": 8,
+      "expected_15m_bars": 2784,
+      "observed_15m_bars": 0,
+      "coverage_ratio": 0.0,
+      "missing_15m_bars": 2784,
+      "coverage_pass": false,
+      "missing_start_utc": "2026-08-01T00:00:00+00:00",
+      "missing_end_utc": "2026-08-29T23:45:00+00:00",
+      "cache_paths_checked": [
+        {
+          "path": "research\\crypto_backtest\\data\\multitier-expansion-v1\\ORCLUSDT-20260702-15m.csv.gz",
+          "manifest_sha256": "b1afa1bd388ec95823c7c6e635e0bad7c3a4e56ab5c8913bf6a71733a3ac5451",
+          "exists": true,
+          "sha256_matches_manifest": true
+        },
+        {
+          "path": "research\\crypto_backtest\\data\\multitier-expansion-v1\\ORCLUSDT-20260601-15m.csv.gz",
+          "manifest_sha256": "ab17f5a14055095fa4a1bc3ae7a85bf647493e1d92cc46b7fd569fb10533b3f8",
+          "exists": true,
+          "sha256_matches_manifest": true
+        },
+        {
+          "path": "research\\crypto_backtest\\data\\multitier-expansion-v1\\ORCLUSDT-20260502-15m.csv.gz",
+          "manifest_sha256": "08e538b21c974f2c4577886fba10af6dc4217f8a1d6ef0eb35d608060bb6a898",
+          "exists": true,
+          "sha256_matches_manifest": true
+        }
+      ]
+    },
+    {
+      "stage": "holdout",
+      "month": "2026-08",
+      "tier": "mid",
+      "symbol": "XANUSDT",
+      "rank": 9,
+      "expected_15m_bars": 2784,
+      "observed_15m_bars": 0,
+      "coverage_ratio": 0.0,
+      "missing_15m_bars": 2784,
+      "coverage_pass": false,
+      "missing_start_utc": "2026-08-01T00:00:00+00:00",
+      "missing_end_utc": "2026-08-29T23:45:00+00:00",
+      "cache_paths_checked": [
+        {
+          "path": "research\\crypto_backtest\\data\\multitier-expansion-v1\\XANUSDT-20260601-15m.csv.gz",
+          "manifest_sha256": "f1c3f8ffc78de734579e36b22ae782429f5c3d61bd0359cd49fab621b6e2a64c",
+          "exists": true,
+          "sha256_matches_manifest": true
+        },
+        {
+          "path": "research\\crypto_backtest\\data\\multitier-expansion-v1\\XANUSDT-20260502-15m.csv.gz",
+          "manifest_sha256": "68f37ee5109f9b8d4d4954248a0b694acea1b9853ba4b2c785cb94a622f32478",
+          "exists": true,
+          "sha256_matches_manifest": true
+        },
+        {
+          "path": "research\\crypto_backtest\\data\\multitier-expansion-v1\\XANUSDT-20260702-15m.csv.gz",
+          "manifest_sha256": "3554dddca1ada09e38cc7901c7ca9429e032d008e915bb797568e7e678275ebe",
+          "exists": true,
+          "sha256_matches_manifest": true
+        }
+      ]
+    },
+    {
+      "stage": "holdout",
+      "month": "2026-08",
+      "tier": "mid",
+      "symbol": "ICNTUSDT",
+      "rank": 10,
+      "expected_15m_bars": 2784,
+      "observed_15m_bars": 0,
+      "coverage_ratio": 0.0,
+      "missing_15m_bars": 2784,
+      "coverage_pass": false,
+      "missing_start_utc": "2026-08-01T00:00:00+00:00",
+      "missing_end_utc": "2026-08-29T23:45:00+00:00",
+      "cache_paths_checked": [
+        {
+          "path": "research\\crypto_backtest\\data\\multitier-expansion-v1\\ICNTUSDT-20260502-15m.csv.gz",
+          "manifest_sha256": "cde19067614a00c1b564389fed7d404319433127625d0bb49f21170b120c3c79",
+          "exists": true,
+          "sha256_matches_manifest": true
+        },
+        {
+          "path": "research\\crypto_backtest\\data\\multitier-expansion-v1\\ICNTUSDT-20260702-15m.csv.gz",
+          "manifest_sha256": "8316935c6606ebdb83db35faa13e6b9c6c6694ecee67bb5ab9b1e1af4d8b0344",
+          "exists": true,
+          "sha256_matches_manifest": true
+        },
+        {
+          "path": "research\\crypto_backtest\\data\\multitier-expansion-v1\\ICNTUSDT-20260601-15m.csv.gz",
+          "manifest_sha256": "b2ab04ebd96dbe868e115a09b027dbf4d4142d19e451570664023c4bd1154216",
+          "exists": true,
+          "sha256_matches_manifest": true
+        }
+      ]
+    },
+    {
+      "stage": "holdout",
+      "month": "2026-08",
+      "tier": "low",
+      "symbol": "1000000BABYDOGEUSDT",
+      "rank": 1,
+      "expected_15m_bars": 2784,
+      "observed_15m_bars": 0,
+      "coverage_ratio": 0.0,
+      "missing_15m_bars": 2784,
+      "coverage_pass": false,
+      "missing_start_utc": "2026-08-01T00:00:00+00:00",
+      "missing_end_utc": "2026-08-29T23:45:00+00:00",
+      "cache_paths_checked": [
+        {
+          "path": "research\\crypto_backtest\\data\\multitier-expansion-v1\\1000000BABYDOGEUSDT-20260601-15m.csv.gz",
+          "manifest_sha256": "80f1d6aae7b661ffc92ec5709221b3bc33f9452735c8a36acbcf4d92c846ddb6",
+          "exists": true,
+          "sha256_matches_manifest": true
+        },
+        {
+          "path": "research\\crypto_backtest\\data\\multitier-expansion-v1\\1000000BABYDOGEUSDT-20260702-15m.csv.gz",
+          "manifest_sha256": "e31b89e992114a1499bd2575a93d475dc94ca5bbad50cf3e89f60529e0045294",
+          "exists": true,
+          "sha256_matches_manifest": true
+        },
+        {
+          "path": "research\\crypto_backtest\\data\\multitier-expansion-v1\\1000000BABYDOGEUSDT-20260502-15m.csv.gz",
+          "manifest_sha256": "41aa209f018b1fc8c019f67815fefc54c32265b36ab08ec8b8fff8db4c87a5d1",
+          "exists": true,
+          "sha256_matches_manifest": true
+        }
+      ]
+    },
+    {
+      "stage": "holdout",
+      "month": "2026-08",
+      "tier": "low",
+      "symbol": "AWEUSDT",
+      "rank": 2,
+      "expected_15m_bars": 2784,
+      "observed_15m_bars": 0,
+      "coverage_ratio": 0.0,
+      "missing_15m_bars": 2784,
+      "coverage_pass": false,
+      "missing_start_utc": "2026-08-01T00:00:00+00:00",
+      "missing_end_utc": "2026-08-29T23:45:00+00:00",
+      "cache_paths_checked": [
+        {
+          "path": "research\\crypto_backtest\\data\\multitier-expansion-v1\\AWEUSDT-20260601-15m.csv.gz",
+          "manifest_sha256": "c8dc817e8983d7c6260dd2f2fecd7bf6426f3c623bc62724e7fca09a44ff0166",
+          "exists": true,
+          "sha256_matches_manifest": true
+        },
+        {
+          "path": "research\\crypto_backtest\\data\\multitier-expansion-v1\\AWEUSDT-20260502-15m.csv.gz",
+          "manifest_sha256": "d29e102f75aefcd9fb54e05e1bb35a5294eb3af86410e493e36124b36b8181a4",
+          "exists": true,
+          "sha256_matches_manifest": true
+        },
+        {
+          "path": "research\\crypto_backtest\\data\\multitier-expansion-v1\\AWEUSDT-20260702-15m.csv.gz",
+          "manifest_sha256": "85edb3206b8a80db35e474b01d2fccec8c655d8b957dd53dcb0a8c6980bf4a47",
+          "exists": true,
+          "sha256_matches_manifest": true
+        }
+      ]
+    },
+    {
+      "stage": "holdout",
+      "month": "2026-08",
+      "tier": "low",
+      "symbol": "NEWTUSDT",
+      "rank": 3,
+      "expected_15m_bars": 2784,
+      "observed_15m_bars": 0,
+      "coverage_ratio": 0.0,
+      "missing_15m_bars": 2784,
+      "coverage_pass": false,
+      "missing_start_utc": "2026-08-01T00:00:00+00:00",
+      "missing_end_utc": "2026-08-29T23:45:00+00:00",
+      "cache_paths_checked": [
+        {
+          "path": "research\\crypto_backtest\\data\\multitier-expansion-v1\\NEWTUSDT-20260702-15m.csv.gz",
+          "manifest_sha256": "576ce1470c4f42a106b508409973263160d7e05abdbe46c5f30d3eca11c9c022",
+          "exists": true,
+          "sha256_matches_manifest": true
+        },
+        {
+          "path": "research\\crypto_backtest\\data\\multitier-expansion-v1\\NEWTUSDT-20260502-15m.csv.gz",
+          "manifest_sha256": "f1405cfadbe233660711c9a107d027b291d6b86c333853b0f8ff1b61b32b94b7",
+          "exists": true,
+          "sha256_matches_manifest": true
+        },
+        {
+          "path": "research\\crypto_backtest\\data\\multitier-expansion-v1\\NEWTUSDT-20260601-15m.csv.gz",
+          "manifest_sha256": "cb3c6fc41afc8fceb56e8821e101e054dc633c5241b2b33ad3bf8ee5da502ab2",
+          "exists": true,
+          "sha256_matches_manifest": true
+        }
+      ]
+    },
+    {
+      "stage": "holdout",
+      "month": "2026-08",
+      "tier": "low",
+      "symbol": "PUFFERUSDT",
+      "rank": 4,
+      "expected_15m_bars": 2784,
+      "observed_15m_bars": 0,
+      "coverage_ratio": 0.0,
+      "missing_15m_bars": 2784,
+      "coverage_pass": false,
+      "missing_start_utc": "2026-08-01T00:00:00+00:00",
+      "missing_end_utc": "2026-08-29T23:45:00+00:00",
+      "cache_paths_checked": [
+        {
+          "path": "research\\crypto_backtest\\data\\multitier-expansion-v1\\PUFFERUSDT-20260601-15m.csv.gz",
+          "manifest_sha256": "b4b8e136570932dcfb4ed406a94b7aa3e78f7dbe30ac892cc989cb4291c59ec1",
+          "exists": true,
+          "sha256_matches_manifest": true
+        },
+        {
+          "path": "research\\crypto_backtest\\data\\multitier-expansion-v1\\PUFFERUSDT-20260702-15m.csv.gz",
+          "manifest_sha256": "a124fd68179d55e3b9bf36fa9e14800c610abe167fe95a212dd68fc0bab738da",
+          "exists": true,
+          "sha256_matches_manifest": true
+        },
+        {
+          "path": "research\\crypto_backtest\\data\\multitier-expansion-v1\\PUFFERUSDT-20260502-15m.csv.gz",
+          "manifest_sha256": "53361c526d779c99929635a27512bbe721a7d785b83349dcb2058e085a4b4170",
+          "exists": true,
+          "sha256_matches_manifest": true
+        }
+      ]
+    },
+    {
+      "stage": "holdout",
+      "month": "2026-08",
+      "tier": "low",
+      "symbol": "GASUSDT",
+      "rank": 5,
+      "expected_15m_bars": 2784,
+      "observed_15m_bars": 0,
+      "coverage_ratio": 0.0,
+      "missing_15m_bars": 2784,
+      "coverage_pass": false,
+      "missing_start_utc": "2026-08-01T00:00:00+00:00",
+      "missing_end_utc": "2026-08-29T23:45:00+00:00",
+      "cache_paths_checked": [
+        {
+          "path": "research\\crypto_backtest\\data\\multitier-expansion-v1\\GASUSDT-20260601-15m.csv.gz",
+          "manifest_sha256": "b1518cc6baefd996223fbe82465f411b8e6ed2cd2af9b5063307a28631f74b3c",
+          "exists": true,
+          "sha256_matches_manifest": true
+        },
+        {
+          "path": "research\\crypto_backtest\\data\\multitier-expansion-v1\\GASUSDT-20260702-15m.csv.gz",
+          "manifest_sha256": "50d486d58920fd2a15a85b8a2e9194e10c295619957e1c639c52bb0383e95091",
+          "exists": true,
+          "sha256_matches_manifest": true
+        },
+        {
+          "path": "research\\crypto_backtest\\data\\multitier-expansion-v1\\GASUSDT-20260502-15m.csv.gz",
+          "manifest_sha256": "908bb9c0273a4f6bdcd3ec9961decbf0291c7648d51ad28cfb769aa5504b83f0",
+          "exists": true,
+          "sha256_matches_manifest": true
+        }
+      ]
+    },
+    {
+      "stage": "holdout",
+      "month": "2026-08",
+      "tier": "low",
+      "symbol": "PLAYSOUTUSDT",
+      "rank": 6,
+      "expected_15m_bars": 2784,
+      "observed_15m_bars": 0,
+      "coverage_ratio": 0.0,
+      "missing_15m_bars": 2784,
+      "coverage_pass": false,
+      "missing_start_utc": "2026-08-01T00:00:00+00:00",
+      "missing_end_utc": "2026-08-29T23:45:00+00:00",
+      "cache_paths_checked": [
+        {
+          "path": "research\\crypto_backtest\\data\\multitier-expansion-v1\\PLAYSOUTUSDT-20260702-15m.csv.gz",
+          "manifest_sha256": "8fe273164ca54524b7bd9bc3093262e8c34484b4d17cf11e4ce58b7475cc8120",
+          "exists": true,
+          "sha256_matches_manifest": true
+        },
+        {
+          "path": "research\\crypto_backtest\\data\\multitier-expansion-v1\\PLAYSOUTUSDT-20260502-15m.csv.gz",
+          "manifest_sha256": "cfb8ff9511ee057797ada2c9da2a2bda1c2b1cd241c1e31fff16de0ba9746653",
+          "exists": true,
+          "sha256_matches_manifest": true
+        },
+        {
+          "path": null,
+          "manifest_sha256": null,
+          "exists": false,
+          "manifest_status": "request_failed_SSLError"
+        }
+      ]
+    },
+    {
+      "stage": "holdout",
+      "month": "2026-08",
+      "tier": "low",
+      "symbol": "KMNOUSDT",
+      "rank": 7,
+      "expected_15m_bars": 2784,
+      "observed_15m_bars": 0,
+      "coverage_ratio": 0.0,
+      "missing_15m_bars": 2784,
+      "coverage_pass": false,
+      "missing_start_utc": "2026-08-01T00:00:00+00:00",
+      "missing_end_utc": "2026-08-29T23:45:00+00:00",
+      "cache_paths_checked": [
+        {
+          "path": "research\\crypto_backtest\\data\\multitier-expansion-v1\\KMNOUSDT-20260601-15m.csv.gz",
+          "manifest_sha256": "f0f285cd809ada9a3eb0483e063ea64a0e596177bc8cfbb43018421418d4f876",
+          "exists": true,
+          "sha256_matches_manifest": true
+        },
+        {
+          "path": "research\\crypto_backtest\\data\\multitier-expansion-v1\\KMNOUSDT-20260702-15m.csv.gz",
+          "manifest_sha256": "3e03809bd0ccdbfe58e723cc4c8665f7306e3c02b80202803941ff19f0f00136",
+          "exists": true,
+          "sha256_matches_manifest": true
+        },
+        {
+          "path": "research\\crypto_backtest\\data\\multitier-expansion-v1\\KMNOUSDT-20260502-15m.csv.gz",
+          "manifest_sha256": "c6514f185a279cf2524a36711fa7e914747201644efd6183aa89b9df60f9a1bc",
+          "exists": true,
+          "sha256_matches_manifest": true
+        }
+      ]
+    },
+    {
+      "stage": "holdout",
+      "month": "2026-08",
+      "tier": "low",
+      "symbol": "FOGOUSDT",
+      "rank": 8,
+      "expected_15m_bars": 2784,
+      "observed_15m_bars": 0,
+      "coverage_ratio": 0.0,
+      "missing_15m_bars": 2784,
+      "coverage_pass": false,
+      "missing_start_utc": "2026-08-01T00:00:00+00:00",
+      "missing_end_utc": "2026-08-29T23:45:00+00:00",
+      "cache_paths_checked": [
+        {
+          "path": "research\\crypto_backtest\\data\\multitier-expansion-v1\\FOGOUSDT-20260702-15m.csv.gz",
+          "manifest_sha256": "440253b3e0e3411cae8c6f177246cf31f119d470a78a10308565bd7948a1a835",
+          "exists": true,
+          "sha256_matches_manifest": true
+        },
+        {
+          "path": "research\\crypto_backtest\\data\\multitier-expansion-v1\\FOGOUSDT-20260502-15m.csv.gz",
+          "manifest_sha256": "0b6212b1009546a9ed23d54768645e6f9bb96a97e1cdd41851bb2f94f995d5cb",
+          "exists": true,
+          "sha256_matches_manifest": true
+        },
+        {
+          "path": "research\\crypto_backtest\\data\\multitier-expansion-v1\\FOGOUSDT-20260601-15m.csv.gz",
+          "manifest_sha256": "f6b5f86e80912aa6e6087bddc91219e9d82b53df4d160327342bcce38ac2be56",
+          "exists": true,
+          "sha256_matches_manifest": true
+        }
+      ]
+    },
+    {
+      "stage": "holdout",
+      "month": "2026-08",
+      "tier": "low",
+      "symbol": "MOVRUSDT",
+      "rank": 9,
+      "expected_15m_bars": 2784,
+      "observed_15m_bars": 0,
+      "coverage_ratio": 0.0,
+      "missing_15m_bars": 2784,
+      "coverage_pass": false,
+      "missing_start_utc": "2026-08-01T00:00:00+00:00",
+      "missing_end_utc": "2026-08-29T23:45:00+00:00",
+      "cache_paths_checked": [
+        {
+          "path": "research\\crypto_backtest\\data\\multitier-expansion-v1\\MOVRUSDT-20260702-15m.csv.gz",
+          "manifest_sha256": "61e5719d0ff5cb3fba71c9982b886d2c5f6ce050f480bd7921bc6942476abb72",
+          "exists": true,
+          "sha256_matches_manifest": true
+        },
+        {
+          "path": "research\\crypto_backtest\\data\\multitier-expansion-v1\\MOVRUSDT-20260502-15m.csv.gz",
+          "manifest_sha256": "9b904c2efada12ca654cf2089d70daae2cdf249631bf6613b705cbd78a5062bc",
+          "exists": true,
+          "sha256_matches_manifest": true
+        },
+        {
+          "path": "research\\crypto_backtest\\data\\multitier-expansion-v1\\MOVRUSDT-20260601-15m.csv.gz",
+          "manifest_sha256": "c8bda397c56839a8e6babfa39ba3f8195988a8469a4d156338dd764d726cfe9a",
+          "exists": true,
+          "sha256_matches_manifest": true
+        }
+      ]
+    },
+    {
+      "stage": "holdout",
+      "month": "2026-08",
+      "tier": "low",
+      "symbol": "PROVEUSDT",
+      "rank": 10,
+      "expected_15m_bars": 2784,
+      "observed_15m_bars": 0,
+      "coverage_ratio": 0.0,
+      "missing_15m_bars": 2784,
+      "coverage_pass": false,
+      "missing_start_utc": "2026-08-01T00:00:00+00:00",
+      "missing_end_utc": "2026-08-29T23:45:00+00:00",
+      "cache_paths_checked": [
+        {
+          "path": "research\\crypto_backtest\\data\\multitier-expansion-v1\\PROVEUSDT-20260502-15m.csv.gz",
+          "manifest_sha256": "97b1030b4cb5dcfd8911e7c63660a559a757dfeca84ce132589697b00d52f09e",
+          "exists": true,
+          "sha256_matches_manifest": true
+        },
+        {
+          "path": "research\\crypto_backtest\\data\\multitier-expansion-v1\\PROVEUSDT-20260601-15m.csv.gz",
+          "manifest_sha256": "1c89e02dfdaf46fedf16c1c8d195d9b5e163f366d154625367ba7471dca51b44",
+          "exists": true,
+          "sha256_matches_manifest": true
+        },
+        {
+          "path": "research\\crypto_backtest\\data\\multitier-expansion-v1\\PROVEUSDT-20260702-15m.csv.gz",
+          "manifest_sha256": "6abc5af4e07f8f6c8f699abc351c257d3481f3ea01502abbc59d591378891951",
+          "exists": true,
+          "sha256_matches_manifest": true
+        }
+      ]
+    }
+  ],
+  "tier_insufficient": []
+}

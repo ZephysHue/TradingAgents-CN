@@ -1,0 +1,3 @@
+docker-compose.yml
+scripts/mongo-init.js
+scripts/create_default_admin.py

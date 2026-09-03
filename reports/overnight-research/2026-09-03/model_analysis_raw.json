@@ -1,0 +1,242 @@
+{
+  "generated_at_utc": "2026-09-03T08:41:08.335327+08:00",
+  "health_url": "http://127.0.0.1:1234/health",
+  "models_url": "http://127.0.0.1:1234/v1/models",
+  "completion_url": "http://127.0.0.1:1234/v1/completions",
+  "warning_flags": [
+    "exploratory_survivorship_bias_present",
+    "funding_unmodeled_not_deployable"
+  ],
+  "development_market_summary": {
+    "stage": "development",
+    "symbols": 30,
+    "tiers": {
+      "hot": {
+        "symbols": 10,
+        "median_period_return_pct": -21.949470996018494,
+        "median_abs_15m_return_pct": 0.21755427664842952,
+        "median_coverage_pct": 100.0
+      },
+      "mid": {
+        "symbols": 10,
+        "median_period_return_pct": -24.23164679410343,
+        "median_abs_15m_return_pct": 0.3148389498994375,
+        "median_coverage_pct": 100.0
+      },
+      "low": {
+        "symbols": 10,
+        "median_period_return_pct": -30.66495222403053,
+        "median_abs_15m_return_pct": 0.2816311718018494,
+        "median_coverage_pct": 100.0
+      }
+    }
+  },
+  "selected_development_rows": {
+    "A": {
+      "family": "A",
+      "family_name": "mean_reversion_bollinger_rsi",
+      "param_id": "A08",
+      "params_json": "{\"bb_width\": 2.0, \"bb_window\": 18, \"family\": \"A\", \"max_hold_bars\": 12, \"param_id\": \"A08\", \"rsi_entry\": 25, \"rsi_length\": 14}",
+      "stage": "development",
+      "trade_count": 689,
+      "win_rate": 45.28301886792453,
+      "net_expectancy_bps": 39.90632090948623,
+      "profit_factor": 1.3423568903994687,
+      "net_pnl": 300.27308846707524,
+      "ending_equity": 1301.1832629045334,
+      "max_drawdown_pct": -6.288923527333079,
+      "avg_holding_bars": 6.3236574746008705,
+      "max_holding_bars": 12.0,
+      "unresolved_positions": 1,
+      "terminal_mtm_pnl": 0.9101744374573337,
+      "max_gross_exposure_pct": 79.63255610152858,
+      "drawdown_start_utc": "2026-06-14 21:15:00+00:00",
+      "drawdown_trough_utc": "2026-06-25 13:45:00+00:00",
+      "recovery_utc": "2026-06-27 06:30:00+00:00",
+      "duration_15m_bars": 1189,
+      "status": "development_ranked",
+      "audit_json": "{\"created_signals\": 855, \"family\": \"A\", \"filled_entries\": 690, \"filled_exits\": 689, \"missing_execution_bars\": 0, \"param_id\": \"A08\", \"portfolio_limit_blocks\": 165, \"same_symbol_overlap_blocks\": 0, \"stage\": \"development\", \"unresolved_mtm_pnl\": 0.9101744374573337, \"unresolved_open_positions\": 1}",
+      "selected_for_validation": true
+    },
+    "B": {
+      "family": "B",
+      "family_name": "trend_pullback_hourly_filter",
+      "param_id": "B08",
+      "params_json": "{\"family\": \"B\", \"max_hold_bars\": 16, \"param_id\": \"B08\", \"pullback_ema\": 20, \"rsi_floor\": 55, \"rsi_length\": 14, \"take_profit_atr\": 1.5, \"trend_fast\": 36, \"trend_slow\": 120}",
+      "stage": "development",
+      "trade_count": 1973,
+      "win_rate": 41.003547896604154,
+      "net_expectancy_bps": -10.667141291017955,
+      "profit_factor": 0.8630463960013753,
+      "net_pnl": -194.70587178160307,
+      "ending_equity": 803.7351804668356,
+      "max_drawdown_pct": -27.375211452856206,
+      "avg_holding_bars": 6.3355296502787635,
+      "max_holding_bars": 16.0,
+      "unresolved_positions": 7,
+      "terminal_mtm_pnl": -1.5589477515624526,
+      "max_gross_exposure_pct": 79.4726048405588,
+      "drawdown_start_utc": "2026-06-05 19:00:00+00:00",
+      "drawdown_trough_utc": "2026-06-30 23:45:00+00:00",
+      "recovery_utc": null,
+      "duration_15m_bars": 2419,
+      "status": "development_ranked",
+      "audit_json": "{\"created_signals\": 2573, \"family\": \"B\", \"filled_entries\": 1980, \"filled_exits\": 1973, \"missing_execution_bars\": 0, \"param_id\": \"B08\", \"portfolio_limit_blocks\": 593, \"same_symbol_overlap_blocks\": 0, \"stage\": \"development\", \"unresolved_mtm_pnl\": -1.5589477515624526, \"unresolved_open_positions\": 7}",
+      "selected_for_validation": true
+    },
+    "C": {
+      "family": "C",
+      "family_name": "tiered_cross_sectional_momentum",
+      "param_id": "C03",
+      "params_json": "{\"family\": \"C\", \"hold_hours\": 8, \"lookback_hours\": 12, \"param_id\": \"C03\", \"rebalance_hours\": 1, \"selection_pct\": 0.2}",
+      "stage": "development",
+      "trade_count": 672,
+      "win_rate": 45.23809523809524,
+      "net_expectancy_bps": 4.159476664091071,
+      "profit_factor": 1.012710665564741,
+      "net_pnl": 15.95811249104733,
+      "ending_equity": 1015.9581124910442,
+      "max_drawdown_pct": -17.829373446283537,
+      "avg_holding_bars": 32.0,
+      "max_holding_bars": 32.0,
+      "unresolved_positions": 0,
+      "terminal_mtm_pnl": 0.0,
+      "max_gross_exposure_pct": 79.49829822989425,
+      "drawdown_start_utc": "2026-06-16 18:00:00+00:00",
+      "drawdown_trough_utc": "2026-06-30 03:00:00+00:00",
+      "recovery_utc": null,
+      "duration_15m_bars": 1367,
+      "status": "development_ranked",
+      "audit_json": "{\"created_signals\": 8640, \"family\": \"C\", \"filled_entries\": 672, \"filled_exits\": 672, \"late_stage_blocks\": 94, \"missing_execution_bars\": 0, \"param_id\": \"C03\", \"portfolio_limit_blocks\": 4553, \"same_symbol_overlap_blocks\": 3321, \"stage\": \"development\", \"unresolved_mtm_pnl\": 0.0, \"unresolved_open_positions\": 0}",
+      "selected_for_validation": true
+    },
+    "D": {
+      "family": "D",
+      "family_name": "donchian_atr_breakout",
+      "param_id": "D12",
+      "params_json": "{\"atr_ratio_threshold\": 1.2, \"breakout_buffer_atr\": 0.0, \"donchian_window\": 40, \"family\": \"D\", \"max_hold_bars\": 20, \"param_id\": \"D12\", \"take_profit_atr\": 2.0}",
+      "stage": "development",
+      "trade_count": 821,
+      "win_rate": 35.07917174177832,
+      "net_expectancy_bps": -13.8093949206282,
+      "profit_factor": 0.8673336952473963,
+      "net_pnl": -114.56502409118053,
+      "ending_equity": 885.4349759088199,
+      "max_drawdown_pct": -14.344132652188968,
+      "avg_holding_bars": 5.958587088915956,
+      "max_holding_bars": 20.0,
+      "unresolved_positions": 0,
+      "terminal_mtm_pnl": 0.0,
+      "max_gross_exposure_pct": 79.75380554508563,
+      "drawdown_start_utc": "2026-06-01 18:15:00+00:00",
+      "drawdown_trough_utc": "2026-06-30 12:30:00+00:00",
+      "recovery_utc": null,
+      "duration_15m_bars": 2806,
+      "status": "development_ranked",
+      "audit_json": "{\"created_signals\": 1056, \"family\": \"D\", \"filled_entries\": 821, \"filled_exits\": 821, \"missing_execution_bars\": 0, \"param_id\": \"D12\", \"portfolio_limit_blocks\": 235, \"same_symbol_overlap_blocks\": 0, \"stage\": \"development\", \"unresolved_mtm_pnl\": 0.0, \"unresolved_open_positions\": 0}",
+      "selected_for_validation": true
+    }
+  },
+  "health_status_code": 200,
+  "health_body": {
+    "status": "ok"
+  },
+  "models_status_code": 200,
+  "models_body": {
+    "models": [
+      {
+        "name": "M:\\llm\\models\\DeepSeek-R1-Distill-Qwen-32B-Q4_K_M.gguf",
+        "model": "M:\\llm\\models\\DeepSeek-R1-Distill-Qwen-32B-Q4_K_M.gguf",
+        "modified_at": "",
+        "size": "",
+        "digest": "",
+        "type": "model",
+        "description": "",
+        "tags": [
+          ""
+        ],
+        "capabilities": [
+          "completion"
+        ],
+        "parameters": "",
+        "details": {
+          "parent_model": "",
+          "format": "gguf",
+          "family": "",
+          "families": [
+            ""
+          ],
+          "parameter_size": "",
+          "quantization_level": ""
+        }
+      }
+    ],
+    "object": "list",
+    "data": [
+      {
+        "id": "M:\\llm\\models\\DeepSeek-R1-Distill-Qwen-32B-Q4_K_M.gguf",
+        "aliases": [
+          "M:\\llm\\models\\DeepSeek-R1-Distill-Qwen-32B-Q4_K_M.gguf"
+        ],
+        "tags": [],
+        "object": "model",
+        "created": 1788396068,
+        "owned_by": "llamacpp",
+        "meta": {
+          "vocab_type": true,
+          "n_vocab": 152064,
+          "n_ctx": 8192,
+          "n_ctx_train": 131072,
+          "n_embd": 5120,
+          "n_params": 32763876352,
+          "size": 19845357568,
+          "ftype": "Q4_K - Medium"
+        }
+      }
+    ]
+  },
+  "request_payload": {
+    "model": "M:\\llm\\models\\DeepSeek-R1-Distill-Qwen-32B-Q4_K_M.gguf",
+    "temperature": 0.0,
+    "max_tokens": 192,
+    "prompt": "Return compact JSON only. No markdown. No preamble. {\"task\": \"Analyze frozen development-stage multi-asset research outputs. Stay descriptive and skeptical.\", \"development_market_summary\": {\"stage\": \"development\", \"symbols\": 30, \"tiers\": {\"hot\": {\"symbols\": 10, \"median_period_return_pct\": -21.949470996018494, \"median_abs_15m_return_pct\": 0.21755427664842952, \"median_coverage_pct\": 100.0}, \"mid\": {\"symbols\": 10, \"median_period_return_pct\": -24.23164679410343, \"median_abs_15m_return_pct\": 0.3148389498994375, \"median_coverage_pct\": 100.0}, \"low\": {\"symbols\": 10, \"median_period_return_pct\": -30.66495222403053, \"median_abs_15m_return_pct\": 0.2816311718018494, \"median_coverage_pct\": 100.0}}}, \"selected_families\": {\"A\": {\"param_id\": \"A08\", \"trade_count\": 689, \"win_rate\": 45.28, \"net_expectancy_bps\": 39.91, \"profit_factor\": 1.34, \"max_drawdown_pct\": -6.29}, \"B\": {\"param_id\": \"B08\", \"trade_count\": 1973, \"win_rate\": 41.0, \"net_expectancy_bps\": -10.67, \"profit_factor\": 0.86, \"max_drawdown_pct\": -27.38}, \"C\": {\"param_id\": \"C03\", \"trade_count\": 672, \"win_rate\": 45.24, \"net_expectancy_bps\": 4.16, \"profit_factor\": 1.01, \"max_drawdown_pct\": -17.83}, \"D\": {\"param_id\": \"D12\", \"trade_count\": 821, \"win_rate\": 35.08, \"net_expectancy_bps\": -13.81, \"profit_factor\": 0.87, \"max_drawdown_pct\": -14.34}}, \"required_schema\": {\"overall_market_structure\": \"string\", \"family_fit\": [{\"family\": \"A|B|C|D\", \"why_it_fits\": \"string\", \"failure_mode\": \"string\"}], \"audit_focus\": [\"string\"], \"forbidden\": [\"profit claims\", \"deployment approval\"]}}"
+  },
+  "completion_status_code": 200,
+  "completion_body": {
+    "choices": [
+      {
+        "text": " \n\n</think>\n\n```json\n{\n  \"overall_market_structure\": \"The market is characterized by negative median period returns across all tiers, with the lowest tier experiencing the most significant losses. All tiers have full coverage, indicating comprehensive data availability.\",\n  \"family_fit\": [\n    {\n      \"family\": \"A\",\n      \"why_it_fits\": \"Family A has a positive net expectancy and a moderate win rate, suggesting potential profitability despite a high max drawdown.\",\n      \"failure_mode\": \"High max drawdown indicates significant risk of capital loss during adverse market conditions.\"\n    },\n    {\n      \"family\": \"B\",\n      \"why_it_fits\": \"Family B has the highest trade count, indicating active trading, but negative net expectancy and low profit factor suggest poor performance.\",\n      \"failure_mode\": \"Negative net expectancy and low profit factor indicate systematic losses and inefficiency.\"\n    },\n    {\n      \"family\": \"C\",\n      \"why",
+        "index": 0,
+        "logprobs": null,
+        "finish_reason": "length"
+      }
+    ],
+    "created": 1788396133,
+    "model": "M:\\llm\\models\\DeepSeek-R1-Distill-Qwen-32B-Q4_K_M.gguf",
+    "system_fingerprint": "b10621-c1d0e7a00",
+    "object": "text_completion",
+    "usage": {
+      "completion_tokens": 192,
+      "prompt_tokens": 632,
+      "total_tokens": 824,
+      "prompt_tokens_details": {
+        "cached_tokens": 0
+      }
+    },
+    "id": "chatcmpl-IZqeJFqixFogjghWnrAQe82FtfgF03uZ",
+    "timings": {
+      "cache_n": 0,
+      "prompt_n": 632,
+      "prompt_ms": 14366.492,
+      "prompt_per_token_ms": 22.731791139240507,
+      "prompt_per_second": 43.99125409320522,
+      "predicted_n": 192,
+      "predicted_ms": 50341.218,
+      "predicted_per_token_ms": 263.56658638743454,
+      "predicted_per_second": 3.794107643561584
+    }
+  },
+  "completion_text": " \n\n</think>\n\n```json\n{\n  \"overall_market_structure\": \"The market is characterized by negative median period returns across all tiers, with the lowest tier experiencing the most significant losses. All tiers have full coverage, indicating comprehensive data availability.\",\n  \"family_fit\": [\n    {\n      \"family\": \"A\",\n      \"why_it_fits\": \"Family A has a positive net expectancy and a moderate win rate, suggesting potential profitability despite a high max drawdown.\",\n      \"failure_mode\": \"High max drawdown indicates significant risk of capital loss during adverse market conditions.\"\n    },\n    {\n      \"family\": \"B\",\n      \"why_it_fits\": \"Family B has the highest trade count, indicating active trading, but negative net expectancy and low profit factor suggest poor performance.\",\n      \"failure_mode\": \"Negative net expectancy and low profit factor indicate systematic losses and inefficiency.\"\n    },\n    {\n      \"family\": \"C\",\n      \"why",
+  "completion_text_clean": "```json\n{\n  \"overall_market_structure\": \"The market is characterized by negative median period returns across all tiers, with the lowest tier experiencing the most significant losses. All tiers have full coverage, indicating comprehensive data availability.\",\n  \"family_fit\": [\n    {\n      \"family\": \"A\",\n      \"why_it_fits\": \"Family A has a positive net expectancy and a moderate win rate, suggesting potential profitability despite a high max drawdown.\",\n      \"failure_mode\": \"High max drawdown indicates significant risk of capital loss during adverse market conditions.\"\n    },\n    {\n      \"family\": \"B\",\n      \"why_it_fits\": \"Family B has the highest trade count, indicating active trading, but negative net expectancy and low profit factor suggest poor performance.\",\n      \"failure_mode\": \"Negative net expectancy and low profit factor indicate systematic losses and inefficiency.\"\n    },\n    {\n      \"family\": \"C\",\n      \"why",
+  "elapsed_seconds": 64.77
+}

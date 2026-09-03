@@ -1,0 +1,41 @@
+{
+  "generated_at_utc": "2026-08-31T14:28:13.205596+00:00",
+  "sources": [
+    {
+      "source_id": "bybit_v5_instruments",
+      "official": true,
+      "successful_reacquisition": false,
+      "raw_path": null,
+      "response_sha256": null,
+      "can_verify_symbol_month": false,
+      "reason": "network_evidence_unavailable"
+    },
+    {
+      "source_id": "bybit_v5_funding",
+      "official": true,
+      "successful_reacquisition": false,
+      "raw_path": null,
+      "response_sha256": null,
+      "can_verify_symbol_month": false,
+      "reason": "network_evidence_unavailable"
+    },
+    {
+      "source_id": "bybit_v5_announcements",
+      "official": true,
+      "successful_reacquisition": false,
+      "raw_path": null,
+      "response_sha256": null,
+      "can_verify_symbol_month": false,
+      "reason": "network_evidence_unavailable"
+    },
+    {
+      "source_id": "bybit_public_download",
+      "official": true,
+      "successful_reacquisition": false,
+      "raw_path": null,
+      "response_sha256": null,
+      "can_verify_symbol_month": false,
+      "reason": "network_evidence_unavailable"
+    }
+  ]
+}

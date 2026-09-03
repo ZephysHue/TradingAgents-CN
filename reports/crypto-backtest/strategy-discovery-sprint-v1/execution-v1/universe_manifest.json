@@ -1,0 +1,640 @@
+{
+  "warning_flags": [
+    "exploratory_survivorship_bias_present",
+    "funding_not_modeled_not_deployable"
+  ],
+  "source": "reports\\crypto-backtest\\multitier-mechanism-discovery-v1\\universe-expansion-audit-v1\\provisional_current_listing_universe_registry.json",
+  "selected": [
+    {
+      "stage": "development",
+      "month": "2026-06",
+      "tier": "hot",
+      "symbol": "BTCUSDT",
+      "rank": 1
+    },
+    {
+      "stage": "development",
+      "month": "2026-06",
+      "tier": "hot",
+      "symbol": "ETHUSDT",
+      "rank": 2
+    },
+    {
+      "stage": "development",
+      "month": "2026-06",
+      "tier": "hot",
+      "symbol": "SOLUSDT",
+      "rank": 3
+    },
+    {
+      "stage": "development",
+      "month": "2026-06",
+      "tier": "hot",
+      "symbol": "HYPEUSDT",
+      "rank": 4
+    },
+    {
+      "stage": "development",
+      "month": "2026-06",
+      "tier": "hot",
+      "symbol": "XRPUSDT",
+      "rank": 5
+    },
+    {
+      "stage": "development",
+      "month": "2026-06",
+      "tier": "hot",
+      "symbol": "ZECUSDT",
+      "rank": 6
+    },
+    {
+      "stage": "development",
+      "month": "2026-06",
+      "tier": "hot",
+      "symbol": "DOGEUSDT",
+      "rank": 7
+    },
+    {
+      "stage": "development",
+      "month": "2026-06",
+      "tier": "hot",
+      "symbol": "LABUSDT",
+      "rank": 8
+    },
+    {
+      "stage": "development",
+      "month": "2026-06",
+      "tier": "hot",
+      "symbol": "NEARUSDT",
+      "rank": 9
+    },
+    {
+      "stage": "development",
+      "month": "2026-06",
+      "tier": "hot",
+      "symbol": "SUIUSDT",
+      "rank": 10
+    },
+    {
+      "stage": "development",
+      "month": "2026-06",
+      "tier": "mid",
+      "symbol": "BRUSDT",
+      "rank": 1
+    },
+    {
+      "stage": "development",
+      "month": "2026-06",
+      "tier": "mid",
+      "symbol": "ZAMAUSDT",
+      "rank": 2
+    },
+    {
+      "stage": "development",
+      "month": "2026-06",
+      "tier": "mid",
+      "symbol": "FIGHTUSDT",
+      "rank": 3
+    },
+    {
+      "stage": "development",
+      "month": "2026-06",
+      "tier": "mid",
+      "symbol": "SONICUSDT",
+      "rank": 4
+    },
+    {
+      "stage": "development",
+      "month": "2026-06",
+      "tier": "mid",
+      "symbol": "PTBUSDT",
+      "rank": 5
+    },
+    {
+      "stage": "development",
+      "month": "2026-06",
+      "tier": "mid",
+      "symbol": "INTCUSDT",
+      "rank": 6
+    },
+    {
+      "stage": "development",
+      "month": "2026-06",
+      "tier": "mid",
+      "symbol": "RONINUSDT",
+      "rank": 7
+    },
+    {
+      "stage": "development",
+      "month": "2026-06",
+      "tier": "mid",
+      "symbol": "COREUSDT",
+      "rank": 8
+    },
+    {
+      "stage": "development",
+      "month": "2026-06",
+      "tier": "mid",
+      "symbol": "APRUSDT",
+      "rank": 9
+    },
+    {
+      "stage": "development",
+      "month": "2026-06",
+      "tier": "mid",
+      "symbol": "MOVRUSDT",
+      "rank": 10
+    },
+    {
+      "stage": "development",
+      "month": "2026-06",
+      "tier": "low",
+      "symbol": "SENTUSDT",
+      "rank": 1
+    },
+    {
+      "stage": "development",
+      "month": "2026-06",
+      "tier": "low",
+      "symbol": "1000XECUSDT",
+      "rank": 2
+    },
+    {
+      "stage": "development",
+      "month": "2026-06",
+      "tier": "low",
+      "symbol": "HNTUSDT",
+      "rank": 3
+    },
+    {
+      "stage": "development",
+      "month": "2026-06",
+      "tier": "low",
+      "symbol": "1000RATSUSDT",
+      "rank": 4
+    },
+    {
+      "stage": "development",
+      "month": "2026-06",
+      "tier": "low",
+      "symbol": "SXTUSDT",
+      "rank": 5
+    },
+    {
+      "stage": "development",
+      "month": "2026-06",
+      "tier": "low",
+      "symbol": "MINAUSDT",
+      "rank": 6
+    },
+    {
+      "stage": "development",
+      "month": "2026-06",
+      "tier": "low",
+      "symbol": "ELSAUSDT",
+      "rank": 7
+    },
+    {
+      "stage": "development",
+      "month": "2026-06",
+      "tier": "low",
+      "symbol": "MASKUSDT",
+      "rank": 8
+    },
+    {
+      "stage": "development",
+      "month": "2026-06",
+      "tier": "low",
+      "symbol": "BIRBUSDT",
+      "rank": 9
+    },
+    {
+      "stage": "development",
+      "month": "2026-06",
+      "tier": "low",
+      "symbol": "AEVOUSDT",
+      "rank": 10
+    },
+    {
+      "stage": "validation",
+      "month": "2026-07",
+      "tier": "hot",
+      "symbol": "BTCUSDT",
+      "rank": 1
+    },
+    {
+      "stage": "validation",
+      "month": "2026-07",
+      "tier": "hot",
+      "symbol": "ETHUSDT",
+      "rank": 2
+    },
+    {
+      "stage": "validation",
+      "month": "2026-07",
+      "tier": "hot",
+      "symbol": "SOLUSDT",
+      "rank": 3
+    },
+    {
+      "stage": "validation",
+      "month": "2026-07",
+      "tier": "hot",
+      "symbol": "HYPEUSDT",
+      "rank": 4
+    },
+    {
+      "stage": "validation",
+      "month": "2026-07",
+      "tier": "hot",
+      "symbol": "XRPUSDT",
+      "rank": 5
+    },
+    {
+      "stage": "validation",
+      "month": "2026-07",
+      "tier": "hot",
+      "symbol": "ZECUSDT",
+      "rank": 6
+    },
+    {
+      "stage": "validation",
+      "month": "2026-07",
+      "tier": "hot",
+      "symbol": "WLDUSDT",
+      "rank": 7
+    },
+    {
+      "stage": "validation",
+      "month": "2026-07",
+      "tier": "hot",
+      "symbol": "NEARUSDT",
+      "rank": 8
+    },
+    {
+      "stage": "validation",
+      "month": "2026-07",
+      "tier": "hot",
+      "symbol": "DOGEUSDT",
+      "rank": 9
+    },
+    {
+      "stage": "validation",
+      "month": "2026-07",
+      "tier": "hot",
+      "symbol": "LABUSDT",
+      "rank": 10
+    },
+    {
+      "stage": "validation",
+      "month": "2026-07",
+      "tier": "mid",
+      "symbol": "CFGUSDT",
+      "rank": 1
+    },
+    {
+      "stage": "validation",
+      "month": "2026-07",
+      "tier": "mid",
+      "symbol": "SKRUSDT",
+      "rank": 2
+    },
+    {
+      "stage": "validation",
+      "month": "2026-07",
+      "tier": "mid",
+      "symbol": "WCTUSDT",
+      "rank": 3
+    },
+    {
+      "stage": "validation",
+      "month": "2026-07",
+      "tier": "mid",
+      "symbol": "COMPUSDT",
+      "rank": 4
+    },
+    {
+      "stage": "validation",
+      "month": "2026-07",
+      "tier": "mid",
+      "symbol": "GPSUSDT",
+      "rank": 5
+    },
+    {
+      "stage": "validation",
+      "month": "2026-07",
+      "tier": "mid",
+      "symbol": "0GUSDT",
+      "rank": 6
+    },
+    {
+      "stage": "validation",
+      "month": "2026-07",
+      "tier": "mid",
+      "symbol": "TAIKOUSDT",
+      "rank": 7
+    },
+    {
+      "stage": "validation",
+      "month": "2026-07",
+      "tier": "mid",
+      "symbol": "INITUSDT",
+      "rank": 8
+    },
+    {
+      "stage": "validation",
+      "month": "2026-07",
+      "tier": "mid",
+      "symbol": "LIGHTUSDT",
+      "rank": 9
+    },
+    {
+      "stage": "validation",
+      "month": "2026-07",
+      "tier": "mid",
+      "symbol": "CAKEUSDT",
+      "rank": 10
+    },
+    {
+      "stage": "validation",
+      "month": "2026-07",
+      "tier": "low",
+      "symbol": "FLRUSDT",
+      "rank": 1
+    },
+    {
+      "stage": "validation",
+      "month": "2026-07",
+      "tier": "low",
+      "symbol": "ZKPUSDT",
+      "rank": 2
+    },
+    {
+      "stage": "validation",
+      "month": "2026-07",
+      "tier": "low",
+      "symbol": "KAVAUSDT",
+      "rank": 3
+    },
+    {
+      "stage": "validation",
+      "month": "2026-07",
+      "tier": "low",
+      "symbol": "ONGUSDT",
+      "rank": 4
+    },
+    {
+      "stage": "validation",
+      "month": "2026-07",
+      "tier": "low",
+      "symbol": "FUSDT",
+      "rank": 5
+    },
+    {
+      "stage": "validation",
+      "month": "2026-07",
+      "tier": "low",
+      "symbol": "ZBCNUSDT",
+      "rank": 6
+    },
+    {
+      "stage": "validation",
+      "month": "2026-07",
+      "tier": "low",
+      "symbol": "LUNA2USDT",
+      "rank": 7
+    },
+    {
+      "stage": "validation",
+      "month": "2026-07",
+      "tier": "low",
+      "symbol": "ACUUSDT",
+      "rank": 8
+    },
+    {
+      "stage": "validation",
+      "month": "2026-07",
+      "tier": "low",
+      "symbol": "CYBERUSDT",
+      "rank": 9
+    },
+    {
+      "stage": "validation",
+      "month": "2026-07",
+      "tier": "low",
+      "symbol": "BEAMUSDT",
+      "rank": 10
+    },
+    {
+      "stage": "holdout",
+      "month": "2026-08",
+      "tier": "hot",
+      "symbol": "BTCUSDT",
+      "rank": 1
+    },
+    {
+      "stage": "holdout",
+      "month": "2026-08",
+      "tier": "hot",
+      "symbol": "ETHUSDT",
+      "rank": 2
+    },
+    {
+      "stage": "holdout",
+      "month": "2026-08",
+      "tier": "hot",
+      "symbol": "SOLUSDT",
+      "rank": 3
+    },
+    {
+      "stage": "holdout",
+      "month": "2026-08",
+      "tier": "hot",
+      "symbol": "XRPUSDT",
+      "rank": 4
+    },
+    {
+      "stage": "holdout",
+      "month": "2026-08",
+      "tier": "hot",
+      "symbol": "HYPEUSDT",
+      "rank": 5
+    },
+    {
+      "stage": "holdout",
+      "month": "2026-08",
+      "tier": "hot",
+      "symbol": "SOXLUSDT",
+      "rank": 6
+    },
+    {
+      "stage": "holdout",
+      "month": "2026-08",
+      "tier": "hot",
+      "symbol": "ZECUSDT",
+      "rank": 7
+    },
+    {
+      "stage": "holdout",
+      "month": "2026-08",
+      "tier": "hot",
+      "symbol": "XAUUSDT",
+      "rank": 8
+    },
+    {
+      "stage": "holdout",
+      "month": "2026-08",
+      "tier": "hot",
+      "symbol": "SNDKUSDT",
+      "rank": 9
+    },
+    {
+      "stage": "holdout",
+      "month": "2026-08",
+      "tier": "hot",
+      "symbol": "BANKUSDT",
+      "rank": 10
+    },
+    {
+      "stage": "holdout",
+      "month": "2026-08",
+      "tier": "mid",
+      "symbol": "THETAUSDT",
+      "rank": 1
+    },
+    {
+      "stage": "holdout",
+      "month": "2026-08",
+      "tier": "mid",
+      "symbol": "CAKEUSDT",
+      "rank": 2
+    },
+    {
+      "stage": "holdout",
+      "month": "2026-08",
+      "tier": "mid",
+      "symbol": "HANAUSDT",
+      "rank": 3
+    },
+    {
+      "stage": "holdout",
+      "month": "2026-08",
+      "tier": "mid",
+      "symbol": "CHZUSDT",
+      "rank": 4
+    },
+    {
+      "stage": "holdout",
+      "month": "2026-08",
+      "tier": "mid",
+      "symbol": "COINUSDT",
+      "rank": 5
+    },
+    {
+      "stage": "holdout",
+      "month": "2026-08",
+      "tier": "mid",
+      "symbol": "IMXUSDT",
+      "rank": 6
+    },
+    {
+      "stage": "holdout",
+      "month": "2026-08",
+      "tier": "mid",
+      "symbol": "CFXUSDT",
+      "rank": 7
+    },
+    {
+      "stage": "holdout",
+      "month": "2026-08",
+      "tier": "mid",
+      "symbol": "ORCLUSDT",
+      "rank": 8
+    },
+    {
+      "stage": "holdout",
+      "month": "2026-08",
+      "tier": "mid",
+      "symbol": "XANUSDT",
+      "rank": 9
+    },
+    {
+      "stage": "holdout",
+      "month": "2026-08",
+      "tier": "mid",
+      "symbol": "ICNTUSDT",
+      "rank": 10
+    },
+    {
+      "stage": "holdout",
+      "month": "2026-08",
+      "tier": "low",
+      "symbol": "1000000BABYDOGEUSDT",
+      "rank": 1
+    },
+    {
+      "stage": "holdout",
+      "month": "2026-08",
+      "tier": "low",
+      "symbol": "AWEUSDT",
+      "rank": 2
+    },
+    {
+      "stage": "holdout",
+      "month": "2026-08",
+      "tier": "low",
+      "symbol": "NEWTUSDT",
+      "rank": 3
+    },
+    {
+      "stage": "holdout",
+      "month": "2026-08",
+      "tier": "low",
+      "symbol": "PUFFERUSDT",
+      "rank": 4
+    },
+    {
+      "stage": "holdout",
+      "month": "2026-08",
+      "tier": "low",
+      "symbol": "GASUSDT",
+      "rank": 5
+    },
+    {
+      "stage": "holdout",
+      "month": "2026-08",
+      "tier": "low",
+      "symbol": "PLAYSOUTUSDT",
+      "rank": 6
+    },
+    {
+      "stage": "holdout",
+      "month": "2026-08",
+      "tier": "low",
+      "symbol": "KMNOUSDT",
+      "rank": 7
+    },
+    {
+      "stage": "holdout",
+      "month": "2026-08",
+      "tier": "low",
+      "symbol": "FOGOUSDT",
+      "rank": 8
+    },
+    {
+      "stage": "holdout",
+      "month": "2026-08",
+      "tier": "low",
+      "symbol": "MOVRUSDT",
+      "rank": 9
+    },
+    {
+      "stage": "holdout",
+      "month": "2026-08",
+      "tier": "low",
+      "symbol": "PROVEUSDT",
+      "rank": 10
+    }
+  ],
+  "tier_insufficient": []
+}

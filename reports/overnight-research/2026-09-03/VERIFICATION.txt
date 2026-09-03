@@ -1,0 +1,16 @@
+warning_flags=exploratory_survivorship_bias_present;funding_unmodeled_not_deployable
+data_manifest_sha256=088f9c7f69844ac87af493bdf2d54f8deabe157902e3d888732a9fe53444d9a6
+universe_manifest_sha256=8f1c6957163a56032f8eff1fdbb9ac4ecaaedc90d9873784471d8c7250617f30
+BASELINE_COMMAND: C:\Users\KSO\AppData\Local\Programs\Python\Python310\python.exe -m pytest tests\unit\test_overnight_multi_asset_research_v2.py -q
+BASELINE_EXIT_CODE: 0
+BASELINE_RESULT: 9 passed in 12.12s
+MODIFIED_COMMAND: C:\Users\KSO\AppData\Local\Programs\Python\Python310\python.exe research\crypto_backtest\run_overnight_multi_asset_research_v2.py --manifest reports\crypto-backtest\strategy-discovery-sprint-v1\dataset-repair-v1-final2\normalized_data_manifest.json --universe reports\crypto-backtest\strategy-discovery-sprint-v1\universe_manifest.json --output reports\overnight-research\2026-09-03 --summary reports\overnight-research\2026-09-03\morning-summary.md
+MODIFIED_EXIT_CODE: 0
+MODIFIED_RESULT: {"output": "reports\\overnight-research\\2026-09-03", "candidates": 0, "rejections": 4, "families": {"A": "A08", "B": "B08", "C": "C03", "D": "D12"}}
+ROLLBACK_COMMAND: bash ROLLBACK.sh <isolated-copy-root>
+ROLLBACK_RESULT: restores verification_artifacts snapshots into the supplied isolated copy root
+ARTIFACT_LOGS: artifacts/pytest.log; artifacts/run_cli.log
+LIMITS: paper-only;local-model-only;fixed-bybit-15m-cache;1000-usdt;no-private-api;no-live-trading;no-credential-reads;no-auto-promotion
+SNAPSHOT: research/crypto_backtest/overnight_multi_asset_research_v2.py <= reports\overnight-research\2026-09-03\verification_artifacts\research\crypto_backtest\overnight_multi_asset_research_v2.py
+SNAPSHOT: research/crypto_backtest/run_overnight_multi_asset_research_v2.py <= reports\overnight-research\2026-09-03\verification_artifacts\research\crypto_backtest\run_overnight_multi_asset_research_v2.py
+SNAPSHOT: tests/unit/test_overnight_multi_asset_research_v2.py <= reports\overnight-research\2026-09-03\verification_artifacts\tests\unit\test_overnight_multi_asset_research_v2.py

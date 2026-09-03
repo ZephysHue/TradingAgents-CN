@@ -1,0 +1,44 @@
+Changed branch/field
+- Branch: main
+- Field: fixed Corrected BASELINE signal-structure diagnostics using Scenario A primary and Scenario D supplemental accounting.
+- Added completed 4H/1H/Daily alignment, 15m confirmation structure, MAE/MFE, reaction paths, direction/year/regime buckets, 2D cells, and Hypothesis Candidate reporting.
+- Strategy parameters and execution rules were not changed.
+
+Four artifacts
+- MODIFIED_FILE: D:\Desktop\TradingAgents-CN\research\crypto_backtest\diagnose_signal_structure.py
+- DIFF_FILE: D:\Desktop\TradingAgents-CN\reports\crypto-backtest\signal-structure-diagnostic\artifacts\DIFF_FILE.patch
+- VERIFICATION.txt: D:\Desktop\TradingAgents-CN\reports\crypto-backtest\signal-structure-diagnostic\artifacts\VERIFICATION.txt
+- executable ROLLBACK.sh: D:\Desktop\TradingAgents-CN\reports\crypto-backtest\signal-structure-diagnostic\artifacts\ROLLBACK.sh
+
+Hashes
+- Original SHA256: 19B9E85528580A25FF4460A50A25D9D027AF0473CC73F6BC05310C9CFCA1DA33
+- Modified SHA256: 50D27F70986E1471FC6C40334E63FC00DF17D5F1D2F0F67A485EF55C9C446C67
+
+BASELINE
+- Command: python research/crypto_backtest/audit_corrected_baseline.py --trades reports/crypto-backtest/BASELINE_trades.csv --old reports/crypto-backtest/diagnostics/diagnostic_summary.json --output reports/crypto-backtest/baseline-audit-v2 --initial-usd 1000
+- Input: 1858 Corrected BASELINE signals and OLD diagnostic JSON
+- Literal output: {"output": "reports\\crypto-backtest\\baseline-audit-v2", "signals": 1858, "scenario_A_expectancy": 0.04346386086471876, "scenario_D_expectancy_all_in": -0.12605299189956812, "signal_sets_exact_match": true, "ledger": "PASS"}
+- Exit status: 0
+
+MODIFIED
+- Command: python research/crypto_backtest/diagnose_signal_structure.py --data-dir research/crypto_backtest/data --trades reports/crypto-backtest/BASELINE_trades.csv --audit-dir reports/crypto-backtest/baseline-audit-v2 --output reports/crypto-backtest/signal-structure-diagnostic
+- Input: verified Binance BTCUSD_PERP archive, Corrected BASELINE signals, Scenario A/D trade ledgers
+- Literal output: {"output": "reports\\crypto-backtest\\signal-structure-diagnostic", "trades": 1858, "buckets": 213, "heatmap_cells": 357, "candidates": 4, "status": "PASS"}
+- Exit status: 0
+
+ARTIFACT ASSERTIONS
+- Command: python inline assertions over diagnostic_summary.json, diagnostic_buckets.csv, mae_mfe.csv, heatmap_data.csv, candidate_filters.csv
+- Input: generated diagnostic artifacts
+- Literal output: ARTIFACT_ASSERTIONS=PASS trades=1858 buckets=213 heatmap_cells=357 candidates=4
+- Exit status: 0
+
+ROLLBACK
+- Command: python reports/crypto-backtest/signal-structure-diagnostic/artifacts/ROLLBACK.sh --target reports/crypto-backtest/signal-structure-diagnostic/artifacts/rollback-test/diagnose_signal_structure.py --source reports/crypto-backtest/signal-structure-diagnostic/artifacts/audit_corrected_baseline.ORIGINAL.py
+- Input: another copy of MODIFIED_FILE and preserved original source copy
+- Literal output: ROLLBACK PASS target=reports\crypto-backtest\signal-structure-diagnostic\artifacts\rollback-test\diagnose_signal_structure.py sha256=19b9e85528580a25ff4460a50a25d9d027af0473cc73f6bc05310c9cfca1da33
+- Exit status: 0
+- Restored behavior/status: rollback-test copy restored to original SHA256; MODIFIED_FILE remained changed with SHA256 50D27F70986E1471FC6C40334E63FC00DF17D5F1D2F0F67A485EF55C9C446C67.
+
+Additional checks
+- python -m compileall -q research/crypto_backtest: exit 0
+- git diff --check: exit 0

@@ -1,0 +1,44 @@
+Changed branch/field
+- Branch: main
+- Field: frozen Bear + Low/Mid Daily Volatility candidate retrospective stability validation.
+- Frozen rule: completed Daily Close < EMA200 and completed Daily ATR14 / Close < 0.04839.
+- No strategy rule, candidate definition, or threshold was changed.
+
+Four artifacts
+- MODIFIED_FILE: D:\Desktop\TradingAgents-CN\research\crypto_backtest\validate_bear_low_mid_candidate.py
+- DIFF_FILE: D:\Desktop\TradingAgents-CN\reports\crypto-backtest\bear-low-mid-validation\artifacts\DIFF_FILE.patch
+- VERIFICATION.txt: D:\Desktop\TradingAgents-CN\reports\crypto-backtest\bear-low-mid-validation\artifacts\VERIFICATION.txt
+- executable ROLLBACK.sh: D:\Desktop\TradingAgents-CN\reports\crypto-backtest\bear-low-mid-validation\artifacts\ROLLBACK.sh
+
+Hashes
+- Original SHA256: 50D27F70986E1471FC6C40334E63FC00DF17D5F1D2F0F67A485EF55C9C446C67
+- Modified SHA256: 962789598EA042D669F21F5FF50582E32C33159C6DE83B5EBD12A4ACC0CA515E
+
+BASELINE
+- Command: python research/crypto_backtest/diagnose_signal_structure.py --data-dir research/crypto_backtest/data --trades reports/crypto-backtest/BASELINE_trades.csv --audit-dir reports/crypto-backtest/baseline-audit-v2 --output reports/crypto-backtest/signal-structure-diagnostic
+- Input: Corrected BASELINE, verified Scenario A/D ledgers, Binance BTCUSD_PERP archive
+- Literal output: {"output": "reports\\crypto-backtest\\signal-structure-diagnostic", "trades": 1858, "buckets": 213, "heatmap_cells": 357, "candidates": 4, "status": "PASS"}
+- Exit status: 0
+
+MODIFIED
+- Command: python research/crypto_backtest/validate_bear_low_mid_candidate.py --data-dir research/crypto_backtest/data --trades reports/crypto-backtest/BASELINE_trades.csv --output reports/crypto-backtest/bear-low-mid-validation
+- Input: 1858 Corrected BASELINE signals and frozen candidate definition
+- Literal output: {"output": "reports\\crypto-backtest\\bear-low-mid-validation", "validation": "Retrospective Stability Validation / Pseudo-OOS Validation", "candidate_trades": 368, "rolling_windows": 11, "walk_forward_folds": 8, "bootstrap_runs": 10000, "status": "PASS"}
+- Exit status: 0
+
+ASSERTIONS
+- Command: Python assertions over candidate_validation_summary.json and all required CSV dimensions/thresholds
+- Input: generated candidate-validation artifacts
+- Literal output: VALIDATION_ASSERTIONS=PASS candidate=368 years=7 rolling=11 wf=8 cost_cells=20 bootstrap=10000
+- Exit status: 0
+
+ROLLBACK
+- Command: python reports/crypto-backtest/bear-low-mid-validation/artifacts/ROLLBACK.sh --target reports/crypto-backtest/bear-low-mid-validation/artifacts/rollback-test/validate_bear_low_mid_candidate.py --source reports/crypto-backtest/bear-low-mid-validation/artifacts/diagnose_signal_structure.ORIGINAL.py
+- Input: another copy of MODIFIED_FILE and preserved original source
+- Literal output: ROLLBACK PASS target=reports\crypto-backtest\bear-low-mid-validation\artifacts\rollback-test\validate_bear_low_mid_candidate.py sha256=50d27f70986e1471fc6c40334e63fc00df17d5f1d2f0f67a485ef55c9c446c67
+- Exit status: 0
+- Restored behavior/status: rollback-test copy restored to original SHA256; MODIFIED_FILE remained changed with SHA256 962789598EA042D669F21F5FF50582E32C33159C6DE83B5EBD12A4ACC0CA515E.
+
+Additional checks
+- python -m compileall -q research/crypto_backtest: exit 0
+- git diff --check: exit 0

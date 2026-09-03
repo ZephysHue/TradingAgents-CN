@@ -1,0 +1,44 @@
+Changed branch/field
+- Branch: main
+- Field: preregistered E0/E1/E2/E3 exit-structure validation over frozen 1858 BASELINE entries.
+- Raw 15m completed-bar protection semantics; Scenario A/D BTC-base COIN-M settlement.
+- No entry filter, entry signal, indicator, initial SL, TP, risk rule, fee, or slippage setting was changed.
+
+Four artifacts
+- MODIFIED_FILE: D:\Desktop\TradingAgents-CN\research\crypto_backtest\validate_exit_structure.py
+- DIFF_FILE: D:\Desktop\TradingAgents-CN\reports\crypto-backtest\exit-structure-validation\artifacts\DIFF_FILE.patch
+- VERIFICATION.txt: D:\Desktop\TradingAgents-CN\reports\crypto-backtest\exit-structure-validation\artifacts\VERIFICATION.txt
+- executable ROLLBACK.sh: D:\Desktop\TradingAgents-CN\reports\crypto-backtest\exit-structure-validation\artifacts\ROLLBACK.sh
+
+Hashes
+- Original SHA256: 962789598EA042D669F21F5FF50582E32C33159C6DE83B5EBD12A4ACC0CA515E
+- Modified SHA256: 1F9353E05D214CF05135AB29495CDA2E7D5FFF4B7251E5DACB985C88BA523723
+
+BASELINE
+- Command: python research/crypto_backtest/audit_corrected_baseline.py --trades reports/crypto-backtest/BASELINE_trades.csv --old reports/crypto-backtest/diagnostics/diagnostic_summary.json --output reports/crypto-backtest/baseline-audit-v2 --initial-usd 1000
+- Input: Corrected BASELINE trade ledger
+- Literal output: {"output": "reports\\crypto-backtest\\baseline-audit-v2", "signals": 1858, "scenario_A_expectancy": 0.04346386086471876, "scenario_D_expectancy_all_in": -0.12605299189956812, "signal_sets_exact_match": true, "ledger": "PASS"}
+- Exit status: 0
+
+MODIFIED
+- Command: python research/crypto_backtest/validate_exit_structure.py --data-dir research/crypto_backtest/data --trades reports/crypto-backtest/BASELINE_trades.csv --output reports/crypto-backtest/exit-structure-validation
+- Input: frozen 1858 entries and raw Binance BTCUSD_PERP 15m archive
+- Literal output: {"output": "reports\\crypto-backtest\\exit-structure-validation", "frozen_entries": 1858, "e0_exact_match": true, "models": 4, "scenarios": 2, "status": "PASS"}
+- Exit status: 0
+
+ASSERTIONS
+- Command: Python assertions over exit_validation_summary.json and all six required CSV files
+- Input: generated exit-validation artifacts
+- Literal output: EXIT_ASSERTIONS=PASS entries=1858 models=4 scenarios=2 yearly=28 decisions=ALL_REJECT
+- Exit status: 0
+
+ROLLBACK
+- Command: python reports/crypto-backtest/exit-structure-validation/artifacts/ROLLBACK.sh --target reports/crypto-backtest/exit-structure-validation/artifacts/rollback-test/validate_exit_structure.py --source reports/crypto-backtest/exit-structure-validation/artifacts/validate_bear_low_mid_candidate.ORIGINAL.py
+- Input: another copy of MODIFIED_FILE and preserved original source
+- Literal output: ROLLBACK PASS target=reports\crypto-backtest\exit-structure-validation\artifacts\rollback-test\validate_exit_structure.py sha256=962789598ea042d669f21f5ff50582e32c33159c6de83b5ebd12a4acc0ca515e
+- Exit status: 0
+- Restored behavior/status: rollback-test copy restored to original SHA256; MODIFIED_FILE remained changed with SHA256 1F9353E05D214CF05135AB29495CDA2E7D5FFF4B7251E5DACB985C88BA523723.
+
+Additional checks
+- python -m compileall -q research/crypto_backtest: exit 0
+- git diff --check: exit 0

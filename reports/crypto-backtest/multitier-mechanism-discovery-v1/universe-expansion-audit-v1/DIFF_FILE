@@ -1,0 +1,3 @@
+Created audit implementation and outputs without modifying existing V1/V2/V3 research scripts, data, or frozen artifacts.
+Primary implementation: research/crypto_backtest/audit_multitier_universe_expansion_v1.py
+Primary tests: tests/unit/test_multitier_universe_expansion_v1.py

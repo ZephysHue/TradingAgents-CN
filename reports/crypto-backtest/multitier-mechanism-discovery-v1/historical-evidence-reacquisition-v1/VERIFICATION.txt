@@ -1,0 +1,35 @@
+BYBIT HISTORICAL EVIDENCE REACQUISITION V1 VERIFICATION
+Generated: 2026-08-31 UTC
+
+BASELINE
+COMMAND: python -m py_compile research/crypto_backtest/reacquire_bybit_historical_evidence_v1.py
+INPUT: research/crypto_backtest/reacquire_bybit_historical_evidence_v1.py
+RESULT: compilation completed without output
+EXIT STATUS: 0
+
+MODIFIED
+COMMAND: python research/crypto_backtest/reacquire_bybit_historical_evidence_v1.py
+INPUT: public Bybit endpoints with TLS verification, 10-second connection timeout, 30-second read timeout, and three retries
+LITERAL OUTPUT: {"status": "network_evidence_unavailable", "network_probe_successes": 0, "funding_contracts": 20, "output": "reports\\crypto-backtest\\multitier-mechanism-discovery-v1\\historical-evidence-reacquisition-v1"}
+EXIT STATUS: 0
+
+VERIFICATION
+COMMAND: python -m pytest tests/unit/test_bybit_historical_evidence_reacquisition_v1.py tests/unit/test_bybit_historical_instrument_evidence_v1.py tests/unit/test_multitier_universe_expansion_v1.py tests/unit/test_bybit_crypto_data.py -q
+INPUT: deterministic fixtures and existing public-client tests
+LITERAL OUTPUT: 20 passed in 5.49s
+EXIT STATUS: 0
+
+COMMAND: canonical JSON parser and SHA256 recomputation
+INPUT: network probe, source reacquisition, funding manifest, funding reconciliation
+LITERAL OUTPUT: JSON_PARSE_AND_SHA256=PASS
+EXIT STATUS: 0
+
+RESULT
+All four public probes exhausted three TLS-verified retries with ReadTimeout. No source or funding conclusion was derived from the timeout condition; all funding contracts are marked network_evidence_unavailable with zero retained raw pages.
+
+ROLLBACK
+COMMAND: bash ROLLBACK.sh <copy-of-output-directory>
+INPUT: independently created copy of this audit output directory
+RESULT: removes only the specified copied audit output directory after expected marker files are present; original audit output remains unchanged.
+LITERAL OUTPUT: ROLLBACK_OK: removed copied audit output directory; ROLLBACK_TEST_EXIT=0
+EXIT STATUS: 0

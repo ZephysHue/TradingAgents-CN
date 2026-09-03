@@ -1,0 +1,312 @@
+{
+  "frozen_entries": 1858,
+  "simulation": {
+    "timeframe": "15m",
+    "protection_activation": "threshold touch confirmed at completed bar; new stop active from next bar",
+    "same_bar_collision": "active stop first, then TP; newly triggered protection cannot act in the same bar",
+    "e0_exact_match": true
+  },
+  "models": {
+    "E0_A": {
+      "model": "E0",
+      "scenario": "A",
+      "description": "Original SL=-1R, TP=+2R",
+      "signals": 1858,
+      "trades": 1858,
+      "skipped_min_qty": 0,
+      "win_rate": 0.34768568353067814,
+      "expectancy_price_r": 0.04346386086471876,
+      "expectancy_all_in_r": 0.04346386086471876,
+      "profit_factor": 1.0597262420077656,
+      "net_pnl_btc": 0.07234547817399753,
+      "max_drawdown": -0.355712867547442,
+      "avg_win_r": 2.0011700518369158,
+      "avg_loss_r": 1.0,
+      "median_trade_r": -1.0,
+      "max_consecutive_losses": 15,
+      "longest_underwater_days": 646.6979166666666,
+      "longest_underwater_trades": 531
+    },
+    "E0_D": {
+      "model": "E0",
+      "scenario": "D",
+      "description": "Original SL=-1R, TP=+2R",
+      "signals": 1858,
+      "trades": 1858,
+      "skipped_min_qty": 0,
+      "win_rate": 0.3471474703982777,
+      "expectancy_price_r": -0.15329446713300476,
+      "expectancy_all_in_r": -0.12605299189956812,
+      "profit_factor": 0.7813478370022217,
+      "net_pnl_btc": -0.08039182798960612,
+      "max_drawdown": -0.9514418827806823,
+      "avg_win_r": 1.5161548551923938,
+      "avg_loss_r": 0.9992797531314852,
+      "median_trade_r": -0.9999999999999952,
+      "max_consecutive_losses": 15,
+      "longest_underwater_days": 2170.5729166666665,
+      "longest_underwater_trades": 1857
+    },
+    "E1_A": {
+      "model": "E1",
+      "scenario": "A",
+      "description": "Completed bar reaches +0.5R; next bar SL=BE",
+      "signals": 1858,
+      "trades": 1858,
+      "skipped_min_qty": 0,
+      "win_rate": 0.18245425188374598,
+      "expectancy_price_r": 0.023312018642726872,
+      "expectancy_all_in_r": 0.023312018642726872,
+      "profit_factor": 1.0553073728759035,
+      "net_pnl_btc": 0.03287708193856539,
+      "max_drawdown": -0.35879576776217204,
+      "avg_win_r": 2.0038753116170698,
+      "avg_loss_r": 0.4186965108624095,
+      "median_trade_r": 0.0,
+      "max_consecutive_losses": 30,
+      "longest_underwater_days": 1286.8020833333333,
+      "longest_underwater_trades": 1052
+    },
+    "E1_D": {
+      "model": "E1",
+      "scenario": "D",
+      "description": "Completed bar reaches +0.5R; next bar SL=BE",
+      "signals": 1858,
+      "trades": 1857,
+      "skipped_min_qty": 1,
+      "win_rate": 0.18147549811523964,
+      "expectancy_price_r": -0.17359024133397583,
+      "expectancy_all_in_r": -0.1440474315617336,
+      "profit_factor": 0.6723247079430158,
+      "net_pnl_btc": -0.08115988412775686,
+      "max_drawdown": -0.9575559905334362,
+      "avg_win_r": 1.5101969302987857,
+      "avg_loss_r": 0.5108108196847566,
+      "median_trade_r": -0.17822967161903705,
+      "max_consecutive_losses": 30,
+      "longest_underwater_days": 2170.5729166666665,
+      "longest_underwater_trades": 1857
+    },
+    "E2_A": {
+      "model": "E2",
+      "scenario": "A",
+      "description": "Completed bar reaches +1R; next bar SL=BE",
+      "signals": 1858,
+      "trades": 1858,
+      "skipped_min_qty": 0,
+      "win_rate": 0.25618945102260493,
+      "expectancy_price_r": 0.0174737994699372,
+      "expectancy_all_in_r": 0.0174737994699372,
+      "profit_factor": 1.0212800974877523,
+      "net_pnl_btc": 0.017625207189778468,
+      "max_drawdown": -0.428096090756635,
+      "avg_win_r": 2.00308050297299,
+      "avg_loss_r": 0.6664254703328509,
+      "median_trade_r": 0.0,
+      "max_consecutive_losses": 21,
+      "longest_underwater_days": 1286.8020833333333,
+      "longest_underwater_trades": 1052
+    },
+    "E2_D": {
+      "model": "E2",
+      "scenario": "D",
+      "description": "Completed bar reaches +1R; next bar SL=BE",
+      "signals": 1858,
+      "trades": 1855,
+      "skipped_min_qty": 3,
+      "win_rate": 0.2549865229110512,
+      "expectancy_price_r": -0.18015158880582052,
+      "expectancy_all_in_r": -0.1506126268489211,
+      "profit_factor": 0.7320013184322118,
+      "net_pnl_btc": -0.0817473109581335,
+      "max_drawdown": -0.9652376032478351,
+      "avg_win_r": 1.5077275118895344,
+      "avg_loss_r": 0.7181921388773506,
+      "median_trade_r": -0.47523157659320814,
+      "max_consecutive_losses": 21,
+      "longest_underwater_days": 2170.5729166666665,
+      "longest_underwater_trades": 1857
+    },
+    "E3_A": {
+      "model": "E3",
+      "scenario": "A",
+      "description": "Completed bar reaches +1R; next bar SL=+0.5R",
+      "signals": 1858,
+      "trades": 1858,
+      "skipped_min_qty": 0,
+      "win_rate": 0.5043057050592035,
+      "expectancy_price_r": 0.03281529805861674,
+      "expectancy_all_in_r": 0.03281529805861674,
+      "profit_factor": 1.0509696594896758,
+      "net_pnl_btc": 0.05276731076331791,
+      "max_drawdown": -0.47366953478360097,
+      "avg_win_r": 1.0479944757661792,
+      "avg_loss_r": 1.0,
+      "median_trade_r": 0.48091469955571686,
+      "max_consecutive_losses": 12,
+      "longest_underwater_days": 1295.6354166666667,
+      "longest_underwater_trades": 1055
+    },
+    "E3_D": {
+      "model": "E3",
+      "scenario": "D",
+      "description": "Completed bar reaches +1R; next bar SL=+0.5R",
+      "signals": 1858,
+      "trades": 1858,
+      "skipped_min_qty": 0,
+      "win_rate": 0.4860064585575888,
+      "expectancy_price_r": -0.16405762810157523,
+      "expectancy_all_in_r": -0.13618854518657364,
+      "profit_factor": 0.7552913748301242,
+      "net_pnl_btc": -0.08073429378846483,
+      "max_drawdown": -0.9554362144210041,
+      "avg_win_r": 0.7443515669371602,
+      "avg_loss_r": 0.9687830176972874,
+      "median_trade_r": -0.2139162759279546,
+      "max_consecutive_losses": 12,
+      "longest_underwater_days": 2170.5729166666665,
+      "longest_underwater_trades": 1857
+    }
+  },
+  "exit_contributions": {
+    "E1": {
+      "original_losses_changed_to_protected_exit": 576,
+      "original_tp_winners_sacrificed": 307,
+      "saved_loss_r": 576.0,
+      "sacrificed_winner_r": 613.4421228484609,
+      "net_protection_contribution_r": -37.44212284846094,
+      "total_delta_a_r": -37.442122848460905,
+      "total_delta_d_r": -31.250157984832526
+    },
+    "E2": {
+      "original_losses_changed_to_protected_exit": 291,
+      "original_tp_winners_sacrificed": 170,
+      "saved_loss_r": 291.0,
+      "sacrificed_winner_r": 339.28953407150414,
+      "net_protection_contribution_r": -48.289534071504136,
+      "total_delta_a_r": -48.28953407150413,
+      "total_delta_d_r": -42.18653687408693
+    },
+    "E3": {
+      "original_losses_changed_to_protected_exit": 291,
+      "original_tp_winners_sacrificed": 304,
+      "saved_loss_r": 436.60963064031125,
+      "sacrificed_winner_r": 456.3946603340488,
+      "net_protection_contribution_r": -19.785029693737556,
+      "total_delta_a_r": -19.785029693737528,
+      "total_delta_d_r": -18.831858007256226
+    }
+  },
+  "half_stability": [
+    {
+      "model": "E0",
+      "half": "first_half",
+      "trades": 929,
+      "d_expectancy": -0.11706091679738043,
+      "d_pf": 0.794757397861741,
+      "d_max_drawdown": -0.7448166591922487
+    },
+    {
+      "model": "E0",
+      "half": "second_half",
+      "trades": 929,
+      "d_expectancy": -0.13504506700175586,
+      "d_pf": 0.7149535424116096,
+      "d_max_drawdown": -0.8210443807329607
+    },
+    {
+      "model": "E1",
+      "half": "first_half",
+      "trades": 929,
+      "d_expectancy": -0.12264399881270314,
+      "d_pf": 0.6981299674441037,
+      "d_max_drawdown": -0.7449277363110529
+    },
+    {
+      "model": "E1",
+      "half": "second_half",
+      "trades": 929,
+      "d_expectancy": -0.16547392835467467,
+      "d_pf": 0.5320653415205148,
+      "d_max_drawdown": -0.8410050444639674
+    },
+    {
+      "model": "E2",
+      "half": "first_half",
+      "trades": 929,
+      "d_expectancy": -0.12151355949815855,
+      "d_pf": 0.7565566427398756,
+      "d_max_drawdown": -0.7367135202879792
+    },
+    {
+      "model": "E2",
+      "half": "second_half",
+      "trades": 929,
+      "d_expectancy": -0.1798059676360252,
+      "d_pf": 0.601983682087512,
+      "d_max_drawdown": -0.8736676082083109
+    },
+    {
+      "model": "E3",
+      "half": "first_half",
+      "trades": 929,
+      "d_expectancy": -0.08992895228791711,
+      "d_pf": 0.7979519401967852,
+      "d_max_drawdown": -0.6528619533556161
+    },
+    {
+      "model": "E3",
+      "half": "second_half",
+      "trades": 929,
+      "d_expectancy": -0.18244813808523017,
+      "d_pf": 0.5506220348951673,
+      "d_max_drawdown": -0.8751539156845065
+    }
+  ],
+  "candidate_decisions": {
+    "E1": {
+      "status": "Reject",
+      "checks": {
+        "d_expectancy_improvement_gt_002": false,
+        "d_pf_gt_1": false,
+        "max_dd_improved": false,
+        "both_halves_improve_vs_e0": false,
+        "majority_years_not_worse_by_002": false,
+        "improvement_survives_removing_top10_contributors": false
+      },
+      "d_expectancy_delta": -0.01799443966216549,
+      "years_evaluated": 7,
+      "years_not_worse": 3
+    },
+    "E2": {
+      "status": "Reject",
+      "checks": {
+        "d_expectancy_improvement_gt_002": false,
+        "d_pf_gt_1": false,
+        "max_dd_improved": false,
+        "both_halves_improve_vs_e0": false,
+        "majority_years_not_worse_by_002": true,
+        "improvement_survives_removing_top10_contributors": false
+      },
+      "d_expectancy_delta": -0.024559634949352982,
+      "years_evaluated": 7,
+      "years_not_worse": 4
+    },
+    "E3": {
+      "status": "Reject",
+      "checks": {
+        "d_expectancy_improvement_gt_002": false,
+        "d_pf_gt_1": false,
+        "max_dd_improved": false,
+        "both_halves_improve_vs_e0": false,
+        "majority_years_not_worse_by_002": true,
+        "improvement_survives_removing_top10_contributors": false
+      },
+      "d_expectancy_delta": -0.010135553287005522,
+      "years_evaluated": 7,
+      "years_not_worse": 5
+    }
+  },
+  "early_failure_only_diagnostic": true,
+  "entry_filters_added": false
+}

@@ -1,0 +1,456 @@
+diff --git a/reports/crypto-backtest/signal-structure-diagnostic/artifacts/audit_corrected_baseline.ORIGINAL.py b/research/crypto_backtest/diagnose_signal_structure.py
+index db20766e..f530a003 100644
+--- a/reports/crypto-backtest/signal-structure-diagnostic/artifacts/audit_corrected_baseline.ORIGINAL.py
++++ b/research/crypto_backtest/diagnose_signal_structure.py
+@@ -1,252 +1,234 @@
+-"""Fixed-signal, BTC-base audit for the corrected BTCUSD_PERP baseline."""
++"""Exploratory signal-structure diagnostics for the fixed Corrected BASELINE."""
+ from __future__ import annotations
+ 
+ import argparse
+ import json
+ import math
+-from decimal import Decimal, ROUND_DOWN
+ from pathlib import Path
+ 
+ import numpy as np
+ import pandas as pd
+ 
+-from coin_m_engine import ContractSpec, fee_btc, fill_prices, pnl_btc, risk_per_contract_btc
++from backtest import indicators, read_data, prepare
+ 
+ 
+-SPEC = ContractSpec()
+-TOL = 1e-12
+-RISK_PCT = 0.01
+-SCENARIOS = {
+-    "A_0fee_0slip": {"fee_rate": 0.0, "slippage_bp": 0.0},
+-    "B_004fee_0slip": {"fee_rate": 0.0004, "slippage_bp": 0.0},
+-    "C_0fee_2bp": {"fee_rate": 0.0, "slippage_bp": 2.0},
+-    "D_004fee_2bp": {"fee_rate": 0.0004, "slippage_bp": 2.0},
+-}
+-
+-
+-def as_decimal(value: float | int) -> Decimal:
+-    return Decimal(str(value))
++INITIAL_BTC = 1000.0 / 11785.0
++MIN_SAMPLE_LABELS = [(30, "DISPLAY_ONLY"), (100, "LOW"), (300, "MEDIUM"), (math.inf, "RELATIVELY_HIGH")]
+ 
+ 
+-def exit_trigger(row: pd.Series) -> float:
+-    return float(row.sl if row.exit_reason == "SL" else row.tp)
++def confidence(n: int) -> str:
++    for ceiling, label in MIN_SAMPLE_LABELS:
++        if n < ceiling:
++            return label
++    return "RELATIVELY_HIGH"
+ 
+ 
+-def quantity_for_risk(equity_btc: float, row: pd.Series, slippage_bp: float) -> tuple[float, int, float, float, float]:
+-    slip = as_decimal(slippage_bp / 10000)
+-    entry_fill, stop_fill = fill_prices(row.direction, as_decimal(row.raw_entry), as_decimal(row.sl), slip)
+-    risk_amount = equity_btc * RISK_PCT
+-    per_contract = float(risk_per_contract_btc(entry_fill, stop_fill, SPEC))
+-    raw = risk_amount / per_contract if per_contract > 0 else 0.0
+-    rounded = int((as_decimal(raw) / as_decimal(SPEC.step_size)).to_integral_value(rounding=ROUND_DOWN)) * SPEC.step_size
+-    rounded = min(rounded, SPEC.max_qty)
+-    if rounded < SPEC.min_qty:
+-        rounded = 0
+-    return raw, rounded, risk_amount, float(entry_fill), float(stop_fill)
++def pf(values: pd.Series) -> float | None:
++    gains = float(values[values > 0].sum()); losses = float(values[values <= 0].sum())
++    return gains / abs(losses) if losses else None
+ 
+ 
+-def replay_scenario(signals: pd.DataFrame, fee_rate: float, slippage_bp: float, initial_btc: float) -> pd.DataFrame:
+-    equity = initial_btc
+-    output: list[dict] = []
+-    for signal_id, row in signals.iterrows():
+-        qty_raw, qty, risk_budget, entry_fill, stop_fill = quantity_for_risk(equity, row, slippage_bp)
+-        raw_exit = exit_trigger(row)
+-        _, actual_exit_fill = fill_prices(row.direction, as_decimal(row.raw_entry), as_decimal(raw_exit), as_decimal(slippage_bp / 10000))
+-        equity_before = equity
+-        if qty == 0:
+-            raw_pnl = fill_pnl = entry_fee = exit_fee = net = 0.0
+-            price_risk = all_in_risk = 0.0
+-        else:
+-            raw_pnl = float(pnl_btc(row.direction, qty, as_decimal(row.raw_entry), as_decimal(raw_exit), SPEC))
+-            fill_pnl = float(pnl_btc(row.direction, qty, as_decimal(entry_fill), actual_exit_fill, SPEC))
+-            entry_fee = float(fee_btc(qty, as_decimal(entry_fill), as_decimal(fee_rate), SPEC))
+-            exit_fee = float(fee_btc(qty, actual_exit_fill, as_decimal(fee_rate), SPEC))
+-            net = fill_pnl - entry_fee - exit_fee
+-            price_risk = abs(float(pnl_btc(row.direction, qty, as_decimal(entry_fill), as_decimal(stop_fill), SPEC)))
+-            stop_entry_fee = float(fee_btc(qty, as_decimal(entry_fill), as_decimal(fee_rate), SPEC))
+-            stop_exit_fee = float(fee_btc(qty, as_decimal(stop_fill), as_decimal(fee_rate), SPEC))
+-            all_in_risk = price_risk + stop_entry_fee + stop_exit_fee
+-        slippage_cost = raw_pnl - fill_pnl
+-        equity += net
+-        usd_mark = float(actual_exit_fill)
+-        output.append({
+-            "signal_id": int(signal_id), "entry_time": row.entry_time, "exit_time": row.exit_time,
+-            "direction": row.direction, "exit_reason": row.exit_reason, "raw_entry": float(row.raw_entry),
+-            "sl": float(row.sl), "tp": float(row.tp), "raw_exit": raw_exit,
+-            "entry_fill": entry_fill, "exit_fill": usd_mark, "contracts_raw": qty_raw,
+-            "contracts": qty, "risk_budget_btc": risk_budget, "price_risk_btc": price_risk,
+-            "all_in_risk_btc": all_in_risk, "gross_raw_pnl_btc": raw_pnl,
+-            "filled_pnl_btc": fill_pnl, "entry_fee_btc": entry_fee, "exit_fee_btc": exit_fee,
+-            "fee_btc": entry_fee + exit_fee, "slippage_cost_btc": slippage_cost,
+-            "net_pnl_btc": net, "price_r": net / price_risk if price_risk else np.nan,
+-            "all_in_r": net / all_in_risk if all_in_risk else np.nan,
+-            "equity_before_btc": equity_before, "equity_after_btc": equity,
+-            "equity_after_usd_mark": equity * usd_mark,
+-        })
+-    return pd.DataFrame(output)
+-
+-
+-def drawdown(series: pd.Series, initial: float) -> float:
+-    curve = pd.concat([pd.Series([initial]), series.reset_index(drop=True)], ignore_index=True)
++def mdd(values: pd.Series) -> float:
++    equity = INITIAL_BTC + values.cumsum()
++    curve = pd.concat([pd.Series([INITIAL_BTC]), equity.reset_index(drop=True)], ignore_index=True)
+     return float((curve / curve.cummax() - 1).min())
+ 
+ 
+-def profit_factor(values: pd.Series) -> float | None:
+-    positive = float(values[values > 0].sum())
+-    negative = float(values[values <= 0].sum())
+-    return positive / abs(negative) if negative else None
+-
+-
+-def summarize(frame: pd.DataFrame, initial_btc: float, initial_usd: float) -> dict:
+-    traded = frame[frame.contracts > 0].copy()
+-    gross_profit = float(traded.loc[traded.gross_raw_pnl_btc > 0, "gross_raw_pnl_btc"].sum())
+-    gross_loss = float(traded.loc[traded.gross_raw_pnl_btc <= 0, "gross_raw_pnl_btc"].sum())
+-    final_btc = float(frame.equity_after_btc.iloc[-1])
+-    final_usd = float(frame.equity_after_usd_mark.iloc[-1])
++def stats(group: pd.DataFrame) -> dict:
++    n = len(group)
++    if not n:
++        return {"trades": 0, "sample_confidence": confidence(0)}
++    wins = group.a_r > 0; losses = ~wins
+     return {
+-        "signals": int(len(frame)), "trades": int(len(traded)),
+-        "long_trades": int((traded.direction == "long").sum()), "short_trades": int((traded.direction == "short").sum()),
+-        "win_rate_net": float((traded.net_pnl_btc > 0).mean()), "win_rate_gross": float((traded.gross_raw_pnl_btc > 0).mean()),
+-        "gross_profit_btc": gross_profit, "gross_loss_btc": gross_loss,
+-        "gross_pnl_btc": float(traded.gross_raw_pnl_btc.sum()),
+-        "fee_btc": float(traded.fee_btc.sum()), "slippage_cost_btc": float(traded.slippage_cost_btc.sum()),
+-        "net_pnl_btc": float(traded.net_pnl_btc.sum()),
+-        "initial_equity_btc": initial_btc, "final_equity_btc": final_btc,
+-        "return_btc_pct": (final_btc / initial_btc - 1) * 100,
+-        "initial_equity_usd": initial_usd, "final_equity_usd_mark": final_usd,
+-        "return_usd_mark_pct": (final_usd / initial_usd - 1) * 100,
+-        "expectancy_price_r": float(traded.price_r.mean()), "expectancy_all_in_r": float(traded.all_in_r.mean()),
+-        "profit_factor": profit_factor(traded.net_pnl_btc),
+-        "gross_profit_factor": profit_factor(traded.gross_raw_pnl_btc),
+-        "max_drawdown_btc_pct": drawdown(frame.equity_after_btc, initial_btc) * 100,
+-        "max_drawdown_usd_mark_pct": drawdown(frame.equity_after_usd_mark, initial_usd) * 100,
+-        "skipped_min_qty": int((frame.contracts == 0).sum()),
++        "trades": n, "long": int((group.direction == "long").sum()), "short": int((group.direction == "short").sum()),
++        "win_rate": float(wins.mean()), "avg_win_r": float(group.loc[wins, "a_r"].mean()) if wins.any() else None,
++        "avg_loss_r": float(abs(group.loc[losses, "a_r"].mean())) if losses.any() else None,
++        "expectancy_r": float(group.a_r.mean()), "profit_factor": pf(group.a_pnl_btc),
++        "gross_pnl_btc": float(group.a_pnl_btc.sum()), "max_drawdown": mdd(group.a_pnl_btc),
++        "scenario_d_all_in_expectancy": float(group.d_r.mean()), "scenario_d_profit_factor": pf(group.d_pnl_btc),
++        "sample_confidence": confidence(n),
+     }
+ 
+ 
+-def assert_accounting(frame: pd.DataFrame, summary: dict) -> None:
+-    assert np.isclose(frame.gross_raw_pnl_btc.sum() - frame.slippage_cost_btc.sum(), frame.filled_pnl_btc.sum(), atol=TOL)
+-    assert np.isclose(frame.filled_pnl_btc.sum() - frame.fee_btc.sum(), frame.net_pnl_btc.sum(), atol=TOL)
+-    assert np.isclose(summary["initial_equity_btc"] + frame.net_pnl_btc.sum(), summary["final_equity_btc"], atol=TOL)
+-    assert np.isclose(frame.gross_raw_pnl_btc.sum(), summary["gross_pnl_btc"], atol=TOL)
+-    assert np.isclose(frame.fee_btc.sum(), summary["fee_btc"], atol=TOL)
+-    assert np.isclose(frame.slippage_cost_btc.sum(), summary["slippage_cost_btc"], atol=TOL)
+-    assert np.isclose(frame.net_pnl_btc.sum(), summary["net_pnl_btc"], atol=TOL)
+-
+-
+-def direction_summary(frames: dict[str, pd.DataFrame], initial_btc: float, initial_usd: float) -> pd.DataFrame:
+-    rows = []
+-    for scenario, frame in frames.items():
+-        for direction in ("long", "short"):
+-            part = frame[frame.direction == direction].copy()
+-            if part.empty:
+-                continue
+-            part["equity_after_btc"] = initial_btc + part.net_pnl_btc.cumsum()
+-            part["equity_after_usd_mark"] = part.equity_after_btc * part.exit_fill
+-            stats = summarize(part, initial_btc, initial_usd)
+-            rows.append({"scenario": scenario, "direction": direction,
+-                         "trades": stats["trades"], "expectancy_price_r": stats["expectancy_price_r"],
+-                         "expectancy_all_in_r": stats["expectancy_all_in_r"], "profit_factor": stats["profit_factor"],
+-                         "net_pnl_btc": stats["net_pnl_btc"], "max_drawdown_btc_pct": stats["max_drawdown_btc_pct"]})
+-    return pd.DataFrame(rows)
+-
+-
+-def signal_consistency(frames: dict[str, pd.DataFrame]) -> dict:
+-    keys = {name: set(zip(frame.entry_time.astype(str), frame.direction, frame.exit_time.astype(str), frame.exit_reason)) for name, frame in frames.items()}
+-    reference = keys["A_0fee_0slip"]
+-    details = {}
+-    for name, values in keys.items():
+-        details[name] = {"same_entry_signals": len(reference & values), "different_entry_signals": len(reference ^ values), "exact_match": values == reference}
+-    return {"reference": "A_0fee_0slip", "signal_count": len(reference), "scenarios": details}
+-
+-
+-def cost_drag(summaries: dict[str, dict]) -> dict:
+-    a, b, c, d = (summaries[key] for key in SCENARIOS)
+-    gross_profit = a["gross_profit_btc"]
+-    trades = a["trades"]
+-    return {
+-        "primary_metric": "expectancy_all_in_r",
+-        "fee_drag_r_per_trade": b["expectancy_all_in_r"] - a["expectancy_all_in_r"],
+-        "slippage_drag_r_per_trade": c["expectancy_all_in_r"] - a["expectancy_all_in_r"],
+-        "total_cost_drag_r_per_trade": d["expectancy_all_in_r"] - a["expectancy_all_in_r"],
+-        "fee_drag_btc": b["net_pnl_btc"] - a["net_pnl_btc"],
+-        "slippage_drag_btc": c["net_pnl_btc"] - a["net_pnl_btc"],
+-        "total_cost_drag_btc": d["net_pnl_btc"] - a["net_pnl_btc"],
+-        "fee_drag_btc_per_trade": (b["net_pnl_btc"] - a["net_pnl_btc"]) / trades,
+-        "slippage_drag_btc_per_trade": (c["net_pnl_btc"] - a["net_pnl_btc"]) / trades,
+-        "total_cost_drag_btc_per_trade": (d["net_pnl_btc"] - a["net_pnl_btc"]) / trades,
+-        "fee_as_pct_of_A_gross_profit": b["fee_btc"] / gross_profit * 100 if gross_profit else None,
+-        "slippage_as_pct_of_A_gross_profit": c["slippage_cost_btc"] / gross_profit * 100 if gross_profit else None,
+-        "fee_as_pct_of_B_gross_profit": b["fee_btc"] / b["gross_profit_btc"] * 100 if b["gross_profit_btc"] else None,
+-        "fee_as_pct_of_D_gross_profit": d["fee_btc"] / d["gross_profit_btc"] * 100 if d["gross_profit_btc"] else None,
+-        "slippage_as_pct_of_C_gross_profit": c["slippage_cost_btc"] / c["gross_profit_btc"] * 100 if c["gross_profit_btc"] else None,
+-        "slippage_as_pct_of_D_gross_profit": d["slippage_cost_btc"] / d["gross_profit_btc"] * 100 if d["gross_profit_btc"] else None,
+-        "interaction_note": "Scenario equity paths and integer quantities differ, so fee and slippage drags are counterfactual differences and are not strictly additive.",
+-    }
++def completed_align(frame: pd.DataFrame, index: pd.DatetimeIndex, delta: pd.Timedelta) -> pd.DataFrame:
++    shifted = frame.copy(); shifted.index = shifted.index + delta
++    return shifted.reindex(index, method="ffill")
++
++
++def build_features(data_dir: Path, trades_path: Path, audit_dir: Path) -> tuple[pd.DataFrame, dict[str, pd.DataFrame]]:
++    raw, _ = read_data(data_dir); bars = prepare(raw)
++    trades = pd.read_csv(trades_path, parse_dates=["entry_time", "exit_time"]).sort_values("entry_time").reset_index(drop=True)
++    a = pd.read_csv(audit_dir / "A_0fee_0slip_trades.csv", parse_dates=["entry_time", "exit_time"])
++    d = pd.read_csv(audit_dir / "D_004fee_2bp_trades.csv", parse_dates=["entry_time", "exit_time"])
++    if len(trades) != len(a) or len(a) != len(d):
++        raise AssertionError("baseline and scenario trade counts differ")
++    features = trades[["entry_time", "exit_time", "direction", "raw_entry", "sl", "tp", "exit_reason"]].copy()
++    features["signal_id"] = np.arange(len(features)); features["signal_time"] = features.entry_time - pd.Timedelta(minutes=15)
++    features["a_r"] = a.price_r.to_numpy(); features["a_pnl_btc"] = a.net_pnl_btc.to_numpy()
++    features["d_r"] = d.all_in_r.to_numpy(); features["d_pnl_btc"] = d.net_pnl_btc.to_numpy()
++
++    signal_index = pd.DatetimeIndex(features.signal_time)
++    m15 = bars["15m"].reindex(signal_index); h1 = completed_align(bars["1h"], signal_index, pd.Timedelta(hours=1)); h4 = completed_align(bars["4h"], signal_index, pd.Timedelta(hours=4))
++    previous = bars["15m"].shift(1).reindex(signal_index)
++    features["trend_strength_4h"] = (h4.ema20 - h4.ema50).abs().to_numpy() / h4.atr14.to_numpy()
++    favorable_h1 = np.where(features.direction.eq("long"), h1.close.to_numpy() - h1.ema50.to_numpy(), h1.ema50.to_numpy() - h1.close.to_numpy())
++    features["distance_1h"] = favorable_h1 / h1.atr14.to_numpy()
++    features["trend_strength_15m"] = (m15.ema20 - m15.ema50).abs().to_numpy() / m15.atr14.to_numpy()
++    features["pullback_depth"] = np.where(features.direction.eq("long"), m15.ema20.to_numpy() - m15.low.to_numpy(), m15.high.to_numpy() - m15.ema20.to_numpy()) / m15.atr14.to_numpy()
++    features["confirmation_strength"] = np.where(features.direction.eq("long"), m15.close.to_numpy() - previous.high.to_numpy(), previous.low.to_numpy() - m15.close.to_numpy()) / m15.atr14.to_numpy()
++    candle_range = m15.high.to_numpy() - m15.low.to_numpy()
++    features["body_ratio"] = np.where(candle_range > 0, np.abs(m15.close.to_numpy() - m15.open.to_numpy()) / candle_range, np.nan)
++    features["close_location"] = np.where(features.direction.eq("long"), m15.close.to_numpy() - m15.low.to_numpy(), m15.high.to_numpy() - m15.close.to_numpy()) / candle_range
++
++    daily_raw = raw[["open", "high", "low", "close", "volume"]].resample("1D", label="left", closed="left").agg({"open": "first", "high": "max", "low": "min", "close": "last", "volume": "sum"}).dropna()
++    daily = indicators(daily_raw); daily["ema200"] = daily.close.ewm(span=200, adjust=False, min_periods=200).mean(); daily["daily_vol"] = daily.atr14 / daily.close
++    daily_aligned = completed_align(daily, signal_index, pd.Timedelta(days=1))
++    q33, q66 = daily.daily_vol.quantile([1 / 3, 2 / 3]).tolist()
++    trend = np.where(daily_aligned.close.to_numpy() > daily_aligned.ema200.to_numpy(), "Bull", "Bear").astype(object)
++    trend[pd.isna(daily_aligned.ema200.to_numpy())] = "Unavailable"
++    volatility = pd.cut(daily_aligned.daily_vol.to_numpy(), [-np.inf, q33, q66, np.inf], labels=["Low", "Mid", "High"], include_lowest=True).astype(object)
++    volatility[pd.isna(daily_aligned.daily_vol.to_numpy())] = "Unavailable"
++    features["daily_trend"] = trend
++    features["daily_volatility"] = volatility.astype(str)
++    features["market_state"] = features.daily_trend + "+" + features.daily_volatility
++    features["year"] = features.entry_time.dt.year
++
++    m15_index = bars["15m"].index
++    path_rows = []
++    for row in features.itertuples(index=False):
++        risk = abs(row.raw_entry - row.sl)
++        path = bars["15m"].loc[(m15_index >= row.entry_time) & (m15_index < row.exit_time)]
++        if path.empty or risk <= 0:
++            mfe = mae = np.nan
++        elif row.direction == "long":
++            mfe = (path.high.max() - row.raw_entry) / risk; mae = (row.raw_entry - path.low.min()) / risk
++        else:
++            mfe = (row.raw_entry - path.low.min()) / risk; mae = (path.high.max() - row.raw_entry) / risk
++        reactions = {}
++        for count, offset in [(1, 0), (2, 1), (4, 3)]:
++            ts = row.entry_time + pd.Timedelta(minutes=15 * offset)
++            if ts < row.exit_time and ts in m15_index:
++                close = float(bars["15m"].at[ts, "close"])
++                reactions[f"reaction_{count}bar_r"] = ((close - row.raw_entry) if row.direction == "long" else (row.raw_entry - close)) / risk
++            else:
++                reactions[f"reaction_{count}bar_r"] = np.nan
++        bars_held = int((row.exit_time - row.entry_time) / pd.Timedelta(minutes=15)) + 1
++        path_rows.append({"signal_id": row.signal_id, "mfe_r": mfe, "mae_r": mae, "holding_bars": bars_held, **reactions})
++    features = features.merge(pd.DataFrame(path_rows), on="signal_id", how="left")
++    metadata = {"daily_volatility_q33": q33, "daily_volatility_q66": q66, "bars": bars}
++    return features, metadata
++
++
++BUCKETS = {
++    "trend_strength_4h": ([-np.inf, 0.25, 0.5, 0.75, 1, 1.5, 2, np.inf], ["0~0.25", "0.25~0.5", "0.5~0.75", "0.75~1", "1~1.5", "1.5~2", ">2"]),
++    "distance_1h": ([-np.inf, 0, 0.25, 0.5, 1, 2, np.inf], ["<0", "0~0.25", "0.25~0.5", "0.5~1", "1~2", ">2"]),
++    "trend_strength_15m": ([-np.inf, 0.1, 0.25, 0.5, 1, np.inf], ["0~0.1", "0.1~0.25", "0.25~0.5", "0.5~1", ">1"]),
++    "pullback_depth": ([-np.inf, -0.2, 0, 0.1, 0.2, 0.3, 0.5, np.inf], ["<-0.2", "-0.2~0", "0~0.1", "0.1~0.2", "0.2~0.3", "0.3~0.5", ">0.5"]),
++    "confirmation_strength": ([-np.inf, 0.05, 0.1, 0.2, 0.4, np.inf], ["0~0.05", "0.05~0.1", "0.1~0.2", "0.2~0.4", ">0.4"]),
++    "body_ratio": ([-np.inf, 0.25, 0.5, 0.75, 1.0000001], ["0~0.25", "0.25~0.5", "0.5~0.75", "0.75~1"]),
++    "close_location": ([-np.inf, 0.25, 0.5, 0.75, 1.0000001], ["0~0.25", "0.25~0.5", "0.5~0.75", "0.75~1"]),
++    "holding_bars": ([0.5, 1.5, 2.5, 3.5, 4.5, 8.5, 16.5, 32.5, np.inf], ["1", "2", "3", "4", "5~8", "9~16", "17~32", ">32"]),
++}
+ 
+ 
+-def old_corrected(old_path: Path, corrected: dict) -> tuple[pd.DataFrame, dict]:
+-    old = json.loads(old_path.read_text(encoding="utf-8"))["cost_scenarios"]["D_004fee_2bp"]
+-    rows = [
+-        ("Trades", old["trades"], corrected["trades"], corrected["trades"] - old["trades"], "count"),
+-        ("Win Rate", old["win_rate"], corrected["win_rate_net"], corrected["win_rate_net"] - old["win_rate"], "ratio"),
+-        ("Expectancy", old["expectancy_r"], corrected["expectancy_all_in_r"], corrected["expectancy_all_in_r"] - old["expectancy_r"], "R/trade"),
+-        ("Profit Factor", old["profit_factor"], corrected["profit_factor"], corrected["profit_factor"] - old["profit_factor"], "ratio"),
+-        ("Net PnL", old["net_pnl"], corrected["net_pnl_btc"], "not_comparable", "OLD=USD; CORRECTED=BTC"),
+-        ("Max Drawdown", old["max_drawdown"], corrected["max_drawdown_btc_pct"] / 100, corrected["max_drawdown_btc_pct"] / 100 - old["max_drawdown"], "ratio"),
+-        ("Final Equity", old["final_equity"], corrected["final_equity_btc"], "not_comparable", "OLD=USD; CORRECTED=BTC"),
+-    ]
+-    table = pd.DataFrame(rows, columns=["metric", "old", "corrected", "difference", "unit"])
+-    attribution = {
+-        "COIN-M inverse PnL correction": "无法隔离：OLD未保留逐项反事实账本",
+-        "position sizing correction": "无法隔离：与BTC权益路径和整数数量联动",
+-        "quantity integerization": "无法隔离：OLD与CORRECTED交易集合及权益路径不同",
+-        "slippage direction correction": "无法隔离：OLD诊断与仓位、计价同时变化",
+-        "fee valuation correction": "无法隔离：OLD为USD线性扣费，CORRECTED为BTC结算",
+-        "BTC-base ledger correction": "无法隔离：这是计价体系变更，不是单一加法项",
+-    }
+-    return table, attribution
++def bucket_table(features: pd.DataFrame) -> pd.DataFrame:
++    output = []
++    scopes = {"Combined": features, "Long": features[features.direction == "long"], "Short": features[features.direction == "short"]}
++    for variable, (edges, labels) in BUCKETS.items():
++        for scope, frame in scopes.items():
++            assigned = pd.cut(frame[variable], edges, labels=labels, right=False, include_lowest=True)
++            for label in labels:
++                group = frame[assigned == label]
++                output.append({"analysis": variable, "scope": scope, "bucket": label, **stats(group)})
++    for scope, frame in scopes.items():
++        for year, group in frame.groupby("year", dropna=False):
++            output.append({"analysis": "year", "scope": scope, "bucket": str(year), **stats(group)})
++        for state, group in frame.groupby("market_state", dropna=False):
++            output.append({"analysis": "market_state", "scope": scope, "bucket": str(state), **stats(group)})
++    for outcome, frame in [("All", features), ("Wins", features[features.a_r > 0]), ("Losses", features[features.a_r <= 0])]:
++        edges, labels = BUCKETS["holding_bars"]
++        assigned = pd.cut(frame.holding_bars, edges, labels=labels, right=False, include_lowest=True)
++        for label in labels:
++            output.append({"analysis": "holding_bars_by_outcome", "scope": outcome, "bucket": label, **stats(frame[assigned == label])})
++    return pd.DataFrame(output)
+ 
+ 
+-def conclusions(summaries: dict[str, dict], drag: dict) -> dict:
+-    a, d = summaries["A_0fee_0slip"], summaries["D_004fee_2bp"]
+-    a_positive = a["expectancy_price_r"] > 0 and a["profit_factor"] > 1 and a["gross_pnl_btc"] > 0
+-    return {
+-        "1_zero_cost_has_positive_edge": a_positive,
+-        "1_evidence": {"expectancy_price_r": a["expectancy_price_r"], "profit_factor": a["profit_factor"], "gross_pnl_btc": a["gross_pnl_btc"]},
+-        "2_fee_expectancy_drag_r": drag["fee_drag_r_per_trade"],
+-        "3_slippage_expectancy_drag_r": drag["slippage_drag_r_per_trade"],
+-        "4_total_cost_expectancy_drag_r": drag["total_cost_drag_r_per_trade"],
+-        "5_primary_cause": "原始信号仅有很薄的毛优势，手续费和滑点共同将其转为明显负期望" if a_positive and d["expectancy_all_in_r"] < 0 else "原始信号本身为负期望",
+-        "6_old_vs_corrected": "主要差异来自计价和执行引擎整体修正；现有OLD产物不足以独立定量归因各修正项",
+-        "7_enter_next_diagnostic_stage": bool(a_positive and d["expectancy_all_in_r"] < 0),
+-        "7_reason": "零成本毛优势过薄且无法覆盖交易摩擦；下一阶段应诊断信号质量，不应进行参数矩阵优化" if a_positive else "零成本信号不具备正期望",
+-    }
++def mae_mfe_summary(features: pd.DataFrame) -> dict:
++    percentiles = [.05, .10, .25, .50, .75, .90, .95]
++    result = {"distribution": {"mfe_r": features.mfe_r.quantile(percentiles).to_dict(), "mae_r": features.mae_r.quantile(percentiles).to_dict()}, "by_scope": {}}
++    for scope, frame in [("Combined", features), ("Long", features[features.direction == "long"]), ("Short", features[features.direction == "short"]), ("Wins", features[features.a_r > 0]), ("Losses", features[features.a_r <= 0])]:
++        result["by_scope"][scope] = {"trades": len(frame), "mfe_r": frame.mfe_r.quantile(percentiles).to_dict(), "mae_r": frame.mae_r.quantile(percentiles).to_dict()}
++    sl = features[features.exit_reason == "SL"]; winners = features[features.exit_reason == "TP"]
++    result["sl_trades_prior_favorable_excursion"] = {str(x): {"count": int((sl.mfe_r >= x).sum()), "ratio": float((sl.mfe_r >= x).mean())} for x in [.25, .5, .75, 1, 1.5]}
++    result["tp_trades_prior_adverse_excursion"] = {str(x): {"count": int((winners.mae_r >= x).sum()), "ratio": float((winners.mae_r >= x).mean())} for x in [.25, .5, .75, 1]}
++    result["p_tp_given_mfe"] = {}
++    for x in [.25, .5, .75, 1, 1.25, 1.5]:
++        eligible = features[features.mfe_r >= x]
++        result["p_tp_given_mfe"][str(x)] = {"eligible": len(eligible), "tp_probability": float((eligible.exit_reason == "TP").mean()) if len(eligible) else None, "sample_confidence": confidence(len(eligible))}
++    return result
++
++
++def reaction_summary(features: pd.DataFrame) -> list[dict]:
++    output = []
++    for direction, scoped in [("Combined", features), ("Long", features[features.direction == "long"]), ("Short", features[features.direction == "short"])]:
++        for column in ["reaction_1bar_r", "reaction_2bar_r", "reaction_4bar_r"]:
++            for outcome, group in [("All", scoped), ("Wins", scoped[scoped.a_r > 0]), ("Losses", scoped[scoped.a_r <= 0])]:
++                values = group[column].dropna()
++                output.append({"direction": direction, "horizon": column, "outcome": outcome, "n": len(values), "mean": float(values.mean()), "p10": float(values.quantile(.1)), "p25": float(values.quantile(.25)), "median": float(values.median()), "p75": float(values.quantile(.75)), "p90": float(values.quantile(.9))})
++    return output
++
++
++def heatmaps(features: pd.DataFrame) -> pd.DataFrame:
++    pairs = [("trend_strength_4h", "pullback_depth"), ("trend_strength_4h", "confirmation_strength"), ("trend_strength_15m", "pullback_depth")]
++    output = []
++    for x, y in pairs:
++        xedges, xlabels = BUCKETS[x]; yedges, ylabels = BUCKETS[y]
++        for scope, frame in [("Combined", features), ("Long", features[features.direction == "long"]), ("Short", features[features.direction == "short"])]:
++            xb = pd.cut(frame[x], xedges, labels=xlabels, right=False, include_lowest=True); yb = pd.cut(frame[y], yedges, labels=ylabels, right=False, include_lowest=True)
++            for xl in xlabels:
++                for yl in ylabels:
++                    group = frame[(xb == xl) & (yb == yl)]
++                    s = stats(group)
++                    output.append({"analysis": f"{x}_x_{y}", "scope": scope, "x_bucket": xl, "y_bucket": yl, "low_sample": len(group) < 30, **s})
++    return pd.DataFrame(output)
++
++
++def candidate_filters(features: pd.DataFrame) -> pd.DataFrame:
++    definitions = [
++        ("4H趋势强度>=0.5", features.trend_strength_4h >= .5, "预定义相邻中高趋势分桶的宽区间"),
++        ("4H趋势强度>=0.75", features.trend_strength_4h >= .75, "排除最弱三个4H趋势分桶"),
++        ("15m趋势强度>=0.25", features.trend_strength_15m >= .25, "排除EMA20/50接近的弱趋势区"),
++        ("确认突破强度>=0.1ATR", features.confirmation_strength >= .1, "合并多个较强确认分桶"),
++        ("确认实体比例>=0.5", features.body_ratio >= .5, "宽实体质量条件"),
++        ("顺势收盘位置>=0.75", features.close_location >= .75, "确认K线靠近顺趋势端收盘"),
++        ("回踩深度0~0.5ATR", features.pullback_depth.between(0, .5, inclusive="left"), "覆盖多个相邻中等回踩分桶"),
++        ("回踩深度0.1~0.3ATR", features.pullback_depth.between(.1, .3, inclusive="left"), "两个相邻正期望回踩分桶，样本超过300"),
++        ("Bear且Low/Mid波动", features.daily_trend.eq("Bear") & features.daily_volatility.isin(["Low", "Mid"]), "两个相邻波动状态均为正毛期望，合并样本超过300"),
++    ]
++    candidates = []
++    overall = float(features.a_r.mean())
++    for name, mask, rationale in definitions:
++        kept, removed = features[mask.fillna(False)], features[~mask.fillna(False)]
++        s = stats(kept); removed_s = stats(removed)
++        candidates.append({"candidate": name, "trades_kept": len(kept), "share_pct": len(kept) / len(features) * 100, "trades_filtered": len(removed), "kept_expectancy_a": s.get("expectancy_r"), "filtered_expectancy_a": removed_s.get("expectancy_r"), "scenario_d_expectancy": s.get("scenario_d_all_in_expectancy"), "profit_factor_a": s.get("profit_factor"), "max_drawdown_a": s.get("max_drawdown"), "sample_confidence": confidence(len(kept)), "rationale": rationale, "improves_overall_a": s.get("expectancy_r", -np.inf) > overall})
++    table = pd.DataFrame(candidates)
++    eligible = table[(table.trades_kept >= 300) & table.improves_overall_a & (table.filtered_expectancy_a < overall) & ((table.kept_expectancy_a - table.filtered_expectancy_a) >= .03)].copy()
++    eligible = eligible.sort_values(["scenario_d_expectancy", "trades_kept"], ascending=[False, False]).head(5)
++    eligible["status"] = "Hypothesis Candidate"
++    return eligible
+ 
+ 
+ def main() -> int:
+-    parser = argparse.ArgumentParser()
+-    parser.add_argument("--trades", type=Path, default=Path("reports/crypto-backtest/BASELINE_trades.csv"))
+-    parser.add_argument("--old", type=Path, default=Path("reports/crypto-backtest/diagnostics/diagnostic_summary.json"))
+-    parser.add_argument("--output", type=Path, default=Path("reports/crypto-backtest/baseline-audit-v2"))
+-    parser.add_argument("--initial-usd", type=float, default=1000.0)
+-    args = parser.parse_args(); args.output.mkdir(parents=True, exist_ok=True)
+-    signals = pd.read_csv(args.trades, parse_dates=["entry_time", "exit_time"]).sort_values(["entry_time", "direction"]).reset_index(drop=True)
+-    initial_btc = float(signals.initial_equity_btc.iloc[0])
+-    frames: dict[str, pd.DataFrame] = {}; summaries: dict[str, dict] = {}
+-    for name, config in SCENARIOS.items():
+-        frame = replay_scenario(signals, config["fee_rate"], config["slippage_bp"], initial_btc)
+-        summary = summarize(frame, initial_btc, args.initial_usd); assert_accounting(frame, summary)
+-        frame.to_csv(args.output / f"{name}_trades.csv", index=False)
+-        frames[name] = frame; summaries[name] = summary
+-    directions = direction_summary(frames, initial_btc, args.initial_usd); directions.to_csv(args.output / "direction_summary.csv", index=False)
+-    consistency = signal_consistency(frames)
+-    pd.DataFrame([{"scenario": key, **value} for key, value in consistency["scenarios"].items()]).to_csv(args.output / "signal_consistency.csv", index=False)
+-    drag = cost_drag(summaries)
+-    diff_table, attribution = old_corrected(args.old, summaries["D_004fee_2bp"]); diff_table.to_csv(args.output / "OLD_vs_CORRECTED.csv", index=False)
+-    report = {"accounting": {"primary_unit": "BTC", "usd_mark_rule": "equity BTC multiplied by each trade exit fill; initial USD fixed at CLI input", "risk_pct": RISK_PCT, "contract_spec": {"contract_size_usd": 100, "min_qty": 1, "max_qty": 60000, "step_size": 1}}, "scenarios": summaries, "cost_drag": drag, "signal_consistency": consistency, "direction_summary": directions.to_dict(orient="records"), "old_vs_corrected": diff_table.to_dict(orient="records"), "attribution": attribution, "conclusions": conclusions(summaries, drag), "assertions": {"ledger_all_scenarios": "PASS", "signal_sets_exact_match": all(item["exact_match"] for item in consistency["scenarios"].values())}, "paused": ["parameter optimization", "288 parameter matrix", "MAE/MFE", "trend strength", "Walk Forward", "Monte Carlo", "200 to 1000", "fixed 0.02", "Funding analysis"]}
+-    (args.output / "audit_summary.json").write_text(json.dumps(report, ensure_ascii=False, indent=2), encoding="utf-8")
+-    print(json.dumps({"output": str(args.output), "signals": len(signals), "scenario_A_expectancy": summaries["A_0fee_0slip"]["expectancy_price_r"], "scenario_D_expectancy_all_in": summaries["D_004fee_2bp"]["expectancy_all_in_r"], "signal_sets_exact_match": report["assertions"]["signal_sets_exact_match"], "ledger": "PASS"}, ensure_ascii=False))
++    parser = argparse.ArgumentParser(); parser.add_argument("--data-dir", type=Path, required=True); parser.add_argument("--trades", type=Path, required=True); parser.add_argument("--audit-dir", type=Path, required=True); parser.add_argument("--output", type=Path, required=True); args = parser.parse_args(); args.output.mkdir(parents=True, exist_ok=True)
++    features, metadata = build_features(args.data_dir, args.trades, args.audit_dir)
++    required = ["trend_strength_4h", "distance_1h", "trend_strength_15m", "pullback_depth", "confirmation_strength", "body_ratio", "close_location", "mfe_r", "mae_r"]
++    if features[required].isna().mean().max() > .15:
++        raise AssertionError("feature missing rate exceeds 15%")
++    buckets = bucket_table(features); heatmap = heatmaps(features); candidates = candidate_filters(features)
++    features.to_csv(args.output / "mae_mfe.csv", index=False); buckets.to_csv(args.output / "diagnostic_buckets.csv", index=False); heatmap.to_csv(args.output / "heatmap_data.csv", index=False); candidates.to_csv(args.output / "candidate_filters.csv", index=False)
++    summary = {"scope": {"scenario": "A primary, D supplemental", "trades": len(features), "multiple_testing": "Exploratory only; every candidate is Hypothesis Candidate and requires independent validation."}, "overall": stats(features), "mae_mfe": mae_mfe_summary(features), "initial_reaction": reaction_summary(features), "daily_volatility_thresholds": {"q33": metadata["daily_volatility_q33"], "q66": metadata["daily_volatility_q66"]}, "candidate_filters": candidates.to_dict(orient="records"), "files": ["diagnostic_buckets.csv", "mae_mfe.csv", "candidate_filters.csv", "heatmap_data.csv"]}
++    (args.output / "diagnostic_summary.json").write_text(json.dumps(summary, ensure_ascii=False, indent=2, default=str), encoding="utf-8")
++    print(json.dumps({"output": str(args.output), "trades": len(features), "buckets": len(buckets), "heatmap_cells": len(heatmap), "candidates": len(candidates), "status": "PASS"}, ensure_ascii=False))
+     return 0
+ 
+ 

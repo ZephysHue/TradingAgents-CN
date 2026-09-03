@@ -1,0 +1,35 @@
+MULTITIER UNIVERSE EXPANSION AUDIT V1 VERIFICATION
+Generated: 2026-08-30 UTC
+
+BASELINE
+COMMAND: python -m py_compile research/crypto_backtest/audit_multitier_universe_expansion_v1.py
+INPUT: research/crypto_backtest/audit_multitier_universe_expansion_v1.py
+RESULT: compilation completed without output
+EXIT STATUS: 0
+
+MODIFIED
+COMMAND: python research/crypto_backtest/audit_multitier_universe_expansion_v1.py --start 2026-06-01 --end 2026-08-29 --workers 16
+INPUT: Bybit V5 public current-instrument and 15m-kline responses; UTC 2026-06-01 through 2026-08-29
+LITERAL OUTPUT: {"status": "PASS", "candidates": 735, "months": 3, "output": "reports\\crypto-backtest\\multitier-mechanism-discovery-v1\\universe-expansion-audit-v1"}
+EXIT STATUS: 0
+
+VERIFICATION
+COMMAND: python -m pytest tests/unit/test_multitier_census_v1.py tests/unit/test_multitier_universe_expansion_v1.py tests/unit/test_bybit_crypto_data.py -q
+INPUT: deterministic unit fixtures and existing Bybit client tests
+LITERAL OUTPUT: 10 passed in 6.22s
+EXIT STATUS: 0
+
+COMMAND: canonical JSON parser and SHA256 recomputation for current_instruments_snapshot.json, strict_historical_universe_registry.json, provisional_current_listing_universe_registry.json
+INPUT: generated audit artifacts
+LITERAL OUTPUT: REGISTRY_HASH_PASS current_instruments_snapshot.json; REGISTRY_HASH_PASS strict_historical_universe_registry.json; REGISTRY_HASH_PASS provisional_current_listing_universe_registry.json
+EXIT STATUS: 0
+
+RESULT
+Current public instrument metadata does not provide a historical status snapshot. The strict historical registry is therefore empty for every sampled month; provisional registry results remain explicitly non-historical.
+
+ROLLBACK
+COMMAND: bash ROLLBACK.sh <copy-of-output-directory>
+INPUT: independently created copy of this audit output directory
+RESULT: removes only the specified copied audit directory after its expected marker files are present; original audit output remains unchanged.
+LITERAL OUTPUT: ROLLBACK_OK: removed copied audit output directory; ROLLBACK_TEST_EXIT=0
+EXIT STATUS: 0

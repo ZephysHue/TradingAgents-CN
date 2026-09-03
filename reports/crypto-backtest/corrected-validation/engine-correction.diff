@@ -1,0 +1,10 @@
+COIN-M correction summary
+
+1. ContractSize=100 USD, minQty=1, stepSize=1, quantity is integer contracts.
+2. Account ledger is BTC-denominated.
+3. Long PnL = contracts*100*(1/entry_fill - 1/exit_fill).
+4. Short PnL is the negative of the long expression.
+5. Fees are contracts*100/price*fee_rate in BTC, charged on both fills.
+6. Long entry/exit fills are adverse by slippage; short fills are mirrored.
+7. Position sizing uses inverse-contract stop risk and rounds down to stepSize.
+8. Strategy signals, EMA, ATR, k, stop, target, and trend rules were not changed.

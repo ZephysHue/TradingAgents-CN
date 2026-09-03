@@ -1,0 +1,168 @@
+[
+  {
+    "family": "A",
+    "family_name": "mean_reversion_bollinger_rsi",
+    "param_id": "A08",
+    "stage": "validation",
+    "classification": "rejected_in_validation",
+    "reasons": [
+      "validation_win_rate_le_50",
+      "validation_expectancy_le_0",
+      "validation_profit_factor_le_1.05"
+    ],
+    "metrics": {
+      "family": "A",
+      "family_name": "mean_reversion_bollinger_rsi",
+      "param_id": "A08",
+      "params_json": "{\"bb_width\": 2.0, \"bb_window\": 18, \"family\": \"A\", \"max_hold_bars\": 12, \"param_id\": \"A08\", \"rsi_entry\": 25, \"rsi_length\": 14}",
+      "stage": "validation",
+      "trade_count": 728,
+      "win_rate": 42.994505494505496,
+      "net_expectancy_bps": -23.603225447919858,
+      "profit_factor": 0.7126241773562036,
+      "net_pnl": -160.37932038880547,
+      "ending_equity": 839.6206796111968,
+      "max_drawdown_pct": -19.89962111511946,
+      "avg_holding_bars": 6.527472527472527,
+      "max_holding_bars": 12.0,
+      "unresolved_positions": 0,
+      "terminal_mtm_pnl": 0.0,
+      "max_gross_exposure_pct": 78.52289287104604,
+      "drawdown_start_utc": "2026-07-01 02:30:00+00:00",
+      "drawdown_trough_utc": "2026-07-29 04:00:00+00:00",
+      "recovery_utc": null,
+      "duration_15m_bars": 2965,
+      "status": "rejected_in_validation",
+      "gate_reasons": "validation_win_rate_le_50;validation_expectancy_le_0;validation_profit_factor_le_1.05",
+      "audit_json": "{\"created_signals\": 781, \"family\": \"A\", \"filled_entries\": 728, \"filled_exits\": 728, \"missing_execution_bars\": 0, \"param_id\": \"A08\", \"portfolio_limit_blocks\": 53, \"same_symbol_overlap_blocks\": 0, \"stage\": \"validation\", \"unresolved_mtm_pnl\": 0.0, \"unresolved_open_positions\": 0}"
+    },
+    "warning_flags": [
+      "exploratory_survivorship_bias_present",
+      "funding_unmodeled_not_deployable"
+    ]
+  },
+  {
+    "family": "B",
+    "family_name": "trend_pullback_hourly_filter",
+    "param_id": "B08",
+    "stage": "validation",
+    "classification": "rejected_in_validation",
+    "reasons": [
+      "validation_win_rate_le_50",
+      "validation_expectancy_le_0",
+      "validation_profit_factor_le_1.05",
+      "validation_drawdown_lt_-25"
+    ],
+    "metrics": {
+      "family": "B",
+      "family_name": "trend_pullback_hourly_filter",
+      "param_id": "B08",
+      "params_json": "{\"family\": \"B\", \"max_hold_bars\": 16, \"param_id\": \"B08\", \"pullback_ema\": 20, \"rsi_floor\": 55, \"rsi_length\": 14, \"take_profit_atr\": 1.5, \"trend_fast\": 36, \"trend_slow\": 120}",
+      "stage": "validation",
+      "trade_count": 2240,
+      "win_rate": 38.92857142857143,
+      "net_expectancy_bps": -12.165446904912896,
+      "profit_factor": 0.7754968722690518,
+      "net_pnl": -241.54486857977116,
+      "ending_equity": 758.3339371796343,
+      "max_drawdown_pct": -27.127128042822722,
+      "avg_holding_bars": 6.211160714285715,
+      "max_holding_bars": 16.0,
+      "unresolved_positions": 3,
+      "terminal_mtm_pnl": -0.1211942405949886,
+      "max_gross_exposure_pct": 78.98727616660058,
+      "drawdown_start_utc": "2026-07-02 04:45:00+00:00",
+      "drawdown_trough_utc": "2026-07-31 01:30:00+00:00",
+      "recovery_utc": null,
+      "duration_15m_bars": 2860,
+      "status": "rejected_in_validation",
+      "gate_reasons": "validation_win_rate_le_50;validation_expectancy_le_0;validation_profit_factor_le_1.05;validation_drawdown_lt_-25",
+      "audit_json": "{\"created_signals\": 2617, \"family\": \"B\", \"filled_entries\": 2243, \"filled_exits\": 2240, \"missing_execution_bars\": 0, \"param_id\": \"B08\", \"portfolio_limit_blocks\": 374, \"same_symbol_overlap_blocks\": 0, \"stage\": \"validation\", \"unresolved_mtm_pnl\": -0.1211942405949886, \"unresolved_open_positions\": 3}"
+    },
+    "warning_flags": [
+      "exploratory_survivorship_bias_present",
+      "funding_unmodeled_not_deployable"
+    ]
+  },
+  {
+    "family": "C",
+    "family_name": "tiered_cross_sectional_momentum",
+    "param_id": "C03",
+    "stage": "validation",
+    "classification": "rejected_in_validation",
+    "reasons": [
+      "validation_win_rate_le_50"
+    ],
+    "metrics": {
+      "family": "C",
+      "family_name": "tiered_cross_sectional_momentum",
+      "param_id": "C03",
+      "params_json": "{\"family\": \"C\", \"hold_hours\": 8, \"lookback_hours\": 12, \"param_id\": \"C03\", \"rebalance_hours\": 1, \"selection_pct\": 0.2}",
+      "stage": "validation",
+      "trade_count": 700,
+      "win_rate": 44.142857142857146,
+      "net_expectancy_bps": 40.60639427267309,
+      "profit_factor": 1.1897132537290807,
+      "net_pnl": 260.78566520619177,
+      "ending_equity": 1260.7856652061903,
+      "max_drawdown_pct": -15.690973644351159,
+      "avg_holding_bars": 32.0,
+      "max_holding_bars": 32.0,
+      "unresolved_positions": 0,
+      "terminal_mtm_pnl": 0.0,
+      "max_gross_exposure_pct": 79.04681700969955,
+      "drawdown_start_utc": "2026-07-13 22:15:00+00:00",
+      "drawdown_trough_utc": "2026-07-27 12:15:00+00:00",
+      "recovery_utc": null,
+      "duration_15m_bars": 1734,
+      "status": "rejected_in_validation",
+      "gate_reasons": "validation_win_rate_le_50",
+      "audit_json": "{\"created_signals\": 8880, \"family\": \"C\", \"filled_entries\": 700, \"filled_exits\": 700, \"late_stage_blocks\": 67, \"missing_execution_bars\": 3, \"param_id\": \"C03\", \"portfolio_limit_blocks\": 4623, \"same_symbol_overlap_blocks\": 3487, \"stage\": \"validation\", \"unresolved_mtm_pnl\": 0.0, \"unresolved_open_positions\": 0}"
+    },
+    "warning_flags": [
+      "exploratory_survivorship_bias_present",
+      "funding_unmodeled_not_deployable"
+    ]
+  },
+  {
+    "family": "D",
+    "family_name": "donchian_atr_breakout",
+    "param_id": "D12",
+    "stage": "validation",
+    "classification": "rejected_in_validation",
+    "reasons": [
+      "validation_win_rate_le_50",
+      "validation_profit_factor_le_1.05"
+    ],
+    "metrics": {
+      "family": "D",
+      "family_name": "donchian_atr_breakout",
+      "param_id": "D12",
+      "params_json": "{\"atr_ratio_threshold\": 1.2, \"breakout_buffer_atr\": 0.0, \"donchian_window\": 40, \"family\": \"D\", \"max_hold_bars\": 20, \"param_id\": \"D12\", \"take_profit_atr\": 2.0}",
+      "stage": "validation",
+      "trade_count": 892,
+      "win_rate": 33.408071748878925,
+      "net_expectancy_bps": 1.5845601845595614,
+      "profit_factor": 1.0110273751851475,
+      "net_pnl": 7.951976273685112,
+      "ending_equity": 1007.9519762736866,
+      "max_drawdown_pct": -12.735656269136387,
+      "avg_holding_bars": 6.79372197309417,
+      "max_holding_bars": 20.0,
+      "unresolved_positions": 0,
+      "terminal_mtm_pnl": 0.0,
+      "max_gross_exposure_pct": 76.3319157690942,
+      "drawdown_start_utc": "2026-07-07 18:15:00+00:00",
+      "drawdown_trough_utc": "2026-07-24 21:15:00+00:00",
+      "recovery_utc": null,
+      "duration_15m_bars": 2326,
+      "status": "rejected_in_validation",
+      "gate_reasons": "validation_win_rate_le_50;validation_profit_factor_le_1.05",
+      "audit_json": "{\"created_signals\": 1003, \"family\": \"D\", \"filled_entries\": 892, \"filled_exits\": 892, \"missing_execution_bars\": 0, \"param_id\": \"D12\", \"portfolio_limit_blocks\": 111, \"same_symbol_overlap_blocks\": 0, \"stage\": \"validation\", \"unresolved_mtm_pnl\": 0.0, \"unresolved_open_positions\": 0}"
+    },
+    "warning_flags": [
+      "exploratory_survivorship_bias_present",
+      "funding_unmodeled_not_deployable"
+    ]
+  }
+]

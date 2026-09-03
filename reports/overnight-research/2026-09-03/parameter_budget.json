@@ -1,0 +1,73 @@
+{
+  "generated_at_utc": "2026-09-03T08:41:08.334328+08:00",
+  "warning_flags": [
+    "exploratory_survivorship_bias_present",
+    "funding_unmodeled_not_deployable"
+  ],
+  "total_parameter_sets": 96,
+  "total_cap": 192,
+  "family_cap": 48,
+  "families": [
+    {
+      "family": "A",
+      "family_name": "mean_reversion_bollinger_rsi",
+      "parameter_sets": 24,
+      "selected_param_id": "A08",
+      "selected_params": {
+        "family": "A",
+        "param_id": "A08",
+        "bb_window": 18,
+        "bb_width": 2.0,
+        "rsi_length": 14,
+        "rsi_entry": 25,
+        "max_hold_bars": 12
+      }
+    },
+    {
+      "family": "B",
+      "family_name": "trend_pullback_hourly_filter",
+      "parameter_sets": 32,
+      "selected_param_id": "B08",
+      "selected_params": {
+        "family": "B",
+        "param_id": "B08",
+        "trend_fast": 36,
+        "trend_slow": 120,
+        "pullback_ema": 20,
+        "rsi_length": 14,
+        "rsi_floor": 55,
+        "take_profit_atr": 1.5,
+        "max_hold_bars": 16
+      }
+    },
+    {
+      "family": "C",
+      "family_name": "tiered_cross_sectional_momentum",
+      "parameter_sets": 24,
+      "selected_param_id": "C03",
+      "selected_params": {
+        "family": "C",
+        "param_id": "C03",
+        "lookback_hours": 12,
+        "selection_pct": 0.2,
+        "hold_hours": 8,
+        "rebalance_hours": 1
+      }
+    },
+    {
+      "family": "D",
+      "family_name": "donchian_atr_breakout",
+      "parameter_sets": 16,
+      "selected_param_id": "D12",
+      "selected_params": {
+        "family": "D",
+        "param_id": "D12",
+        "donchian_window": 40,
+        "breakout_buffer_atr": 0.0,
+        "atr_ratio_threshold": 1.2,
+        "max_hold_bars": 20,
+        "take_profit_atr": 2.0
+      }
+    }
+  ]
+}

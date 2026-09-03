@@ -1,0 +1,123 @@
+{
+  "market": "BTCUSD_PERP",
+  "engine": "COIN-M inverse",
+  "funding": "Excluded",
+  "audit": {
+    "market": "BTCUSD_PERP",
+    "data_market_key": "cm",
+    "structural_breakouts": 13206,
+    "signals": 3501,
+    "discarded_open_position": 3029,
+    "skipped_wide_stop": 687,
+    "skipped_background": 4677,
+    "simultaneous_breakouts_discarded": 1312,
+    "future_leakage_violations": 0,
+    "confirmed_swing_only": true,
+    "next_bar_entry": true,
+    "raw_trigger_fill_separated": true,
+    "single_position": true,
+    "same_impulse_single_trade": true,
+    "daily_risk_control": "disabled"
+  },
+  "scenarios": {
+    "A": {
+      "signals": 3501,
+      "executed_trades": 3501,
+      "skipped_min_qty": 0,
+      "long_trades": 1886,
+      "short_trades": 1615,
+      "win_rate": 0.3221936589545844,
+      "avg_win_r": 2.000111006880768,
+      "avg_loss_r": 1.0,
+      "price_r_expectancy": -0.033383257423163094,
+      "all_in_r_expectancy": -0.033383257423163094,
+      "profit_factor": 0.9274244944454784,
+      "net_pnl_btc": -0.06526577067209094,
+      "ending_btc_equity": 0.019587856820484674,
+      "btc_max_drawdown": -0.7847727352648499,
+      "max_consecutive_losses": 19,
+      "longest_underwater_days": 2166.2708333333335,
+      "average_holding_bars": 17.35704084547272,
+      "median_holding_bars": 8.0
+    },
+    "D": {
+      "signals": 3501,
+      "executed_trades": 2153,
+      "skipped_min_qty": 1348,
+      "long_trades": 1184,
+      "short_trades": 969,
+      "win_rate": 0.31490942870413374,
+      "avg_win_r": 1.3538951548886649,
+      "avg_loss_r": 0.9980452563388919,
+      "price_r_expectancy": -0.3197453546171389,
+      "all_in_r_expectancy": -0.25739704509305644,
+      "profit_factor": 0.6488938929474042,
+      "net_pnl_btc": -0.08462578220628408,
+      "ending_btc_equity": 0.00022784528629122254,
+      "btc_max_drawdown": -0.9973148433010579,
+      "max_consecutive_losses": 16,
+      "longest_underwater_days": 2171.90625,
+      "average_holding_bars": 14.30980027868091,
+      "median_holding_bars": 7.0
+    }
+  },
+  "v1_benchmark": {
+    "scenario_a_expectancy": 0.04346386086471876,
+    "scenario_d_all_in_expectancy": -0.12605299189956812,
+    "scenario_d_pf": 0.7813478370022217
+  },
+  "bootstrap": {
+    "runs": 10000,
+    "sample": "Standard",
+    "mean_expectancy": -0.25740401480856,
+    "median_expectancy": -0.2575555368361755,
+    "expectancy_percentiles": {
+      "5": -0.29659027352702055,
+      "25": -0.2733876731191739,
+      "50": -0.2575555368361755,
+      "75": -0.24163373576427294,
+      "95": -0.21821486400610862
+    },
+    "p_expectancy_gt_0": 0.0,
+    "p_pf_gt_1": 0.0,
+    "max_drawdown_percentiles": {
+      "5": -0.9985846637174731,
+      "25": -0.9976597832016784,
+      "50": -0.996731606743776,
+      "75": -0.9954270867712891,
+      "95": -0.9924177981358367
+    }
+  },
+  "tail_dependence": [
+    {
+      "removed_top_winners": 5,
+      "contribution_pct_of_net_profit": null,
+      "top_winner_share_of_gross_profit_pct": 4.100558329517572,
+      "tail_dependence_status": "not_assessed: total net PnL is non-positive",
+      "all_in_r_expectancy": -0.2614476075430192,
+      "profit_factor": 0.6222856203704185,
+      "net_pnl_btc": -0.0910390739000344
+    },
+    {
+      "removed_top_winners": 10,
+      "contribution_pct_of_net_profit": null,
+      "top_winner_share_of_gross_profit_pct": 7.18738450017105,
+      "tail_dependence_status": "not_assessed: total net PnL is non-positive",
+      "all_in_r_expectancy": -0.26504350163216206,
+      "profit_factor": 0.6022553938631459,
+      "net_pnl_btc": -0.09586688393209705
+    },
+    {
+      "removed_top_winners": 20,
+      "contribution_pct_of_net_profit": null,
+      "top_winner_share_of_gross_profit_pct": 12.60570029587782,
+      "tail_dependence_status": "not_assessed: total net PnL is non-positive",
+      "all_in_r_expectancy": -0.2729087539854857,
+      "profit_factor": 0.5670962735642,
+      "net_pnl_btc": -0.10434115423733395
+    }
+  ],
+  "rating": "REJECT",
+  "cost_matrix_status": "not_run: Scenario D is not positive",
+  "ledger": "PASS"
+}

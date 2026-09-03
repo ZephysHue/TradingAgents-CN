@@ -1,0 +1,43 @@
+{
+  "generated_at_utc": "2026-09-01T04:34:39.350286+00:00",
+  "status": "data_acquisition_network_unavailable",
+  "pages": [
+    {
+      "symbol": "HYPEUSDT",
+      "page": 1,
+      "params": {
+        "category": "linear",
+        "symbol": "HYPEUSDT",
+        "interval": "15",
+        "start": 1779235200000,
+        "end": 1780135199999,
+        "limit": 1000
+      },
+      "requested_at_utc": "2026-09-01T04:35:12.429308+00:00",
+      "http_status": null,
+      "raw_path": null,
+      "sha256": null,
+      "rows": 0,
+      "earliest_ms": null,
+      "latest_ms": null,
+      "error": [
+        {
+          "attempt": 1,
+          "utc": "2026-09-01T04:34:39.350286+00:00",
+          "error": "ReadTimeout"
+        },
+        {
+          "attempt": 2,
+          "utc": "2026-09-01T04:34:50.381650+00:00",
+          "error": "ReadTimeout"
+        },
+        {
+          "attempt": 3,
+          "utc": "2026-09-01T04:35:02.411115+00:00",
+          "error": "ReadTimeout"
+        }
+      ]
+    }
+  ],
+  "failed_symbol": "HYPEUSDT"
+}

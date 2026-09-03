@@ -1,0 +1,68 @@
+{
+  "universe": "strict_universe",
+  "months": [
+    {
+      "month": "2026-06",
+      "eligible_contracts": 0,
+      "tiers": {
+        "hot": {
+          "symbols": [],
+          "count": 0,
+          "status": "insufficient_universe"
+        },
+        "mid": {
+          "symbols": [],
+          "count": 0,
+          "status": "insufficient_universe"
+        },
+        "low": {
+          "symbols": [],
+          "count": 0,
+          "status": "insufficient_universe"
+        }
+      }
+    },
+    {
+      "month": "2026-07",
+      "eligible_contracts": 0,
+      "tiers": {
+        "hot": {
+          "symbols": [],
+          "count": 0,
+          "status": "insufficient_universe"
+        },
+        "mid": {
+          "symbols": [],
+          "count": 0,
+          "status": "insufficient_universe"
+        },
+        "low": {
+          "symbols": [],
+          "count": 0,
+          "status": "insufficient_universe"
+        }
+      }
+    },
+    {
+      "month": "2026-08",
+      "eligible_contracts": 0,
+      "tiers": {
+        "hot": {
+          "symbols": [],
+          "count": 0,
+          "status": "insufficient_universe"
+        },
+        "mid": {
+          "symbols": [],
+          "count": 0,
+          "status": "insufficient_universe"
+        },
+        "low": {
+          "symbols": [],
+          "count": 0,
+          "status": "insufficient_universe"
+        }
+      }
+    }
+  ]
+}

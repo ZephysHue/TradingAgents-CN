@@ -1,0 +1,33 @@
+V1 ENTRY-TIME PREDICTIVE STRUCTURE DIAGNOSTIC VERIFICATION
+
+Baseline fixture:
+reports/crypto-backtest/BASELINE_trades.csv
+SHA256: 8E895693B5D89EB31640709812399D54039705C534E2BAAB65D8210CEF76B470
+
+Modified field:
+research/crypto_backtest/diagnose_entry_time_predictive_structure.py
+SHA256: 328D700C55906819C8FDC6804E31A11516DE298CCBBC89D83A0DF6D64D0543E9
+
+BASELINE command:
+python research/crypto_backtest/audit_corrected_baseline.py --trades reports/crypto-backtest/BASELINE_trades.csv --old reports/crypto-backtest/diagnostics/diagnostic_summary.json --output reports/crypto-backtest/baseline-audit-v2 --initial-usd 1000
+Input: 1858 frozen Corrected BASELINE signals.
+Literal result: {"output": "reports\\crypto-backtest\\baseline-audit-v2", "signals": 1858, "scenario_A_expectancy": 0.04346386086471876, "scenario_D_expectancy_all_in": -0.12605299189956812, "signal_sets_exact_match": true, "ledger": "PASS"}
+Exit status: 0
+
+MODIFIED development command:
+python research/crypto_backtest/diagnose_entry_time_predictive_structure.py --mode development --data-dir research/crypto_backtest/data --trades reports/crypto-backtest/BASELINE_trades.csv --output reports/crypto-backtest/entry-time-predictive-diagnostic
+Input: frozen entries and only completed data before Entry Open.
+Literal result: {"mode": "development", "frozen_entries": 1858, "development_entries": 1403, "ranking_sha256": "2f6480e7902672caa44ff9a6cfd47d8f974085fe5d14f3f4e3dd568aba4efee7", "status": "PASS"}
+Exit status: 0
+
+MODIFIED holdout command:
+python research/crypto_backtest/diagnose_entry_time_predictive_structure.py --mode holdout --data-dir research/crypto_backtest/data --trades reports/crypto-backtest/BASELINE_trades.csv --output reports/crypto-backtest/entry-time-predictive-diagnostic
+Input: frozen development ranking SHA256, then holdout labels.
+Literal result: {"mode": "holdout", "frozen_entries": 1858, "holdout_entries": 455, "candidate_count": 0, "status": "PASS"}
+Exit status: 0
+
+ROLLBACK command:
+python reports/crypto-backtest/entry-time-predictive-diagnostic/transaction/ROLLBACK.sh --target reports/crypto-backtest/entry-time-predictive-diagnostic/transaction/rollback-test.py
+Input: rollback-test.py containing altered content.
+Literal result: RESTORED reports\crypto-backtest\entry-time-predictive-diagnostic\transaction\rollback-test.py FROM D:\Desktop\TradingAgents-CN\reports\crypto-backtest\entry-time-predictive-diagnostic\transaction\MODIFIED_FILE.py
+Restored behavior/status: target SHA256 equals MODIFIED_FILE.py SHA256; exit status 0.

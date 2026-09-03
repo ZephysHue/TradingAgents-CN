@@ -1,0 +1,23 @@
+{
+  "source": "Bybit V5 public linear perpetual kline API",
+  "market": "linear",
+  "strategy": "frozen V1 signal rules; separate USDT-linear settlement",
+  "start": "2023-01-01",
+  "end": "2026-08-29",
+  "symbols": [
+    "DOGEUSDT"
+  ],
+  "records": [
+    {
+      "symbol": "DOGEUSDT",
+      "path": "research\\crypto_backtest\\data\\bybit-linear-v1\\DOGEUSDT-15m.csv",
+      "sha256": "886c627cc563cf322c574ba19110606d3c15851a60f346d08c124efcdaba3a93",
+      "bars": 128352,
+      "start": "2023-01-01T00:00:00+00:00",
+      "end": "2026-08-29T23:45:00+00:00"
+    }
+  ],
+  "funding": "excluded",
+  "fee_rate_D": 0.0004,
+  "slippage_bp_D": 2.0
+}

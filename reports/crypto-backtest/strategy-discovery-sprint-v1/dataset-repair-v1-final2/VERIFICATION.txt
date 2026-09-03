@@ -1,0 +1,23 @@
+MODIFIED
+Command: python -m py_compile research/crypto_backtest/repair_strategy_sprint_dataset_v1.py; python -m pytest tests/unit/test_repair_strategy_sprint_dataset_v1.py tests/unit/test_strategy_discovery_sprint_v1.py tests/unit/test_bybit_crypto_data.py -q
+Input: repaired local-cache discovery, missing-segment recovery, raw response persistence, and regression tests.
+Literal result: ............. [100%]\n13 passed in 5.08s
+Exit status: 0
+
+DATASET
+Command: python research/crypto_backtest/repair_strategy_sprint_dataset_v1.py --output reports/crypto-backtest/strategy-discovery-sprint-v1/dataset-repair-v1-final2
+Input: fixed 90 stage-symbol universe, local cache, and Bybit public Kline pages only for missing 15m segments.
+Literal result: {"status": "dataset_ready_for_rerun", "local_inventory": 227, "network_pages": 103, "output": "reports\\crypto-backtest\\strategy-discovery-sprint-v1\\dataset-repair-v1-final2"}
+Exit status: 0
+
+STRATEGY EXECUTION
+Command: not run.
+Input: current research/crypto_backtest/run_strategy_discovery_sprint_v1.py.
+Literal result: this existing module is a preflight-only writer and contains no S1/S2/S3 execution engine; producing its empty CSVs as backtest results would be fabricated.
+Exit status: not applicable.
+
+ROLLBACK
+Command: C:\\Program Files\\Git\\bin\\bash.exe reports/crypto-backtest/strategy-discovery-sprint-v1/dataset-repair-v1-final2/ROLLBACK.sh reports/crypto-backtest/strategy-discovery-sprint-v1/rollback-test-final2-dataset-repair-v1
+Input: isolated copy.
+Literal result: removed: reports\\crypto-backtest\\strategy-discovery-sprint-v1\\rollback-test-final2-dataset-repair-v1
+Exit status: 0.

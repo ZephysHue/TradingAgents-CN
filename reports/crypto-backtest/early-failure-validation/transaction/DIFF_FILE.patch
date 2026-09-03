@@ -1,0 +1,278 @@
+diff --git a/research/crypto_backtest/validate_early_failure.py b/research/crypto_backtest/validate_early_failure.py
+new file mode 100644
+index 00000000..dd927af8
+--- /dev/null
++++ b/research/crypto_backtest/validate_early_failure.py
+@@ -0,0 +1,272 @@
++"""Validate preregistered early-failure exits on frozen BTCUSD_PERP entries."""
++from __future__ import annotations
++
++import argparse
++import json
++import math
++from decimal import Decimal
++from pathlib import Path
++
++import numpy as np
++import pandas as pd
++
++from audit_corrected_baseline import quantity_for_risk
++from backtest import prepare, read_data
++from coin_m_engine import ContractSpec, fee_btc, fill_prices, pnl_btc
++
++
++SPEC = ContractSpec()
++INITIAL_BTC = 1000.0 / 11785.0
++SCENARIOS = {"A": {"fee_rate": 0.0, "slippage_bp": 0.0}, "D": {"fee_rate": 0.0004, "slippage_bp": 2.0}}
++MODELS = {
++    "F0": {"check_bar": None, "description": "Original BASELINE"},
++    "F1": {"check_bar": 0, "description": "First complete 15m close negative; exit next open"},
++    "F2": {"check_bar": 1, "description": "Second complete 15m close negative; exit next open"},
++    "F3": {"check_bar": 3, "description": "Fourth complete 15m close negative; exit next open"},
++}
++
++
++def raw_price_r(direction: str, entry: float, stop: float, price: float) -> float:
++    risk = abs(entry - stop)
++    return ((price - entry) if direction == "long" else (entry - price)) / risk
++
++
++def simulate_exits(signals: pd.DataFrame, bars: pd.DataFrame, model: str) -> pd.DataFrame:
++    """Replay every 15m bar; early-failure decision is made at a completed close."""
++    check_bar = MODELS[model]["check_bar"]
++    index = bars.index
++    high, low, close, open_ = (bars[name].to_numpy(dtype=float) for name in ("high", "low", "close", "open"))
++    rows = []
++    for signal_id, row in signals.iterrows():
++        start = index.get_indexer([row.entry_time])[0]
++        if start < 0:
++            raise AssertionError(f"entry bar missing: {signal_id}")
++        entry, stop, tp = float(row.raw_entry), float(row.sl), float(row.tp)
++        exit_time = raw_exit = reason = early_check_time = early_close_r = None
++        for pos in range(start, len(index)):
++            ts = index[pos]
++            stop_hit = low[pos] <= stop if row.direction == "long" else high[pos] >= stop
++            tp_hit = high[pos] >= tp if row.direction == "long" else low[pos] <= tp
++            # Conservative same-bar ordering is frozen from BASELINE: stop then TP.
++            if stop_hit:
++                exit_time, raw_exit, reason = ts, stop, "Original SL"
++                break
++            if tp_hit:
++                exit_time, raw_exit, reason = ts, tp, "TP 2R"
++                break
++            if check_bar is not None and pos == start + check_bar:
++                value = raw_price_r(row.direction, entry, stop, close[pos])
++                early_check_time, early_close_r = ts, value
++                if value < 0:
++                    next_pos = pos + 1
++                    if next_pos >= len(index):
++                        raise AssertionError(f"missing next open for early exit: {signal_id}")
++                    exit_time, raw_exit, reason = index[next_pos], float(open_[next_pos]), "Early Failure Exit"
++                    break
++        if exit_time is None:
++            raise AssertionError(f"no exit: {signal_id} {model}")
++        rows.append({"signal_id": int(signal_id), "model": model, "entry_time": row.entry_time, "exit_time": exit_time,
++                     "direction": row.direction, "raw_entry": entry, "initial_sl": stop, "tp": tp, "raw_exit": raw_exit,
++                     "exit_reason": reason, "early_check_time": early_check_time, "early_close_price_r": early_close_r})
++    return pd.DataFrame(rows)
++
++
++def settle(exits: pd.DataFrame, scenario: str) -> pd.DataFrame:
++    fee_rate, slippage_bp = SCENARIOS[scenario]["fee_rate"], SCENARIOS[scenario]["slippage_bp"]
++    equity, rows = INITIAL_BTC, []
++    for row in exits.itertuples(index=False):
++        source = pd.Series({"direction": row.direction, "raw_entry": row.raw_entry, "sl": row.initial_sl})
++        raw_qty, qty, risk_budget, entry_fill, stop_fill = quantity_for_risk(equity, source, slippage_bp)
++        _, exit_fill_d = fill_prices(row.direction, Decimal(str(row.raw_entry)), Decimal(str(row.raw_exit)), Decimal(str(slippage_bp / 10000)))
++        exit_fill = float(exit_fill_d)
++        if qty:
++            raw_pnl = float(pnl_btc(row.direction, qty, Decimal(str(row.raw_entry)), Decimal(str(row.raw_exit)), SPEC))
++            filled_pnl = float(pnl_btc(row.direction, qty, Decimal(str(entry_fill)), exit_fill_d, SPEC))
++            entry_fee = float(fee_btc(qty, Decimal(str(entry_fill)), Decimal(str(fee_rate)), SPEC))
++            exit_fee = float(fee_btc(qty, exit_fill_d, Decimal(str(fee_rate)), SPEC))
++            price_risk = abs(float(pnl_btc(row.direction, qty, Decimal(str(entry_fill)), Decimal(str(stop_fill)), SPEC)))
++            all_in_risk = price_risk + entry_fee + float(fee_btc(qty, Decimal(str(stop_fill)), Decimal(str(fee_rate)), SPEC))
++            net = filled_pnl - entry_fee - exit_fee
++            price_r, all_in_r = net / price_risk, net / all_in_risk
++        else:
++            raw_pnl = filled_pnl = entry_fee = exit_fee = price_risk = all_in_risk = net = 0.0
++            price_r = all_in_r = np.nan
++        before = equity
++        equity += net
++        rows.append({**row._asdict(), "scenario": scenario, "contracts_raw": raw_qty, "contracts": qty,
++                     "entry_fill": entry_fill, "exit_fill": exit_fill, "risk_budget_btc": risk_budget,
++                     "price_risk_btc": price_risk, "all_in_risk_btc": all_in_risk, "gross_raw_pnl_btc": raw_pnl,
++                     "filled_pnl_btc": filled_pnl, "fee_btc": entry_fee + exit_fee,
++                     "slippage_cost_btc": raw_pnl - filled_pnl, "net_pnl_btc": net,
++                     "price_r": price_r, "all_in_r": all_in_r, "equity_before_btc": before, "equity_after_btc": equity})
++    frame = pd.DataFrame(rows)
++    assert np.isclose(frame.net_pnl_btc.sum() + INITIAL_BTC, frame.equity_after_btc.iloc[-1], atol=1e-12)
++    return frame
++
++
++def profit_factor(values: pd.Series) -> float | None:
++    gain, loss = float(values[values > 0].sum()), float(values[values <= 0].sum())
++    return gain / abs(loss) if loss else None
++
++
++def max_losing_streak(values: pd.Series) -> int:
++    losing = values <= 0
++    groups = losing.ne(losing.shift()).cumsum()
++    sizes = values[losing].groupby(groups[losing]).size()
++    return int(sizes.max()) if len(sizes) else 0
++
++
++def underwater(frame: pd.DataFrame) -> tuple[float, float]:
++    curve = pd.concat([pd.Series([INITIAL_BTC]), frame.equity_after_btc.reset_index(drop=True)], ignore_index=True)
++    drawdown = curve / curve.cummax() - 1
++    negative = drawdown.iloc[1:] < 0
++    groups = negative.ne(negative.shift()).cumsum()
++    periods = []
++    for _, subset in frame[negative.to_numpy()].groupby(groups[negative].to_numpy()):
++        periods.append((subset.exit_time.max() - subset.entry_time.min()).total_seconds() / 86400)
++    return float(drawdown.min()), float(max(periods) if periods else 0.0)
++
++
++def metrics(frame: pd.DataFrame) -> dict:
++    traded = frame[frame.contracts > 0]
++    value = traded.price_r if frame.scenario.iloc[0] == "A" else traded.all_in_r
++    win = value > 0
++    mdd, underwater_days = underwater(frame)
++    return {"signals": len(frame), "trades": len(traded), "early_failure_exits": int((frame.exit_reason == "Early Failure Exit").sum()),
++            "original_sl": int((frame.exit_reason == "Original SL").sum()), "tp_2r": int((frame.exit_reason == "TP 2R").sum()),
++            "skipped_min_qty": int((frame.contracts == 0).sum()), "win_rate": float(win.mean()),
++            "expectancy_price_r": float(traded.price_r.mean()), "expectancy_all_in_r": float(traded.all_in_r.mean()),
++            "profit_factor": profit_factor(traded.net_pnl_btc), "net_pnl_btc": float(traded.net_pnl_btc.sum()),
++            "max_drawdown": mdd, "max_losing_streak": max_losing_streak(value), "longest_underwater_days": underwater_days,
++            "avg_win_r": float(value[win].mean()) if win.any() else None,
++            "avg_loss_r": float(abs(value[~win].mean())) if (~win).any() else None, "median_trade_r": float(value.median())}
++
++
++def build_comparison(settled: dict[tuple[str, str], pd.DataFrame]) -> pd.DataFrame:
++    reference_a, reference_d = (settled[("F0", scenario)].set_index("signal_id") for scenario in ("A", "D"))
++    output = pd.DataFrame({"signal_id": reference_a.index, "entry_time": reference_a.entry_time, "direction": reference_a.direction,
++                           "f0_exit_reason": reference_a.exit_reason, "f0_exit_time": reference_a.exit_time,
++                           "f0_a_price_r": reference_a.price_r, "f0_d_all_in_r": reference_d.all_in_r}).reset_index(drop=True)
++    for model in ("F1", "F2", "F3"):
++        a, d = (settled[(model, scenario)].set_index("signal_id") for scenario in ("A", "D"))
++        output[f"{model.lower()}_exit_reason"] = output.signal_id.map(a.exit_reason)
++        output[f"{model.lower()}_exit_time"] = output.signal_id.map(a.exit_time)
++        output[f"{model.lower()}_early_close_r"] = output.signal_id.map(a.early_close_price_r)
++        output[f"{model.lower()}_a_price_r"] = output.signal_id.map(a.price_r)
++        output[f"{model.lower()}_d_all_in_r"] = output.signal_id.map(d.all_in_r)
++        output[f"{model.lower()}_delta_a_r"] = output[f"{model.lower()}_a_price_r"] - output.f0_a_price_r
++        output[f"{model.lower()}_delta_d_r"] = output[f"{model.lower()}_d_all_in_r"] - output.f0_d_all_in_r
++    return output
++
++
++def mfe_for_signal(row: pd.Series, bars: pd.DataFrame) -> float:
++    path = bars.loc[(bars.index >= row.entry_time) & (bars.index <= row.exit_time)]
++    risk = abs(float(row.raw_entry) - float(row.initial_sl))
++    price = float(path.high.max()) if row.direction == "long" else float(path.low.min())
++    return raw_price_r(row.direction, float(row.raw_entry), float(row.initial_sl), price)
++
++
++def attribution(comparison: pd.DataFrame, raw: dict[str, pd.DataFrame], bars: pd.DataFrame) -> pd.DataFrame:
++    f0 = raw["F0"].set_index("signal_id")
++    rows = []
++    f0_winners = int((comparison.f0_exit_reason == "TP 2R").sum())
++    for model in ("F1", "F2", "F3"):
++        early = comparison[f"{model.lower()}_exit_reason"].eq("Early Failure Exit")
++        original_sl = early & comparison.f0_exit_reason.eq("Original SL")
++        original_tp = early & comparison.f0_exit_reason.eq("TP 2R")
++        selected = comparison.loc[early, "signal_id"]
++        mfes = pd.Series([mfe_for_signal(f0.loc[sid], bars) for sid in selected], dtype=float)
++        saved = float(comparison.loc[original_sl, f"{model.lower()}_delta_a_r"].sum())
++        sacrificed = float((-comparison.loc[original_tp, f"{model.lower()}_delta_a_r"]).sum())
++        delta = float(comparison.loc[early, f"{model.lower()}_delta_a_r"].sum())
++        rows.append({"model": model, "early_failure_exits": int(early.sum()), "baseline_original_sl": int(original_sl.sum()),
++                     "baseline_tp_2r": int(original_tp.sum()), "saved_loss_r": saved, "sacrificed_winner_r": sacrificed,
++                     "actual_early_exit_r_total": float(comparison.loc[early, f"{model.lower()}_a_price_r"].sum()),
++                     "net_early_exit_contribution_r": saved - sacrificed, "total_delta_a_r": delta,
++                     "false_early_exit_count": int(original_tp.sum()), "false_early_exit_pct_of_early": float(original_tp.sum() / early.sum()) if early.any() else 0.0,
++                     "false_early_exit_pct_of_all_f0_winners": float(original_tp.sum() / f0_winners),
++                     "f0_mfe_r_p10": float(mfes.quantile(.1)), "f0_mfe_r_p25": float(mfes.quantile(.25)),
++                     "f0_mfe_r_p50": float(mfes.median()), "f0_mfe_r_p75": float(mfes.quantile(.75)), "f0_mfe_r_p90": float(mfes.quantile(.9))})
++    return pd.DataFrame(rows)
++
++
++def yearly(settled: dict[tuple[str, str], pd.DataFrame]) -> pd.DataFrame:
++    rows = []
++    for model in MODELS:
++        for scenario in SCENARIOS:
++            frame = settled[(model, scenario)].copy(); frame["year"] = frame.entry_time.dt.year
++            for year in range(2020, 2027):
++                group = frame[frame.year == year]
++                if len(group): rows.append({"model": model, "scenario": scenario, "year": year, "trades": len(group), **metrics(group)})
++    return pd.DataFrame(rows)
++
++
++def halves(settled: dict[tuple[str, str], pd.DataFrame]) -> pd.DataFrame:
++    rows = []
++    for model in MODELS:
++        for scenario in SCENARIOS:
++            frame = settled[(model, scenario)].sort_values("entry_time")
++            for label, positions in zip(("first_half", "second_half"), np.array_split(np.arange(len(frame)), 2)):
++                rows.append({"model": model, "scenario": scenario, "segment": label, **metrics(frame.iloc[positions])})
++    return pd.DataFrame(rows)
++
++
++def candidate_decisions(models: pd.DataFrame, yearly_table: pd.DataFrame, half_table: pd.DataFrame, comparison: pd.DataFrame, attrs: pd.DataFrame) -> dict:
++    e0 = models[(models.model == "F0") & (models.scenario == "D")].iloc[0]
++    decisions = {}
++    for model in ("F1", "F2", "F3"):
++        current = models[(models.model == model) & (models.scenario == "D")].iloc[0]
++        h0 = half_table[(half_table.model == "F0") & (half_table.scenario == "D")].set_index("segment")
++        hm = half_table[(half_table.model == model) & (half_table.scenario == "D")].set_index("segment")
++        both_halves = all(hm.at[key, "expectancy_all_in_r"] > h0.at[key, "expectancy_all_in_r"] for key in ("first_half", "second_half"))
++        y0 = yearly_table[(yearly_table.model == "F0") & (yearly_table.scenario == "D") & (yearly_table.trades >= 30)].set_index("year")
++        ym = yearly_table[(yearly_table.model == model) & (yearly_table.scenario == "D") & (yearly_table.trades >= 30)].set_index("year")
++        common = y0.index.intersection(ym.index)
++        improved_years = int((ym.loc[common, "expectancy_all_in_r"] > y0.loc[common, "expectancy_all_in_r"]).sum())
++        without_top10 = comparison.sort_values(f"{model.lower()}_delta_d_r", ascending=False).iloc[10:]
++        tail_mean_delta = float(without_top10[f"{model.lower()}_delta_d_r"].mean())
++        attr = attrs[attrs.model == model].iloc[0]
++        checks = {"d_expectancy_improvement_gt_002": bool(current.expectancy_all_in_r - e0.expectancy_all_in_r > .02),
++                  "d_profit_factor_improves_and_gt_1": bool(current.profit_factor > e0.profit_factor + .02 and current.profit_factor > 1),
++                  "max_drawdown_not_worse": bool(current.max_drawdown >= e0.max_drawdown), "both_halves_improve": bool(both_halves),
++                  "majority_years_improve": bool(improved_years > len(common) / 2),
++                  "not_tail_dependent_after_removing_top10_delta_trades": bool(tail_mean_delta > 0),
++                  "false_early_exit_pct_of_early_lte_25": bool(attr.false_early_exit_pct_of_early <= .25),
++                  "false_early_exit_pct_of_all_f0_winners_lte_15": bool(attr.false_early_exit_pct_of_all_f0_winners <= .15)}
++        decisions[model] = {"status": "Early Failure Candidate" if all(checks.values()) else "Reject", "checks": checks,
++                            "d_expectancy_delta": float(current.expectancy_all_in_r - e0.expectancy_all_in_r),
++                            "years_evaluated": len(common), "years_improved": improved_years,
++                            "d_delta_mean_after_removing_top10": tail_mean_delta}
++    return decisions
++
++
++def report(path: Path, models: pd.DataFrame, attrs: pd.DataFrame, decisions: dict) -> None:
++    rows = ["# Early Failure Exit Validation", "", "## Frozen protocol", "", "- Fixed 1,858 BASELINE entry signals; no new filter, TP, stop, sizing, fee/slippage, or COIN-M settlement change.", "- F1/F2/F3 only inspect completed bar 1/2/4 respectively; a negative 0R close exits at the next 15m open.", "- Original SL/TP receive priority before an early-failure check. Scenario A is 0 fee / 0 slippage; D is 0.04% taker fee / 2bp adverse slippage.", "", "## Results", "", "```csv", models.to_csv(index=False), "```", "", "## Attribution", "", "```csv", attrs.to_csv(index=False), "```", "", "## Decision rule", "", "Candidate requires all preregistered criteria: D expectancy +0.02R, D PF higher than F0 by 0.02 and >1, no DD deterioration, both halves improve, majority years improve, result remains positive after removing top ten D-delta trades, false-exit rate <=25% of early exits and <=15% of F0 winners.", ""]
++    for model, result in decisions.items(): rows.extend([f"### {model}: {result['status']}", "", "- " + "; ".join(f"{name}={value}" for name, value in result["checks"].items()), ""])
++    path.write_text("\n".join(rows), encoding="utf-8")
++
++
++def main() -> int:
++    parser = argparse.ArgumentParser(); parser.add_argument("--data-dir", type=Path, required=True); parser.add_argument("--trades", type=Path, required=True); parser.add_argument("--output", type=Path, required=True); args = parser.parse_args()
++    args.output.mkdir(parents=True, exist_ok=True)
++    signals = pd.read_csv(args.trades, parse_dates=["entry_time", "exit_time"]).sort_values("entry_time").reset_index(drop=True)
++    if len(signals) != 1858: raise AssertionError(f"expected 1858 frozen entries, got {len(signals)}")
++    raw, _ = read_data(args.data_dir); bars = prepare(raw)["15m"]
++    raw_exits = {model: simulate_exits(signals, bars, model) for model in MODELS}
++    f0 = raw_exits["F0"]
++    exact = (f0.exit_time.to_numpy() == signals.exit_time.to_numpy()).all() and (f0.exit_reason.replace({"Original SL": "SL", "TP 2R": "TP"}).to_numpy() == signals.exit_reason.to_numpy()).all()
++    if not exact: raise AssertionError("F0 raw replay does not exactly match frozen BASELINE")
++    settled = {(model, scenario): settle(raw_exits[model], scenario) for model in MODELS for scenario in SCENARIOS}
++    records = [{"model": model, "scenario": scenario, "description": MODELS[model]["description"], **metrics(settled[(model, scenario)])} for model in MODELS for scenario in SCENARIOS]
++    models = pd.DataFrame(records); comparison = build_comparison(settled); attrs = attribution(comparison, raw_exits, bars); yearly_table = yearly(settled); half_table = halves(settled)
++    decisions = candidate_decisions(models, yearly_table, half_table, comparison, attrs)
++    models.to_csv(args.output / "early_failure_models.csv", index=False); yearly_table.to_csv(args.output / "early_failure_yearly.csv", index=False)
++    comparison.to_csv(args.output / "early_failure_trade_comparison.csv", index=False); attrs.to_csv(args.output / "early_failure_attribution.csv", index=False)
++    summary = {"frozen_entries": 1858, "f0_exact_baseline_match": True, "rules": {"threshold_price_r": 0, "exit_timing": "next 15m open after completed-bar check", "same_bar_order": "original SL before TP before early-failure check"}, "models": records, "half_stability": half_table.to_dict(orient="records"), "candidate_decisions": decisions, "attribution": attrs.to_dict(orient="records"), "entry_filters_added": False, "parameter_optimization": False}
++    (args.output / "early_failure_validation_summary.json").write_text(json.dumps(summary, ensure_ascii=False, indent=2, default=str), encoding="utf-8")
++    report(args.output / "EARLY_FAILURE_VALIDATION.md", models, attrs, decisions)
++    print(json.dumps({"output": str(args.output), "frozen_entries": len(signals), "f0_exact_match": True, "models": list(MODELS), "status": "PASS"}, ensure_ascii=False))
++    return 0
++
++
++if __name__ == "__main__": raise SystemExit(main())

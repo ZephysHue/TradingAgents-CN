@@ -1,0 +1,27 @@
+EARLY FAILURE EXIT TRANSACTION VERIFICATION
+
+Baseline fixture:
+reports/crypto-backtest/BASELINE_trades.csv
+SHA256: 8E895693B5D89EB31640709812399D54039705C534E2BAAB65D8210CEF76B470
+
+Modified field:
+research/crypto_backtest/validate_early_failure.py
+SHA256: C825E0585EA7B7624DA580FC91C81B6F9FEE70AD0ACDC8F99BBEF97E08F69D1A
+
+BASELINE command:
+python research/crypto_backtest/audit_corrected_baseline.py --trades reports/crypto-backtest/BASELINE_trades.csv --old reports/crypto-backtest/diagnostics/diagnostic_summary.json --output reports/crypto-backtest/baseline-audit-v2 --initial-usd 1000
+Input: 1858 frozen BASELINE signals.
+Literal result: {"output": "reports\\crypto-backtest\\baseline-audit-v2", "signals": 1858, "scenario_A_expectancy": 0.04346386086471876, "scenario_D_expectancy_all_in": -0.12605299189956812, "signal_sets_exact_match": true, "ledger": "PASS"}
+Exit status: 0
+
+MODIFIED command:
+python research/crypto_backtest/validate_early_failure.py --data-dir research/crypto_backtest/data --trades reports/crypto-backtest/BASELINE_trades.csv --output reports/crypto-backtest/early-failure-validation
+Input: same 1858 frozen BASELINE signals; F0/F1/F2/F3; Scenario A and D.
+Literal result: {"output": "reports\\crypto-backtest\\early-failure-validation", "frozen_entries": 1858, "f0_exact_match": true, "models": ["F0", "F1", "F2", "F3"], "status": "PASS"}
+Exit status: 0
+
+ROLLBACK command:
+python reports/crypto-backtest/early-failure-validation/transaction/ROLLBACK.sh --target reports/crypto-backtest/early-failure-validation/transaction/rollback-test.py
+Input: rollback-test.py containing altered content.
+Literal result: RESTORED reports\crypto-backtest\early-failure-validation\transaction\rollback-test.py FROM D:\Desktop\TradingAgents-CN\reports\crypto-backtest\early-failure-validation\transaction\MODIFIED_FILE.py
+Restored behavior/status: rollback-test.py SHA256 equals MODIFIED_FILE.py SHA256; exit status 0.

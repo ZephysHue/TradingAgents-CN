@@ -1,0 +1,9 @@
+V3 COMPRESSION BREAKOUT EXPANSION V0.1
+Modified SHA256: 528A0BD57F10ED66842F5EB857656B8BE4EA5B809861C647729322FE077B5380
+BASELINE command: python research/crypto_backtest/audit_corrected_baseline.py --trades reports/crypto-backtest/BASELINE_trades.csv --old reports/crypto-backtest/diagnostics/diagnostic_summary.json --output reports/crypto-backtest/baseline-audit-v2 --initial-usd 1000
+BASELINE result: ledger PASS; exit status 0.
+MODIFIED command: python research/crypto_backtest/backtest_v3_compression_breakout_expansion.py --data-dir research/crypto_backtest/data --output reports/crypto-backtest/v3-compression-breakout-expansion-v0.1
+MODIFIED result: {"market":"BTCUSD_PERP","raw_signals":2414,"executed_d":1056,"rating":"REJECT","future_leakage_violations":0,"ledger":"PASS"}; exit status 0.
+market=BTCUSD_PERP; timeframe=15m; range_bars=20; compression_threshold=0.80; compression_bars=8; expansion_threshold=1.20; breakout_distance_threshold=0.10; stop_buffer_atr=0.30; take_profit_r=2.0; risk_pct=1%; direction_filter=NONE; daily_risk_control=DISABLED; funding=EXCLUDED; range_excludes_breakout_bar=true; compression_excludes_breakout_bar=true; atr_baseline_excludes_current_bar=true; expansion_uses_pre_breakout_atr=true; entry_next_bar_open=true; raw_trigger_fill_separated=true; scenario_signal_sets_exact_match=true; future_leakage_violations=0; single_position=true; ledger=PASS.
+ROLLBACK command: python reports/crypto-backtest/v3-compression-breakout-expansion-v0.1/transaction/ROLLBACK.sh --target reports/crypto-backtest/v3-compression-breakout-expansion-v0.1/transaction/rollback-test.py
+ROLLBACK expected: target SHA256 equals MODIFIED_FILE.py; exit status 0.

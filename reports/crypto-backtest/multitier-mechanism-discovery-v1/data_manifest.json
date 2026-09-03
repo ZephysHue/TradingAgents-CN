@@ -1,0 +1,78 @@
+{
+  "source": "Bybit V5",
+  "generated_at_utc": "2026-08-30T13:05:07.129654+00:00",
+  "records": [
+    {
+      "symbol": "BTCUSDT",
+      "timeframe": "15m",
+      "utc_start": "2026-05-02T00:00:00+00:00",
+      "utc_end": "2026-08-29T23:45:00+00:00",
+      "rows": 11520,
+      "sha256": "eec2e31d1e3f29d55b810ab8245de789422988eb5a2a4d92191e792ce6ae1af3",
+      "cache_hit": true,
+      "source": "Bybit V5 /v5/market/kline",
+      "downloaded_at_utc": "2026-08-30T13:05:07.129654+00:00",
+      "path": "research\\crypto_backtest\\data\\multitier-mechanism-v1\\BTCUSDT-15m-2026-05-02-2026-08-29.csv"
+    },
+    {
+      "symbol": "ETHUSDT",
+      "timeframe": "15m",
+      "utc_start": "2026-05-02T00:00:00+00:00",
+      "utc_end": "2026-08-29T23:45:00+00:00",
+      "rows": 11520,
+      "sha256": "25015dcb12e1e7baea640850acb3970108211b5e409f5ae4c950b00b81c6d75c",
+      "cache_hit": true,
+      "source": "Bybit V5 /v5/market/kline",
+      "downloaded_at_utc": "2026-08-30T13:05:07.129654+00:00",
+      "path": "research\\crypto_backtest\\data\\multitier-mechanism-v1\\ETHUSDT-15m-2026-05-02-2026-08-29.csv"
+    },
+    {
+      "symbol": "SOLUSDT",
+      "timeframe": "15m",
+      "utc_start": "2026-05-02T00:00:00+00:00",
+      "utc_end": "2026-08-29T23:45:00+00:00",
+      "rows": 11520,
+      "sha256": "a0ae9740fbd8047b2d695f37428e4a3948729645740efd76a4e188e12ede11ec",
+      "cache_hit": true,
+      "source": "Bybit V5 /v5/market/kline",
+      "downloaded_at_utc": "2026-08-30T13:05:07.129654+00:00",
+      "path": "research\\crypto_backtest\\data\\multitier-mechanism-v1\\SOLUSDT-15m-2026-05-02-2026-08-29.csv"
+    },
+    {
+      "symbol": "XRPUSDT",
+      "timeframe": "15m",
+      "utc_start": "2026-05-02T00:00:00+00:00",
+      "utc_end": "2026-08-29T23:45:00+00:00",
+      "rows": 11520,
+      "sha256": "edeccf2c7bb61db5c2d7c494bc8f1d5379ebd193591ed02d59cc9a981ac381b8",
+      "cache_hit": true,
+      "source": "Bybit V5 /v5/market/kline",
+      "downloaded_at_utc": "2026-08-30T13:05:07.129654+00:00",
+      "path": "research\\crypto_backtest\\data\\multitier-mechanism-v1\\XRPUSDT-15m-2026-05-02-2026-08-29.csv"
+    },
+    {
+      "symbol": "DOGEUSDT",
+      "timeframe": "15m",
+      "utc_start": "2026-05-02T00:00:00+00:00",
+      "utc_end": "2026-08-29T23:45:00+00:00",
+      "rows": 11520,
+      "sha256": "e7f1c9957c67acbfbcb4dfdc8973b74b4afea967bbc89a4cb50cdd86505b4859",
+      "cache_hit": true,
+      "source": "Bybit V5 /v5/market/kline",
+      "downloaded_at_utc": "2026-08-30T13:05:07.129654+00:00",
+      "path": "research\\crypto_backtest\\data\\multitier-mechanism-v1\\DOGEUSDT-15m-2026-05-02-2026-08-29.csv"
+    },
+    {
+      "symbol": "ADAUSDT",
+      "timeframe": "15m",
+      "utc_start": "2026-05-02T00:00:00+00:00",
+      "utc_end": "2026-08-29T23:45:00+00:00",
+      "rows": 11520,
+      "sha256": "5a05bc05ca6344dacc8f085963019c4b1a9a0e3f0f318b39181c9c53ca412406",
+      "cache_hit": true,
+      "source": "Bybit V5 /v5/market/kline",
+      "downloaded_at_utc": "2026-08-30T13:05:07.129654+00:00",
+      "path": "research\\crypto_backtest\\data\\multitier-mechanism-v1\\ADAUSDT-15m-2026-05-02-2026-08-29.csv"
+    }
+  ]
+}

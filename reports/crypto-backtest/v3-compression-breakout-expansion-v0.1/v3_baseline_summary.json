@@ -1,0 +1,164 @@
+{
+  "market": "BTCUSD_PERP",
+  "engine": "COIN-M inverse",
+  "audit": {
+    "market": "BTCUSD_PERP",
+    "timeframe": "15m",
+    "range_bars": 20,
+    "compression_threshold": 0.8,
+    "compression_bars": 8,
+    "expansion_threshold": 1.2,
+    "breakout_distance_threshold": 0.1,
+    "stop_buffer_atr": 0.3,
+    "take_profit_r": 2.0,
+    "risk_pct": 0.01,
+    "direction_filter": "NONE",
+    "daily_risk_control": "DISABLED",
+    "funding": "EXCLUDED",
+    "range_excludes_breakout_bar": true,
+    "compression_excludes_breakout_bar": true,
+    "atr_baseline_excludes_current_bar": true,
+    "expansion_uses_pre_breakout_atr": true,
+    "entry_next_bar_open": true,
+    "raw_trigger_fill_separated": true,
+    "future_leakage_violations": 0,
+    "single_position": true,
+    "blocked_open_position": 283,
+    "skipped_extreme_stop": 34,
+    "invalid_data": 0,
+    "scenario_signal_sets_exact_match": true,
+    "ledger": "PASS"
+  },
+  "signal_counts": {
+    "raw_signals": 2414,
+    "executable_signals": 2097,
+    "blocked_open_position": 283,
+    "skipped_extreme_stop": 34,
+    "invalid_data": 0
+  },
+  "raw_signals": 2414,
+  "scenarios": {
+    "A": {
+      "raw_signals": 2097,
+      "executable_signals": 2097,
+      "executed_trades": 2097,
+      "skipped_min_qty": 0,
+      "long_trades": 1099,
+      "short_trades": 998,
+      "win_rate": 0.2985216976633286,
+      "avg_win_r": 1.9998199926275904,
+      "avg_loss_r": 1.0,
+      "median_trade_r": -1.0,
+      "price_r_expectancy": -0.10448864311641798,
+      "all_in_r_expectancy": -0.10448864311641798,
+      "profit_factor": 0.8273032650282776,
+      "gross_pnl_btc": -0.0770122462834944,
+      "fees_btc": 0.0,
+      "slippage_effect_btc": 0.0,
+      "net_pnl_btc": -0.0770122462834944,
+      "ending_equity_btc": 0.007841381209080869,
+      "max_drawdown": -0.9102400041005808,
+      "max_consecutive_losses": 18,
+      "average_holding_bars": 3.8497854077253217,
+      "median_holding_bars": 1.0,
+      "p90_holding_bars": 10.0,
+      "longest_underwater_days": 2176.0208333333335
+    },
+    "D": {
+      "raw_signals": 2097,
+      "executable_signals": 2097,
+      "executed_trades": 1056,
+      "skipped_min_qty": 1041,
+      "long_trades": 523,
+      "short_trades": 533,
+      "win_rate": 0.25,
+      "avg_win_r": 0.9630202294436622,
+      "avg_loss_r": 0.9534290621871135,
+      "median_trade_r": -1.0,
+      "price_r_expectancy": -0.7374333150588441,
+      "all_in_r_expectancy": -0.4743167392794196,
+      "profit_factor": 0.42416064258288544,
+      "gross_pnl_btc": -0.020318221759362924,
+      "fees_btc": 0.04296347417685716,
+      "slippage_effect_btc": 0.02148173708842848,
+      "net_pnl_btc": -0.08476343302464857,
+      "ending_equity_btc": 9.019446792676999e-05,
+      "max_drawdown": -0.9989370581954831,
+      "max_consecutive_losses": 23,
+      "average_holding_bars": 3.134469696969697,
+      "median_holding_bars": 1.0,
+      "p90_holding_bars": 7.0,
+      "longest_underwater_days": 2177.9375
+    }
+  },
+  "rating": "REJECT",
+  "bootstrap": {
+    "A": {
+      "iid": {
+        "mean_expectancy": -0.10417592827026838,
+        "median": -0.104409103253634,
+        "percentiles": {
+          "5": -0.15458901559934693,
+          "25": -0.1247629719565509,
+          "50": -0.104409103253634,
+          "75": -0.08319368005455892,
+          "95": -0.05454082008547984
+        },
+        "p_expectancy_gt_0": 0.0002,
+        "p_pf_gt_1": 0.0002
+      },
+      "monthly_block": {
+        "mean_expectancy": -0.1046333945844332,
+        "median": -0.10463107320771523,
+        "percentiles": {
+          "5": -0.15008540359232855,
+          "25": -0.12346878166819461,
+          "50": -0.10463107320771523,
+          "75": -0.0853689612699424,
+          "95": -0.058642890536452476
+        },
+        "p_expectancy_gt_0": 0.0001,
+        "p_pf_gt_1": 0.0001
+      }
+    },
+    "D": {
+      "iid": {
+        "mean_expectancy": -0.4742479616289549,
+        "median": -0.4742443889452346,
+        "percentiles": {
+          "5": -0.5186174240520116,
+          "25": -0.49304336047033165,
+          "50": -0.4742443889452346,
+          "75": -0.45576885329568045,
+          "95": -0.42874387154824417
+        },
+        "p_expectancy_gt_0": 0.0,
+        "p_pf_gt_1": 0.0
+      },
+      "monthly_block": {
+        "mean_expectancy": -0.4741717811397798,
+        "median": -0.47521635704345516,
+        "percentiles": {
+          "5": -0.5295628594875151,
+          "25": -0.49765590190138864,
+          "50": -0.47521635704345516,
+          "75": -0.4516945418786849,
+          "95": -0.4157396655275887
+        },
+        "p_expectancy_gt_0": 0.0,
+        "p_pf_gt_1": 0.0
+      }
+    }
+  },
+  "cost_matrix": "not_run: Scenario D does not pass positive-edge gate",
+  "v1_benchmark": {
+    "A": 0.04346,
+    "D": -0.12605,
+    "PF": 0.78135
+  },
+  "v2_benchmark": {
+    "A": -0.03338,
+    "D": -0.2574,
+    "PF": 0.64889
+  }
+}

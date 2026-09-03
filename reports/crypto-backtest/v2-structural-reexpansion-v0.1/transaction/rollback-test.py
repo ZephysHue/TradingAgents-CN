@@ -1,0 +1,276 @@
+"""Frozen V2 v0.1: Structural Impulse -> Controlled Pullback -> Re-Expansion."""
+from __future__ import annotations
+
+import argparse
+import json
+from decimal import Decimal, ROUND_DOWN
+from pathlib import Path
+
+import numpy as np
+import pandas as pd
+
+from backtest import prepare, read_data
+from coin_m_engine import ContractSpec, fee_btc, fill_prices, pnl_btc, risk_per_contract_btc
+
+
+SPEC = ContractSpec()
+INITIAL_BTC = 1000.0 / 11785.0
+RISK_PCT = 0.01
+SCENARIOS = {"A": {"fee_rate": 0.0, "slippage_bp": 0.0}, "D": {"fee_rate": 0.0004, "slippage_bp": 2.0}}
+
+
+def quantity_for_risk(equity: float, direction: str, entry: float, stop: float, slippage_bp: float) -> tuple[float, int, float, float, float]:
+    slip = Decimal(str(slippage_bp / 10000))
+    entry_fill, stop_fill = fill_prices(direction, Decimal(str(entry)), Decimal(str(stop)), slip)
+    risk_budget = equity * RISK_PCT
+    per_contract = float(risk_per_contract_btc(entry_fill, stop_fill, SPEC))
+    raw = risk_budget / per_contract if per_contract > 0 else 0.0
+    qty = int((Decimal(str(raw)) / Decimal(SPEC.step_size)).to_integral_value(rounding=ROUND_DOWN)) * SPEC.step_size
+    qty = min(qty, SPEC.max_qty)
+    if qty < SPEC.min_qty: qty = 0
+    return raw, qty, risk_budget, float(entry_fill), float(stop_fill)
+
+
+def completed_h4(h4: pd.DataFrame, target: pd.DatetimeIndex) -> pd.DataFrame:
+    usable = h4.copy(); usable.index = usable.index + pd.Timedelta(hours=4); usable["source_close_time"] = usable.index
+    return usable.reindex(target, method="ffill")
+
+
+def pivots(m15: pd.DataFrame) -> list[tuple[int, str, float]]:
+    found = []
+    for pos, value in enumerate(m15.swing_low.to_numpy(dtype=float)):
+        if np.isfinite(value): found.append((pos, "low", float(value)))
+    for pos, value in enumerate(m15.swing_high.to_numpy(dtype=float)):
+        if np.isfinite(value): found.append((pos, "high", float(value)))
+    return sorted(found)
+
+
+def create_candidate(event: tuple[int, str, float], past: list[tuple[int, str, float]], atr: float, confirm_pos: int, impulse_id: int) -> dict | None:
+    end_pos, end_kind, end_value = event
+    direction, start_kind = ("long", "low") if end_kind == "high" else ("short", "high")
+    starts = [item for item in past if item[1] == start_kind and item[0] < end_pos]
+    if not starts: return None
+    start_pos, _, start_value = starts[-1]
+    size, bars = abs(end_value - start_value), end_pos - start_pos
+    if not (size > 0 and 3 <= bars <= 48 and np.isfinite(atr) and size / atr >= 1.0): return None
+    return {"impulse_id": impulse_id, "direction": direction, "start_pos": start_pos, "end_pos": end_pos, "start_price": start_value,
+            "end_price": end_value, "impulse_size": size, "impulse_atr": size / atr, "impulse_bars": bars,
+            "confirmation_pos": confirm_pos, "pullback_seen": False, "pullback_extreme": None, "pullback_extreme_pos": None,
+            "invalid": False, "consumed": False}
+
+
+def raw_signal_replay(data_dir: Path) -> tuple[pd.DataFrame, dict]:
+    raw, manifest = read_data(data_dir); bars = prepare(raw); m15, h4 = bars["15m"], bars["4h"]
+    h4a = completed_h4(h4, m15.index)
+    index, high, low, close, open_, atr = m15.index, m15.high.to_numpy(float), m15.low.to_numpy(float), m15.close.to_numpy(float), m15.open.to_numpy(float), m15.atr14.to_numpy(float)
+    events, history, candidates, trades, audit = pivots(m15), [], [], [], []
+    event_by_confirm = {}
+    for pivot in events: event_by_confirm.setdefault(pivot[0] + 2, []).append(pivot)
+    position = None; impulse_id = 0; leakage = 0; structural_breakouts = 0; discarded_open_position = 0; skipped_wide_stop = 0; skipped_background = 0; simultaneous = 0
+    for pos in range(60, len(index) - 1):
+        # A live position is evaluated with raw OHLC triggers; stop wins a same-bar collision.
+        if position is not None:
+            stop_hit = low[pos] <= position["stop_raw"] if position["direction"] == "long" else high[pos] >= position["stop_raw"]
+            tp_hit = high[pos] >= position["tp_raw"] if position["direction"] == "long" else low[pos] <= position["tp_raw"]
+            if stop_hit or tp_hit:
+                position["exit_time"], position["exit_raw"], position["exit_reason"] = index[pos], position["stop_raw"] if stop_hit else position["tp_raw"], "SL" if stop_hit else "TP"
+                trades.append(position); position = None
+        triggered = []
+        for candidate in candidates:
+            if candidate["invalid"] or candidate["consumed"] or pos <= candidate["confirmation_pos"]: continue
+            if pos - candidate["confirmation_pos"] > 32:
+                candidate["invalid"] = True; continue
+            if candidate["direction"] == "long":
+                if candidate["pullback_extreme"] is None or low[pos] < candidate["pullback_extreme"]:
+                    candidate["pullback_extreme"], candidate["pullback_extreme_pos"] = float(low[pos]), pos
+                depth = (candidate["end_price"] - candidate["pullback_extreme"]) / candidate["impulse_size"]
+                if candidate["pullback_extreme"] <= candidate["start_price"] or depth >= .75:
+                    candidate["invalid"] = True; continue
+                if candidate["pullback_extreme"] <= candidate["end_price"] - .1 * atr[candidate["confirmation_pos"]]: candidate["pullback_seen"] = True
+                if candidate["pullback_seen"] and close[pos] > candidate["end_price"]: triggered.append(candidate)
+            else:
+                if candidate["pullback_extreme"] is None or high[pos] > candidate["pullback_extreme"]:
+                    candidate["pullback_extreme"], candidate["pullback_extreme_pos"] = float(high[pos]), pos
+                depth = (candidate["pullback_extreme"] - candidate["end_price"]) / candidate["impulse_size"]
+                if candidate["pullback_extreme"] >= candidate["start_price"] or depth >= .75:
+                    candidate["invalid"] = True; continue
+                if candidate["pullback_extreme"] >= candidate["end_price"] + .1 * atr[candidate["confirmation_pos"]]: candidate["pullback_seen"] = True
+                if candidate["pullback_seen"] and close[pos] < candidate["end_price"]: triggered.append(candidate)
+        if triggered:
+            structural_breakouts += len(triggered); simultaneous += max(0, len(triggered) - 1)
+            # Frozen deterministic tie-break: newest impulse; all same-bar breakouts are consumed.
+            selected = sorted(triggered, key=lambda item: item["end_pos"], reverse=True)[0]
+            for candidate in triggered: candidate["consumed"] = True
+            entry_pos = pos + 1; entry_time = index[entry_pos]; direction = selected["direction"]; sign = 1 if direction == "long" else -1
+            h4_ok = (h4a.ema20.iloc[entry_pos] > h4a.ema50.iloc[entry_pos]) if direction == "long" else (h4a.ema20.iloc[entry_pos] < h4a.ema50.iloc[entry_pos])
+            if position is not None:
+                discarded_open_position += 1
+            elif not h4_ok:
+                skipped_background += 1
+            else:
+                entry_raw = float(open_[entry_pos]); signal_atr = float(atr[pos]); extreme = float(selected["pullback_extreme"])
+                stop = extreme - .2 * signal_atr if direction == "long" else extreme + .2 * signal_atr
+                risk = abs(entry_raw - stop)
+                if risk <= 0 or risk > 3 * signal_atr:
+                    skipped_wide_stop += 1
+                else:
+                    tp = entry_raw + sign * 2 * risk
+                    start_confirm = index[selected["start_pos"] + 3]
+                    end_confirm = index[selected["end_pos"] + 3]
+                    h4_source = h4a.source_close_time.iloc[entry_pos]
+                    if start_confirm > entry_time or end_confirm > entry_time or h4_source > entry_time: leakage += 1
+                    position = {"trade_id": len(trades) + 1, "direction": direction, "impulse_swing_start_time": index[selected["start_pos"]], "impulse_swing_end_time": index[selected["end_pos"]],
+                                "impulse_start_confirmation_time": start_confirm, "impulse_end_confirmation_time": end_confirm,
+                                "impulse_low": min(selected["start_price"], selected["end_price"]), "impulse_high": max(selected["start_price"], selected["end_price"]), "impulse_atr": selected["impulse_atr"], "impulse_bars": selected["impulse_bars"],
+                                "pullback_start_time": index[selected["confirmation_pos"] + 1], "pullback_extreme_time": index[selected["pullback_extreme_pos"]], "pullback_extreme_price": extreme,
+                                "pullback_to_impulse": abs(selected["end_price"] - extreme) / selected["impulse_size"], "pullback_bars": pos - selected["confirmation_pos"],
+                                "breakout_time": index[pos] + pd.Timedelta(minutes=15), "entry_time": entry_time, "entry_raw": entry_raw, "stop_raw": stop, "tp_raw": tp,
+                                "signal_atr14": signal_atr, "h4_source_bar_close_time": h4_source, "h4_ema20": h4a.ema20.iloc[entry_pos], "h4_ema50": h4a.ema50.iloc[entry_pos]}
+        # Candidates are valid for at most 32 bars; discard resolved states instead
+        # of repeatedly walking historical impulses on every new 15m bar.
+        candidates = [candidate for candidate in candidates if not candidate["invalid"] and not candidate["consumed"]]
+        # Swings become usable only after the confirming bar has completely closed.
+        for event in event_by_confirm.get(pos, []):
+            candidate = create_candidate(event, history, float(atr[pos]), pos, impulse_id)
+            history.append(event)
+            if candidate is not None: candidates.append(candidate); impulse_id += 1
+    if position is not None:  # no unbounded-position assumption: force final close only for accounting completeness.
+        position["exit_time"], position["exit_raw"], position["exit_reason"] = index[-1], float(close[-1]), "DATA_END"
+        trades.append(position)
+    frame = pd.DataFrame(trades)
+    if not frame.empty:
+        assert frame.trade_id.is_unique
+        assert (frame.impulse_end_confirmation_time <= frame.entry_time).all()
+        assert (frame.h4_source_bar_close_time <= frame.entry_time).all()
+    audit = {"market": "BTCUSD_PERP", "data_market_key": manifest["selected_market"], "structural_breakouts": structural_breakouts, "signals": len(frame), "discarded_open_position": discarded_open_position,
+             "skipped_wide_stop": skipped_wide_stop, "skipped_background": skipped_background, "simultaneous_breakouts_discarded": simultaneous,
+             "future_leakage_violations": leakage, "confirmed_swing_only": True, "next_bar_entry": True, "raw_trigger_fill_separated": True, "single_position": True, "same_impulse_single_trade": True, "daily_risk_control": "disabled"}
+    return frame, audit
+
+
+def settle(raw: pd.DataFrame, scenario: str) -> pd.DataFrame:
+    fee_rate, slippage_bp = SCENARIOS[scenario]["fee_rate"], SCENARIOS[scenario]["slippage_bp"]
+    equity, rows = INITIAL_BTC, []
+    for row in raw.itertuples(index=False):
+        raw_qty, qty, risk_budget, entry_fill, stop_fill = quantity_for_risk(equity, row.direction, row.entry_raw, row.stop_raw, slippage_bp)
+        _, exit_fill_d = fill_prices(row.direction, Decimal(str(row.entry_raw)), Decimal(str(row.exit_raw)), Decimal(str(slippage_bp / 10000)))
+        exit_fill = float(exit_fill_d)
+        if qty:
+            gross_raw = float(pnl_btc(row.direction, qty, Decimal(str(row.entry_raw)), Decimal(str(row.exit_raw)), SPEC))
+            filled = float(pnl_btc(row.direction, qty, Decimal(str(entry_fill)), exit_fill_d, SPEC))
+            entry_fee = float(fee_btc(qty, Decimal(str(entry_fill)), Decimal(str(fee_rate)), SPEC)); exit_fee = float(fee_btc(qty, exit_fill_d, Decimal(str(fee_rate)), SPEC))
+            price_risk = abs(float(pnl_btc(row.direction, qty, Decimal(str(entry_fill)), Decimal(str(stop_fill)), SPEC)))
+            all_in_risk = price_risk + entry_fee + float(fee_btc(qty, Decimal(str(stop_fill)), Decimal(str(fee_rate)), SPEC))
+            net = filled - entry_fee - exit_fee; price_r, all_r = net / price_risk, net / all_in_risk
+        else:
+            gross_raw = filled = entry_fee = exit_fee = price_risk = all_in_risk = net = 0.0; price_r = all_r = np.nan
+        before = equity; equity += net
+        rows.append({**row._asdict(), "scenario": scenario, "contracts_raw": raw_qty, "contracts": qty, "risk_btc": risk_budget, "entry_fill": entry_fill, "stop_fill": stop_fill,
+                     "exit_fill": exit_fill, "gross_pnl_btc": gross_raw, "filled_pnl_btc": filled, "fee_btc": entry_fee + exit_fee, "slippage_effect_btc": gross_raw - filled,
+                     "net_pnl_btc": net, "price_r": price_r, "all_in_r": all_r, "equity_before": before, "equity_after": equity,
+                     "holding_bars": int((row.exit_time - row.entry_time) / pd.Timedelta(minutes=15))})
+    frame = pd.DataFrame(rows)
+    assert np.isclose(INITIAL_BTC + frame.net_pnl_btc.sum(), frame.equity_after.iloc[-1], atol=1e-12)
+    return frame
+
+
+def pf(values: pd.Series) -> float | None:
+    up, down = values[values > 0].sum(), values[values <= 0].sum()
+    return float(up / abs(down)) if down else None
+
+
+def metrics(frame: pd.DataFrame) -> dict:
+    traded = frame[frame.contracts > 0]; r = traded.price_r if frame.scenario.iloc[0] == "A" else traded.all_in_r
+    curve = pd.concat([pd.Series([INITIAL_BTC]), frame.equity_after.reset_index(drop=True)], ignore_index=True); dd = curve / curve.cummax() - 1
+    losses = r <= 0; groups = losses.ne(losses.shift()).cumsum(); streak = losses.groupby(groups).sum().max()
+    underwater = dd.iloc[1:] < 0; underwater_groups = underwater.ne(underwater.shift()).cumsum(); periods = []
+    for _, part in frame[underwater.to_numpy()].groupby(underwater_groups[underwater].to_numpy()):
+        periods.append((part.exit_time.max() - part.entry_time.min()).total_seconds() / 86400)
+    return {"signals": len(frame), "executed_trades": len(traded), "skipped_min_qty": int((frame.contracts == 0).sum()), "long_trades": int((traded.direction == "long").sum()), "short_trades": int((traded.direction == "short").sum()),
+            "win_rate": float((r > 0).mean()), "avg_win_r": float(r[r > 0].mean()), "avg_loss_r": float(abs(r[r <= 0].mean())), "price_r_expectancy": float(traded.price_r.mean()), "all_in_r_expectancy": float(traded.all_in_r.mean()),
+            "profit_factor": pf(traded.net_pnl_btc), "net_pnl_btc": float(traded.net_pnl_btc.sum()), "ending_btc_equity": float(frame.equity_after.iloc[-1]), "btc_max_drawdown": float(dd.min()),
+            "max_consecutive_losses": int(streak), "longest_underwater_days": float(max(periods) if periods else 0.0), "average_holding_bars": float(traded.holding_bars.mean()), "median_holding_bars": float(traded.holding_bars.median())}
+
+
+def sliced_metrics(frame: pd.DataFrame, group_column: str, values: list) -> pd.DataFrame:
+    rows = []
+    for value in values:
+        part = frame[frame[group_column] == value]
+        for scenario in ("A", "D"):
+            item = part[part.scenario == scenario].copy()
+            if len(item):
+                item["equity_after"] = INITIAL_BTC + item.net_pnl_btc.cumsum(); rows.append({group_column: value, "scenario": scenario, **metrics(item)})
+    return pd.DataFrame(rows)
+
+
+def bootstrap(frame: pd.DataFrame) -> dict:
+    values = frame[frame.contracts > 0].all_in_r.dropna().to_numpy(); rng = np.random.default_rng(20260830); n, runs = len(values), 10000
+    samples = rng.choice(values, size=(runs, n), replace=True); exp = samples.mean(axis=1)
+    equity = np.cumprod(1 + samples * .01, axis=1); dd = (equity / np.maximum.accumulate(equity, axis=1) - 1).min(axis=1)
+    gains = np.where(samples > 0, samples, 0).sum(axis=1); losses = np.where(samples <= 0, samples, 0).sum(axis=1)
+    pf_values = gains / np.abs(losses)
+    return {"runs": runs, "sample": "Limited Sample" if n < 200 else "Standard", "mean_expectancy": float(exp.mean()), "median_expectancy": float(np.median(exp)),
+            "expectancy_percentiles": {str(q): float(np.quantile(exp, q / 100)) for q in (5, 25, 50, 75, 95)}, "p_expectancy_gt_0": float((exp > 0).mean()), "p_pf_gt_1": float((pf_values > 1).mean()),
+            "max_drawdown_percentiles": {str(q): float(np.quantile(dd, q / 100)) for q in (5, 25, 50, 75, 95)}}
+
+
+def tail_dependence(frame: pd.DataFrame) -> list[dict]:
+    base = frame[frame.contracts > 0].copy(); total = float(base.net_pnl_btc.sum()); gross_profit = float(base.loc[base.net_pnl_btc > 0, "net_pnl_btc"].sum()); rows = []
+    for count in (5, 10, 20):
+        remain = base.sort_values("net_pnl_btc", ascending=False).iloc[count:]
+        top = float(base.nlargest(count, "net_pnl_btc").net_pnl_btc.sum())
+        rows.append({"removed_top_winners": count, "contribution_pct_of_net_profit": top / total * 100 if total > 0 else None,
+                     "top_winner_share_of_gross_profit_pct": top / gross_profit * 100 if gross_profit else None,
+                     "tail_dependence_status": "not_assessed: total net PnL is non-positive" if total <= 0 else "assessed",
+                     "all_in_r_expectancy": float(remain.all_in_r.mean()), "profit_factor": pf(remain.net_pnl_btc), "net_pnl_btc": float(remain.net_pnl_btc.sum())})
+    return rows
+
+
+def manual_validation(frame: pd.DataFrame) -> pd.DataFrame:
+    rng = np.random.default_rng(20260830); selected_indices = []
+    for direction in ("long", "short"):
+        for reason in ("TP", "SL"):
+            pool = frame[(frame.direction == direction) & (frame.exit_reason == reason)]
+            if len(pool): selected_indices.append(pool.index[rng.integers(len(pool))])
+    remainder = frame.drop(index=selected_indices).sample(min(max(0, 10 - len(selected_indices)), max(0, len(frame) - len(selected_indices))), random_state=20260830) if len(frame) > len(selected_indices) else pd.DataFrame()
+    output = pd.concat([frame.loc[selected_indices], remainder], ignore_index=True).head(10)
+    return output[[column for column in output.columns if column not in {"scenario"}]]
+
+
+def main() -> int:
+    parser = argparse.ArgumentParser(); parser.add_argument("--data-dir", type=Path, required=True); parser.add_argument("--output", type=Path, required=True); args = parser.parse_args(); args.output.mkdir(parents=True, exist_ok=True)
+    raw_trades, audit = raw_signal_replay(args.data_dir)
+    if audit["future_leakage_violations"] != 0: raise AssertionError("future leakage")
+    settled = {scenario: settle(raw_trades, scenario) for scenario in SCENARIOS}; summary = {"market": "BTCUSD_PERP", "engine": "COIN-M inverse", "funding": "Excluded", "audit": audit, "scenarios": {scenario: metrics(frame) for scenario, frame in settled.items()},
+               "v1_benchmark": {"scenario_a_expectancy": .04346386086471876, "scenario_d_all_in_expectancy": -.12605299189956812, "scenario_d_pf": .7813478370022217}}
+    combined = pd.concat(settled.values(), ignore_index=True); combined.to_csv(args.output / "v2_baseline_trades_all_scenarios.csv", index=False); settled["D"].to_csv(args.output / "v2_baseline_trades.csv", index=False)
+    for frame in settled.values(): frame["year"] = frame.entry_time.dt.year
+    yearly = pd.concat([sliced_metrics(frame, "year", list(range(2020, 2027))) for frame in settled.values()], ignore_index=True); yearly.to_csv(args.output / "v2_yearly.csv", index=False)
+    segment_rows = []
+    for scenario, frame in settled.items():
+        ordered = frame.sort_values("entry_time").reset_index(drop=True)
+        for label, positions in zip(("first_half", "second_half"), np.array_split(np.arange(len(ordered)), 2)):
+            part = ordered.iloc[positions].copy(); part["equity_after"] = INITIAL_BTC + part.net_pnl_btc.cumsum(); segment_rows.append({"scenario": scenario, "segment": label, **metrics(part)})
+        for label, positions in zip(("first_third", "middle_third", "last_third"), np.array_split(np.arange(len(ordered)), 3)):
+            part = ordered.iloc[positions].copy(); part["equity_after"] = INITIAL_BTC + part.net_pnl_btc.cumsum(); segment_rows.append({"scenario": scenario, "segment": label, **metrics(part)})
+    pd.DataFrame(segment_rows).to_csv(args.output / "v2_time_segments.csv", index=False)
+    direction_rows = []
+    for scenario, frame in settled.items():
+        for direction in ("long", "short"):
+            part = frame[frame.direction == direction].copy(); part["equity_after"] = INITIAL_BTC + part.net_pnl_btc.cumsum(); direction_rows.append({"scenario": scenario, "direction": direction, **metrics(part)})
+    pd.DataFrame(direction_rows).to_csv(args.output / "v2_direction.csv", index=False)
+    manual_validation(settled["D"]).to_csv(args.output / "v2_manual_validation.csv", index=False)
+    summary["bootstrap"] = bootstrap(settled["D"]); summary["tail_dependence"] = tail_dependence(settled["D"])
+    d = summary["scenarios"]["D"]; a = summary["scenarios"]["A"]
+    if a["price_r_expectancy"] <= 0: grade = "REJECT"
+    elif d["all_in_r_expectancy"] <= 0 or d["profit_factor"] <= 1: grade = "WEAK"
+    else: grade = "PROMISING"
+    summary["rating"] = grade; summary["cost_matrix_status"] = "not_run: Scenario D is not positive" if d["all_in_r_expectancy"] <= 0 else "required_next_phase"; summary["ledger"] = "PASS"
+    (args.output / "v2_bootstrap.json").write_text(json.dumps(summary["bootstrap"], ensure_ascii=False, indent=2), encoding="utf-8")
+    (args.output / "v2_baseline_summary.json").write_text(json.dumps(summary, ensure_ascii=False, indent=2, default=str), encoding="utf-8")
+    report = ["# V2 Structural Re-Expansion Baseline v0.1", "", "## Frozen design", "", "- BTCUSD_PERP COIN-M inverse, BTC numeraire, 100 USD face value, integer contracts, 1% risk, single position.", "- Confirmed 5-bar swings only; Impulse >=1 ATR, 3-48 bars; Pullback >=0.1 ATR, <75% impulse, <=32 bars; completed-close re-expansion, next-bar entry.", "- 4H completed EMA20/EMA50 background only; daily risk controls disabled; funding excluded.", "", "## Result", "", f"- Rating: **{grade}**", f"- Scenario A Price-R expectancy: {a['price_r_expectancy']:.6f}; PF {a['profit_factor']:.6f}", f"- Scenario D All-in-R expectancy: {d['all_in_r_expectancy']:.6f}; PF {d['profit_factor']:.6f}", f"- Scenario D BTC max drawdown: {d['btc_max_drawdown']:.2%}", "", "## Audit", "", "```json", json.dumps(audit, ensure_ascii=False, indent=2, default=str), "```", "", "No parameter optimization, filter search, or V2.0.2 variation was run."]
+    (args.output / "V2_BASELINE_REPORT.md").write_text("\n".join(report), encoding="utf-8")
+    print(json.dumps({"output": str(args.output), "market": "BTCUSD_PERP", "signals": len(raw_trades), "executed_d": d["executed_trades"], "rating": grade, "future_leakage_violations": audit["future_leakage_violations"], "ledger": "PASS"}, ensure_ascii=False)); return 0
+
+
+if __name__ == "__main__": raise SystemExit(main())

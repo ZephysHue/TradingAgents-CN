@@ -1,0 +1,116 @@
+{
+  "audit_version": "historical-evidence-audit-v1",
+  "generated_at_utc": "2026-08-31T06:39:58.622927+00:00",
+  "sources": [
+    {
+      "source_id": "bybit_v5_instruments_current",
+      "name": "Bybit V5 Get Instruments Info",
+      "url": "https://api.bybit.com/v5/market/instruments-info",
+      "official": true,
+      "public_reproducible": false,
+      "historical_timepoint_support": false,
+      "fields": [
+        "symbol",
+        "status",
+        "launchTime",
+        "deliveryTime",
+        "fundingInterval"
+      ],
+      "covers_months": false,
+      "can_verify_symbol_month": false,
+      "reason": "current endpoint and prior captured response only; no historical status snapshot parameter or response version",
+      "prior_response_sha256": [
+        "fedbbd070fff3fc461920befba424ace94c6e6d356a2329b7a41ef376a891a09"
+      ],
+      "live_request": {
+        "request_url": "https://api.bybit.com/v5/market/instruments-info",
+        "request_params": {
+          "category": "linear",
+          "limit": 1
+        },
+        "fetched_at_utc": "2026-08-31T06:39:58.635748+00:00",
+        "http_status": null,
+        "response_sha256": null,
+        "response_bytes": 0,
+        "json_top_level_keys": null,
+        "error": "ReadTimeout: HTTPSConnectionPool(host='api.bybit.com', port=443): Read timed out. (read timeout=1)"
+      }
+    },
+    {
+      "source_id": "bybit_v5_announcements_index",
+      "name": "Bybit V5 Announcements Index",
+      "url": "https://api.bybit.com/v5/announcements/index",
+      "official": true,
+      "public_reproducible": false,
+      "historical_timepoint_support": false,
+      "fields": [
+        "announcement metadata only when available"
+      ],
+      "covers_months": false,
+      "can_verify_symbol_month": false,
+      "reason": "no audited machine association from every symbol to a full status interval",
+      "live_request": {
+        "request_url": "https://api.bybit.com/v5/announcements/index",
+        "request_params": {
+          "locale": "en-US",
+          "limit": 1
+        },
+        "fetched_at_utc": "2026-08-31T06:39:59.661858+00:00",
+        "http_status": null,
+        "response_sha256": null,
+        "response_bytes": 0,
+        "json_top_level_keys": null,
+        "error": "ReadTimeout: HTTPSConnectionPool(host='api.bybit.com', port=443): Read timed out. (read timeout=1)"
+      }
+    },
+    {
+      "source_id": "bybit_public_download_root",
+      "name": "Bybit public download root",
+      "url": "https://public.bybit.com/",
+      "official": true,
+      "public_reproducible": false,
+      "historical_timepoint_support": false,
+      "fields": [],
+      "covers_months": false,
+      "can_verify_symbol_month": false,
+      "reason": "no versioned instrument-status snapshot with symbol lifecycle fields was identified in this audit",
+      "live_request": {
+        "request_url": "https://public.bybit.com/",
+        "request_params": {},
+        "fetched_at_utc": "2026-08-31T06:40:00.670344+00:00",
+        "http_status": null,
+        "response_sha256": null,
+        "response_bytes": 0,
+        "json_top_level_keys": null,
+        "error": "ReadTimeout: HTTPSConnectionPool(host='public.bybit.com', port=443): Read timed out. (read timeout=1)"
+      }
+    },
+    {
+      "source_id": "internet_archive_cdx_candidate",
+      "name": "Internet Archive CDX candidate",
+      "url": "https://web.archive.org/cdx/search/cdx",
+      "official": false,
+      "public_reproducible": false,
+      "historical_timepoint_support": false,
+      "fields": [],
+      "covers_months": false,
+      "can_verify_symbol_month": false,
+      "reason": "no audited immutable snapshot body was obtained and no current snapshot is promoted to historical proof",
+      "live_request": {
+        "request_url": "https://web.archive.org/cdx/search/cdx",
+        "request_params": {
+          "url": "api.bybit.com/v5/market/instruments-info*",
+          "output": "json",
+          "filter": "statuscode:200",
+          "limit": 1
+        },
+        "fetched_at_utc": "2026-08-31T06:40:01.679257+00:00",
+        "http_status": null,
+        "response_sha256": null,
+        "response_bytes": 0,
+        "json_top_level_keys": null,
+        "error": "ReadTimeout: HTTPSConnectionPool(host='web.archive.org', port=443): Read timed out. (read timeout=1)"
+      }
+    }
+  ]
+}

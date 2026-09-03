@@ -1,0 +1,6 @@
+research/crypto_backtest/repair_strategy_sprint_dataset_v1.py
+tests/unit/test_repair_strategy_sprint_dataset_v1.py
+reports/crypto-backtest/strategy-discovery-sprint-v1/dataset-repair-v1/
+
+Purpose: local-first 15m OHLCV recovery, explicit network-unavailable evidence,
+quality reconciliation, and frozen-data hash verification for the sprint input.

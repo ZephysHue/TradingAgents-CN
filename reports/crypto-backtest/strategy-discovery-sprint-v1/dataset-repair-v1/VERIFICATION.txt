@@ -1,0 +1,33 @@
+Scope: strategy-discovery sprint fixed-universe data repair only. No strategy, PnL, order, position, SL/TP, label, or parameter-search execution occurred.
+
+BASELINE
+Command: no baseline test command was recorded before the repair implementation.
+Input: repository tests before the current repair-test additions.
+Literal result: unavailable; the task began with an existing incomplete-data preflight, not a recorded baseline test transcript.
+Exit status: not recorded.
+
+MODIFIED
+Command: python -m py_compile research/crypto_backtest/repair_strategy_sprint_dataset_v1.py; python -m pytest tests/unit/test_repair_strategy_sprint_dataset_v1.py tests/unit/test_strategy_discovery_sprint_v1.py tests/unit/test_bybit_crypto_data.py -q
+Input: repair script plus unit tests.
+Literal result: ........... [100%]\n11 passed in 6.17s
+Exit status: 0.
+
+NETWORK
+Command: python research/crypto_backtest/repair_strategy_sprint_dataset_v1.py
+Input: fixed universe and local 15m cache; controlled Bybit public Kline probe for HYPEUSDT.
+Literal result: {"status": "data_acquisition_network_unavailable", "local_inventory": 10, "network_pages": 1, "output": "reports\\crypto-backtest\\strategy-discovery-sprint-v1\\dataset-repair-v1"}
+Exit status: 0.
+
+HASH
+Command: canonical JSON SHA256 recomputation for dataset_request.json and normalized_data_manifest.json.
+Input: generated JSON artifacts.
+Literal result: dataset_request=True 4e6311fd73ce05775bea7537d5575aa5e61a129ba2b65392a6799ddce53692b6; normalized_data_manifest=True 52d1e38fa99f16ee8ce6a04322534a836fad127ee9523c4221d7d693a76c4acf; json_parse=True.
+Exit status: 0.
+
+ROLLBACK
+Command: C:\\Program Files\\Git\\bin\\bash.exe reports/crypto-backtest/strategy-discovery-sprint-v1/dataset-repair-v1/ROLLBACK.sh reports/crypto-backtest/strategy-discovery-sprint-v1/rollback-test-dataset-repair-v1
+Input: isolated copied output directory.
+Literal result: removed: reports/crypto-backtest/strategy-discovery-sprint-v1/rollback-test-dataset-repair-v1\nrollback_copy_removed=True
+Exit status: 0.
+
+Restored behavior/status: rollback must remove only the passed dataset-repair-v1 copy. The live dataset-repair-v1 output remains changed for audit.
